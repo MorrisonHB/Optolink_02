@@ -20,14 +20,14 @@ Namespace Services
         ''' <summary>
         ''' Hauptmethode: Führt optimierte hierarchische Abfrage durch
         ''' </summary>
-        Public Shared Async Function QueryDeviceHierarchyOptimizedAsync(
-         device As DeviceNode,
-   mqttService As MqttService,
-            sendTopic As String,
-  receiveTopic As String,
-      Optional timeoutMs As Integer = 3000,
-     Optional progressCallback As Action(Of String) = Nothing
-  ) As Task(Of DeviceNode)
+        Public Shared Async Function QueryDevHierarchyAsync(
+                                                           device As DeviceNode,
+                                                           mqttService As MqttService,
+                                                           sendTopic As String,
+                                                           receiveTopic As String,
+                                                           Optional timeoutMs As Integer = 3000,
+                                                           Optional progressCallback As Action(Of String) _
+                                                           = Nothing) As Task(Of DeviceNode)
 
             If device Is Nothing OrElse mqttService Is Nothing OrElse Not mqttService.IsConnected Then
                 Return device
@@ -84,7 +84,8 @@ Namespace Services
                 Next
 
                 Debug.WriteLine($"[OPTIMIZED] Phase 2: {requiredConfigKeys.Count} eindeutige Config-Werte benötigt")
-                Debug.WriteLine($"[OPTIMIZED] Config-Keys: {String.Join(", ", requiredConfigKeys.OrderBy(Function(k) k))}")
+                Debug.WriteLine($"[OPTIMIZED] Config-Keys: {String.Join(", ",
+                                                                        requiredConfigKeys.OrderBy(Function(k) k))}")
 
                 ' ============================================================
                 ' PHASE 3: CONFIG-WERTE ABFRAGEN (dedupliziert!)
@@ -178,13 +179,13 @@ Namespace Services
         ''' Phase 1: Sammelt und fragt Enum-Werte ab (Parameter mit (Zahl) Beschreibung)
         ''' </summary>
         Private Shared Async Function QueryEnumValuesAsync(
-                 device As DeviceNode,
-                 mqttService As MqttService,
-                 sendTopic As String,
-             receiveTopic As String,
-            timeoutMs As Integer,
-              progressCallback As Action(Of String)
-      ) As Task(Of Dictionary(Of String, String))
+                                                          device As DeviceNode,
+                                                          mqttService As MqttService,
+                                                          sendTopic As String,
+                                                          receiveTopic As String,
+                                                          timeoutMs As Integer,
+                                                          progressCallback As Action(Of String)
+                                                          ) As Task(Of Dictionary(Of String, String))
 
             Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             ' WICHTIG: Dictionary statt List um Duplikate zu vermeiden!
@@ -228,16 +229,16 @@ Namespace Services
                 Try
                     If Not String.IsNullOrWhiteSpace(kvp.Value.Address) Then
                         Dim value = Await QuerySingleValueAsync(
-                   kvp.Value.Address,
-                     mqttService,
-                         sendTopic,
-                   receiveTopic,
-                              timeoutMs,
-                         kvp.Value.ByteLength,
-                        kvp.Value.Conversion,
-                         kvp.Value.ConversionFactor,
-                          kvp.Value.ConversionOffset,
-kvp.Value.DataType) ' NEU: DataType übergeben
+                            kvp.Value.Address,
+                            mqttService,
+                            sendTopic,
+                            receiveTopic,
+                            timeoutMs,
+                            kvp.Value.ByteLength,
+                            kvp.Value.Conversion,
+                            kvp.Value.ConversionFactor,
+                            kvp.Value.ConversionOffset,
+                            kvp.Value.DataType) ' NEU: DataType übergeben
 
                         result(kvp.Key) = value
                         Debug.WriteLine($"[ENUM RESULT] ({kvp.Key}) = {value}")
@@ -295,13 +296,13 @@ kvp.Value.DataType) ' NEU: DataType übergeben
         ''' Fragt Config-Werte ab (mit Address-Mapping aus DB)
         ''' </summary>
         Private Shared Async Function QueryConfigValuesAsync(
-        keys As List(Of String),
-            mqttService As MqttService,
-     sendTopic As String,
-            receiveTopic As String,
-        timeoutMs As Integer,
-            progressCallback As Action(Of String)
-    ) As Task(Of Dictionary(Of String, String))
+                                                            keys As List(Of String),
+                                                            mqttService As MqttService,
+                                                            sendTopic As String,
+                                                            receiveTopic As String,
+                                                            timeoutMs As Integer,
+                                                            progressCallback As Action(Of String)
+                                                            ) As Task(Of Dictionary(Of String, String))
 
             Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
 
@@ -315,7 +316,7 @@ kvp.Value.DataType) ' NEU: DataType übergeben
 
             Dim queryCount = 0
             Dim cacheHits = 0
-            for Each key In keys
+            For Each key In keys
                 ' TryGetValue vermeidet doppelte Lookup
                 Dim address As String = Nothing
                 If addressMap.TryGetValue(key, address) Then
@@ -330,16 +331,16 @@ kvp.Value.DataType) ' NEU: DataType übergeben
 
                     Try
                         Dim value = Await QuerySingleValueAsync(
-                                address,
-                      mqttService,
-                     sendTopic,
-                     receiveTopic,
-                      timeoutMs,
-                   2, ' Standard 2 Bytes für Config-Werte
-      Nothing, ' Keine Conversion für Config-Werte
-    1.0, ' Factor
-    0.0, ' Offset
-       Nothing) ' Kein DataType für Config-Werte (meist Enums/Strings)
+                            address,
+                            mqttService,
+                            sendTopic,
+                            receiveTopic,
+                            timeoutMs,
+                            2, ' Standard 2 Bytes für Config-Werte
+                            Nothing, ' Keine Conversion für Config-Werte
+                            1.0, ' Factor
+                            0.0, ' Offset
+                            Nothing) ' Kein DataType für Config-Werte (meist Enums/Strings)
 
                         result(key) = value
                         _valueCache(address) = value
@@ -366,7 +367,9 @@ kvp.Value.DataType) ' NEU: DataType übergeben
         ''' <summary>
         ''' Holt Address-Mapping aus Datenbank
         ''' </summary>
-        Private Shared Async Function GetConfigAddressMapAsync(keys As List(Of String)) As Task(Of Dictionary(Of String, String))
+        Private Shared Async Function GetConfigAddressMapAsync(
+                                                              keys As List(Of String)) _
+                                                              As Task(Of Dictionary(Of String, String))
             Dim result As New Dictionary(Of String, String)()
 
             Try
@@ -388,10 +391,9 @@ kvp.Value.DataType) ' NEU: DataType übergeben
         ''' <summary>
         ''' Wertet HIDDEN-Condition aus
         ''' </summary>
-        Private Shared Function EvaluateHiddenCondition(
-             condition As String,
-                    configValues As Dictionary(Of String, String)
-                ) As Boolean
+        Private Shared Function EvaluateHiddenCondition(condition As String,
+                                                        configValues As Dictionary(Of String,
+                                                        String)) As Boolean
 
             If String.IsNullOrWhiteSpace(condition) Then Return False
 
@@ -430,14 +432,12 @@ kvp.Value.DataType) ' NEU: DataType übergeben
         ''' <summary>
         ''' Fragt sichtbare Parameter-Werte ab (nur R und R/W, keine W)
         ''' </summary>
-        Private Shared Async Function QueryVisibleParameterValuesAsync(
-        device As DeviceNode,
-            mqttService As MqttService,
-              sendTopic As String,
-   receiveTopic As String,
-            timeoutMs As Integer,
-        progressCallback As Action(Of String)
-          ) As Task
+        Private Shared Async Function QueryVisibleParameterValuesAsync(device As DeviceNode,
+                                                                       mqttService As MqttService,
+                                                                       sendTopic As String,
+                                                                       receiveTopic As String,
+                                                                       timeoutMs As Integer,
+                                                                       progressCallback As Action(Of String)) As Task
 
             Dim queryableParams As New List(Of ParameterNode)()
             Dim skippedCount = 0
@@ -500,16 +500,16 @@ kvp.Value.DataType) ' NEU: DataType übergeben
 
                 Try
                     Dim value = Await QuerySingleValueAsync(
-                          param.Address,
-                         mqttService,
-                 sendTopic,
-                   receiveTopic,
-                timeoutMs,
+                        param.Address,
+                        mqttService,
+                        sendTopic,
+                        receiveTopic,
+                        timeoutMs,
                         param.ByteLength,
                         param.Conversion,
                         param.ConversionFactor,
-                   param.ConversionOffset,
-    param.DataType) ' NEU: DataType übergeben
+                        param.ConversionOffset,
+                        param.DataType) ' NEU: DataType übergeben
 
                     param.CurrentValue = If(String.IsNullOrWhiteSpace(value), "N/A", value)
                     queryCount += 1
@@ -529,66 +529,67 @@ kvp.Value.DataType) ' NEU: DataType übergeben
         ''' <summary>
         ''' Fragt einen einzelnen Wert ab
         ''' </summary>
-        Private Shared Async Function QuerySingleValueAsync(
-     address As String,
-            mqttService As MqttService,
-            sendTopic As String,
-    receiveTopic As String,
-    timeoutMs As Integer,
-       Optional byteLength As Integer = 2,
-    Optional conversionType As String = Nothing,
-     Optional conversionFactor As Double = 1.0,
-            Optional conversionOffset As Double = 0.0,
-       Optional dataType As String = Nothing
-        ) As Task(Of String)
+        Private Shared Async Function QuerySingleValueAsync(address As String,
+                                                            mqttService As MqttService,
+                                                            sendTopic As String,
+                                                            receiveTopic As String,
+                                                            timeoutMs As Integer,
+                                                            Optional byteLength As Integer = 2,
+                                                            Optional conversionType As String = Nothing,
+                                                            Optional conversionFactor As Double = 1.0,
+                                                            Optional conversionOffset As Double = 0.0,
+                                                            Optional dataType As String = Nothing
+                                                            ) As Task(Of String)
 
-     If String.IsNullOrWhiteSpace(address) Then Return ""
+            If String.IsNullOrWhiteSpace(address) Then Return ""
 
             ' Cache-Check mit TryGetValue
             Dim cachedValue As String = Nothing
             If _valueCache.TryGetValue(address, cachedValue) Then
-Return cachedValue
-  End If
+                Return cachedValue
+            End If
 
-       ' WICHTIG: Verwende MqttCommandGenerator um korrektes Format mit scale/signed zu erhalten
-Dim command = Services.MqttCommandGenerator.GenerateReadCommand(
-   address,
-   byteLength.ToString(),
-        conversionType,
-         dataType)
+            ' WICHTIG: Verwende MqttCommandGenerator um korrektes Format mit scale/signed zu erhalten
+            Dim command = Services.MqttCommandGenerator.GenerateReadCommand(address,
+                                                                            byteLength.ToString(),
+                                                                            conversionType,
+                                                                            dataType)
 
             ' Fallback wenn Generator nichts zurückgibt
-     If String.IsNullOrWhiteSpace(command) Then
-     command = $"read;{address};{byteLength}"
-        End If
-
-   Debug.WriteLine($"[QUERY-SINGLE] MQTT Command: {command}")
-
-Try
-    Dim response = Await mqttService.SendCommandAndWaitForResponseAsync(
-   command, sendTopic, receiveTopic, timeoutMs)
-
-           If Not String.IsNullOrWhiteSpace(response) Then
-        Dim parts = response.Split(";"c)
-
-          If parts.Length >= 3 AndAlso parts(0) = "1" Then
-     Dim rawValue = parts(2).Trim()
-
-     ' WICHTIG: Optolink-Splitter liefert bereits konvertierte Werte!
-    ' Keine weitere Konvertierung nötig - direkt verwenden
-   Dim convertedValue = rawValue
-
-       Debug.WriteLine($"[QUERY-SINGLE] Response value: {convertedValue}")
-
-     _valueCache(address) = convertedValue
-         Return convertedValue
+            If String.IsNullOrWhiteSpace(command) Then
+                command = $"read;{address};{byteLength}"
             End If
-                End If
-Catch ex As Exception
-        Debug.WriteLine($"[QUERY ERROR] {address}: {ex.Message}")
-    End Try
 
-  Return ""
+            Debug.WriteLine($"[QUERY-SINGLE] MQTT Command: {command}")
+
+            Try
+                Dim response =
+                    Await mqttService.SendCommandAndWaitForResponseAsync(command,
+                                                                         sendTopic,
+                                                                         receiveTopic,
+                                                                         timeoutMs)
+
+                If Not String.IsNullOrWhiteSpace(response) Then
+                    Dim parts = response.Split(";"c)
+
+                    If parts.Length >= 3 AndAlso parts(0) = "1" Then
+                        Dim rawValue = parts(2).Trim()
+
+                        ' WICHTIG: Optolink-Splitter liefert bereits konvertierte Werte!
+                        ' Keine weitere Konvertierung nötig - direkt verwenden
+                        Dim convertedValue = rawValue
+
+                        Debug.WriteLine($"[QUERY-SINGLE] Response value: {convertedValue}")
+
+                        _valueCache(address) = convertedValue
+                        Return convertedValue
+                    End If
+                End If
+            Catch ex As Exception
+                Debug.WriteLine($"[QUERY ERROR] {address}: {ex.Message}")
+            End Try
+
+            Return ""
         End Function
     End Class
 End Namespace

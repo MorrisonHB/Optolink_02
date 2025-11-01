@@ -59,6 +59,7 @@ Partial Class Form1
         cmbTopicSend = New ComboBox()
         btnConnect = New Button()
         tabDatabase = New TabPage()
+        btnFilterAnwenden = New Button()
         prgDb = New ProgressBar()
         tabDbResults = New TabControl()
         tabDbUngefiltert = New TabPage()
@@ -424,6 +425,7 @@ Partial Class Form1
         ' 
         ' tabDatabase
         ' 
+        tabDatabase.Controls.Add(btnFilterAnwenden)
         tabDatabase.Controls.Add(prgDb)
         tabDatabase.Controls.Add(tabDbResults)
         tabDatabase.Controls.Add(btnAbfrage)
@@ -434,6 +436,17 @@ Partial Class Form1
         tabDatabase.TabIndex = 2
         tabDatabase.Text = "Database"
         tabDatabase.UseVisualStyleBackColor = True
+        ' 
+        ' btnFilterAnwenden
+        ' 
+        btnFilterAnwenden.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnFilterAnwenden.Enabled = False
+        btnFilterAnwenden.Location = New Point(385, 12)
+        btnFilterAnwenden.Name = "btnFilterAnwenden"
+        btnFilterAnwenden.Size = New Size(134, 23)
+        btnFilterAnwenden.TabIndex = 208
+        btnFilterAnwenden.Text = "Filter anwenden"
+        btnFilterAnwenden.UseVisualStyleBackColor = True
         ' 
         ' prgDb
         ' 
@@ -626,7 +639,7 @@ Partial Class Form1
         cmbDevices.FormattingEnabled = True
         cmbDevices.Location = New Point(10, 12)
         cmbDevices.Name = "cmbDevices"
-        cmbDevices.Size = New Size(509, 23)
+        cmbDevices.Size = New Size(369, 23)
         cmbDevices.TabIndex = 203
         ' 
         ' lblProgress
@@ -730,5 +743,6 @@ Partial Class Form1
     Friend WithEvents cmsDatabase As ContextMenuStrip
     Friend WithEvents mnuExportXml As ToolStripMenuItem
     Friend WithEvents mnuExportPythonFormat As ToolStripMenuItem
+    Friend WithEvents btnFilterAnwenden As Button
 
 End Class

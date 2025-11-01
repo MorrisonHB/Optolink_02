@@ -36,76 +36,81 @@ Using writer As New StreamWriter(outputPath, False, Encoding.UTF8)
         ''' <summary>
         ''' Baut eine hierarchische Struktur: Kategorie -> Gruppen -> Parameter
         ''' </summary>
-   Private Shared Function BuildHierarchy(dt As DataTable) As Dictionary(Of String, Dictionary(Of String, List(Of DataRow)))
+        Private Shared Function BuildHierarchy(dt As DataTable) As Dictionary(Of String,
+            Dictionary(Of String, List(Of DataRow)))
             Dim result As New Dictionary(Of String, Dictionary(Of String, List(Of DataRow)))(StringComparer.OrdinalIgnoreCase)
 
-    For Each row As DataRow In dt.Rows
-     Dim kategorie As String = If(Convert.ToString(row("Kategorie")), "Ohne Kategorie").Trim()
-   Dim gruppe As String = If(Convert.ToString(row("Gruppe")), "Ohne Gruppe").Trim()
+            For Each row As DataRow In dt.Rows
+                Dim kategorie As String = If(Convert.ToString(row("Kategorie")), "Ohne Kategorie").Trim()
+                Dim gruppe As String = If(Convert.ToString(row("Gruppe")), "Ohne Gruppe").Trim()
 
-           ' Kategorie anlegen falls nicht vorhanden
-        If Not result.ContainsKey(kategorie) Then
-           result(kategorie) = New Dictionary(Of String, List(Of DataRow))(StringComparer.OrdinalIgnoreCase)
-    End If
+                Dim kategorie_value As Dictionary(Of String, List(Of DataRow)) = Nothing
+                ' Kategorie anlegen falls nicht vorhanden
+                If Not result.TryGetValue(kategorie, kategorie_value) Then
+                    kategorie_value = New Dictionary(Of String, List(Of DataRow))(StringComparer.OrdinalIgnoreCase)
+                    result(kategorie) = kategorie_value
+                End If
 
+                Dim gruppe_value As List(Of DataRow) = Nothing
                 ' Gruppe innerhalb Kategorie anlegen
-    If Not result(kategorie).ContainsKey(gruppe) Then
-           result(kategorie)(gruppe) = New List(Of DataRow)()
-       End If
+                If Not kategorie_value.TryGetValue(gruppe, gruppe_value) Then
+                    gruppe_value = New List(Of DataRow)()
+                    kategorie_value(gruppe) = gruppe_value
+                End If
 
-          ' Parameter zur Gruppe hinzufügen
-   result(kategorie)(gruppe).Add(row)
-          Next
+                gruppe_value.Add(row)
+            Next
 
             Return result
-   End Function
+        End Function
 
         ''' <summary>
- ''' Schreibt die Hierarchie in den Writer
+        ''' Schreibt die Hierarchie in den Writer
         ''' </summary>
         Private Shared Sub WriteHierarchy(writer As StreamWriter,
-        hierarchy As Dictionary(Of String, Dictionary(Of String, List(Of DataRow))),
-    dt As DataTable)
+                                          hierarchy As Dictionary(Of String,
+                                          Dictionary(Of String,
+                                          List(Of DataRow))), dt As DataTable)
 
-       ' Sortiere Kategorien alphabetisch
+            ' Sortiere Kategorien alphabetisch
             Dim sortedKategorien = hierarchy.Keys.OrderBy(Function(k) k).ToList()
 
- For Each kategorie In sortedKategorien
-          ' Kategorie-Überschrift mit #
-           writer.WriteLine($"# {kategorie}")
+            For Each kategorie In sortedKategorien
+                ' Kategorie-Überschrift mit #
+                writer.WriteLine($"# {kategorie}")
 
-      ' Hole Gruppen dieser Kategorie
-       Dim gruppen = hierarchy(kategorie)
-    Dim sortedGruppen = gruppen.Keys.OrderBy(Function(g) g).ToList()
+                ' Hole Gruppen dieser Kategorie
+                Dim gruppen = hierarchy(kategorie)
+                Dim sortedGruppen = gruppen.Keys.OrderBy(Function(g) g).ToList()
 
-      For Each gruppe In sortedGruppen
-     ' Gruppe-Überschrift mit -
-           ' Hole erste Row dieser Gruppe für EventTypeId (falls vorhanden)
-     Dim firstRow = gruppen(gruppe).FirstOrDefault()
-     Dim gruppeId As String = ""
-         If firstRow IsNot Nothing AndAlso dt.Columns.Contains("EventTypeId") Then
-           gruppeId = $" ({Convert.ToString(firstRow("EventTypeId"))})"
-               End If
+                For Each gruppe In sortedGruppen
+                    ' Gruppe-Überschrift mit -
+                    ' Hole erste Row dieser Gruppe für EventTypeId (falls vorhanden)
+                    Dim firstRow = gruppen(gruppe).FirstOrDefault()
+                    Dim gruppeId As String = ""
+                    If firstRow IsNot Nothing AndAlso dt.Columns.Contains("EventTypeId") Then
+                        gruppeId = $" ({Convert.ToString(firstRow("EventTypeId"))})"
+                    End If
 
-         ' Ermittle Gruppe-Condition (alle Parameter der Gruppe sollten gleiche Gruppen-Condition haben)
-     Dim gruppeCondition As String = GetGruppenCondition(gruppen(gruppe), dt)
+                    ' Ermittle Gruppe-Condition (alle Parameter der Gruppe sollten gleiche Gruppen-Condition haben)
+                    Dim gruppeCondition As String = GetGruppenCondition(gruppen(gruppe), dt)
 
-    writer.WriteLine($"- {gruppe}{gruppeId}{gruppeCondition}")
+                    writer.WriteLine($"- {gruppe}{gruppeId}{gruppeCondition}")
 
-   ' Parameter dieser Gruppe
-   For Each row In gruppen(gruppe)
-          WriteParameter(writer, row, dt)
-     Next
-          Next
+                    ' Parameter dieser Gruppe
+                    For Each row In gruppen(gruppe)
+                        WriteParameter(writer, row, dt)
+                    Next
+                Next
 
-    writer.WriteLine() ' Leerzeile nach Kategorie
-        Next
+                writer.WriteLine() ' Leerzeile nach Kategorie
+            Next
         End Sub
 
-    ''' <summary>
+        ''' <summary>
         ''' Ermittelt die Gruppen-Condition (HIDDEN auf Gruppenebene)
- ''' Im Python-Code wird dies über EventTypeGroupIdDest ermittelt
-      ''' </summary>
+        ''' Im Python-Code wird dies über EventTypeGroupIdDest ermittelt
+        ''' </summary>
         Private Shared Function GetGruppenCondition(parameters As List(Of DataRow), dt As DataTable) As String
     ' TODO: Implementierung der Gruppen-Level Conditions
             ' Dies würde eine separate Abfrage aus DPDefinitions.xml oder der Datenbank erfordern
@@ -116,33 +121,35 @@ Using writer As New StreamWriter(outputPath, False, Encoding.UTF8)
         ''' <summary>
         ''' Schreibt einen einzelnen Parameter im Python-Format
         ''' </summary>
-   Private Shared Sub WriteParameter(writer As StreamWriter, row As DataRow, dt As DataTable)
-    Try
-    ' Parameter-Name
-          Dim parameterName As String = If(Convert.ToString(row("Parameter")), "Unbekannt").Trim()
+        Private Shared Sub WriteParameter(writer As StreamWriter,
+                                     row As DataRow,
+                                     dt As DataTable)
+            Try
+                ' Parameter-Name
+                Dim parameterName As String = If(Convert.ToString(row("Parameter")), "Unbekannt").Trim()
 
-           ' EventTypeId (falls vorhanden)
-         Dim eventId As String = ""
-        If dt.Columns.Contains("EventTypeId") Then
-    eventId = $" ({Convert.ToString(row("EventTypeId"))})"
-End If
+                ' EventTypeId (falls vorhanden)
+                Dim eventId As String = ""
+                If dt.Columns.Contains("EventTypeId") Then
+                    eventId = $" ({Convert.ToString(row("EventTypeId"))})"
+                End If
 
-        ' Address mit vollem Namen (z.B. [GWG_Flamme~0x55D3 (Byte)])
-          Dim addressInfo As String = BuildAddressInfo(row, dt)
+                ' Address mit vollem Namen (z.B. [GWG_Flamme~0x55D3 (Byte)])
+                Dim addressInfo As String = BuildAddressInfo(row, dt)
 
-           ' Hidden-Condition - WICHTIG: Verwende die bereits prozessierte Condition aus der DB!
-          Dim condition As String = If(Convert.ToString(row("Condition")), "").Trim()
-      Dim hiddenStr As String = ""
-     If Not String.IsNullOrWhiteSpace(condition) AndAlso condition.StartsWith("HIDDEN:(") Then
-   ' Entferne äußere Klammern: HIDDEN:((...)  -> HIDDEN:(...)
-           hiddenStr = " " & SimplifyHiddenCondition(condition)
-     End If
+                ' Hidden-Condition - WICHTIG: Verwende die bereits prozessierte Condition aus der DB!
+                Dim condition As String = If(Convert.ToString(row("Condition")), "").Trim()
+                Dim hiddenStr As String = ""
+                If Not String.IsNullOrWhiteSpace(condition) AndAlso condition.StartsWith("HIDDEN:(") Then
+                    ' Entferne äußere Klammern: HIDDEN:((...)  -> HIDDEN:(...)
+                    hiddenStr = " " & SimplifyHiddenCondition(condition)
+                End If
 
-           ' Schreibe Zeile: "    - Parametername (ID) [Adressinfo] HIDDEN:(condition)"
-      writer.WriteLine($"    - {parameterName}{eventId}{addressInfo}{hiddenStr}")
+                ' Schreibe Zeile: "    - Parametername (ID) [Adressinfo] HIDDEN:(condition)"
+                writer.WriteLine($"    - {parameterName}{eventId}{addressInfo}{hiddenStr}")
 
- Catch ex As Exception
-         Debug.WriteLine($"[ERROR] WriteParameter: {ex.Message}")
+            Catch ex As Exception
+                Debug.WriteLine($"[ERROR] WriteParameter: {ex.Message}")
             End Try
         End Sub
 
@@ -204,7 +211,7 @@ End If
                 Dim innerContent = condition.Substring(8, condition.Length - 9)
 
                 ' Prüfe ob doppelte Klammern: ((...)  -> (...)
-                If innerContent.StartsWith("(") AndAlso innerContent.EndsWith(")") Then
+                If innerContent.StartsWith("("c) AndAlso innerContent.EndsWith(")"c) Then
                     ' Zähle öffnende/schließende Klammern
                     Dim openCount = 0
                     Dim closeCount = 0

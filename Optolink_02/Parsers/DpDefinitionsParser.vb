@@ -233,8 +233,9 @@
                     ' Zeile 103 im Python: groupCond += (' ' + operDict[displayConditionGroup['Type']] + ' ').join(ll)
                     If ll.Count > 0 Then
                         Dim connector As String = "AND"
-                        If operDict.ContainsKey(groupType) Then
-                            connector = operDict(groupType)
+                        Dim groupType_value As String = Nothing
+                        If operDict.TryGetValue(groupType, groupType_value) Then
+                            connector = groupType_value
                         End If
                         groupCond &= String.Join(" " & connector & " ", ll)
                     End If
