@@ -318,75 +318,56 @@ btnFilterAnwenden.Enabled = False
 
 lblProgress.Text = "Übersetze Textressourcen..."
 
-         ' WICHTIG: Übersetzung ASYNC im Background-Thread durchführen!
-       Await Task.Run(Sub()
-          ' Condition-Spalte mit Textresource_de.xml übersetzen (nur wenn @@-Tokens vorhanden)
-       Try
-   Services.TextResourceService.TranslateColumn(dt, "Condition")
-         Debug.WriteLine("[DEBUG] TranslateColumn erfolgreich")
-     Catch ex As Data.ReadOnlyException
-               Debug.WriteLine($"[DEBUG] TranslateColumn fehlgeschlagen (ReadOnly): {ex.Message}")
-       Catch ex As Exception
-    Debug.WriteLine($"[DEBUG] TranslateColumn fehlgeschlagen: {ex.Message}")
-      End Try
-
-  ' WICHTIG: Beschreibung-Spalte ZUERST hinzufügen (BEVOR Parameter übersetzt wird!)
-    Try
-          Services.TextResourceService.AddDescriptionColumn(dt, "Parameter")
-          Debug.WriteLine("[DEBUG] AddDescriptionColumn erfolgreich")
-        Catch ex As Exception
-      Debug.WriteLine($"[DEBUG] AddDescriptionColumn fehlgeschlagen: {ex.Message}")
-     End Try
-
-         ' WICHTIG: Original-Parameter-Spalte hinzufügen VOR der Übersetzung!
-         Try
-         Services.TextResourceService.AddOriginalParameterColumn(dt, "Parameter")
-   Debug.WriteLine("[DEBUG] AddOriginalParameterColumn erfolgreich")
-           Catch ex As Exception
-   Debug.WriteLine($"[DEBUG] AddOriginalParameterColumn fehlgeschlagen: {ex.Message}")
-               End Try
-
-              ' Parameter-Spalte übersetzen (Wert bis zur Tilde)
-              Try
-          Services.TextResourceService.TranslateParameterColumn(dt, "Parameter")
-   Debug.WriteLine("[DEBUG] TranslateParameterColumn erfolgreich")
-   Catch ex As Exception
-       Debug.WriteLine($"[DEBUG] TranslateParameterColumn fehlgeschlagen: {ex.Message}")
-       End Try
-
-           ' Unit-Spalte übersetzen (ecnUnit. entfernen)
-    Try
-    Services.TextResourceService.TranslateUnitColumn(dt, "Unit")
-           Debug.WriteLine("[DEBUG] TranslateUnitColumn erfolgreich")
-            Catch ex As Exception
-         Debug.WriteLine($"[DEBUG] TranslateUnitColumn fehlgeschlagen: {ex.Message}")
-         End Try
-
-        ' Gruppe-Spalte übersetzen
+            ' WICHTIG: Übersetzung ASYNC im Background-Thread durchführen mit Fehlerbehandlung
+            Dim translationSuccess = Await Task.Run(Function() As Boolean
             Try
-            Services.TextResourceService.TranslateColumn(dt, "Gruppe")
-         Debug.WriteLine("[DEBUG] TranslateColumn(Gruppe) erfolgreich")
-       Catch ex As Exception
-     Debug.WriteLine($"[DEBUG] TranslateColumn(Gruppe) fehlgeschlagen: {ex.Message}")
- End Try
+     ' WICHTIG: Beschreibung-Spalte ZUERST hinzufügen (BEVOR Parameter übersetzt wird!)
+       Services.TextResourceService.AddDescriptionColumn(dt, "Parameter")
+       Debug.WriteLine("[DEBUG] AddDescriptionColumn erfolgreich")
 
-' Kategorie-Spalte übersetzen
-     Try
-       Services.TextResourceService.TranslateColumn(dt, "Kategorie")
-   Debug.WriteLine("[DEBUG] TranslateColumn(Kategorie) erfolgreich")
-        Catch ex As Exception
-      Debug.WriteLine($"[DEBUG] TranslateColumn(Kategorie) fehlgeschlagen: {ex.Message}")
-       End Try
+ ' WICHTIG: Original-Parameter-Spalte hinzufügen VOR der Übersetzung!
+      Services.TextResourceService.AddOriginalParameterColumn(dt, "Parameter")
+              Debug.WriteLine("[DEBUG] AddOriginalParameterColumn erfolgreich")
 
-             ' MQTT-Kommandos generieren
-           Try
-            Debug.WriteLine("[DEBUG] Starte MQTT-Command-Generierung...")
-  Services.MqttCommandGenerator.AddMqttCommandColumns(dt)
+            ' Condition-Spalte mit Textresource_de.xml übersetzen (nur wenn @@-Tokens vorhanden)
+            Services.TextResourceService.TranslateColumn(dt, "Condition")
+           Debug.WriteLine("[DEBUG] TranslateColumn(Condition) erfolgreich")
+
+      ' Parameter-Spalte übersetzen (Wert bis zur Tilde)
+             Services.TextResourceService.TranslateParameterColumn(dt, "Parameter")
+Debug.WriteLine("[DEBUG] TranslateParameterColumn erfolgreich")
+
+          ' Unit-Spalte übersetzen (ecnUnit. entfernen)
+          Services.TextResourceService.TranslateUnitColumn(dt, "Unit")
+            Debug.WriteLine("[DEBUG] TranslateUnitColumn erfolgreich")
+
+   ' Gruppe-Spalte übersetzen
+               Services.TextResourceService.TranslateColumn(dt, "Gruppe")
+            Debug.WriteLine("[DEBUG] TranslateColumn(Gruppe) erfolgreich")
+
+        ' Kategorie-Spalte übersetzen
+         Services.TextResourceService.TranslateColumn(dt, "Kategorie")
+         Debug.WriteLine("[DEBUG] TranslateColumn(Kategorie) erfolgreich")
+
+' MQTT-Kommandos generieren
+               Debug.WriteLine("[DEBUG] Starte MQTT-Command-Generierung...")
+    Services.MqttCommandGenerator.AddMqttCommandColumns(dt)
    Debug.WriteLine("[DEBUG] MQTT-Command-Generierung erfolgreich")
-    Catch ex As Exception
-           Debug.WriteLine($"[ERROR] MQTT-Command-Generierung fehlgeschlagen: {ex.Message}")
-    End Try
-     End Sub)
+
+      Return True ' Erfolg
+          Catch ex As Exception
+       Debug.WriteLine($"[ERROR] Übersetzung fehlgeschlagen: {ex.Message}")
+     Debug.WriteLine($"[STACK] {ex.StackTrace}")
+          Return False ' Fehler
+           End Try
+ End Function)
+
+            If Not translationSuccess Then
+      MessageBox.Show("Warnung: Textübersetzung unvollständig. Export wird möglicherweise unübersetzte Werte enthalten.",
+         "Übersetzung unvollständig",
+MessageBoxButtons.OK,
+            MessageBoxIcon.Warning)
+       End If
 
        ' NACH der Übersetzung: DataSource binden (im UI-Thread)
      gridResults.DataSource = dt
@@ -558,32 +539,33 @@ lblProgress.Text = "Erstelle hierarchische Ansicht..."
 
     ''' <summary>
     ''' Kontextmenü wird geöffnet - prüfe ob Daten vorhanden sind
-  ''' </summary>
-    Private Sub cmsDatabase_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cmsDatabase.Opening
+    ''' </summary>
+    Private Sub cmsDatabase_Opening(sender As Object,
+                                    e As System.ComponentModel.CancelEventArgs) Handles cmsDatabase.Opening
         Try
- ' Ermittle welches DataGridView das Kontextmenü geöffnet hat
-       Dim sourceGrid As DataGridView = TryCast(cmsDatabase.SourceControl, DataGridView)
-     
-          If sourceGrid Is Nothing Then
-                e.Cancel = True
-Return
-    End If
+            ' Ermittle welches DataGridView das Kontextmenü geöffnet hat
+            Dim sourceGrid As DataGridView = TryCast(cmsDatabase.SourceControl, DataGridView)
 
-         ' Prüfe ob das Grid Daten hat
-      Dim dt As DataTable = TryCast(sourceGrid.DataSource, DataTable)
+            If sourceGrid Is Nothing Then
+                e.Cancel = True
+                Return
+            End If
+
+            ' Prüfe ob das Grid Daten hat
+            Dim dt As DataTable = TryCast(sourceGrid.DataSource, DataTable)
             Dim hasData As Boolean = (dt IsNot Nothing AndAlso dt.Rows.Count > 0)
 
             ' Aktiviere/Deaktiviere Export-Menüeinträge
             mnuExportXml.Enabled = hasData
-       mnuExportPythonFormat.Enabled = hasData
+            mnuExportPythonFormat.Enabled = hasData
 
-         ' Wenn keine Daten vorhanden, zeige Kontextmenü trotzdem (mit deaktivierten Einträgen)
-     ' Alternativ: e.Cancel = Not hasData (dann wird Menü gar nicht gezeigt)
+            ' Wenn keine Daten vorhanden, zeige Kontextmenü trotzdem (mit deaktivierten Einträgen)
+            ' Alternativ: e.Cancel = Not hasData (dann wird Menü gar nicht gezeigt)
 
         Catch ex As Exception
-       Debug.WriteLine($"[ERROR] cmsDatabase_Opening: {ex.Message}")
-         e.Cancel = True
-   End Try
+            Debug.WriteLine($"[ERROR] cmsDatabase_Opening: {ex.Message}")
+            e.Cancel = True
+        End Try
     End Sub
 
     Private Sub mnuExportXml_Click(sender As Object, e As EventArgs) Handles mnuExportXml.Click
@@ -597,7 +579,7 @@ Return
         defaultFileName = $"{cmbDevices.Text}_Ungefiltert_{DateTime.Now:yyyyMMdd_HHmmss}.xml"
      ElseIf tabDbResults.SelectedTab Is tabDbGefiltert Then
           activeGrid = gridResultsFiltered
-   defaultFileName = $"{cmbDevices.Text}_Gefiltert_{DateTime.Now:yyyyMMdd_HHmmss}.xml"
+  defaultFileName = $"{cmbDevices.Text}_Gefiltert_{DateTime.Now:yyyyMMdd_HHmmss}.xml"
      Else
     MessageBox.Show("Bitte wählen Sie einen Tab mit Tabellendaten aus.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
@@ -616,72 +598,97 @@ Return
     ''' Exportiert die aktuelle Ansicht im Python-Format (wie PrintEventsForDatapoint.py)
     ''' </summary>
     Private Sub mnuExportPythonFormat_Click(sender As Object, e As EventArgs) Handles mnuExportPythonFormat.Click
-   Try
-    ' Prüfe ob ein Gerät ausgewählt ist
-  Dim selectedName As String = TryCast(Me.cmbDevices.SelectedValue, String)
-If String.IsNullOrWhiteSpace(selectedName) Then
-                MessageBox.Show("Bitte wählen Sie ein Gerät aus.",
-      "Export",
-      MessageBoxButtons.OK,
-       MessageBoxIcon.Information)
-     Return
-        End If
+    Try
+       Dim selectedName As String = TryCast(Me.cmbDevices.SelectedValue, String)
 
-       ' Ermittle welches DataGridView aktiv ist (welcher Tab ausgewählt ist)
-            Dim activeGrid As DataGridView = Nothing
-            Dim defaultFileName As String = "Export.txt"
+     ' Ermittle welches DataGridView aktiv ist (welcher Tab ausgewählt ist)
+  Dim activeGrid As DataGridView = Nothing
+        Dim defaultFileName As String = "Export.txt"
     Dim tabName As String = ""
 
-            If tabDbResults.SelectedTab Is tabDbUngefiltert Then
-                activeGrid = gridResults
+         If tabDbResults.SelectedTab Is tabDbUngefiltert Then
+         activeGrid = gridResults
        tabName = "Ungefiltert"
-     defaultFileName = $"DP_{selectedName}_{DateTime.Now:yyyyMMdd_HHmms}.txt"
+     defaultFileName = $"DP_{selectedName}_{DateTime.Now:yyyyMMdd_HHmmss}.txt"
   ElseIf tabDbResults.SelectedTab Is tabDbGefiltert Then
          activeGrid = gridResultsFiltered
   tabName = "Gefiltert"
- defaultFileName = $"DP_{selectedName}_Filtered_{DateTime.Now:yyyyMMdd_HHmms}.txt"
+ defaultFileName = $"DP_{selectedName}_Filtered_{DateTime.Now:yyyyMMdd_HHmmss}.txt"
          Else
-         MessageBox.Show("Bitte wählen Sie einen Tab mit Tabellendaten aus.",
+MessageBox.Show("Bitte wählen Sie einen Tab mit Tabellendaten aus.",
     "Export",
         MessageBoxButtons.OK,
        MessageBoxIcon.Information)
        Return
-         End If
+    End If
 
             ' Hole DataTable vom Grid
-            Dim dt As DataTable = TryCast(activeGrid.DataSource, DataTable)
-            If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+       Dim dt As DataTable = TryCast(activeGrid.DataSource, DataTable)
+     If dt Is Nothing OrElse dt.Rows.Count = 0 Then
             MessageBox.Show("Keine Daten zum Exportieren vorhanden.",
         "Export",
    MessageBoxButtons.OK,
-         MessageBoxIcon.Information)
+  MessageBoxIcon.Information)
       Return
             End If
+
+     ' WICHTIG: Stelle sicher, dass Übersetzungen VORHER durchgeführt wurden!
+    If dt.Columns.Contains("Parameter") Then
+    ' Prüfe ob bereits übersetzt (enthält keine @@-Tokens mehr)
+     Dim firstParam As String = If(dt.Rows.Count > 0 AndAlso Not dt.Rows(0).IsNull("Parameter"),
+   Convert.ToString(dt.Rows(0)("Parameter")),
+     String.Empty)
+
+  If firstParam.StartsWith("@@") Then
+        ' FEHLER: Daten wurden noch nicht übersetzt!
+ MessageBox.Show("Bitte zuerst den Filter-Button klicken, um Daten zu übersetzen.",
+     "Export",
+         MessageBoxButtons.OK,
+MessageBoxIcon.Warning)
+   Return
+   End If
+     End If
+
+   ' WICHTIG: Textresource VOR Export initialisieren!
+  Debug.WriteLine("[EXPORT] Initialisiere TextResourceService...")
+Services.TextResourceService.TranslateInline("@@test") ' Trigger Lazy-Loading
 
       ' Öffne SaveFileDialog
   Using sfd As New SaveFileDialog()
         sfd.Filter = "Text-Dateien (*.txt)|*.txt|Alle Dateien (*.*)|*.*"
-           sfd.FileName = defaultFileName
-           sfd.Title = "Python-Format exportieren"
-                sfd.DefaultExt = "txt"
+     sfd.FileName = defaultFileName
+  sfd.Title = "Python-Format exportieren"
+     sfd.DefaultExt = "txt"
 
            If sfd.ShowDialog(Me) = DialogResult.OK Then
-         ' Exportiere im Python-Format
-               Services.PythonFormatExporter.ExportToPythonFormat(dt, selectedName, sfd.FileName)
+        Debug.WriteLine($"[EXPORT] Starte Python-Format-Export nach: {sfd.FileName}")
 
- ' Erfolgsmeldung
-        MessageBox.Show($"Export erfolgreich nach:{Environment.NewLine}{sfd.FileName}",
-                "Export abgeschlossen",
-     MessageBoxButtons.OK,
-       MessageBoxIcon.Information)
+  ' OPTIMIERTER Export
+Try
+   Services.PythonFormatExporter.ExportToPythonFormat(dt, selectedName, sfd.FileName)
 
-    ' Optional: Öffne die Datei im Standard-Editor
-    If MessageBox.Show("Möchten Sie die exportierte Datei jetzt öffnen?",
-      "Export",
-       MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question) = DialogResult.Yes Then
-     Process.Start(New ProcessStartInfo(sfd.FileName) With {.UseShellExecute = True})
+         ' Erfolgsmeldung
+       MessageBox.Show($"Export erfolgreich nach:{Environment.NewLine}{sfd.FileName}",
+ "Export abgeschlossen",
+           MessageBoxButtons.OK,
+     MessageBoxIcon.Information)
+
+    ' Optional: Datei öffnen
+        If MessageBox.Show("Möchten Sie die exportierte Datei jetzt öffnen?",
+       "Export",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question) = DialogResult.Yes Then
+    Process.Start(New ProcessStartInfo(sfd.FileName) With {.UseShellExecute = True})
      End If
+
+ Catch exportEx As Exception
+Debug.WriteLine($"[ERROR] Python-Format-Export fehlgeschlagen: {exportEx.Message}")
+   Debug.WriteLine($"[STACK] {exportEx.StackTrace}")
+  MessageBox.Show($"Export fehlgeschlagen: {exportEx.Message}",
+  "Fehler",
+MessageBoxButtons.OK,
+     MessageBoxIcon.Error)
+   End Try
      End If
          End Using
 

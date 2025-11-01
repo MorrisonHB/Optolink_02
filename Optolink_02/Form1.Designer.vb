@@ -498,18 +498,18 @@ Partial Class Form1
         ' 
         cmsDatabase.Items.AddRange(New ToolStripItem() {mnuExportXml, mnuExportPythonFormat})
         cmsDatabase.Name = "cmsDatabase"
-        cmsDatabase.Size = New Size(220, 48)
+        cmsDatabase.Size = New Size(202, 48)
         ' 
         ' mnuExportXml
         ' 
         mnuExportXml.Name = "mnuExportXml"
-        mnuExportXml.Size = New Size(219, 22)
+        mnuExportXml.Size = New Size(201, 22)
         mnuExportXml.Text = "Export nach XML..."
         ' 
         ' mnuExportPythonFormat
         ' 
         mnuExportPythonFormat.Name = "mnuExportPythonFormat"
-        mnuExportPythonFormat.Size = New Size(219, 22)
+        mnuExportPythonFormat.Size = New Size(201, 22)
         mnuExportPythonFormat.Text = "Export Python-Format..."
         ' 
         ' tabDbGefiltert

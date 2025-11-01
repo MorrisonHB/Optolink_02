@@ -188,7 +188,18 @@ Path.Combine(baseDir, "Datenbank", "ecnViessmann.mdf"),
         Dim fullMdf = Path.GetFullPath(mdfPath)
         Dim workingMdf As String = EnsureWorkingCopy(fullMdf)
         Dim dbName As String = $"OptolinkEcn_{ComputeHashHex(workingMdf, 8)}"
-        Return $"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={workingMdf};Initial Catalog={dbName};Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True"
+    
+        ' WICHTIG: Explizite Pool-Konfiguration gegen Connection-Leaks
+        Return $"Data Source=(LocalDB)\MSSQLLocalDB;" &
+    $"AttachDbFilename={workingMdf};" &
+               $"Initial Catalog={dbName};" &
+$"Integrated Security=True;" &
+        $"Connect Timeout=60;" &      ' Erhöht von 30s auf 60s
+         $"Encrypt=False;" &
+               $"TrustServerCertificate=True;" &
+       $"Pooling=True;" &' Explizit aktivieren
+               $"Max Pool Size=50;" &       ' Limit gegen Erschöpfung
+     $"Min Pool Size=5"      ' Mindest-Pool für Performance
     End Function
 
     Private Function EnsureWorkingCopy(srcMdf As String) As String

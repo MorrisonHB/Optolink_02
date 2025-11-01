@@ -476,49 +476,74 @@ Next
         Private Shared Function LoadDictionaryFast(path As String) As Dictionary(Of String, String)
             Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
 
-            Try
-                Using fs As New FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-                    ' Automatische Encoding-Erkennung: UTF-8 oder UTF-16
-                    Using sr As New StreamReader(fs, detectEncodingFromByteOrderMarks:=True)
-                        While Not sr.EndOfStream
-                            Dim line = sr.ReadLine()
-                            If String.IsNullOrEmpty(line) Then Continue While
-                            If line.IndexOf("<TextResource", StringComparison.OrdinalIgnoreCase) < 0 Then Continue While
+            If Not File.Exists(path) Then
+                Debug.WriteLine($"[TextResourceService] Datei nicht gefunden: {path}")
+            Return result ' Leeres Dictionary - harmlos, keine Übersetzungen
+        End If
 
-                            ' Label erfassen
-                            Dim label As String = Nothing
-                            Dim mLabel = Regex.Match(line, "Label=""(.*?)""")
-                            If mLabel.Success Then
-                                label = WebUtility.HtmlDecode(mLabel.Groups(1).Value)
-                            End If
+        Try
+             Using fs As New FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+    ' Automatische Encoding-Erkennung: UTF-8 oder UTF-16
+          Using sr As New StreamReader(fs, detectEncodingFromByteOrderMarks:=True)
+   Dim lineCount As Integer = 0
+          Dim successCount As Integer = 0
 
-                            ' Value: im Zweifel den letzten Value= nehmen (manche Zeilen enthalten versehentlich zwei Value-Attribute)
-                            Dim sValue As String = Nothing
-                            Dim mVals = Regex.Matches(line, "Value=""(.*?)""")
-                            If mVals IsNot Nothing AndAlso mVals.Count > 0 Then
-                                sValue = WebUtility.HtmlDecode(mVals(mVals.Count - 1).Groups(1).Value)
-                            End If
+         While Not sr.EndOfStream
+                lineCount += 1
+    Dim line = sr.ReadLine()
+          If String.IsNullOrEmpty(line) Then Continue While
+   If line.IndexOf("<TextResource", StringComparison.OrdinalIgnoreCase) < 0 Then Continue While
 
-                            If Not String.IsNullOrWhiteSpace(label) Then
-                                ' Normalisiere Label: führendes @@ entfernen für hauptsächlichen Lookup
-                                Dim normalized = If(label.StartsWith("@@"), label.Substring(2), label)
-                                If sValue Is Nothing Then sValue = String.Empty
+       Try
+  ' Label erfassen
+           Dim label As String = Nothing
+Dim mLabel = Regex.Match(line, "Label=""(.*?)""")
+        If mLabel.Success Then
+              label = WebUtility.HtmlDecode(mLabel.Groups(1).Value)
+          End If
 
-                                ' Speichere BEIDE Varianten
-                                Dim unused1 = result.TryAdd(label, sValue)
-                                If Not String.Equals(label, normalized, StringComparison.Ordinal) Then
-                                    Dim unused2 = result.TryAdd(normalized, sValue)
-                                End If
-                            End If
-                        End While
-                    End Using
-                End Using
+          ' Value: im Zweifel den letzten Value= nehmen (manche Zeilen enthalten versehentlich zwei Value-Attribute)
+    Dim sValue As String = Nothing
+           Dim mVals = Regex.Matches(line, "Value=""(.*?)""")
+  If mVals IsNot Nothing AndAlso mVals.Count > 0 Then
+        sValue = WebUtility.HtmlDecode(mVals(mVals.Count - 1).Groups(1).Value)
+    End If
+
+   If Not String.IsNullOrWhiteSpace(label) Then
+          ' Normalisiere Label: führendes @@ entfernen für hauptsächlichen Lookup
+ Dim normalized = If(label.StartsWith("@@"), label.Substring(2), label)
+          If sValue Is Nothing Then sValue = String.Empty
+
+             ' Speichere BEIDE Varianten
+           result.TryAdd(label, sValue)
+        If Not String.Equals(label, normalized, StringComparison.Ordinal) Then
+          result.TryAdd(normalized, sValue)
+    End If
+
+      successCount += 1
+      End If
+
+      Catch lineEx As Exception
+' Fehlerhafte Zeile überspringen (NICHT die ganze Datei!)
+           Debug.WriteLine($"[TextResourceService] Zeile {lineCount} fehlerhaft: {lineEx.Message}")
+      End Try
+             End While
+
+         Debug.WriteLine($"[TextResourceService] Geladen: {successCount} von {lineCount} Zeilen aus {path}")
+       End Using
+          End Using
+
+   Catch ex As IOException
+         Debug.WriteLine($"[TextResourceService] IO-Fehler beim Laden von {path}: {ex.Message}")
+    Catch ex As UnauthorizedAccessException
+           Debug.WriteLine($"[TextResourceService] Zugriff verweigert auf {path}: {ex.Message}")
             Catch ex As Exception
-                ' Bei Encoding-Fehlern: Fehler abfangen und leeres Dictionary zurückgeben
-                Debug.WriteLine($"[TextResourceService] Fehler beim Laden von Textresource_de.xml: {ex.Message}")
-            End Try
+       ' Bei Encoding-Fehlern: Fehler abfangen und leeres Dictionary zurückgeben
+ Debug.WriteLine($"[TextResourceService] Unerwarteter Fehler beim Laden von {path}: {ex.Message}")
+          End Try
 
-            Return result
+   Debug.WriteLine($"[TextResourceService] Dictionary enthält {result.Count} Einträge")
+  Return result
         End Function
 
         ' Sucht die Datei an einigen naheliegenden Orten relativ zum Startverzeichnis
