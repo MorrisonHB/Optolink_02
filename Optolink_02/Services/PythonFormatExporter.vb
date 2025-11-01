@@ -14,11 +14,11 @@ Namespace Services
                 Dim groupNameMap = BuildGroupNameMap(deviceName)
                 Dim hierarchy = BuildHierarchy(dt)
 
-                ' WICHTIG: Schließe alle offenen FileStreams BEVOR wir schreiben!
+                ' WICHTIG: Schlieï¿½e alle offenen FileStreams BEVOR wir schreiben!
                 GC.Collect()
                 GC.WaitForPendingFinalizers()
 
-                ' Schreibe in temporäre Datei und benenne dann um (atomare Operation)
+                ' Schreibe in temporï¿½re Datei und benenne dann um (atomare Operation)
                 Dim tempPath = outputPath & ".tmp"
 
                 Try
@@ -29,7 +29,7 @@ Namespace Services
                         WriteHierarchy(writer, hierarchy, dt, groupConditions, groupNameMap)
                     End Using
 
-                    ' Versuche alte Datei zu löschen - wenn das fehlschlägt, ist sie vermutlich geöffnet
+                    ' Versuche alte Datei zu lï¿½schen - wenn das fehlschlï¿½gt, ist sie vermutlich geï¿½ffnet
                     Try
                         If File.Exists(outputPath) Then
                             File.Delete(outputPath)
@@ -37,7 +37,7 @@ Namespace Services
                         File.Move(tempPath, outputPath)
                         Debug.WriteLine($"[Export] Erfolgreich: {groupConditions.Count} Gruppen-Conditions nach {outputPath}")
                     Catch deleteEx As IOException
-                        ' Datei ist vermutlich in einem Editor geöffnet - verwende eindeutigen Namen
+                        ' Datei ist vermutlich in einem Editor geï¿½ffnet - verwende eindeutigen Namen
                         Dim timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss")
                         Dim dir = Path.GetDirectoryName(outputPath)
                         Dim fileNameWithoutExt = Path.GetFileNameWithoutExtension(outputPath)
@@ -45,10 +45,10 @@ Namespace Services
                         Dim uniquePath = Path.Combine(dir, $"{fileNameWithoutExt}_{timestamp}{ext}")
 
                         File.Move(tempPath, uniquePath)
-                        Debug.WriteLine($"[Export] WARNUNG: Original-Datei konnte nicht überschrieben werden (vermutlich geöffnet)")
+                        Debug.WriteLine($"[Export] WARNUNG: Original-Datei konnte nicht ï¿½berschrieben werden (vermutlich geï¿½ffnet)")
                         Debug.WriteLine($"[Export] Neue Datei erstellt: {uniquePath}")
 
-                        MessageBox.Show($"Die Datei konnte nicht überschrieben werden (vermutlich geöffnet).{Environment.NewLine}{Environment.NewLine}Neue Datei erstellt:{Environment.NewLine}{uniquePath}",
+                        MessageBox.Show($"Die Datei konnte nicht ï¿½berschrieben werden (vermutlich geï¿½ffnet).{Environment.NewLine}{Environment.NewLine}Neue Datei erstellt:{Environment.NewLine}{uniquePath}",
                                         "Export erfolgreich",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information)
@@ -58,7 +58,7 @@ Namespace Services
                     Debug.WriteLine($"[Export IO-ERROR] {ioEx.Message}")
                     Debug.WriteLine($"[Export IO-STACK] {ioEx.StackTrace}")
 
-                    ' Versuche temp-Datei zu löschen
+                    ' Versuche temp-Datei zu lï¿½schen
                     Try
                         If File.Exists(tempPath) Then File.Delete(tempPath)
                     Catch
@@ -92,7 +92,22 @@ Namespace Services
 
         Private Shared Function GetGroupConditions(deviceName As String) As Dictionary(Of String, String)
             Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
-            Dim sql = "SELECT etg.[Name] AS G, g.[Type] AS T, etCond.[Name] AS C, dc.[Condition] AS O, evIn.EnumReplaceValue AS V FROM ecnEventTypeGroup etg INNER JOIN ecnDatapointType dp ON dp.Id=etg.DataPointTypeId INNER JOIN ecnDisplayConditionGroup g ON g.EventTypeGroupIdDest=etg.Id INNER JOIN ecnDisplayCondition dc ON dc.ConditionGroupId=g.Id INNER JOIN ecnEventType etCond ON etCond.Id=dc.EventTypeIdCondition LEFT JOIN ecnEventValueType evIn ON evIn.Id=dc.EventTypeValueCondition WHERE dp.Address=@dev ORDER BY etg.[Name],g.Id"
+            ' Use COALESCE to try multiple sources for the condition value:
+            ' 1. EnumReplaceValue (primary source)
+            ' 2. evIn.[Name] if it starts with @@ (fallback for untranslated values)
+            ' 3. EnumAddressValue as string (final fallback)
+            Dim sql = "SELECT etg.[Name] AS G, g.[Type] AS T, etCond.[Name] AS C, dc.[Condition] AS O, " &
+                      "COALESCE(NULLIF(evIn.EnumReplaceValue, ''), " &
+                      "CASE WHEN evIn.[Name] LIKE '@@%' THEN evIn.[Name] END, " &
+                      "CAST(evIn.EnumAddressValue AS nvarchar(100)), '') AS V " &
+                      "FROM ecnEventTypeGroup etg " &
+                      "INNER JOIN ecnDatapointType dp ON dp.Id=etg.DataPointTypeId " &
+                      "INNER JOIN ecnDisplayConditionGroup g ON g.EventTypeGroupIdDest=etg.Id " &
+                      "INNER JOIN ecnDisplayCondition dc ON dc.ConditionGroupId=g.Id " &
+                      "INNER JOIN ecnEventType etCond ON etCond.Id=dc.EventTypeIdCondition " &
+                      "LEFT JOIN ecnEventValueType evIn ON evIn.Id=dc.EventTypeValueCondition " &
+                      "WHERE dp.Address=@dev " &
+                      "ORDER BY etg.[Name],g.Id"
             Using conn As New SqlConnection(SqlQueries.BuildConnectionString()), cmd As New SqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@dev", deviceName)
                 conn.Open()
@@ -106,31 +121,28 @@ Namespace Services
                         End If
                         curG = g : logOp = If(t = 1, "AND", "OR")
 
-                        ' Condition-Name übersetzen
+                        ' Condition-Name ï¿½bersetzen
                         Dim conditionName = reader("C").ToString()
                         Dim translatedCondName = TextResourceService.TranslateInline(conditionName)
 
-                        ' Wert übersetzen
+                        ' Wert ï¿½bersetzen
                         Dim conditionValue = If(IsDBNull(reader("V")), "", reader("V").ToString())
-
-                        ' Debug: Unübersetzte Werte
-                        If conditionValue.StartsWith("@@") Then
-                            Debug.WriteLine($"[GetGroupConditions] Unübersetzter Wert: {conditionValue}")
-                        End If
-
                         Dim translatedValue = TextResourceService.TranslateInline(conditionValue)
 
-                        ' Debug: Übersetzung fehlgeschlagen
-                        If translatedValue.StartsWith("@@") Then
-                            Debug.WriteLine($"[GetGroupConditions] FEHLER: Übersetzung fehlgeschlagen: '{conditionValue}' -> '{translatedValue}'")
+                        ' Debug-Logging nur bei tatsï¿½chlich fehlgeschlagener ï¿½bersetzung
+                        ' (d.h. wenn der Wert mit @@ anfing UND nach ï¿½bersetzung immer noch @@ enthï¿½lt)
+                        If conditionValue.StartsWith("@@") AndAlso translatedValue.StartsWith("@@") AndAlso
+                           conditionValue.Equals(translatedValue, StringComparison.Ordinal) Then
+                            ' ï¿½bersetzung ist komplett fehlgeschlagen (Wert unverï¿½ndert)
+                            Debug.WriteLine($"[GetGroupConditions] Warnung: ï¿½bersetzung nicht gefunden: {conditionValue}")
                         End If
 
                         ' Operator
                         Dim op = If(IsDBNull(reader("O")), 0, CInt(reader("O")))
                         Dim opStr = GetOperatorString(op)
 
-                        ' Baue Bedingung: "Name"="Wert" (OHNE doppelte Anführungszeichen!)
-                        ' WICHTIG: Keine zusätzlichen Anführungszeichen um translatedCondName/translatedValue!
+                        ' Baue Bedingung: "Name"="Wert" (OHNE doppelte Anfï¿½hrungszeichen!)
+                        ' WICHTIG: Keine zusï¿½tzlichen Anfï¿½hrungszeichen um translatedCondName/translatedValue!
                         conds.Add($"{translatedCondName}{opStr}""{translatedValue}""")
                     End While
 
@@ -147,7 +159,7 @@ Namespace Services
 
         ''' <summary>
         ''' Mappt Operator-Codes auf Symbole (IDENTISCH zu SqlQueries.vb!)
-        ''' Unicode-Zeichen als Escapes für bessere Kompatibilität
+        ''' Unicode-Zeichen als Escapes fï¿½r bessere Kompatibilitï¿½t
         ''' </summary>
         Private Shared Function GetOperatorString(op As Integer) As String
             Select Case op
