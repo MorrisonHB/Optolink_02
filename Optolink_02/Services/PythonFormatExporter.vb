@@ -96,6 +96,7 @@ Namespace Services
             ' 1. EnumReplaceValue (primary source)
             ' 2. evIn.[Name] if it starts with @@ (fallback for untranslated values)
             ' 3. EnumAddressValue as string (final fallback)
+            ' 4. Empty string (to match existing behavior where NULL values become empty strings)
             Dim sql = "SELECT etg.[Name] AS G, g.[Type] AS T, etCond.[Name] AS C, dc.[Condition] AS O, " &
                       "COALESCE(NULLIF(evIn.EnumReplaceValue, ''), " &
                       "CASE WHEN evIn.[Name] LIKE '@@%' THEN evIn.[Name] END, " &
