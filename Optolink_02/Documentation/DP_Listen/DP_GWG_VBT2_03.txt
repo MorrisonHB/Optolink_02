@@ -1,0 +1,127 @@
+Gas-Wandgerät
+=============
+
+# Bedienung (1184)
+- Nur am Gerät (1185)
+    - Kesselsolltemperatur (331) [GWG_BedienKesselsolltemperatur~0x00DC (Int)]
+    - Trinkwasser-Solltemperatur (330) [GWG_Bedien_Trinkwasser_Solltemp~0x00DD (Int)]
+    - Betriebsprogramm (376) [GWG_Betriebsprogramm~0x0051 (Byte)]
+
+# Information (1186)
+- Allgemein (1187)
+    - Betriebsprogramm (376) [GWG_Betriebsprogramm~0x0051 (Byte)]
+    - Externe Leistungsvorgabe (505) [GWG_Externe_Leistungsvorgabe~0x00BB (Int)]
+    - Rücklauftemperatur (667) [GWG_Ruecklauftemperatur~0x0044 (Int)]
+    - Heizbetrieb (316) [GWG_Anlage_Heizbetrieb~0x0021 (Byte)]
+    - Kesseltemperatur (642) [GWG_Kesseltemperatur~0x0070 (Int)]
+    - Trinkwasserbetrieb (318) [GWG_Anlage_Trinkwasserbetrieb~0x0021 (Byte)]
+    - Externe Sperrung (507) [GWG_ExternSperren~0x0000 (Byte)]
+    - Aussentemperatur (329) [GWG_Aussentemperatur~0x006F (SInt)]
+    - Externe Betriebsarten-umschaltung/Anforderung (506) [GWG_ExterneBetriebsartenumschaltung~0x0000 (Byte)]
+    - Externe Leistungsvorgabe an Brenner (320) [GWG_Auftragsflag_ExtPWM~0x003D (Byte)]
+- Warmwasser (1188)
+    - Trinkwassertemperatur Sensor 2 (687) [GWG_TrinkwassertemperaturSensor2~0x0043 (Int)]
+    - Umschaltventil steht auf (327) [GWG_AusgangUmschaltventil~0x0001 (Byte)]
+    - Zirkulationspumpe (328) [GWG_AusgangZirkulationspumpe~0x0001 (Byte)]
+    - Speicherladepumpe (325) [GWG_AusgangLadepumpe~0x0002 (Byte)]
+    - Trinkwasserbetrieb (318) [GWG_Anlage_Trinkwasserbetrieb~0x0021 (Byte)]
+    - Trinkwassertemperatur Sensor 1 (686) [GWG_TrinkwassertemperaturSensor1~0x0042 (Int)]
+
+# Diagnose Anlage (1190)
+- Allgemein (1191)
+    - Betriebsprogramm (376) [GWG_Betriebsprogramm~0x0051 (Byte)]
+    - Externe Leistungsvorgabe (505) [GWG_Externe_Leistungsvorgabe~0x00BB (Int)]
+    - Kesselsolltemperatur (641) [GWG_Kesselsolltemperatur~0x0071 (Int)]
+    - Trinkwasserbetrieb (318) [GWG_Anlage_Trinkwasserbetrieb~0x0021 (Byte)]
+    - Kesseltemperatur (642) [GWG_Kesseltemperatur~0x0070 (Int)]
+    - Heizbetrieb (316) [GWG_Anlage_Heizbetrieb~0x0021 (Byte)]
+    - Externe Sperrung (507) [GWG_ExternSperren~0x0000 (Byte)]
+    - Aussentemperatur (329) [GWG_Aussentemperatur~0x006F (SInt)]
+    - Externe Betriebsarten-umschaltung/Anforderung (506) [GWG_ExterneBetriebsartenumschaltung~0x0000 (Byte)]
+    - Brennerflamme (669) [GWG_StatusBrenner~0x0023 (Byte)]
+    - Externe Leistungsvorgabe an Brenner (320) [GWG_Auftragsflag_ExtPWM~0x003D (Byte)]
+- Warmwasser (1192)
+    - Umschaltventil steht auf (327) [GWG_AusgangUmschaltventil~0x0001 (Byte)]
+    - Trinkwassertemperatur bei Zusatzfunktion (688) [GWG_TrinkwassertemperaturZusatz~0x005D (Int)]
+    - Trinkwassertemperatur Sensor 1 (686) [GWG_TrinkwassertemperaturSensor1~0x0042 (Int)]
+    - Trinkwasserbetrieb (318) [GWG_Anlage_Trinkwasserbetrieb~0x0021 (Byte)]
+    - Zirkulationspumpe (328) [GWG_AusgangZirkulationspumpe~0x0001 (Byte)]
+    - Trinkwasser-Solltemperatur (684) [GWG_Trinkwasser_Solltemperatur~0x005C (Int)]
+    - Trinkwassertemperatur Sensor 2 (687) [GWG_TrinkwassertemperaturSensor2~0x0043 (Int)]
+    - Speicherladepumpe (325) [GWG_AusgangLadepumpe~0x0002 (Byte)]
+
+# Diagnose System (1193)
+- Brennerkontrolle (1194)
+    - Brennerflamme7 (670) [GWG_StatusBrenner7~0x0023 (Array)]
+    - Betriebsphase des Feuerungsautomaten (375) [GWG_Betriebsphase~0x009E (Byte)]
+    - Externe Leistungsvorgabe (505) [GWG_Externe_Leistungsvorgabe~0x00BB (Int)]
+    - Auftragsflag Heizbetrieb (321) [GWG_Auftragsflag_Heizbetrieb~0x003D (Byte)]
+    - Auftragsflag Warmwasserbetrieb (323) [GWG_Auftragsflag_WWBetrieb~0x003D (Byte)]
+    - Brennerregelung (319) [GWG_Auftragsflag_Blockieren~0x003D (Byte)]
+    - Brennerflamme (669) [GWG_StatusBrenner~0x0023 (Byte)]
+    - Feuerungsautomat in (322) [GWG_Auftragsflag_Programmieren~0x003D (Byte)]
+    - Externe Leistungsvorgabe an Brenner (320) [GWG_Auftragsflag_ExtPWM~0x003D (Byte)]
+- KM-Bus Geräte (1195)
+    - Kaskadenregler am KM-Bus (646) [GWG_KMBus_Kaskade~0x00AB (Byte)]
+    - Mischererweiterung am KM-Bus (647) [GWG_KMBus_Mischererweiterung~0x00AB (Byte)]
+    - Vitocom 100 am KM-Bus (648) [GWG_KMBus_Vitocom100~0x00AB (Byte)]
+    - Heizkreispumpe 2 am KM-Bus (644) [GWG_KMBus_HKP2~0x00AB (Byte)]
+    - Feuerungsautomat am KM-Bus (643) [GWG_KMBus_Feuerungsautomat~0x00AB (Byte)]
+    - Heizkreispumpe HK A am KM-Bus (645) [GWG_KMBus_HKPA~0x00AB (Byte)]
+- Sonstiges (1198)
+    - 13-Minuten-Timer Rohwert (677) [GWG_Timer13MinRohwert~0x0042 (Array)]
+    - 1-Minuten-Timer (678) [GWG_Timer1Min~0x003D (Int)]
+    - 13-Minuten-Timer (676) [GWG_Timer13Min~0x0042 (Int)]
+    - 7-Minuten-Timer Rohwert (681) [GWG_Timer7MinRohwert~0x0040 (Array)]
+    - 1-Minuten-Timer Rohwert (679) [GWG_Timer1Min_Rohwert~0x003D (Array)]
+    - Nachlauf-Timer (682) [GWG_TimerNachlauf~0x003A (Int)]
+    - Wasserdruck (704) [GWG_Wasserdruck~0x0088 (Int)]
+    - Widerstand analoges Uhrenthermostat (706) [GWG_Widerstand_Uhrenthermostat~0x0053 (Int)]
+    - Nachlauf-Timer Rohwert (683) [GWG_TimerNachlaufRohwert~0x003A (Array)]
+    - 7-Minuten-Timer (680) [GWG_Timer7Min~0x0040 (Int)]
+    - Wasserdruck Rohwert (705) [GWG_WasserdruckRohwert~0x0088 (Array)]
+- Eingänge (1196)
+    - Kesseltemperatur (642) [GWG_Kesseltemperatur~0x0070 (Int)]
+    - Aussentemperatur (329) [GWG_Aussentemperatur~0x006F (SInt)]
+    - Flowswitch bei Durchlauferhitzer-Betrieb (504) [GWG_EingangFlowswitch~0x0003 (Byte)]
+    - Vorlauftemperatur HK B (605) [GWG_HKB_Vorlauftemperatur~0x0041 (Int)]
+    - Rücklauftemperatur (667) [GWG_Ruecklauftemperatur~0x0044 (Int)]
+    - Trinkwassertemperatur Sensor 1 (686) [GWG_TrinkwassertemperaturSensor1~0x0042 (Int)]
+    - Trinkwassertemperatur Sensor 2 (687) [GWG_TrinkwassertemperaturSensor2~0x0043 (Int)]
+- Ausgänge (1197)
+    - Zirkulationspumpe (328) [GWG_AusgangZirkulationspumpe~0x0001 (Byte)]
+    - Heizkreispumpe (324) [GWG_AusgangHeizkreispumpe~0x0001 (Byte)]
+    - Umschaltventil steht auf (327) [GWG_AusgangUmschaltventil~0x0001 (Byte)]
+    - Speicherladepumpe (325) [GWG_AusgangLadepumpe~0x0002 (Byte)]
+    - Anlagen-Heizkreispumpe (317) [GWG_Anlage_Heizkreispumpe~0x0021 (Byte)]
+    - Sammelstörung (326) [GWG_AusgangSammelstoerung~0x0001 (Byte)]
+
+# Feuerungsautomat LGM29 (1199)
+- Grenztemperaturen (1200)
+    - Temperaturwaechter (561) [GWG_FA_TempWaechter~0x006E (Byte)]
+    - Ausloeseschwelle Abgasüberwachung (508) [GWG_FA_AusloeseschwelleAbgas~0x0078 (Byte)]
+    - Kesselsollwert Notbetrieb (539) [GWG_FA_KesselSollNotbetrieb~0x006A (Byte)]
+    - Maximale Temperatur (540) [GWG_FA_MaxTemp~0x006A (Byte)]
+    - Wiedereinschaltpunkt Abgasüberwachung (562) [GWG_FA_WiedereinschaltpunktAbgas~0x0078 (Byte)]
+    - Minimale Temperatur (541) [GWG_FA_MinTemp~0x006A (Byte)]
+- Taktschutz (1202)
+    - Brennermindestlaufzeit (552) [GWG_FA_Takt_Brennermindestlaufzeit~0x0083 (Byte)]
+    - Ausschaltdifferenz Brenner im Heizbetrieb (555) [GWG_FA_Takt_HeizAusschaltdifferenz~0x0078 (Byte)]
+    - Ausschaltdifferenz Brenner im Warmwasserbetrieb (559) [GWG_FA_Takt_WWAusschaltdifferenz~0x0078 (Byte)]
+    - Delta Max für Abbruch Mindestpause (554) [GWG_FA_Takt_DeltaMaxMindestpause~0x0071 (Byte)]
+    - Kesselmindesttemperatur für Abbruch Mindestpause (557) [GWG_FA_Takt_KTMinAbbrMindestpause~0x0071 (Byte)]
+    - Reglerverzögerung nach Brennerstart (558) [GWG_FA_Takt_ReglerverzoegerungStart~0x0083 (Byte)]
+    - Brennermindestpause im Heizbetrieb (553) [GWG_FA_Takt_Brennermindestpause~0x0064 (Byte)]
+    - Einschaltdifferenz Brenner im Heizbetrieb (556) [GWG_FA_Takt_HeizEinschaltdifferenz~0x0078 (Byte)]
+    - Einschaltdifferenz Brenner im Warmwasserbetrieb (560) [GWG_FA_Takt_WWEinschaltdifferenz~0x0078 (Byte)]
+- OEM-Parameter (1201)
+    - Modulation Luft in Teillast (548) [GWG_FA_OEM_ModLuft_Teillast~0x003B (Byte)]
+    - Modulation Gas in Volllast (546) [GWG_FA_OEM_ModGas_Volllast~0x000F (Byte)]
+    - Geräte-Nummer (542) [GWG_FA_OEM_GeraeteNummer~0x000A (Byte)]
+    - Modulation Gas in Kleinlast (544) [GWG_FA_OEM_ModGas_Kleinlast~0x000F (Byte)]
+    - Modulation Luft in Zuendlast (550) [GWG_FA_OEM_ModLuft_Zuendlast~0x003B (Byte)]
+    - Modulation Gas in Teillast (545) [GWG_FA_OEM_ModGas_Teillast~0x000F (Byte)]
+    - Modulation Luft in Volllast (549) [GWG_FA_OEM_ModLuft_Volllast~0x003B (Byte)]
+    - Modulation Gas in Zuendlast (547) [GWG_FA_OEM_ModGas_Zuendlast~0x000F (Byte)]
+    - Parametersatz (551) [GWG_FA_OEM_Parametersatz~0x000A (Byte)]
+    - Kennung (Prog1) (543) [GWG_FA_OEM_Kennung~0x0001 (Byte)]

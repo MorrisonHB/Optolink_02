@@ -1,0 +1,567 @@
+Id;Name;Parameter;Address;Type
+1;ecnStatusEventType;;ecnStatusEventType;1
+19;Eingang 0-10 V;;AE_Eingang0_10~0x0A86;1
+20;ext. Anfordern/ Betriebsarten-umschaltung;;AE_Eingang1~0x0A80;1
+21;ext. Sperren;;AE_Eingang2~0x0A81;1
+39;Heizkreispumpe A1;;Ausgang_HKP_A1~0x7663;1
+40;Heizkreispumpe M2;;Ausgang_HKP_M2~0x7665;1
+50;Bauart Warmwasser;;BauartWarmwasser~0x8851;1
+51;Warmwasser-Solltemperatur;;Bedien_WW_Solltemperatur~0x6300;3
+73;Grundeinstellung Bedienparameter A1M1;;BedienparameterA1M1FunktionReset~0xA051;2
+74;Grundeinstellung Bedienparameter M2;;BedienparameterM2FunktionReset~0xA051;2
+76;Partybetrieb A1M1;;BedienPartybetriebA1M1~0x2303;1
+77;Partybetrieb M2;;BedienPartybetriebM2~0x3303;1
+79;Raumsolltemperatur Partybetrieb A1M1;;BedienRTSoll_PartyA1M1~0x2308;3
+80;Raumsolltemperatur Partybetrieb M2;;BedienRTSoll_PartyM2~0x3308;3
+82;Raumtemperatur Soll Normalbetrieb A1M1;;BedienRTSolltemperaturA1M1~0x2306;3
+83;Raumtemperatur Soll Normalbetrieb M2;;BedienRTSolltemperaturM2~0x3306;3
+85;Raumtemperatur Soll Reduzierter Betrieb A1M1;;BedienRTSolltemperaturReduziertA1M1~0x2307;3
+86;Raumtemperatur Soll Reduzierter Betrieb M2;;BedienRTSolltemperaturReduziertM2~0x3307;3
+88;Sparbetrieb A1M1;;BedienSparbetriebA1M1~0x2302;1
+89;Sparbetrieb M2;;BedienSparbetriebM2~0x3302;1
+91;Bedienteil Software-Index;;Bedienteil_SW_Index~0x7330;1
+92;Betriebsart A1M1;;BedienteilBA_GWGA1~0x2323;3
+94;Betriebsart M2;;BedienteilBA_GWGM2~0x3323;3
+98;Betriebsstunden Brenner Stufe 1;;BetriebsstundenBrenner1~0x0886;1
+104;Brenner-Betriebsstunden ;;BetriebsstundenBrennerBedienungGWG~0x08A7;1
+106;Betriebsstunden Brenner zurücksetzen;;BetriebsstundenBrennerResetGWG~0x08A7;2
+111;Brennerstarts;;BrennerstartsGWG~0x088A;3
+112;Anzahl Brennerstarts zurücksetzen;;BrennerstartsGWGReset~0x088A;2
+245;Interne Pumpe;;DigitalAusgang_InternePumpe~0x7660;1
+269;Sammelstörung;;ExtAE_Sammel~0x0A82;1
+270;Externe Betriebsarten-umschaltung A1M1;;ExtBetriebsartenumschaltung_A1M1~0x2549;1
+271;Externe Betriebsarten-umschaltung M2;;ExtBetriebsartenumschaltung_M2~0x3549;1
+273;Externe Raumsolltemperatur Normal A1M1;;ExternRTSolltemperaturA1M1~0x2321;3
+274;Externe Raumsolltemperatur Normal M2;;ExternRTSolltemperaturM2~0x3321;3
+285;Fehlerhistorie FA 01;;FehlerHisFA01~0x7590;1
+286;Fehlerhistorie FA 02;;FehlerHisFA02~0x7599;1
+287;Fehlerhistorie FA 03;;FehlerHisFA03~0x75A2;1
+288;Fehlerhistorie FA 04;;FehlerHisFA04~0x75AB;1
+289;Fehlerhistorie FA 05;;FehlerHisFA05~0x75B4;1
+290;Fehlerhistorie FA 06;;FehlerHisFA06~0x75BD;1
+291;Fehlerhistorie FA 07;;FehlerHisFA07~0x75C6;1
+292;Fehlerhistorie FA 08;;FehlerHisFA08~0x75CF;1
+293;Fehlerhistorie FA 09;;FehlerHisFA09~0x75D8;1
+294;Fehlerhistorie FA 10;;FehlerHisFA10~0x75E1;1
+295;Fehlerhistorie FA 11;;FehlerHisFA11~0x75EA;1
+296;Fehlerhistorie FA 12;;FehlerHisFA12~0x75F3;1
+297;Fehlerhistorie FA 13;;FehlerHisFA13~0x75FC;1
+298;Fehlerhistorie FA 14;;FehlerHisFA14~0x7605;1
+299;Fehlerhistorie FA 15;;FehlerHisFA15~0x760E;1
+300;Fehlerhistorie FA 16;;FehlerHisFA16~0x7617;1
+301;Fehlerhistorie FA 17;;FehlerHisFA17~0x7620;1
+302;Fehlerhistorie FA 18;;FehlerHisFA18~0x7629;1
+303;Fehlerhistorie FA 19;;FehlerHisFA19~0x7632;1
+304;Fehlerhistorie FA 20;;FehlerHisFA20~0x763B;1
+306;Ferien Abreisetag A1M1;;FerienBeginnA1M1~0x2309;3
+307;Ferien Abreisetag M2;;FerienBeginnM2~0x3309;3
+309;Ferien Rückreisetag A1M1;;FerienEndeA1M1~0x2311;3
+310;Ferien Rückreisetag M2;;FerienEndeM2~0x3311;3
+312;Flow Switch;;FlowSwitch~0x0883;1
+314;Aussentemperatur gedämpft;;Gemischte_AT~0x5527;1
+418;GWG61: Ausschaltdifferenz;;GWG_Codierstecker_AusDiff~0x1060;1
+419;GWG64: Ausschaltdifferenz Brenner bei Volllast;;GWG_Codierstecker_AusMax~0x1060;1
+420;GWG51: Bauart Warmwasser;;GWG_Codierstecker_BauartWW~0x1050;1
+421;GWG58: Bereichsgrenze max. Kesselsolltemperatur;;GWG_Codierstecker_BereichKTSollMax~0x1050;1
+422;GWG59: Bereichsgrenze min. Kesselsolltemperatur;;GWG_Codierstecker_BereichKTSollMin~0x1050;1
+423;GWG5A: Bereichsgrenze max. WW-Solltemperatur;;GWG_Codierstecker_BereichWWSollMax~0x1050;1
+424;GWG5B: Bereichsgrenze min. WW-Solltemperatur;;GWG_Codierstecker_BereichWWSollMin~0x1050;1
+425;GWG53: Brennertyp;;GWG_Codierstecker_Brennertyp~0x1050;1
+426;GWG71: Brennerminimalleistung;;GWG_Codierstecker_BRMin~0x1070;1
+427;GWG72: Offset modulierender Brenner;;GWG_Codierstecker_BROffset~0x1070;1
+428;GWG73: Anfahroptimierung modulierender Brenner;;GWG_Codierstecker_BROpt~0x1070;1
+429;GWG75: Mindestdrehzahl Interne Pumpe;;GWG_Codierstecker_DrehzMin~0x1070;1
+430;GWG60: Einschaltdifferenz;;GWG_Codierstecker_EinDiff~0x1060;1
+431;GWG50: Gerätetyp;;GWG_Codierstecker_Geraetetyp~0x1050;1
+432;GWG80: DLH Ausschaltdifferenz Start-Stop Bedingung;;GWG_Codierstecker_GWG80~0x1080;1
+433;GWG81: DLH Einschaltdifferenz Start-Stop Bedingung;;GWG_Codierstecker_GWG81~0x1080;1
+434;GWG82: DLH Nachlaufzeit;;GWG_Codierstecker_GWG82~0x1080;1
+435;GWG83: DLH maximale Anstiegszeit;;GWG_Codierstecker_GWG83~0x1080;1
+436;GWG84: DLH Reglerverstärkung;;GWG_Codierstecker_GWG84~0x1080;1
+437;GWG85: DLH Reglervorhaltezeit;;GWG_Codierstecker_GWG85~0x1080;1
+438;GWG86: DLH Reglernachstellzeit;;GWG_Codierstecker_GWG86~0x1080;1
+439;GWG87: DLH Ausschaltdifferenz;;GWG_Codierstecker_GWG87~0x1080;1
+440;GWG88: Zirkulationspumpe bei Speicherladung;;GWG_Codierstecker_GWG88~0x1080;1
+441;GWG91: Modulationsgrad bei 10% Leistung;;GWG_Codierstecker_GWG91~0x1090;1
+442;GWG92: Modulationsgrad bei 20% Leistung;;GWG_Codierstecker_GWG92~0x1090;1
+443;GWG93: Modulationsgrad bei 30% Leistung;;GWG_Codierstecker_GWG93~0x1090;1
+444;GWG94: Modulationsgrad bei 40% Leistung;;GWG_Codierstecker_GWG94~0x1090;1
+445;GWG95: Modulationsgrad bei 50% Leistung;;GWG_Codierstecker_GWG95~0x1090;1
+446;GWG96: Modulationsgrad bei 60% Leistung;;GWG_Codierstecker_GWG96~0x1090;1
+447;GWG97: Modulationsgrad bei 70% Leistung;;GWG_Codierstecker_GWG97~0x1090;1
+448;GWG98: Modulationsgrad bei 80% Leistung;;GWG_Codierstecker_GWG98~0x1090;1
+449;GWG99: Modulationsgrad bei 90% Leistung;;GWG_Codierstecker_GWG99~0x1090;1
+450;GWG9A: Modulationsgrad bei 100% Leistung;;GWG_Codierstecker_GWG9A~0x1090;1
+451;GWGA0: Viessmann UV Schrittzahl Verstellweg x1;;GWG_Codierstecker_GWGA0~0x10A0;1
+452;GWGA1: Viessmann UV Frequenz Verstellweg x1;;GWG_Codierstecker_GWGA1~0x10A0;1
+453;GWGA2: Viessmann UV Schrittzahl Verstellweg x2;;GWG_Codierstecker_GWGA2~0x10A0;1
+454;GWGA3: Viessmann UV Frequenz Verstellweg x2;;GWG_Codierstecker_GWGA3~0x10A0;1
+455;GWGA4: Viessmann UV Schrittzahl Verstellweg x3;;GWG_Codierstecker_GWGA4~0x10A0;1
+456;GWGA5: Viessmann UV Frequenz Verstellweg x3;;GWG_Codierstecker_GWGA5~0x10A0;1
+457;GWGA6: Viessmann UV Schrittzahl Verstellweg x4;;GWG_Codierstecker_GWGA6~0x10A0;1
+458;GWGA7: Viessmann UV Frequenz Verstellweg x4;;GWG_Codierstecker_GWGA7~0x10A0;1
+459;GWGA8: Viessmann UV Schrittzahl Verstellweg x5;;GWG_Codierstecker_GWGA8~0x10A0;1
+460;GWGA9: Viessmann UV Frequenz Verstellweg x5;;GWG_Codierstecker_GWGA9~0x10A0;1
+461;GWGAA: Viessmann UV Position Heizen;;GWG_Codierstecker_GWGAA~0x10A0;1
+462;GWG_B0: Wilo UV Schrittzahl Verstellweg x1;;GWG_Codierstecker_GWGB0~0x10B0;1
+463;GWGB1: Wilo UV Frequenz Verstellweg x1;;GWG_Codierstecker_GWGB1~0x10B0;1
+464;GWGB2: Wilo UV Schrittzahl Verstellweg x2;;GWG_Codierstecker_GWGB2~0x10B0;1
+465;GWGB3: Wilo UV Frequenz Verstellweg x2;;GWG_Codierstecker_GWGB3~0x10B0;1
+466;GWGB4: Wilo UV Schrittzahl Verstellweg x3;;GWG_Codierstecker_GWGB4~0x10B0;1
+467;GWGB5: Wilo UV Frequenz Verstellweg x3;;GWG_Codierstecker_GWGB5~0x10B0;1
+468;GWGB6: Wilo UV Schrittzahl Verstellweg x4;;GWG_Codierstecker_GWGB6~0x10B0;1
+469;GWGB7: Wilo UV Frequenz Verstellweg x4;;GWG_Codierstecker_GWGB7~0x10B0;1
+470;GWGB8: Wilo UV Schrittzahl Verstellweg x5;;GWG_Codierstecker_GWGB8~0x10B0;1
+471;GWGB9: Wilo UV Frequenz Verstellweg x5;;GWG_Codierstecker_GWGB9~0x10B0;1
+472;GWGBA: Wilo UV Position Heizen;;GWG_Codierstecker_GWGBA~0x10B0;1
+473;GWGC0: Grundfos UV Schrittzahl Verstellweg x1;;GWG_Codierstecker_GWGC0~0x10C0;1
+474;GWGC1: Grundfos UV Frequenz Verstellweg x1;;GWG_Codierstecker_GWGC1~0x10C0;1
+475;GWGC2: Grundfos UV Schrittzahl Verstellweg x2;;GWG_Codierstecker_GWGC2~0x10C0;1
+476;GWGC3: Grundfos UV Frequenz Verstellweg x2;;GWG_Codierstecker_GWGC3~0x10C0;1
+477;GWGC4: Grundfos UV Schrittzahl Verstellweg x3;;GWG_Codierstecker_GWGC4~0x10C0;1
+478;GWGC5: Grundfos UV Frequenz Verstellweg x3;;GWG_Codierstecker_GWGC5~0x10C0;1
+479;GWGC6: Grundfos UV Schrittzahl Verstellweg x4;;GWG_Codierstecker_GWGC6~0x10C0;1
+480;GWGC7: Grundfos UV Frequenz Verstellweg x4;;GWG_Codierstecker_GWGC7~0x10C0;1
+481;GWGC8: Grundfos UV Schrittzahl Verstellweg x5;;GWG_Codierstecker_GWGC8~0x10C0;1
+482;GWGC9: Grundfos UV Frequenz Verstellweg x5;;GWG_Codierstecker_GWGC9~0x10C0;1
+483;GWGCA: Grundfos UV Position Heizen;;GWG_Codierstecker_GWGCA~0x10C0;1
+484;GWG5D: Absolute Begrenzung max. Heizleistung;;GWG_Codierstecker_HZmaxLeistung~0x1050;1
+485;Inbetriebnahmedatum Jahr;;GWG_Codierstecker_Jahr~0x1020;1
+486;Kesselcodierstecker;;GWG_Codierstecker_Kennziffer~0x1040;1
+487;GWG62: Reglerverstärkung KT-Regler;;GWG_Codierstecker_KT_Regler~0x1060;1
+488;GWG70: Minimale Kesseltemperatur;;GWG_Codierstecker_KTMin~0x1070;1
+489;GWG32: Begrenzung max. Heizleistung;;GWG_Codierstecker_maxHZ_Leistung~0x1030;1
+490;GWG30: Begrenzung max. Warmwasserleistung;;GWG_Codierstecker_maxWW_Leistung~0x1030;1
+491;Inbetriebnahmedatum Monat;;GWG_Codierstecker_Monat~0x1020;1
+492;GWG63: Reglernachstellzeit KT-Regler;;GWG_Codierstecker_N_KT_Regler~0x1060;1
+493;GWG76: Nachlaufzeit Interne Pumpe;;GWG_Codierstecker_Nach~0x1070;1
+494;GWG65: Brennermindestpausenzeit;;GWG_Codierstecker_Pause~0x1060;1
+495;GWG66: Differenztemperatur zum Abbruch der Brennermindestpausenzeit;;GWG_Codierstecker_Pause_Abbruch~0x1060;1
+496;GWG67: Temperatur zum Abbruch der Brennermindestpausenzeit;;GWG_Codierstecker_Pause_AbbruchT~0x1060;1
+497;GWG74: Kesselsollleistung im SP-Betrieb;;GWG_Codierstecker_PSollSP~0x1070;1
+498;Inbetriebnahmedatum Tag;;GWG_Codierstecker_Tag~0x1020;1
+499;GWG34: Bauart Umschaltventil;;GWG_Codierstecker_UV~0x1030;1
+500;GWG5C: Absolute Begrenzung max. Warmwasserleistung;;GWG_Codierstecker_WWmaxLeistung~0x1050;1
+600;Brenner ;;GWG_Flamme~0x55D3;1
+601;Flammensignal;;GWG_Flamme1~0x55DD;1
+640;Gerät;;GWG_Kennung~0x00F9;1
+697;Feuerungsautomat verriegelt ;;GWG_Verriegelung~0x55D3;1
+707;Reglerkennung;;GWGReglerkennung~0x00F9;1
+708;Aktuelle Betriebsart A1M1;;HK_AktuelleBetriebsartA1M1~0x2500;1
+709;Aktuelle Betriebsart M2;;HK_AktuelleBetriebsartM2~0x3500;1
+714;Ferienprogramm A1M1;;HK_FerienbetriebA1M1~0x2535;1
+715;Ferienprogramm M2;;HK_FerienbetriebM2~0x3535;1
+717;Frostgefahr des Heizkreises A1M1;;HK_Frostgefahr_aktivA1M1~0x2500;1
+718;Frostgefahr des Heizkreises M2;;HK_Frostgefahr_aktivM2~0x3500;1
+729;Heizkreispumpe A1M1;;HK_PumpenzustandA1M1~0x2906;1
+730;Heizkreispumpe M2;;HK_PumpenzustandM2~0x3906;1
+732;Raumtemperatur Soll A1M1;;HK_RaumsolltemperaturaktuellA1M1~0x2500;1
+733;Raumtemperatur Soll M2;;HK_RaumsolltemperaturaktuellM2~0x3500;1
+735;Reglervariante A1M1;;HK_ReglervarianteA1M1~0x2521;1
+737;Reglervariante M2;;HK_ReglervarianteM2~0x3521;1
+778;Heizkreispumpe A1M1 Drehzahl;;HKP_A1Drehzahl~0x7663;1
+780;Heizkreispumpe Drehzahl;;HKP_M2Drehzahl~0x7665;1
+787;Interne Pumpe Drehzahl;;InternePumpeDrehzahl~0x7660;1
+791;(00) Heizkreis-Warmwasserschema;;K00_KonfiAnlagenschemaGWG_W~0x7700;3
+802;Mischererweiterung;;K00_Mischererweiterung_KM~0x7700;3
+805;(01) Anlagentyp;;K01_KonfiAnlagentypGWG~0x7701;3
+818;(06) Kesselmaximal-Temperatur;;K06_KonfiKTMaxGWG~0x5706;3
+859;(21) Grenzwert Betriebsstunden Brenner;;K21_KonfiBetriebsstdBrenner_Wartung~0x5721;3
+862;(21) Betriebsstunden Brenner für Wartung;;K21_KonfiBetriebsstdBrennerWart100~0x5721;3
+863;(23) Eingestelltes Zeitintervall;;K23_KonfiZeitintervall_Wartung~0x5723;1
+864;(23) Zeitintervall für Wartung;;K23_KonfiZeitintervallWartung~0x5723;3
+865;(24) Wartung;;K24_KonfiStatus_Wartung~0x5724;3
+866;(24) Status der Wartung;;K24_KonfiStatusWartung~0x5724;3
+867;(24) Wartung zuruecksetzen;;K24_KonfiStatusWartungFunktionReset~0x5724;2
+873;(28) Intervallzuendung Brenner alle 5 Stunden;;K28_KonfiIntervallzuendung~0x5728;3
+881;(2E) Kennung Externe Erweiterung;;K2E_KonfiKennungAnschluss~0x572E;3
+882;Externe Erweiterung;;K2E_KonfiKennungAnschlussD~0x572E;3
+883;(2F) Entlüftungs-/ Befüllungsprogramm;;K2F_KonfiEntlueftung~0x572F;3
+884;(30) Kennung Interne Umwälzpumpe;;K30_KennungIntPumpe~0x5730;3
+885;Interne Umwälzpumpe;;K30_KennungIntPumpeKM~0x5730;3
+886;(31) Solldrehzahl Interne Pumpe;;K31_DrehzahlIntPumpe~0x5731;3
+887;(32) Einfluß Extern Sperren auf Pumpen;;K32_KonfiExtSperre~0x5732;3
+890;(34) Einfluß Extern Anfordern auf Pumpen;;K34_KonfiExtAnf~0x5734;3
+897;(38) aktueller Fehlerstatus GFA;;K38_KonfiFehlerByteGFA~0x5738;1
+936;(50) Reglervariante;;K50_Reglervariante~0x7750;1
+937;(52) Sensor Hydraulische Weiche;;K52_KonfiWeiche~0x7752;3
+938;(53) Rangierung Relais K12;;K53_Rangierung~0x7753;3
+939;Rangierung Relais K12;;K53_RangierungD~0x7753;3
+940;(54) Solarregelung;;K54_Solar~0x7754;3
+941;Solarregelung;;K54_Solar_Info~0x7754;1
+946;(56) Warmwasser-Solltemperatur-Bereich;;K56_KonfiWW_SolltempBereichGWG~0x6756;3
+949;(58) Warmwasser-Solltemperatur 2;;K58_KonfiWW_Solltemperatur2~0x6758;3
+950;(59) Einschaltpunkt Speicher;;K59_KonfiWW_EinschaltOffset~0x6759;3
+952;(5B) Anbindung Speicher an Hydr. Weiche;;K5B_KonfiAnbindungSpeicher~0x675B;3
+957;(62) Nachlauf Speicherladepumpe;;K62_KonfiLpumpeNachlauf_GWG~0x6762;3
+960;(65) Bauart Umschaltventil;;K65_KonfibauartUmschaltventil~0x6765;3
+961;Umschaltventil;;K65_KonfibauartUmschaltventil_D~0x6765;1
+963;(67) WW-Solltemperatur bei Nachladeunterdrückung;;K67_KonfiWW_Soll3~0x6767;3
+968;(6C) Drehzahl Interne Pumpe bei WW-Bereitung;;K6C_KonfiDrehzahlWW~0x676C;3
+969;(6D) Anzapffunktion;;K6D_KonfiAnzapffunktion~0x676D;3
+970;(6F) Begrenzung Warmwasserleistung;;K6F_KonfiBegrenzungWW~0x676F;3
+972;(71) Zirkulationspumpe bei Speicherladung 1. WW-Sollwert;;K71_KonfiZpumpeBeiWW_Soll1~0x6771;3
+973;(72)  Zirkulationspumpe bei Speicherladung 2. WW-Sollwert;;K72_KonfiZpumpeBeiWW_Soll2~0x6772;3
+974;(73) Intervall-Freigabe Zirkulationspumpe;;K73_KonfiZpumpeIntervallFreigabe~0x6773;3
+977;Kommunikationsmodul;;K76_GWGiKommunikationsmodul_D~0x7776;1
+978;(76) Kommunikationsmodul;;K76_Kommunikationsmodul_GWG~0x7776;3
+983;(77) Viessmann - Teilnehmernummer;;K77_KonfiVI_TeilnehmernummerV100_V300~0x7777;3
+984;Viessmann - Teilnehmernummer;;K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777;1
+986;(78) LON - Kommunikation Freigeben/ Sperren;;K78_KonfiNVKommunikationLONV100GC1~0x7778;3
+989;Fehlermanager der Anlage;;K79_KonfiFehlerManagerV100_V050_D~0x7779;1
+990;(79) Zentraler Fehlermanager der Anlage;;K79_KonfiFehlerManagerV300_V333~0x7779;3
+993;Uhrzeit auf LON;;K7B_Konfi_FunktionUhrSenden~0x777B;3
+995;(7B) Uhrzeit auf LON;;K7B_KonfiFunktionUhrSenden_3~0x777B;3
+1001;(7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus;;K7F_KonfiEinfamilienhaus~0x777F;3
+1002;(80) Verzögerung Fehleranzeige;;K80_KonfiFehlerDelay~0x7780;3
+1003;Uhrzeit vom LON;;K81_Konfi_FunktionUhr_D~0x7781;1
+1004;(81) Funktion Uhr;;K81_KonfiFunktionUhr~0x7781;3
+1012;(88) Anzeigemodus Celsius - Fahrenheit;;K88_KonfiCelsiusFahrenheit~0x7788;3
+1015;(8A) Anzeigebedingungen für Konfiparameter;;K8A_KonfiAnzeigebedingungenAktiv~0x778A;3
+1016;(8B) EEPROM Status;;K8B_KonfiEEPROM_Status~0x778B;3
+1017;(8C) Version der Regelungssoftware - oberes Byte;;K8C_KonfiSW_StandNR_msb~0x778C;3
+1018;(8D) Version der Regelungssoftware unteres Byte;;K8D_KonfiSW_StandNR_lsb~0x778D;3
+1019;(8E) I2C Fehlerflag EEPROM GWG;;K8E_I2C_FehlerEEPROM_GWG~0x778E;1
+1022;(90) Zeitkonstante Aussentemperatur;;K90_KonfiZeitkonstAussentemperatur~0x7790;3
+1023;(91) Zuordnung externe Betriebsarten-umschaltung;;K91_KonfiZuordnungExtBA_GWG~0x7791;3
+1035;(95) Konfiguration Vitocom 100;;K95_KennungDekatelM~0x7795;3
+1036;Vitocom 100;;K95_KennungVitocom100~0x7795;3
+1039;(97) Konfiguration  Aussentemperatur;;K97_Konfi_Aussentemperatur~0x7797;3
+1043;(98) Viessmann - Anlagennummer;;K98_KonfiVI_Anlagennummer~0x7798;3
+1044;Viessmann - Anlagennummer;;K98_KonfiVI_Anlagennummer_D~0x7798;1
+1047;(9B) VT_Solltemperatur bei externer Anforderung;;K9B_KonfiVT_SolltemperaturExternV100_V333~0x779B;3
+1049;(9C) Überwachung LON-Teilnehmer;;K9C_KonfiReceiveHeartBeat~0x779C;3
+1052;(9F) Differenztemperatur VT-Erzeugung;;K9F_KonfiDTKMischerkreise~0x779F;3
+1053;Fernbedienung Heizkreis M2;;KA0_FernbedienungM2~0x37A0;3
+1055;Fernbedienung Heizkreis A1M1;;KA0_KennungFernbedienungA1M1~0x27A0;3
+1056;(A0) Kennung Fernbedienung A1M1;;KA0_KonfiKennungFernbedienungA1M1~0x27A0;3
+1057;(A0) Kennung Fernbedienung M2;;KA0_KonfiKennungFernbedienungM2~0x37A0;3
+1059;(A2) Speichervorrang A1M1;;KA2_KonfiSpeichervorrangA1M1~0x27A2;3
+1061;(A2) Speichervorrang M2;;KA2_KonfiSpeichervorrangM2~0x37A2;3
+1067;(A3) Frostgrenze A1M1;;KA3_KonfiFrostgrenzeA1M1_GWG_4~0x27A3;3
+1070;(A3) Frostgrenze M2;;KA3_KonfiFrostgrenzeM2_GWG_4~0x37A3;3
+1072;(A4) Frostschutzfunktion A1M1;;KA4_KonfiKeineFrostschutzfunktionA1M1~0x27A4;3
+1073;(A4) Frostschutzfunktion M2;;KA4_KonfiKeineFrostschutzfunktionM2~0x37A4;3
+1075;(A5) Sommersparschaltung Schaltschwelle A1M1;;KA5_KonfSommersparSchaltschwelleA1M1~0x27A5;3
+1076;(A5) Sommersparschaltung Schaltschwelle M2;;KA5_KonfSommersparSchaltschwelleM2~0x37A5;3
+1078;(A6) Absolute Sommersparschaltung A1M1;;KA6_KonfiAbsolutSommersparA1M1~0x27A6;3
+1079;(A6) Absolute Sommersparschaltung M2;;KA6_KonfiAbsolutSommersparM2~0x37A6;3
+1081;(A7) Mischersparfunktion M1;;KA7_KonfiMischersparfunktionM1~0x27A7;3
+1082;(A7) Mischersparfunktion M2;;KA7_KonfiMischersparfunktionM2~0x37A7;3
+1084;(A8) Einfluss auf Interne Pumpe;;KA8_KonfiWirkung_aufPumpe~0x37A8;3
+1085;(A9) Pumpenstillstand A1M1 bei Übergang in reduzierten Betrieb;;KA9_KonfiHKpumpeBeiReduziertA1M1~0x27A9;3
+1087;(A9) Pumpenstillstand M2 bei Übergang in reduzierten Betrieb;;KA9_KonfiHKpumpeBeiReduziertM2~0x37A9;3
+1101;(B0) Raumaufschaltung A1M1;;KB0_KonfiRaumaufschaltungA1M1~0x27B0;3
+1102;(B0) Raumaufschaltung M2;;KB0_KonfiRaumaufschaltungM2~0x37B0;3
+1104;(B2) Raumgerät Raumeinfluß HK1;;KB2_KonfiRaumeinflussA1M1~0x27B2;3
+1105;(B2) Raumgerät Raumeinfluß HK2;;KB2_KonfiRaumeinflussM2~0x37B2;3
+1107;(B5) Sommersparschaltung RS A1M1;;KB5_KonfiRaumSommerspar_GWGA1M1~0x27B5;3
+1108;(B5) Sommersparschaltung RS M2;;KB5_KonfiRaumSommerspar_GWGM2~0x37B5;3
+2847;(C5) Vorlauf - Minimalbegrenzung A1M1;;KC5_KonfiMinimalbegrenzungA1M1~0x27C5;3
+2848;(C5) Vorlauf - Minimalbegrenzung M2;;KC5_KonfiMinimalbegrenzungM2~0x37C5;3
+2850;(C6) Vorlauf - Maximalbegrenzung A1M1;;KC6_KonfiMaxbegrenzung_VT_SollwertA1M1~0x27C6;3
+2851;(C6) Vorlauf - Maximalbegrenzung M2;;KC6_KonfiMaxbegrenzung_VT_SollwertM2~0x37C6;3
+2869;(D3) Neigung Heizkennlinie A1;;KD3_KonfiNeigungA1~0x27D3;3
+2870; Neigung Heizkennlinie A1;;KD3_KonfiNeigungA1D~0x27D3;3
+2871;(D3) Neigung Heizkennlinie M2;;KD3_KonfiNeigungM2~0x37D3;3
+2872; Neigung Heizkennlinie M2;;KD3_KonfiNeigungM2D~0x37D3;3
+2875;(D4) Niveau Heizkennlinie A1;;KD4_KonfiNiveauA1~0x27D4;3
+2876;Niveau Heizkennlinie A1;;KD4_KonfiNiveauA1D~0x27D4;3
+2877;(D4) Niveau Heizkennlinie M2;;KD4_KonfiNiveauM2~0x37D4;3
+2878;Niveau Heizkennlinie M2;;KD4_KonfiNiveauM2D~0x37D4;3
+2880;(D5) Wirkung Betriebsarten-umschaltung A1M1;;KD5_KonfiWirkungExtBA_UmschaltungA1M1~0x27D5;3
+2881;(D5) Wirkung Betriebsarten-umschaltung M2;;KD5_KonfiWirkungExtBA_UmschaltungM2~0x37D5;3
+2883;(D5) Richtung externe Aufschaltung A1M1;;KD5_WirkungExtBA_UmschaltungA1M1~0x27D5;3
+2886;(E1) Bereich Tagsolltemperatur Fernbedienung A1M1;;KE1_KonfiOffsetRT_SolltemperaturA1M1~0x27E1;3
+2887;(E1) Bereich Tagsolltemperatur Fernbedienung M2;;KE1_KonfiOffsetRT_SolltemperaturM2~0x37E1;3
+2889;(E2) Raumgerät Istwertkorrektur A1M1;;KE2_KonfiRT_KorrekturFernbedienungA1M1~0x27E2;3
+2890;(E2) Raumgerät Istwertkorrektur M2;;KE2_KonfiRT_KorrekturFernbedienungM2~0x37E2;3
+2892;(E5) Kennung Pumpe Heizkreis A1;;KE5_KonfiKennung_D_PumpeA1_GWG~0x27E5;3
+2894;KM-BUS-Heizkreispumpe A1;;KE5_KonfiKennung_D_PumpeA1M1_KM~0x27E5;3
+2896;(E5) Kennung Pumpe Heizkreis M2;;KE5_KonfiKennung_D_PumpeM2_GWG~0x37E5;3
+2897;KM-BUS-Heizkreispumpe M2;;KE5_KonfiKennung_D_PumpeM2KM~0x37E5;3
+2903;(E6) Maximale Drehzahl geregelte Pumpe A1M1;;KE6_KonfiMaxDrehzahlA1M1_GWG~0x27E6;3
+2904;(E6) Maximale Drehzahl geregelte Pumpe M2;;KE6_KonfiMaxDrehzahlM2_GWG~0x37E6;3
+2908;(E7) Minimale Drehzahl geregelte Pumpe A1M1;;KE7_KonfiMinDrehzahlA1M1_GWG~0x27E7;3
+2909;(E7) Minimale Drehzahl geregelte Pumpe M2;;KE7_KonfiMinDrehzahlM2_GWG~0x37E7;3
+2913;(E8) Solldrehzahl Pumpe im Nebenbetrieb A1M1;;KE8_KonfiNebenbetriebA1M1_GWG~0x27E8;3
+2914;(E8) Solldrehzahl Pumpe im Nebenbetrieb M2;;KE8_KonfiNebenbetriebM2_GWG~0x37E8;3
+2918;(E9) Reduzierte Drehzahl geregelte Pumpe A1M1;;KE9_KonfiDrehzahlReduziertA1M1_GWG~0x27E9;3
+2919;(E9) Reduzierte Drehzahl geregelte Pumpe M2;;KE9_KonfiDrehzahlReduziertM2_GWG~0x37E9;3
+2954;Kesselsolltemperatur;;Kesselsoll_eff~0x555A;1
+2957;(F1) Estrichfunktion A1M1;;KF1_KonfiTemperaturprogrammM1~0x27F1;3
+2958;(F1) Estrichfunktion M2;;KF1_KonfiTemperaturprogrammM2~0x37F1;3
+2962;(F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung A1;;KF2_KonfiPartyzeitGWGA1~0x27F2;3
+2963;(F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung M2;;KF2_KonfiPartyzeitGWGM2~0x37F2;3
+2976;(F8) Start Modifizierung Raumtemp. Soll red. HK1;;KF8_KonfiStartModTRSollredA1~0x27F8;3
+2977;(F8) Start Modifizierung Raumtemp. Soll red. HK2;;KF8_KonfiStartModTRSollredM2~0x37F8;3
+2979;(F9) Ende Modifizierung Raumtemp. Soll red. HK1;;KF9_KonfiEndeModTRSollredA1~0x27F9;3
+2980;(F9) Ende Modifizierung Raumtemp. Soll red. HK2;;KF9_KonfiEndeModTRSollredM2~0x37F9;3
+2982;(FA) Überhöhung Vorlauftemperatur Soll HK1;;KFA_KonfiUeberhoehungVTSollA1~0x27FA;3
+2983;(FA) Überhöhung Vorlauftemperatur Soll HK2;;KFA_KonfiUeberhoehungVTSollM2~0x37FA;3
+2985;(FB) Dauer Überhöhung Vorlauftemperatur Soll HK1;;KFB_KonfiDauerUeberhoehungVTSollA1~0x27FB;3
+2986;(FB) Dauer Überhöhung Vorlauftemperatur Soll HK2;;KFB_KonfiDauerUeberhoehungVTSollM2~0x37FB;3
+2988;KM-Bus-Fehler Ext. Erweiterung;;KM_Error_AE~0x0A32;1
+2991;KM-Bus-Fehler Mischererweiterung;;KM_Error_Mischer~0x0A31;1
+2994;KM-Bus-Fehler Pumpe A1;;KM_Error_PumpeA1~0x0A33;1
+2995;KM-Bus-Fehler Interne Pumpe;;KM_Error_PumpeIntern~0x0A35;1
+2996;KM-Bus-Fehler Pumpe M2;;KM_Error_PumpeM2~0x0A34;1
+3001;KM-Bus-Fehler Vitocom 100;;KM_Error_Vitocom~0x0A36;1
+3003;KM-Bus-Fehler Vitosolic;;KM_Error_Vitosolic~0x6550;1
+3004;Anlieferzustand Codierungen;;Konfi_FunktionReset_GWG~0xA050;2
+3006;(97) Konfiguration Aussentemperatur;;KonfiVerwendungAussentemperatur~0x7797;3
+3074;Codierkarte Gerätekennung;;KS_Karte_GWG_Kennung~0x7656;1
+3075;Codierkarte Revision GFA;;KS_Karte_GWG_Rev_F~0x7656;1
+3076;Codierkarte Revision GWG;;KS_Karte_GWG_Rev_R~0x7656;1
+3077;Codierkarte Typ;;KS_Karte_GWG_Typ~0x7656;1
+3078;Gerätetyp;;KS_Karte_GWG_Typ1~0x7656;1
+3153;Betriebsstunden Brenner seit letzter  Wartung;;LetzteBrennerWartung~0x7570;1
+3155;vergangene Zeit seit letzter Wartung;;LetzteIntervallWartung~0x756C;1
+3462;Binding;;nciNetConfig1~0xA102;1
+3463;Neuron ID;;Neuron_ID~0xA009;1
+3464;Domain;;Node_Domain~0xA000;1
+3465;Node;;Node_Node~0xA000;1
+3466;Subnet;;Node_Subnet~0xA000;1
+4019;Betriebsmodus Anlage / Kessel;;nviApplicMode_CFDM~0xA382;3
+4085;DHWC: Betriebsmodus - Warmwasser;;nviDHWC_ApplicMode~0xA3C2;3
+4086;DHWC: Warmwasser-Solltemperatur;;nviDHWC_Setpt~0xA3C0;3
+4087;Betriebsart - bei externer Vorgabe HK1;;nviHCC1_ApplicMode~0xA400;1
+4088;Externe Vorlaufsolltemperatur HK1;;nviHCC1_FlowSetpt~0xA403;3
+4089;Externe Raumsolltemperatur HK1;;nviHCC1_SpaceSetpt~0xA401;3
+4090;Betriebsart - bei externer Vorgabe HK2;;nviHCC2_ApplicMode~0xA440;1
+4091;Externe Vorlaufsolltemperatur HK2;;nviHCC2_FlowSetpt~0xA443;3
+4092;Externe Raumsolltemperatur HK2;;nviHCC2_SpaceSetpt~0xA441;3
+4097;Anlagen-/ Kessel-Sollleistung - Status ;;nviProdCmd_CFDM_state~0xA380;3
+4098;Anlagen-/ Kessel-Sollleistung - Wert ;;nviProdCmd_CFDM_value~0xA380;3
+4113;Vorlauf-Solltemperatur Anlagen / Kessel;;nviSetpoint_CFDM~0xA383;3
+4124;Alarm  Anlagennummer;;nvoAlarm_Anlagennummer~0xA132;1
+4125;Alarm Fehlercode;;nvoAlarm_Fehlercode~0xA132;1
+4126;Alarm Fehlermanager;;nvoAlarm_Fehlermanager~0xA132;1
+4127;Fehlermanager;;nvoAlarm_Fehlermanager_Teilnehmerliste~0xA132;1
+4128;Alarm Jahr;;nvoAlarm_Jahr~0xA132;1
+4130;Alarm Minute;;nvoAlarm_Minute~0xA132;1
+4131;Alarm Monat;;nvoAlarm_Monat~0xA132;1
+4132;Alarm  Nummer gestoerter Teilnehmer;;nvoAlarm_Nr_gestoerterTeilnehmer~0xA132;1
+4133;Alarm Sekunde;;nvoAlarm_Sekunde~0xA132;1
+4134;Alarm Stunde;;nvoAlarm_Stunde~0xA132;1
+4135;Alarm Tag;;nvoAlarm_Tag~0xA132;1
+4136;Alarm Teilnehmernummer - Gerät;;nvoAlarm_Teilnehmernummer~0xA132;1
+4137;Alarm Veraenderungsflag;;nvoAlarm_Veraenderung~0xA132;1
+4165;Modulationsgrad;;nvoBoilerState_BLR_value~0xA305;1
+4169;DHWC: Warmwasser-Isttemperatur;;nvoDHWC_ActTemp~0xA3C3;1
+4170;DHWC: Effektive Warmwasser-Solltemperatur;;nvoDHWC_EffSetpt~0xA3C5;1
+4173;Aktiver Anlagen- / Solltemperaturwert ;;nvoEffectSetpt_CFDM~0xA391;1
+4174;Effektive Raumsolltemperatur HK1;;nvoHCC1_EffRoomSetpt~0xA406;1
+4175;Aktuelle Betriebsart HK1;;nvoHCC1_UnitState~0xA405;1
+4176;Effektive Raumsolltemperatur HK2;;nvoHCC2_EffRoomSetpt~0xA446;1
+4177;Aktuelle Betriebsart HK2;;nvoHCC2_UnitState~0xA445;1
+4180;Aussentemperatur Senden;;nvoOATemp~0xA14F;1
+4182;Prod. Status Fehler;;nvoProdCState_Fehler_CFDM~0xA395;1
+4183;Prod. Status Harte Sperre;;nvoProdCState_HarteSperre_CFDM~0xA395;1
+4187;Prod. Status SP-Betrieb;;nvoProdCState_SP_CFDM~0xA395;1
+4188;Speicherladung;;nvoProdCState_Speicher_CFDM~0xA395;1
+4194;Anlagen-Istleistung - Status;;nvoPWRState_CFDM_state~0xA38F;1
+4195;Anlagen-Istleistung - Wert ;;nvoPWRState_CFDM_value~0xA38F;1
+4197;nicht belegt;;nvoRelayState_Abgas_WTPumpeGWG~0xA152;1
+4199;nicht belegt;;nvoRelayState_Brenner~0xA152;1
+4203;Relais-Status Heizkreispumpe 1;;nvoRelayState_HKP1~0xA152;1
+4204;Relais-Status Heizkreispumpe 1 Nachtkontakt;;nvoRelayState_HKP1_Nachtkontakt~0xA152;1
+4205;Relais-Status Heizkreispumpe 2;;nvoRelayState_HKP2~0xA152;1
+4206;Relais-Status Heizkreispumpe 2 Nachtkontakt;;nvoRelayState_HKP2_Nachtkontakt~0xA152;1
+4208;nicht belegt;;nvoRelayState_HKP3_GWG~0xA152;1
+4210;nicht belegt;;nvoRelayState_HKP3_Nachtkontakt_GWG~0xA152;1
+4211;Relais-Status Interne Pumpe;;nvoRelayState_Interne_Pumpe~0xA152;1
+4214;Relais-Status Pumpe Ladesystem;;nvoRelayState_Pumpe_Ladesystem~0xA152;1
+4215;Relais-Status Sammelstörung;;nvoRelayState_Sammelstoerung~0xA152;1
+4216;Relais-Status Speicherladepumpe;;nvoRelayState_SLP~0xA152;1
+4218;Relais-Status Umschaltventil Heizen;;nvoRelayState_UV_Heizen~0xA152;1
+4219;Relais-Status Umschaltventil Warmwasser;;nvoRelayState_UV_Warmwasser~0xA152;1
+4220;Relais-Status Zirkulationspumpe;;nvoRelayState_ZP~0xA152;1
+4221;Relais-Status Zubringerpumpe;;nvoRelayState_Zubringerpumpe~0xA152;1
+4229;Anlagenvorlauf- Kessel-Isttemperatur;;nvoSupplyTemp_CFDM~0xA393;1
+4230;Uhrzeit Senden - Jahr;;nvoTimeSet_Jahr~0xA12B;1
+4231;Uhrzeit Senden - Minute;;nvoTimeSet_Minute~0xA12B;1
+4232;Uhrzeit Senden - Monat;;nvoTimeSet_Monat~0xA12B;1
+4233;Uhrzeit Senden - Sekunde;;nvoTimeSet_Sekunde~0xA12B;1
+4234;Uhrzeit Senden - Stunde;;nvoTimeSet_Stunde~0xA12B;1
+4235;Uhrzeit Senden - Tag;;nvoTimeSet_Tag~0xA12B;1
+4242;Relais K12 Interne Anschlußerweiterung;;RelaisK12~0x0842;1
+4243;Aktorentest;;RelaistestGWG200x~0x7500;3
+4682;Sachnummer Regelung;;Sachnummer~0x08E0;1
+4683;Sachnummer 87c652;;Sachnummer_87c652~0xA03D;1
+4685;Sachnummer Codierstecker;;Sachnummer_GWG_Codierstecker~0x1010;1
+4686;Sachnummer LON;;Sachnummer_LON~0xA011;1
+5272;Solar Kollektortemperatur;;Solarkollektortemperatur~0x6564;1
+5273;Solar Nachladeunterdrückung;;SolarNachlade~0x6551;3
+5274;Solar Solarpumpe;;SolarPumpe~0x6552;1
+5276;Solar Speichertemperatur;;SolarSpeichertemperatur~0x6566;1
+5277;Solar Betriebsstunden;;SolarStunden~0x6568;1
+5279;Solar Wärmemenge;;SolarWaerme~0x6560;1
+5280;Speicherladepumpe;;Speicherladepumpe~0x6513;1
+5289;Externe Anschlußerweiterung Software-Index;;SWIndex_extAE~0x0A48;1
+5290;Fernbedienung A1 Software-Index;;SWIndex_FB1~0x0A5C;1
+5291;Fernbedienung M2 Software-Index;;SWIndex_FB2~0x0A60;1
+5292;Interne Pumpe Software-Index;;SWIndex_IntPumpe~0x0A54;1
+5293;Mischererweiterung Software-Index;;SWIndex_Mischer~0x0A44;1
+5298;Pumpe A1 Software-Index;;SWIndex_Pumpe1~0x0A4C;1
+5299;Pumpe M2 Software-Index;;SWIndex_Pumpe2~0x0A50;1
+5303;Solarregelung Software-Index;;SWIndex_Solar~0x0A40;1
+5305;Vitocom 100 Software-Index;;SWIndex_Vitocom~0x0A58;1
+5319;Regelung Gerätegruppe;;SystemIdent_SX~0x00F8;1
+5333;Teilnehmerliste LON eigene TN-Nummer Anlage/TN;;Teilnehmerliste_LON_00~0xA010;1
+5334;Teilnehmerliste LON (01) Anlage/TN;;Teilnehmerliste_LON_01~0xA010;1
+5335;Teilnehmerliste LON (02)  Anlage/TN;;Teilnehmerliste_LON_02~0xA010;1
+5336;Teilnehmerliste LON (03)  Anlage/TN;;Teilnehmerliste_LON_03~0xA010;1
+5337;Teilnehmerliste LON (04)  Anlage/TN;;Teilnehmerliste_LON_04~0xA010;1
+5338;Teilnehmerliste LON (05)  Anlage/TN;;Teilnehmerliste_LON_05~0xA010;1
+5339;Teilnehmerliste LON (06)  Anlage/TN;;Teilnehmerliste_LON_06~0xA010;1
+5340;Teilnehmerliste LON (07)  Anlage/TN;;Teilnehmerliste_LON_07~0xA010;1
+5341;Teilnehmerliste LON (08)  Anlage/TN;;Teilnehmerliste_LON_08~0xA010;1
+5342;Teilnehmerliste LON (09)  Anlage/TN;;Teilnehmerliste_LON_09~0xA010;1
+5343;Teilnehmerliste LON (10)  Anlage/TN;;Teilnehmerliste_LON_10~0xA010;1
+5344;Teilnehmerliste LON (11)  Anlage/TN;;Teilnehmerliste_LON_11~0xA010;1
+5345;Teilnehmerliste LON (12)  Anlage/TN;;Teilnehmerliste_LON_12~0xA010;1
+5346;Teilnehmerliste LON (13)  Anlage/TN;;Teilnehmerliste_LON_13~0xA010;1
+5347;Teilnehmerliste LON (14)  Anlage/TN;;Teilnehmerliste_LON_14~0xA010;1
+5348;Teilnehmerliste LON (15)  Anlage/TN;;Teilnehmerliste_LON_15~0xA010;1
+5365;Status Sensor 5B;;TemperaturFehler_STS2~0x083D;1
+5367;Raumtemperatur A1M1;;TiefpassTemperatur_RTS_A1M1~0x0896;1
+5372;Abgastemperatur;;TiefpassTemperaturwert_AGTS~0x0816;1
+5373;Aussentemperatur;;TiefpassTemperaturwert_ATS~0x5525;1
+5374;Kesseltemperatur;;TiefpassTemperaturwert_KTS~0x0810;1
+5375;Vorlauftemperatur A1M1;;TiefpassTemperaturwert_KTS_A1~0x0810;1
+5376;Raumtemperatur M2;;TiefpassTemperaturwert_RTS_M2~0x0898;1
+5380;Gem. Vorlauftemperatur;;TiefpassTemperaturwert_VTS~0x081A;1
+5381;Temperatur Speicher Ladesensor Komfortsensor;;TiefpassTemperaturwertWW1~0x0812;1
+5382;Auslauftemperatur;;TiefpassTemperaturwerWW2~0x0814;1
+5385;Datum und Uhrzeit ;;Uhrzeit~0x088E;3
+5389;Umschaltventil;;Umschaltventil~0x0A10;1
+5391;Fehlerhistorie Löschen;;valmRPCClearErrorHistoryTable~0xA029;3
+5609;Teilnehmerliste loeschen;;vlogRPCClearMemberList~0xA009;2
+6052;Vorlauftemperatur A1M1;;VorlauftemperaturM1~0x2900;1
+6053;Vorlauftemperatur M2;;VorlauftemperaturM2~0x3900;1
+6063;Vorlauftemperatur Soll A1M1;;VT_SolltemperaturA1M1~0x2544;1
+6064;Vorlauftemperatur Soll M2;;VT_SolltemperaturM2~0x3544;1
+7177;Warmwassertemperatur Soll (effektiv);;WW_SolltemperaturAktuell~0x6500;1
+7179;Warmwasserbereitung;;WW_Status_NR1~0x650A;1
+7181;Zirkulationspumpe;;Zirkulationspumpe~0x6515;1
+7183;ecnsysEventType~Error;;ecnsysEventType~Error;1
+7184;ecnsysEventType~ErrorIndex;;ecnsysEventType~ErrorIndex;1
+7191;Schaltzeiten A1M1;;Schaltzeiten_A1M1_HK;3
+7192;Schaltzeiten WW A1M1;;Schaltzeiten_A1M1_WW;3
+7193;Schaltzeiten ZP A1M1;;Schaltzeiten_A1M1_ZP;3
+7194;Schaltzeiten M2;;Schaltzeiten_M2_HK;3
+7195;Schaltzeiten WW M2;;Schaltzeiten_M2_WW;3
+7196;Schaltzeiten ZP M2;;Schaltzeiten_M2_ZP;3
+7206;Herstellnummer Regelung;;HWHerstellNrRegelung~0xF000;1
+7208;Gerät;;GWG_K_Kennung~0x00F9;3
+7217;Herstellnummer Kessel;;HWHerstellNrKessel~0xF010;1
+7565;(60) Offset für Kessel- bzw Vorlaufsolltemperatur (auf Warmwasser-Solltemperatur);;K60_KonfiWW_GWG_KesselOffset~0x6760;3
+7567;Software-Index des Gerätes;;Software_Index~0x00FB;1
+7608;ecnsysEventType~ErrorNotification;;ecnsysEventType~ErrorNotification;1
+7987;Kennung HK1;;HK1_Kennung~0x2520;1
+8161;Hydraulische Weiche;;Temperatur_Hydraulische_Weiche~0x080C;1
+8169;(P00) Momentane Leistung;;VSKO_Scot_CES_P0~0x4000;1
+8170;(P01) GFA Störcode;;VSKO_Scot_CES_P1~0x4001;1
+8171;(P02) Vorlauftemperatur als A/D Wert;;VSKO_Scot_CES_P0~0x4002;1
+8172;(P03) Abgastemperatur als A/D Wert;;VSKO_Scot_CES_P3~0x4003;1
+8173;(P04) AD Wandler Wert 3;;VSKO_Scot_CES_P4~0x4004;1
+8174;(P05) Ansteuersignal Gasstellglied;;VSKO_Scot_CES_P5~0x4005;1
+8175;(P06) Drehzahl-Istwert;;VSKO_Scot_CES_P6~0x4006;1
+8176;(P07) Zuletzt aufgetretener Fehler;;VSKO_Scot_CES_P7~0x4007;1
+8177;(P08) Phase, in dem der letzte Fehler aufgetreten ist;;VSKO_Scot_CES_P8~0x4008;1
+8178;(P09) Drehzahl-Sollwert;;VSKO_Scot_CES_P9~0x4009;1
+8179;(P10) PWM Sollwert Gebläse;;VSKO_Scot_CES_P10~0x400A;1
+8180;(P11) Weiterer Detailierungsgrad;;VSKO_Scot_CES_P11~0x400B;1
+8181;(P12) Digitaleingang mit Bit-Kodierung;;VSKO_Scot_CES_P12~0x400C;1
+8182;(P13) Io-Istwert;;VSKO_Scot_CES_P13~0x400D;1
+8183;(P14) Io-Basiswert;;VSKO_Scot_CES_P14~0x400E;1
+8184;(P15) Io-Sollwert (aktuell);;VSKO_Scot_CES_P15~0x400F;1
+8185;(P16) Kalibrationsleistung (=EF31);;VSKO_Scot_CES_P16~0x4010;1
+8186;(P17) Flammenbildungszeit;;VSKO_Scot_CES_P17~0x4011;1
+8187;(P18) Zusatzinfo zu Fehler 98;;VSKO_Scot_CES_P18~0x4012;1
+8188;(P25) Io-Kalibrationsmaximum;;VSKO_Scot_CES_P25~0x4019;1
+8189;(P26) Zähler für Zündungen bis zur nächsten Kalibration;;VSKO_Scot_CES_P26~0x401A;1
+8190;(P27) Io-Kompensationswert;;VSKO_Scot_CES_P27~0x401B;1
+8191;(P28) Min. Io-Wert nach Zündund;;VSKO_Scot_CES_P28~0x401C;1
+8192;(P29) Detailierung 1. Fehler F61/62;;VSKO_Scot_CES_P29~0x401D;1
+8193;(P30) Detailierung 2. Fehler F61/62;;VSKO_Scot_CES_P30~0x401E;1
+8194;(P70) C10 – Gasart Min;;VSKO_Scot_CES_P70~0x4046;1
+8195;(P71) C10 – Gasart Max;;VSKO_Scot_CES_P71~0x4047;1
+8196;(P72) C11 – Korr. qGasStart Min;;VSKO_Scot_CES_P72~0x4048;1
+8197;(P73) C11 – Korr. qGasStart Max;;VSKO_Scot_CES_P73~0x4049;1
+8198;(P74) C12 – Absenk. Io-Basiswert Min;;VSKO_Scot_CES_P74~0x404A;1
+8199;(P75) C12 – Absenk. Io-Basiswert Max;;VSKO_Scot_CES_P75~0x404B;1
+8200;(P76) C13 – Korr. Startleistung Min;;VSKO_Scot_CES_P76~0x404C;1
+8201;(P77) C13 – Korr. Startleistung Max;;VSKO_Scot_CES_P77~0x404D;1
+8202;(P78) C14 – GPV–Offset Min (H53);;VSKO_Scot_CES_P78~0x404E;1
+8203;(P79) C14 – GPV–Offset Max (H54);;VSKO_Scot_CES_P79~0x404F;1
+8205;(P81) Softwareversion FA (Version);;VSKO_Scot_CES_P81~0x4051;1
+8206;(P82) Softwareversion FA (Revision);;VSKO_Scot_CES_P82~0x4052;1
+8207;(P83) Gerätekonfiguration;;VSKO_Scot_CES_P83~0x4053;1
+8208;(P84) GFA Betriebsphase;;VSKO_Scot_CES_P84~0x4054;1
+8209;(P85) GFA Status 1;;VSKO_Scot_CES_P85~0x4055;1
+8210;(P86) GFA Status 2;;VSKO_Scot_CES_P86~0x4056;1
+8211;(P87) GFA Status 3;;VSKO_Scot_CES_P87~0x4057;1
+8212;(P88) GFA Status 4;;VSKO_Scot_CES_P88~0x4058;1
+8213;(P89) b0=FA9, b1=FA11, b2=FA8;;VSKO_Scot_CES_P89~0x4059;1
+8214;(P90) Codierstecker FA-Typ {FA42};;VSKO_Scot_CES_P90~0x405A;1
+8215;(P100) Minimale Leistung;;VSKO_Scot_CES_P100~0x4064;1
+8216;(P101) Codierstecker Kennung Nr.1 VI;;VSKO_Scot_CES_P101~0x4065;1
+8217;(P102) Codierstecker Kennung Nr.2 VI;;VSKO_Scot_CES_P102~0x4066;1
+8218;(P103) Codierstecker Datum (Tag);;VSKO_Scot_CES_P103~0x4067;1
+8219;(P104) Codierstecker Datum (Monat);;VSKO_Scot_CES_P104~0x4068;1
+8220;(P105) Codierstecker Datum (Jahr);;VSKO_Scot_CES_P105~0x4069;1
+8221;(P106) CRC – Codierstecker – VI;;VSKO_Scot_CES_P106~0x406A;1
+8222;(P107) Codierstecker Kennung {FA40};;VSKO_Scot_CES_P107~0x406B;1
+8223;(P108) Codierstecker Kennung {FA41};;VSKO_Scot_CES_P108~0x406C;1
+8224;(P00) Momentane Leistung;;VSKO_Scot_P0~0x4000;1
+8225;(P01) GFA Störcode;;VSKO_Scot_P1~0x4001;1
+8226;(P02) Vorlauftemperatur als A/D Wert;;VSKO_Scot_P2~0x4002;1
+8227;(P03) Abgastemperatur als A/D Wert;;VSKO_Scot_P3~0x4003;1
+8228;(P04) AD Wandler Wert 3;;VSKO_Scot_P4~0x4004;1
+8229;(P05) Ansteuersignal Gasstellglied;;VSKO_Scot_P5~0x4005;1
+8230;(P06) Drehzahl-Istwert;;VSKO_Scot_P6~0x4006;1
+8231;(P07) Zuletzt aufgetretener Fehler;;VSKO_Scot_P7~0x4007;1
+8232;(P08) Phase, in dem der letzte Fehler aufgetreten ist;;VSKO_Scot_P8~0x4008;1
+8233;(P09) Drehzahl-Sollwert;;0x4009;1
+8234;(P10) PWM Sollwert Gebläse;;VSKO_Scot_P10~0x400A;1
+8235;(P11) Weiterer Detailierungsgrad;;VSKO_Scot_P11~0x400B;1
+8236;(P12) Digitaleingang mit Bit-Kodierung;;VSKO_Scot_P12~400C;1
+8237;(P13) Io-Istwert;;VSKO_Scot_P13~0x400D;1
+8238;(P14) Io-Basiswert;;VSKO_Scot_P14~0x400E;1
+8239;(P15) Io-Sollwert (aktuell);;VSKO_Scot_P15~0x400F;1
+8240;(P16) Kalibrationsleistung (=EF31);;VSKO_Scot_P16~0x4010;1
+8241;(P17) Flammenbildungszeit;;VSKO_Scot_P17~0x4011;1
+8242;(P18) Zusatzinfo zu Fehler 98;;VSKO_Scot_P18~0x4012;1
+8243;(P25) Io-Kalibrationsmaximum;;VSKO_Scot_P25~0x4019;1
+8244;(P26) Zähler für Zündungen bis zur nächsten Kalibration;;0x401A;1
+8245;(P27) Io-Kompensationswert;;VSKO_Scot_P27~0x401B;1
+8246;(P28) Min. Io-Wert nach Zündund;;0x401C;1
+8247;(P29) Detailierung 1. Fehler F61/62;;0x401D;1
+8249;(P30) Detailierung 2. Fehler F61/62;;VSKO_Scot_P30~0x401E;1
+8254;(P72) C11 – Startgasmenge Min;;VSKO_Scot_P72~0x4048;1
+8256;(P73) C11 – Startgasmenge Max;;VSKO_Scot_P73~0x4049;1
+8257;(P89) 60 Hz Betrieb;;VSKO_Scot_P89~0x4059;1
+8258;(P80) Kennung FA-Chip;;VSKO_Scot_CES_P80~0x4050;1
+8259;(P09) Modulationssollwert;;VSKO_GFA_P9~0x4009;1
+8260;(P89) 60 Hz;;VSKO_GFA_P89~0x4059;1
+8372;(C01) Konfiguration Kaskade (0=Nein, 1=Ja);;VSKO_Codierparameter_C01~0x0001;1
+8375;(C10) Erdgas (0) / Flüssiggas (1);;VSKO_Codierparameter_C10~0x000A;1
+8376;(C11) Korrektur qGasStart (additiv, mit Vorzeichen);;VSKO_Codierparameter_C11~0x000B;1
+8377;(C12) Absenkung Io-Basiswert;;VSKO_Codierparameter_C12~0x000C;1
+8378;(C13) Korrektur Startleistungen;;VSKO_Codierparameter_C13~0x000D;1
+8379;(C14) GPV-Kennlinien-Offset;;VSKO_Codierparameter_C14~0x000E;1
+8380;(C00) Gasart (0=Erdgas, 1=Flüssiggas);;VSKO_Codierparameter_C00~0x0000;1
+8381;(C02) Bezugswert Überprüfung des zulässigen Offsetwertes;;VSKO_Codierparameter_C02~0x0002;1
+8395;Kennung Feuerungsautomat-Chip;;GFA_Kennung~0x7650;1
+10081;Sensor 7;;SM1_Sensor_7_GWG~0xCF90;1
+10759;Status Sensor ATS;;TemperaturFehler_ATS_GWG~0x083A;1
+10760;Status Sensor KTS;;TemperaturFehler_KTS_GWG~0x083B;1
+10762;Status Sensor VTS;;TemperaturFehler_VLTS_GWG~0x0840;1
+10796;Status Raumtemp.-Sensor HK1;;HO2B_SensorStatus_RTS_M1~0x089C;1
+10797;Status Raumtemp.-Sensor HK2;;HO2B_SensorStatus_RTS_M2~0x089D;1
+11609;Brennertyp ;;GWG_8853_Brennertyp~0x8853;1
+11750;(C08) Offsetverschiebung des Startwertes der Gasvolumenstromrampe;;VSKO_Codierparameter_Vi_C08~0x0008;1
+11927;Nachheizunterdrueckung;;Nachheizunterdrueckung~0x55FE;3
+12646;DatabaseVersion For Export;;DatabaseVersionForExport;1

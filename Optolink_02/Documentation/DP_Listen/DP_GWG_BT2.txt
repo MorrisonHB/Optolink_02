@@ -1,0 +1,92 @@
+Gas-Wandgerät
+=============
+
+# Bedienung (872)
+- Nur am Gerät (873)
+    - Betriebsprogramm (389) [GWG_BT2Betriebsprogramm~0x0039 (Byte)]
+    - Kesselsolltemperatur (396) [GWG_BT2Kesselsolltemperatur~0x004B (Int)]
+    - Trinkwassersolltemperatur (415) [GWG_BT2Trinkwassersolltemperatur~0x004C (Int)]
+
+# Information (874)
+- Allgemein (875)
+    - Abgastemperatur (387) [GWG_BT2Abgastemperatur~0x0048 (Int)]
+    - Komfortbetrieb (405) [GWG_BT2StatusKomfortbetrieb~0x0023 (Byte)]
+    - Status Pumpe (406) [GWG_BT2StatusPumpe~0x0022 (Byte)]
+    - Kesseltemperatur (397) [GWG_BT2Kesseltemperatur~0x0046 (Int)]
+    - Status Warmwasserbereitung (408) [GWG_BT2StatusWarmwasserbereitung~0x0023 (Byte)]
+    - Status Brenner (404) [GWG_BT2StatusBrenner~0x0022 (Byte)]
+    - Status Warmwasserbereitung (409) [GWG_BT2StatusWarmwasserbereitungByte~0x0023 (Byte)]
+    - Trinkwassertemperatur (416) [GWG_BT2Trinkwassertemperatur~0x0047 (Int)]
+    - Status Umschaltventil (407) [GWG_BT2StatusUmschaltventil~0x0023 (Byte)]
+
+# Diagnose Anlage (877)
+- Allgemein (878)
+    - Status Warmwasserbereitung (408) [GWG_BT2StatusWarmwasserbereitung~0x0023 (Byte)]
+    - Komfortbetrieb (405) [GWG_BT2StatusKomfortbetrieb~0x0023 (Byte)]
+    - Status Pumpe (406) [GWG_BT2StatusPumpe~0x0022 (Byte)]
+    - Kesseltemperatur (397) [GWG_BT2Kesseltemperatur~0x0046 (Int)]
+    - Betriebsprogramm (389) [GWG_BT2Betriebsprogramm~0x0039 (Byte)]
+    - Kesselsolltemperatur (396) [GWG_BT2Kesselsolltemperatur~0x004B (Int)]
+    - Status Brenner (404) [GWG_BT2StatusBrenner~0x0022 (Byte)]
+    - Status Warmwasserbereitung (409) [GWG_BT2StatusWarmwasserbereitungByte~0x0023 (Byte)]
+    - Trinkwassertemperatur (416) [GWG_BT2Trinkwassertemperatur~0x0047 (Int)]
+    - Status Umschaltventil (407) [GWG_BT2StatusUmschaltventil~0x0023 (Byte)]
+    - Trinkwassersolltemperatur (415) [GWG_BT2Trinkwassersolltemperatur~0x004C (Int)]
+
+# Diagnose System (879)
+- Regelung (880)
+    - Geräteidentifikation Gerätekennung (673) [GWG_SystemIdent_GK~0x00F8 (Array)]
+    - Geräteidentifikation Hardware-Index (674) [GWG_SystemIdent_HX~0x00F8 (Array)]
+    - Geräteidentifikation Gerätegruppe (672) [GWG_SystemIdent_GG~0x00F8 (Array)]
+    - Geräteidentifikation Software-Index (675) [GWG_SystemIdent_SW~0x00F8 (Array)]
+
+# Feuerungsautomat LGM27 (881)
+- OEM-Parameter (883)
+    - Geräte-Nummer (577) [GWG_FA27_OEM_GeraeteNummer~0x000A (Byte)]
+    - Modulation Gas in Zuendlast (582) [GWG_FA27_OEM_ModGas_Zuendlast~0x000F (Byte)]
+    - Modulation Gas in Volllast (581) [GWG_FA27_OEM_ModGas_Volllast~0x000F (Byte)]
+    - Parametersatz (583) [GWG_FA27_OEM_Parametersatz~0x000A (Byte)]
+    - Modulation Gas in Teillast (580) [GWG_FA27_OEM_ModGas_Teillast~0x000F (Byte)]
+    - Modulation Gas in Kleinlast (579) [GWG_FA27_OEM_ModGas_Kleinlast~0x000F (Byte)]
+- Grenztemperaturen (882)
+    - Minimale Temperatur (572) [GWG_FA27_MinTemp~0x006A (Byte)]
+    - Ausloeseschwelle Abgasüberwachung (563) [GWG_FA27_AusloeseschwelleAbgas~0x0078 (Byte)]
+    - Komfort-Einschalttemperatur (570) [GWG_FA27_KomfortEinTemp~0x0070 (Byte)]
+    - Maximale Warmwassertemperatur (597) [GWG_FA27_WWMaxTemp~0x0070 (Byte)]
+    - Wiedereinschaltpunkt Abgasüberwachung (596) [GWG_FA27_WiedereinschaltpunktAbgas~0x0078 (Byte)]
+    - Temperaturwaechter (595) [GWG_FA27_TempWaechter~0x006A (Byte)]
+    - Komfort-Ausschalttemperatur (569) [GWG_FA27_KomfortAusTemp~0x0070 (Byte)]
+    - Kesselsollwert Notbetrieb (568) [GWG_FA27_KesselSollNotbetrieb~0x006A (Byte)]
+    - Maximale Temperatur (571) [GWG_FA27_MaxTemp~0x006A (Byte)]
+    - Minimale Warmwassertemperatur (598) [GWG_FA27_WWMinTemp~0x0070 (Byte)]
+- Sonstiges (885)
+    - Ladepumpen-Nachlauf in WW-Schema 5 (576) [GWG_FA27_NachlaufWW5~0x0091 (Byte)]
+    - Kessel-Solltemperatur bei Frostschutz (566) [GWG_FA27_FrostschutzKTSoll~0x0070 (Byte)]
+    - Ladepumpen-Nachlauf in WW-Schema 3 und 4 (575) [GWG_FA27_NachlaufWW3u4~0x0091 (Byte)]
+    - Ladepumpen-Nachlauf in WW-Schema 2 (574) [GWG_FA27_NachlaufWW2~0x0091 (Byte)]
+    - Nachlaufzeit Ladepumpe bei Frostschutz (567) [GWG_FA27_FrostschutzNachlaufLP~0x0083 (Byte)]
+    - Ladepumpen-Nachlauf in WW-Schema 1 (573) [GWG_FA27_NachlaufWW1~0x0091 (Byte)]
+    - Einschaltzeit Heizkreispumpe bei Frostschutz (565) [GWG_FA27_FrostschutzEinschaltHKP~0x0083 (Byte)]
+    - Einschaltschwelle bei Frostschutz (564) [GWG_FA27_FrostschutzEinschalt~0x006A (Byte)]
+- Taktschutz (884)
+    - Kesselmindesttemperatur für Abbruch Mindestpause (591) [GWG_FA27_Takt_KTMinAbbrMindestpause~0x0070 (Byte)]
+    - Brennermindestlaufzeit (584) [GWG_FA27_Takt_Brennermindestlaufzeit~0x0083 (Byte)]
+    - Ausschaltdifferenz Brenner im Warmwasserbetrieb (593) [GWG_FA27_Takt_WWAusschaltdifferenz~0x0078 (Byte)]
+    - Reglerverzögerung nach Brennerstart (592) [GWG_FA27_Takt_ReglerverzoegerungStart~0x0083 (Byte)]
+    - Brennermindestpause im Heizbetrieb (585) [GWG_FA27_Takt_Brennermindestpause~0x0064 (Byte)]
+    - Einschaltdifferenz Brenner im Heizbetrieb (590) [GWG_FA27_Takt_HeizEinschaltdifferenz~0x0078 (Byte)]
+    - Einschaltdifferenz Brenner im Durchlauferhitzer-Betrieb (588) [GWG_FA27_Takt_DLHEinschaltdifferenz~0x0078 (Byte)]
+    - Delta Max für Abbruch Mindestpause (586) [GWG_FA27_Takt_DeltaMaxMindestpause~0x0070 (Byte)]
+    - Ausschaltdifferenz Brenner im Heizbetrieb (589) [GWG_FA27_Takt_HeizAusschaltdifferenz~0x0078 (Byte)]
+    - Ausschaltdifferenz Brenner im Durchlauferhitzer-Betrieb (587) [GWG_FA27_Takt_DLHAusschaltdifferenz~0x0078 (Byte)]
+    - Einschaltdifferenz Brenner im Warmwasserbetrieb (594) [GWG_FA27_Takt_WWEinschaltdifferenz~0x0078 (Byte)]
+
+# Codierungen (887)
+- Anlage (888)
+    - (S5) Trinkwassererwaermung durch (384) [GWG_BT2_S5Trinkwasserschema~0x0015 (Byte)]
+    - (S6) Anlagenfrostschutz (385) [GWG_BT2_S6Anlagenfrostschutz~0x0016 (Byte)]
+    - (S1) Nachlauf der Umwälzpumpe bei Speicherladung (380) [GWG_BT2_S1Speichernachlauf~0x0011 (Byte)]
+    - (S2) Extern Sperren wirkt auf (381) [GWG_BT2_S2ExternSperren~0x0012 (Byte)]
+    - (S3) Maximale Kesseltemperatur bei Trinkwasserbereitung (382) [GWG_BT2_S3MaxKTbeiSpeicherladung~0x0013 (Byte)]
+    - (S4) Zusatzfunktion Trinkwassererwaermung (383) [GWG_BT2_S4ZusatzfunktionTrinkwasser~0x0014 (Byte)]
+    - (S7) Uhrenthermostat-M ist eingestellt auf (386) [GWG_BT2_S7UhrenthermostatM~0x0017 (Byte)]

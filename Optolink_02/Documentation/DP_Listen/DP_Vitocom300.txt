@@ -1,0 +1,390 @@
+Vitocom 300
+===========
+
+# Überblick (7107)
+- Digitaleingänge (17875)
+    - Vitocom Digitaleingang  DE1 (5869) [vlogRPCReadDigitalInputGM_01~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE2 (5870) [vlogRPCReadDigitalInputGM_02~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE3 (5871) [vlogRPCReadDigitalInputGM_03~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE4 (5872) [vlogRPCReadDigitalInputGM_04~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE5 (5873) [vlogRPCReadDigitalInputGM_05~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE6 (5874) [vlogRPCReadDigitalInputGM_06~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE7 (5875) [vlogRPCReadDigitalInputGM_07~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE8 (5876) [vlogRPCReadDigitalInputGM_08~0xA06A (Byte)]
+- Analogeingänge (17877)
+    - Vitocom 300: Analogeingang  AE1 (5839) [vlogRPCReadAnalogInputGM_01~0xA06B (Int)]
+    - Vitocom 300: Analogeingang  AE2 (5840) [vlogRPCReadAnalogInputGM_02~0xA06B (Int)]
+- Digitaleingänge EM1 (17878) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE1 (5849) [vlogRPCReadDigitalInputEM1_01~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE2 (5850) [vlogRPCReadDigitalInputEM1_02~0xA06A (Byte)]
+    - Erweiterungsmodul 1: Digitaleingang  DE3 (5851) [vlogRPCReadDigitalInputEM1_03~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE4 (5852) [vlogRPCReadDigitalInputEM1_04~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE5 (5853) [vlogRPCReadDigitalInputEM1_05~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE6 (5854) [vlogRPCReadDigitalInputEM1_06~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE7 (5855) [vlogRPCReadDigitalInputEM1_07~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE8 (5856) [vlogRPCReadDigitalInputEM1_08~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE9 (5857) [vlogRPCReadDigitalInputEM1_09~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE10 (5858) [vlogRPCReadDigitalInputEM1_10~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Impulseingang  IE1 (5841) [vlogRPCReadDigitalCountEM1_01~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Impulseingang  IE2 (5843) [vlogRPCReadDigitalCountEM1_02~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+- Digitaleingänge EM2 (17879) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE1 (5859) [vlogRPCReadDigitalInputEM2_01~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE2 (5860) [vlogRPCReadDigitalInputEM2_02~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE3 (5861) [vlogRPCReadDigitalInputEM2_03~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE4 (5862) [vlogRPCReadDigitalInputEM2_04~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE5 (5863) [vlogRPCReadDigitalInputEM2_05~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE6 (5864) [vlogRPCReadDigitalInputEM2_06~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE7 (5865) [vlogRPCReadDigitalInputEM2_07~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE8 (5866) [vlogRPCReadDigitalInputEM2_08~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE9 (5867) [vlogRPCReadDigitalInputEM2_09~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE10 (5868) [vlogRPCReadDigitalInputEM2_10~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Impulseingang  IE1 (5845) [vlogRPCReadDigitalCountEM2_01~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Impulseingang  IE2 (5847) [vlogRPCReadDigitalCountEM2_02~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+- Analogeingänge EM1 (17880) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE1 (5825) [vlogRPCReadAnalogInputEM1_01~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE2 (5826) [vlogRPCReadAnalogInputEM1_02~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE3 (5827) [vlogRPCReadAnalogInputEM1_03~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE4 (5828) [vlogRPCReadAnalogInputEM1_04~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE5 (5829) [vlogRPCReadAnalogInputEM1_05~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE6 (5830) [vlogRPCReadAnalogInputEM1_06~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE7 (5831) [vlogRPCReadAnalogInputEM1_07~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+- Analogeingänge EM2 (17881) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE1 (5832) [vlogRPCReadAnalogInputEM2_01~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE2 (5833) [vlogRPCReadAnalogInputEM2_02~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE3 (5834) [vlogRPCReadAnalogInputEM2_03~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE4 (5835) [vlogRPCReadAnalogInputEM2_04~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE5 (5836) [vlogRPCReadAnalogInputEM2_05~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE6 (5837) [vlogRPCReadAnalogInputEM2_06~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE7 (5838) [vlogRPCReadAnalogInputEM2_07~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+
+# Bedienung (7108)
+- Bedienung (5944)
+    - Datum und Uhrzeit (5759) [vlogRPCDateTime~0xA06E (Array)]
+- Digitalausgänge (17760)
+    - DO1 Status (5901) [vlogRPCSetDigitalOutputGM01~0xA08C (Array)]
+    - Digitalausgang DA1 (5690) [vlogRPCConfigDigitalOutputGM_01~0xA08D (Array)]
+- Digitalausgänge EM1 (5947) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - DO1 Status (5897) [vlogRPCSetDigitalOutputEM1_01~0xA08C (Array)]
+    - DO2 Status (5898) [vlogRPCSetDigitalOutputEM1_02~0xA08C (Array)]
+- Digitalausgänge EM2 (5948) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - DO1 Status (5899) [vlogRPCSetDigitalOutputEM2_01~0xA08C (Array)]
+    - DO2 Status (5900) [vlogRPCSetDigitalOutputEM2_02~0xA08C (Array)]
+
+# Systemkonfiguration (16634)
+- Allgemein (5989)
+    - Teilnehmernummer (6007) [vlogVSTeilnehmernummer~0x7777 (Byte)]
+    - Anlagennummer (5986) [vlogVSAnlagennummer~0x7776 (Byte)]
+    - Eigene Telefonnummer Vitocom (5349) [Telefonnummer_Vitocom~0xAF29 (String)]
+    - Lebenszeichen (5984) [vlogVSAlarmZyklusLebenszeichen~0xAC01 (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 1 (5322) [TeilnehmerFehlermanager1~0xAEDB (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 2 (5324) [TeilnehmerFehlermanager2~0xAEDD (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 3 (5326) [TeilnehmerFehlermanager3~0xAEDF (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 4 (5328) [TeilnehmerFehlermanager4~0xAEE1 (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 5 (5330) [TeilnehmerFehlermanager5~0xAEE3 (Byte)]
+- Internet/Modem (5990)
+    - Telefonnummer ISP (6015) [vlogVSVerbindungISPEinwahl~0xAD24 (String)]
+    - Benutzer ISP (6012) [vlogVSVerbindungISPBenutzer~0xAD38 (String)]
+    - Passwort ISP (6017) [vlogVSVerbindungISPPasswort~0xAD48 (String)]
+    - Anzahl Klingelzeichen bis zur Rufabnahme (5987) [vlogVSAnzahl_Klingelzeichen~0xB19A (Byte)]
+    - Auszeit nach letztem Klingelzeichen (5988) [vlogVSAnzahl_Klingelzeichen_Auszeit~0xB19B (Byte)]
+    - Modeminitialisierung PPP (3453) [Modemininitialisierung_PPP~0xAE38 (String)]
+    - Modeminitialisierung FAX (3452) [Modemininitialisierung_FAX~0xADE8 (String)]
+    - Modeminitialisierung SMS (3455) [Modemininitialisierung_SMS~0xAE10 (String)]
+    - Modeminitialisierung Reset (3454) [Modemininitialisierung_Reset~0xAE60 (String)]
+    - Modemanwahlstring (3451) [Modemanwahlstring~0xAF3E (String)]
+    - Modem - Reset-Zyklus (5506) [VDIALModemResetTimeout~0xAC03 (Byte)]
+- ISDN (5991)
+    - Modem - Typ (5507) [VDIALModemType~0xF020 (Byte)]
+    - MSN (nur bei ISDN-Anschluss!) (6024) [vlogVSVerbindungMSN~0xAE8A (String)]
+- Notfax/SMS (5992)
+    - 1. Telefonnummer (F..=Fax, S..=SMS) (5993) [vlogVSNotfaxTelefonNummer01~0xAC20 (String)]
+    - 2. Telefonnummer (F..=Fax, S..=SMS) (5994) [vlogVSNotfaxTelefonNummer02~0xAC34 (String)]
+    - 3. Telefonnummer (F..=Fax, S..=SMS) (5995) [vlogVSNotfaxTelefonNummer03~0xAC48 (String)]
+    - 4. Telefonnummer (F..=Fax, S..=SMS) (5996) [vlogVSNotfaxTelefonNummer04~0xAC5C (String)]
+    - 5. Telefonnummer (F..=Fax, S..=SMS) (5997) [vlogVSNotfaxTelefonNummer05~0xAC70 (String)]
+    - Text für Not-Fax Zeile 1 (5998) [vlogVSNotfaxText01~0xB000 (String)]
+    - Text für Not-Fax Zeile 2 (5999) [vlogVSNotfaxText02~0xB051 (String)]
+    - Text für Not-Fax Zeile 3 (6000) [vlogVSNotfaxText03~0xB0A2 (String)]
+    - Text für Not-Fax Zeile 4 (6001) [vlogVSNotfaxText04~0xB0F3 (String)]
+    - Text für Not-Fax Zeile 5 (6002) [vlogVSNotfaxText05~0xB144 (String)]
+    - Text für Not-SMS Zeile 1 (6005) [vlogVSNotSMSText01~0xAC84 (String)]
+    - Text für Not-SMS Zeile 2 (6006) [vlogVSNotSMSText02~0xACD4 (String)]
+    - Not-FAX   Anzahl Wahlwiederholungen (5991) [vlogVSNotfax_Wahlwiederholungen~0xB196 (Byte)]
+    - Not-FAX   Wartezeit zwischen Wahlwiederholung (5992) [vlogVSNotfax_Wahlwiederholungen_Wartezeit~0xB197 (Byte)]
+    - Not-SMS   Anzahl Wahlwiederholungen (6003) [vlogVSNotSMS_Wahlwiederholungen~0xB198 (Byte)]
+    - Not-SMS   Wartezeit zwischen Wahlwiederholung (6004) [vlogVSNotSMS_Wahlwiederholungen_Wartezeit~0xB199 (Byte)]
+    - Anzahl Leerzeichen vor Not-Fax (3468) [Notfax_Leerzeichen~0xAC05 (Byte)]
+    - Anzahl Leerzeilen vor Not-Fax (3469) [Notfax_Leerzeilen~0xAC06 (Byte)]
+
+# Konfiguration Ein-/Ausgänge (17759)
+- Digitaleingänge (17761)
+    - Digitaleingang DE1 (5567) [vlogRPCActivateDigitalInputGM_01~0xA082 (Array)]
+    - Digitaleingang DE1 wirkt als (5965) [vlogRPCTypDigitalInputGM_01~0xA083 (Array)]
+    - Digitaleingang DE2 (5568) [vlogRPCActivateDigitalInputGM_02~0xA082 (Array)]
+    - Digitaleingang DE2 wirkt als (5966) [vlogRPCTypDigitalInputGM_02~0xA083 (Array)]
+    - Digitaleingang DE3 (5569) [vlogRPCActivateDigitalInputGM_03~0xA082 (Array)]
+    - Digitaleingang DE3 wirkt als (5967) [vlogRPCTypDigitalInputGM_03~0xA083 (Array)]
+    - Digitaleingang DE4 (5570) [vlogRPCActivateDigitalInputGM_04~0xA082 (Array)]
+    - Digitaleingang DE4 wirkt als (5968) [vlogRPCTypDigitalInputGM_04~0xA083 (Array)]
+    - Digitaleingang DE5 (5571) [vlogRPCActivateDigitalInputGM_05~0xA082 (Array)]
+    - Digitaleingang DE5 wirkt als (5969) [vlogRPCTypDigitalInputGM_05~0xA083 (Array)]
+    - Digitaleingang DE6 (5572) [vlogRPCActivateDigitalInputGM_06~0xA082 (Array)]
+    - Digitaleingang DE6 wirkt als (5970) [vlogRPCTypDigitalInputGM_06~0xA083 (Array)]
+    - Digitaleingang DE7 (5573) [vlogRPCActivateDigitalInputGM_07~0xA082 (Array)]
+    - Digitaleingang DE7 wirkt als (5971) [vlogRPCTypDigitalInputGM_07~0xA083 (Array)]
+    - Digitaleingang DE8 (5574) [vlogRPCActivateDigitalInputGM_08~0xA082 (Array)]
+    - Digitaleingang DE8 wirkt als (5972) [vlogRPCTypDigitalInputGM_08~0xA083 (Array)]
+- Analogeingänge (17762)
+    - Analogeingang AE1 (5545) [vlogRPCActivateAnalogInputGM_01~0xA086 (Array)]
+    - Analogeingang AE1 Alarm (5656) [vlogRPCConfigAlarmAnalogInputGM_01~0xA089 (Array)]
+    - Analogeingang AE1 Bedingung (5624) [vlogRPCConditionAnalogInputGM_01~0xA087 (Array)]
+    - Analogeingang AE1 - Grenzwert (5687) [vlogRPCConfigAnalogInputGM_01_Wert~0xA08A (Int)]
+    - Analogeingang AE1 - Wert-Typ (5686) [vlogRPCConfigAnalogInputGM_01_Vorzeichen~0xA088 (Byte)]
+    - Analogeingang AE2 (5546) [vlogRPCActivateAnalogInputGM_02~0xA086 (Array)]
+    - Analogeingang AE2 Alarm (5657) [vlogRPCConfigAlarmAnalogInputGM_02~0xA089 (Array)]
+    - Analogeingang AE2 Bedingung (5625) [vlogRPCConditionAnalogInputGM_02~0xA087 (Array)]
+    - Analogeingang AE2 - Grenzwert (5689) [vlogRPCConfigAnalogInputGM_02_Wert~0xA08A (Int)]
+    - Analogeingang AE2 - Wert-Typ (5688) [vlogRPCConfigAnalogInputGM_02_Vorzeichen~0xA088 (Byte)]
+- Digital EM1 (17767) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Digitaleingang DE1 (5547) [vlogRPCActivateDigitalInputEM1_01~0xA082 (Array)]
+    - Digitaleingang DE1 wirkt als (5707) [vlogRPCCounterDigitalInputEM1_01~0xA085 (Array)]
+    - Digitaleingang DE1 wirkt als (5945) [vlogRPCTypDigitalInputEM1_01~0xA083 (Array)]
+    - Digitaleingang DE2 (5548) [vlogRPCActivateDigitalInputEM1_02~0xA082 (Array)]
+    - Digitaleingang DE2 wirkt als (5708) [vlogRPCCounterDigitalInputEM1_02~0xA085 (Array)]
+    - Digitaleingang DE2 wirkt als (5946) [vlogRPCTypDigitalInputEM1_02~0xA083 (Array)]
+    - Digitaleingang DE3 (5549) [vlogRPCActivateDigitalInputEM1_03~0xA082 (Array)]
+    - Digitaleingang DE3 wirkt als (5947) [vlogRPCTypDigitalInputEM1_03~0xA083 (Array)]
+    - Digitaleingang DE4 (5550) [vlogRPCActivateDigitalInputEM1_04~0xA082 (Array)]
+    - Digitaleingang DE4 wirkt als (5948) [vlogRPCTypDigitalInputEM1_04~0xA083 (Array)]
+    - Digitaleingang DE5 (5551) [vlogRPCActivateDigitalInputEM1_05~0xA082 (Array)]
+    - Digitaleingang DE5 wirkt als (5949) [vlogRPCTypDigitalInputEM1_05~0xA083 (Array)]
+    - Digitaleingang DE6 (5552) [vlogRPCActivateDigitalInputEM1_06~0xA082 (Array)]
+    - Digitaleingang DE6 wirkt als (5950) [vlogRPCTypDigitalInputEM1_06~0xA083 (Array)]
+    - Digitaleingang DE7 (5553) [vlogRPCActivateDigitalInputEM1_07~0xA082 (Array)]
+    - Digitaleingang DE7 wirkt als (5951) [vlogRPCTypDigitalInputEM1_07~0xA083 (Array)]
+    - Digitaleingang DE8 (5554) [vlogRPCActivateDigitalInputEM1_08~0xA082 (Array)]
+    - Digitaleingang DE8 wirkt als (5952) [vlogRPCTypDigitalInputEM1_08~0xA083 (Array)]
+    - Digitaleingang DE9 (5555) [vlogRPCActivateDigitalInputEM1_09~0xA082 (Array)]
+    - Digitaleingang DE9 wirkt als (5953) [vlogRPCTypDigitalInputEM1_09~0xA083 (Array)]
+    - Digitaleingang DE10 (5556) [vlogRPCActivateDigitalInputEM1_10~0xA082 (Array)]
+    - Digitaleingang DE10 wirkt als (5954) [vlogRPCTypDigitalInputEM1_10~0xA083 (Array)]
+- Digital EM2 (17768) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Digitaleingang DE1 (5557) [vlogRPCActivateDigitalInputEM2_01~0xA082 (Array)]
+    - Digitaleingang DE1 wirkt als (5709) [vlogRPCCounterDigitalInputEM2_01~0xA085 (Array)]
+    - Digitaleingang DE1 wirkt als (5955) [vlogRPCTypDigitalInputEM2_01~0xA083 (Array)]
+    - Digitaleingang DE2 (5558) [vlogRPCActivateDigitalInputEM2_02~0xA082 (Array)]
+    - Digitaleingang DE2 wirkt als (5710) [vlogRPCCounterDigitalInputEM2_02~0xA085 (Array)]
+    - Digitaleingang DE2 wirkt als (5956) [vlogRPCTypDigitalInputEM2_02~0xA083 (Array)]
+    - Digitaleingang DE3 (5559) [vlogRPCActivateDigitalInputEM2_03~0xA082 (Array)]
+    - Digitaleingang DE3 wirkt als (5957) [vlogRPCTypDigitalInputEM2_03~0xA083 (Array)]
+    - Digitaleingang DE4 (5560) [vlogRPCActivateDigitalInputEM2_04~0xA082 (Array)]
+    - Digitaleingang DE4 wirkt als (5958) [vlogRPCTypDigitalInputEM2_04~0xA083 (Array)]
+    - Digitaleingang DE5 (5561) [vlogRPCActivateDigitalInputEM2_05~0xA082 (Array)]
+    - Digitaleingang DE5 wirkt als (5959) [vlogRPCTypDigitalInputEM2_05~0xA083 (Array)]
+    - Digitaleingang DE6 (5562) [vlogRPCActivateDigitalInputEM2_06~0xA082 (Array)]
+    - Digitaleingang DE6 wirkt als (5960) [vlogRPCTypDigitalInputEM2_06~0xA083 (Array)]
+    - Digitaleingang DE7 (5563) [vlogRPCActivateDigitalInputEM2_07~0xA082 (Array)]
+    - Digitaleingang DE7 wirkt als (5961) [vlogRPCTypDigitalInputEM2_07~0xA083 (Array)]
+    - Digitaleingang DE8 (5564) [vlogRPCActivateDigitalInputEM2_08~0xA082 (Array)]
+    - Digitaleingang DE8 wirkt als (5962) [vlogRPCTypDigitalInputEM2_08~0xA083 (Array)]
+    - Digitaleingang DE9 (5565) [vlogRPCActivateDigitalInputEM2_09~0xA082 (Array)]
+    - Digitaleingang DE9 wirkt als (5963) [vlogRPCTypDigitalInputEM2_09~0xA083 (Array)]
+    - Digitaleingang DE10 (5566) [vlogRPCActivateDigitalInputEM2_10~0xA082 (Array)]
+    - Digitaleingang DE10 wirkt als (5964) [vlogRPCTypDigitalInputEM2_10~0xA083 (Array)]
+- Analog EM1: 1-4 (17769) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Analogeingang AE1 (5531) [vlogRPCActivateAnalogInputEM1_01~0xA086 (Array)]
+    - Analogeingang AE1 (5642) [vlogRPCConfigAlarmAnalogInputEM1_01~0xA089 (Array)]
+    - Analogeingang AE1 Bedingung (5610) [vlogRPCConditionAnalogInputEM1_01~0xA087 (Array)]
+    - Analogeingang AE1 - Grenzwert (5659) [vlogRPCConfigAnalogInputEM1_01_Wert~0xA08A (Int)]
+    - Analogeingang AE1 - Typ (5658) [vlogRPCConfigAnalogInputEM1_01_Typ~0xA08B (Array)]
+    - Analogeingang AE2 (5532) [vlogRPCActivateAnalogInputEM1_02~0xA086 (Array)]
+    - Analogeingang AE2 Alarm (5643) [vlogRPCConfigAlarmAnalogInputEM1_02~0xA089 (Array)]
+    - Analogeingang AE2 Bedingung (5611) [vlogRPCConditionAnalogInputEM1_02~0xA087 (Array)]
+    - Analogeingang AE2 - Grenzwert (5661) [vlogRPCConfigAnalogInputEM1_02_Wert~0xA08A (Int)]
+    - Analogeingang AE2 - Typ (5660) [vlogRPCConfigAnalogInputEM1_02_Typ~0xA08B (Array)]
+    - Analogeingang AE3 (5533) [vlogRPCActivateAnalogInputEM1_03~0xA086 (Array)]
+    - Analogeingang AE3 Alarm (5644) [vlogRPCConfigAlarmAnalogInputEM1_03~0xA089 (Array)]
+    - Analogeingang AE3 Bedingung (5612) [vlogRPCConditionAnalogInputEM1_03~0xA087 (Array)]
+    - Analogeingang AE3 - Grenzwert (5663) [vlogRPCConfigAnalogInputEM1_03_Wert~0xA08A (Int)]
+    - Analogeingang AE3 - Typ (5662) [vlogRPCConfigAnalogInputEM1_03_Typ~0xA08B (Array)]
+    - Analogeingang AE4 (5534) [vlogRPCActivateAnalogInputEM1_04~0xA086 (Array)]
+    - Analogeingang AE4 Alarm (5645) [vlogRPCConfigAlarmAnalogInputEM1_04~0xA089 (Array)]
+    - Analogeingang AE4 Bedingung (5613) [vlogRPCConditionAnalogInputEM1_04~0xA087 (Array)]
+    - Analogeingang AE4 - Grenzwert (5665) [vlogRPCConfigAnalogInputEM1_04_Wert~0xA08A (Int)]
+    - Analogeingang AE4 - Typ (5664) [vlogRPCConfigAnalogInputEM1_04_Typ~0xA08B (Array)]
+- Analog EM1: 5-7 (17770) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Analogeingang AE5 (5535) [vlogRPCActivateAnalogInputEM1_05~0xA086 (Array)]
+    - Analogeingang AE5 Alarm (5646) [vlogRPCConfigAlarmAnalogInputEM1_05~0xA089 (Array)]
+    - Analogeingang AE5 Bedingung (5614) [vlogRPCConditionAnalogInputEM1_05~0xA087 (Array)]
+    - Analogeingang AE5 - Grenzwert (5667) [vlogRPCConfigAnalogInputEM1_05_Wert~0xA08A (Int)]
+    - Analogeingang AE5 - Typ (5666) [vlogRPCConfigAnalogInputEM1_05_Typ~0xA08B (Array)]
+    - Analogeingang AE6 (5536) [vlogRPCActivateAnalogInputEM1_06~0xA086 (Array)]
+    - Analogeingang AE6 Alarm (5647) [vlogRPCConfigAlarmAnalogInputEM1_06~0xA089 (Array)]
+    - Analogeingang AE6 Bedingung (5615) [vlogRPCConditionAnalogInputEM1_06~0xA087 (Array)]
+    - Analogeingang AE6 - Grenzwert (5669) [vlogRPCConfigAnalogInputEM1_06_Wert~0xA08A (Int)]
+    - Analogeingang AE6 - Typ (5668) [vlogRPCConfigAnalogInputEM1_06_Typ~0xA08B (Array)]
+    - Analogeingang AE7 (5537) [vlogRPCActivateAnalogInputEM1_07~0xA086 (Array)]
+    - Analogeingang AE7 Alarm (5648) [vlogRPCConfigAlarmAnalogInputEM1_07~0xA089 (Array)]
+    - Analogeingang AE7 Bedingung (5616) [vlogRPCConditionAnalogInputEM1_07~0xA087 (Array)]
+    - Analogeingang AE7 - Grenzwert (5671) [vlogRPCConfigAnalogInputEM1_07_Wert~0xA08A (Int)]
+    - Analogeingang AE7 - Typ (5670) [vlogRPCConfigAnalogInputEM1_07_Typ~0xA08B (Array)]
+- Analog EM2: 5-7 (17772) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Analogeingang AE5 (5542) [vlogRPCActivateAnalogInputEM2_05~0xA086 (Array)]
+    - Analogeingang AE5 Alarm (5653) [vlogRPCConfigAlarmAnalogInputEM2_05~0xA089 (Array)]
+    - Analogeingang AE5 Bedingung (5621) [vlogRPCConditionAnalogInputEM2_05~0xA087 (Array)]
+    - Analogeingang AE5 - Grenzwert (5681) [vlogRPCConfigAnalogInputEM2_05_Wert~0xA08A (Int)]
+    - Analogeingang AE5 - Typ (5680) [vlogRPCConfigAnalogInputEM2_05_Typ~0xA08B (Array)]
+    - Analogeingang AE6 (5543) [vlogRPCActivateAnalogInputEM2_06~0xA086 (Array)]
+    - Analogeingang AE6 Alarm (5654) [vlogRPCConfigAlarmAnalogInputEM2_06~0xA089 (Array)]
+    - Analogeingang AE6 Bedingung (5622) [vlogRPCConditionAnalogInputEM2_06~0xA087 (Array)]
+    - Analogeingang AE6 - Grenzwert (5683) [vlogRPCConfigAnalogInputEM2_06_Wert~0xA08A (Int)]
+    - Analogeingang AE6 - Typ (5682) [vlogRPCConfigAnalogInputEM2_06_Typ~0xA08B (Array)]
+    - Analogeingang AE7 (5544) [vlogRPCActivateAnalogInputEM2_07~0xA086 (Array)]
+    - Analogeingang AE7 Alarm (5655) [vlogRPCConfigAlarmAnalogInputEM2_07~0xA089 (Array)]
+    - Analogeingang AE7 Bedingung (5623) [vlogRPCConditionAnalogInputEM2_07~0xA087 (Array)]
+    - Analogeingang AE7 - Grenzwert (5685) [vlogRPCConfigAnalogInputEM2_07_Wert~0xA08A (Int)]
+    - Analogeingang AE7 - Typ (5684) [vlogRPCConfigAnalogInputEM2_07_Typ~0xA08B (Array)]
+
+# Diagnose Anlage (9389)
+- Wartung (5958)
+    - Wartungstaster (5985) [vlogVSAlarmZyklusWartungstaster~0xAC02 (Byte)]
+- MBus-Hardware (5985)
+    - Status Erweiterungsmodul 1 (3312) [mBusRPCCheckHWEM1~0xA090 (Byte)]
+    - Erweiterungsmodul 1 (3313) [mBusRPCCheckHWEM1MBus~0xA090 (Byte)]
+    - Status Erweiterungsmodul 2 (3315) [mBusRPCCheckHWEM2~0xA090 (Byte)]
+    - Erweiterungsmodul 2 (3316) [mBusRPCCheckHWEM2MBus~0xA090 (Byte)]
+- Gerätekennung (5993)
+    - Softwareversion (5515) [VersionVitocom~0x00F8 (Array)]
+    - Modem - Typ (5507) [VDIALModemType~0xF020 (Byte)]
+    - Version Betriebssystem (5511) [VersionBetriebssystem~0xAECE (Array)]
+    - Index Betriebssystem (783) [IndexBetriebssystem~0xAECE (Array)]
+    - Version Anwendung (5509) [VersionAnwendung~0xAECE (Array)]
+    - Index Anwendung (781) [IndexAnwendung~0xAECE (Array)]
+    - Version AVR (5510) [VersionAVR~0xAECE (Array)]
+    - Index AVR (782) [IndexAVR~0xAECE (Array)]
+    - Version Erweiterungsmodul 1 (5512) [VersionEM1~0xAECE (Array)]
+    - Index Erweiterungsmodul 1 (784) [IndexEM1~0xAECE (Array)]
+    - Version Erweiterungsmodul 2 (5513) [VersionEM2~0xAECE (Array)]
+    - Index Erweiterungsmodul 2 (785) [IndexEM2~0xAECE (Array)]
+    - Version Neuron (5514) [VersionNeuron~0xAECE (Array)]
+    - Index Neuron (786) [IndexNeuron~0xAECE (Array)]
+- Kommunikation (5959)
+    - Kennung (ZE-ID) (5519) [Vitocom_Kennung~0x00F8 (Array)]
+    - Teilnehmernummer (6007) [vlogVSTeilnehmernummer~0x7777 (Byte)]
+    - Anlagennummer (5986) [vlogVSAnlagennummer~0x7776 (Byte)]
+    - Neuron-ID (5520) [Vitocom_Neuron_ID~0xA010 (Array)]
+    - Node (5521) [Vitocom_Node~0xA010 (Byte)]
+    - Subnet (5524) [Vitocom_Subnet~0xA010 (Byte)]
+- Teiln.-liste LON (5960)
+    - Teilnehmerliste LON eigene TN-Nummer Anlage/TN (5333) [Teilnehmerliste_LON_00~0xA010 (Array)]
+    - Teilnehmerliste LON (01) Anlage/TN (5334) [Teilnehmerliste_LON_01~0xA010 (Array)]
+    - Teilnehmerliste LON (02)  Anlage/TN (5335) [Teilnehmerliste_LON_02~0xA010 (Array)]
+    - Teilnehmerliste LON (03)  Anlage/TN (5336) [Teilnehmerliste_LON_03~0xA010 (Array)]
+    - Teilnehmerliste LON (04)  Anlage/TN (5337) [Teilnehmerliste_LON_04~0xA010 (Array)]
+    - Teilnehmerliste LON (05)  Anlage/TN (5338) [Teilnehmerliste_LON_05~0xA010 (Array)]
+    - Teilnehmerliste LON (06)  Anlage/TN (5339) [Teilnehmerliste_LON_06~0xA010 (Array)]
+    - Teilnehmerliste LON (07)  Anlage/TN (5340) [Teilnehmerliste_LON_07~0xA010 (Array)]
+    - Teilnehmerliste LON (08)  Anlage/TN (5341) [Teilnehmerliste_LON_08~0xA010 (Array)]
+    - Teilnehmerliste LON (09)  Anlage/TN (5342) [Teilnehmerliste_LON_09~0xA010 (Array)]
+    - Teilnehmerliste LON (10)  Anlage/TN (5343) [Teilnehmerliste_LON_10~0xA010 (Array)]
+    - Teilnehmerliste LON (11)  Anlage/TN (5344) [Teilnehmerliste_LON_11~0xA010 (Array)]
+    - Teilnehmerliste LON (12)  Anlage/TN (5345) [Teilnehmerliste_LON_12~0xA010 (Array)]
+    - Teilnehmerliste LON (13)  Anlage/TN (5346) [Teilnehmerliste_LON_13~0xA010 (Array)]
+    - Teilnehmerliste LON (14)  Anlage/TN (5347) [Teilnehmerliste_LON_14~0xA010 (Array)]
+    - Teilnehmerliste LON (15)  Anlage/TN (5348) [Teilnehmerliste_LON_15~0xA010 (Array)]
+
+# Erweiterte Diagnose (14650)
+- Anlage (5995)
+    - Timeout Überwachung Fehlermanager (5383) [TimeoutUeberwachungFehlermanager~0xAEE4 (Byte)]
+    - Flashdisk schreiben (5989) [vlogVSFlashdiskSpeichern~0xAC04 (Byte)]
+    - Verschluesselungsindex (5508) [Verschluesselungsindex~0xAC00 (Byte)]
+    - 24h Trending abgelaufen (5981) [vlogVSAlarm24hTrending~0xAC12 (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 1 (5322) [TeilnehmerFehlermanager1~0xAEDB (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 2 (5324) [TeilnehmerFehlermanager2~0xAEDD (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 3 (5326) [TeilnehmerFehlermanager3~0xAEDF (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 4 (5328) [TeilnehmerFehlermanager4~0xAEE1 (Byte)]
+    - Teilnehmer-Nr. Fehlermanager Anlage 5 (5330) [TeilnehmerFehlermanager5~0xAEE3 (Byte)]
+- Modem (5997)
+    - Modem - Typ (5507) [VDIALModemType~0xF020 (Byte)]
+    - Modemanwahlstring (3451) [Modemanwahlstring~0xAF3E (String)]
+    - Modem - Reset-Zyklus (5506) [VDIALModemResetTimeout~0xAC03 (Byte)]
+    - Intialisierung SMS (6023) [vlogVSVerbindungModemInitSMS~0xAE10 (String)]
+    - Intialisierung Reset (6022) [vlogVSVerbindungModemInitReset~0xAE60 (String)]
+    - Intialisierung PPP (6021) [vlogVSVerbindungModemInitPPP~0xAE38 (String)]
+    - Intialisierung Fax (6020) [vlogVSVerbindungModemInitFax~0xADE8 (String)]
+- Internet (5996)
+    - Telefonnummer ISP (6015) [vlogVSVerbindungISPEinwahl~0xAD24 (String)]
+    - Benutzer ISP (6012) [vlogVSVerbindungISPBenutzer~0xAD38 (String)]
+    - Passwort ISP (6017) [vlogVSVerbindungISPPasswort~0xAD48 (String)]
+    - temp. Telefonnummer ISP (6028) [vlogVSVerbindungTempISPEinwahl~0xAD60 (String)]
+    - temp. Benutzer ISP (6026) [vlogVSVerbindungTempISPBenutzer~0xAD74 (String)]
+    - temp. Passwort ISP (6029) [vlogVSVerbindungTempISPPasswort~0xAD84 (String)]
+    - Vitocom Benutzername 1 (5517) [Vitocom_Benutzer1~0xAEE5 (String)]
+    - Vitocom Passwort 1 (5522) [Vitocom_Passwort1~0xAEF6 (String)]
+    - Vitocom Benutzername 2 (5518) [Vitocom_Benutzer2~0xAF07 (String)]
+    - Vitocom Passwort 2 (5523) [Vitocom_Passwort2~0xAF18 (String)]
+    - IP Adresse Vitosoft 01 (6009) [vlogVSVerbindungIPVitosoft01~0xAD58 (Array)]
+    - IP Adresse Vitosoft 02 (6010) [vlogVSVerbindungIPVitosoft02~0xAD5C (Array)]
+    - IP Adresse Vitosoft temp. (6011) [vlogVSVerbindungIPVitosoft99~0xAD94 (Array)]
+    - Lokale IP Adresse dieser Vitocom 300 (6008) [vlogVSVerbindungIPVitocom~0xAE9E (String)]
+    - Vitodata Link ID (6019) [vlogVSVerbindungLinkID~0xAEAE (String)]
+    - Prozess ID (6025) [vlogVSVerbindungProzessID~0xAE89 (Array)]
+    - Timeout Verbindung (6030) [vlogVSVerbindungTimeout~0xAE88 (SInt)]
+    - URL Störungsmeldung (6032) [vlogVSVerbindungURLStoerungsmeldung~0xAD98 (String)]
+    - URL Rückruf (6031) [vlogVSVerbindungURLRueckruf~0xADC0 (String)]
+
+# Trending (7112)
+- Digitaleingänge (18738)
+    - Vitocom Digitaleingang  DE1 (5869) [vlogRPCReadDigitalInputGM_01~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE2 (5870) [vlogRPCReadDigitalInputGM_02~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE3 (5871) [vlogRPCReadDigitalInputGM_03~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE4 (5872) [vlogRPCReadDigitalInputGM_04~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE5 (5873) [vlogRPCReadDigitalInputGM_05~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE6 (5874) [vlogRPCReadDigitalInputGM_06~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE7 (5875) [vlogRPCReadDigitalInputGM_07~0xA06A (Byte)]
+    - Vitocom Digitaleingang  DE8 (5876) [vlogRPCReadDigitalInputGM_08~0xA06A (Byte)]
+- Analogeingänge (18739)
+    - Vitocom 300: Analogeingang  AE1 (5839) [vlogRPCReadAnalogInputGM_01~0xA06B (Int)]
+    - Vitocom 300: Analogeingang  AE2 (5840) [vlogRPCReadAnalogInputGM_02~0xA06B (Int)]
+- Digitaleingänge EM1 (18740) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE1 (5849) [vlogRPCReadDigitalInputEM1_01~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE2 (5850) [vlogRPCReadDigitalInputEM1_02~0xA06A (Byte)]
+    - Erweiterungsmodul 1: Digitaleingang  DE3 (5851) [vlogRPCReadDigitalInputEM1_03~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE4 (5852) [vlogRPCReadDigitalInputEM1_04~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE5 (5853) [vlogRPCReadDigitalInputEM1_05~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE6 (5854) [vlogRPCReadDigitalInputEM1_06~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE7 (5855) [vlogRPCReadDigitalInputEM1_07~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE8 (5856) [vlogRPCReadDigitalInputEM1_08~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE9 (5857) [vlogRPCReadDigitalInputEM1_09~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Digitaleingang  DE10 (5858) [vlogRPCReadDigitalInputEM1_10~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Impulseingang  IE1 (5841) [vlogRPCReadDigitalCountEM1_01~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Impulseingang  IE2 (5843) [vlogRPCReadDigitalCountEM1_02~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+- Analogeingänge EM1 (18742) HIDDEN:("Status Erweiterungsmodul 1"≠"vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE1 (5825) [vlogRPCReadAnalogInputEM1_01~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE2 (5826) [vlogRPCReadAnalogInputEM1_02~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE3 (5827) [vlogRPCReadAnalogInputEM1_03~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE4 (5828) [vlogRPCReadAnalogInputEM1_04~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE5 (5829) [vlogRPCReadAnalogInputEM1_05~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE6 (5830) [vlogRPCReadAnalogInputEM1_06~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+    - Erweiterungsmodul 1: Analogeingang  AE7 (5831) [vlogRPCReadAnalogInputEM1_07~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 1"="nicht vorhanden")
+- Digitaleingänge EM2 (18741) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE1 (5859) [vlogRPCReadDigitalInputEM2_01~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE2 (5860) [vlogRPCReadDigitalInputEM2_02~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE3 (5861) [vlogRPCReadDigitalInputEM2_03~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE4 (5862) [vlogRPCReadDigitalInputEM2_04~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE5 (5863) [vlogRPCReadDigitalInputEM2_05~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE6 (5864) [vlogRPCReadDigitalInputEM2_06~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE7 (5865) [vlogRPCReadDigitalInputEM2_07~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE8 (5866) [vlogRPCReadDigitalInputEM2_08~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE9 (5867) [vlogRPCReadDigitalInputEM2_09~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Digitaleingang  DE10 (5868) [vlogRPCReadDigitalInputEM2_10~0xA06A (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Impulseingang  IE1 (5845) [vlogRPCReadDigitalCountEM2_01~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Impulseingang  IE2 (5847) [vlogRPCReadDigitalCountEM2_02~0xA06C (Byte)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+- Analogeingänge EM2 (18743) HIDDEN:("Status Erweiterungsmodul 2"≠"vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE1 (5832) [vlogRPCReadAnalogInputEM2_01~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE2 (5833) [vlogRPCReadAnalogInputEM2_02~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE3 (5834) [vlogRPCReadAnalogInputEM2_03~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE4 (5835) [vlogRPCReadAnalogInputEM2_04~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE5 (5836) [vlogRPCReadAnalogInputEM2_05~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE6 (5837) [vlogRPCReadAnalogInputEM2_06~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")
+    - Erweiterungsmodul 2: Analogeingang  AE7 (5838) [vlogRPCReadAnalogInputEM2_07~0xA06B (Int)] HIDDEN:("Status Erweiterungsmodul 2"="nicht vorhanden")

@@ -1,0 +1,109 @@
+@@viessmann.datapointtype.name.EA2
+==================================
+
+# Überblick (20507)
+- Erweiterung EA2 (20508)
+    - Temperatursensor S1 (9642) [SR13_TiefpassTemperaturwert_S1~0x0810 (SInt)]
+    - Temperatursensor S2 (9643) [SR13_TiefpassTemperaturwert_S2~0x0812 (SInt)]
+    - Ausgang 20 (9645) [SR13_DA1~0x0850 (Byte)]
+    - Freigabekontakt (9646) [SR13_DA2~0x0851 (Byte)]
+    - Digitaler Eingang (9647) [SR13_DI1~0x0888 (Byte)]
+    - Ausgang 1 (0-10V) (9736) [SR13_EA2_Ausgang1~0x0890 (Byte)]
+    - Ausgang 2 (0-10V) (9737) [SR13_EA2_Ausgang2~0x0891 (Byte)]
+
+# Inbetriebnahmeparameter (20644)
+- Allgemein (20641)
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+    - (53) Pumpenfunktion bei hydraulischer Weiche (7875) [NRx_K53_KonfiHydrWeicheKKPumpe~0x7753 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+- Kessel (20642)
+    - (01) Ein - und Mehrkesselanlage (9690) [SR13_K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (41) Energieerzeuger-Typ (9671) [SR13_EA2_EETyp_GC1~0x5741 (Int)]
+
+# Codierung 2 (20633)
+- Allgemein (20632)
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (12) Laufzeit Zirkulationspumpe im Kurzzeitbetrieb (7869) [NRx_KonfiKurzzeitZPLaufzeit~0x7712 (Int)]
+    - (22) Reglerverzögerung Hydraulische Weiche / Pufferspeicher (9687) [SR13_K22_Reglerverzoegerung~0x7722 (Int)]
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+    - (4A) Konfigurationskennung TemperaturSensor 1 (9688) [SR13_K4A_KonfiKennungSensoreingang1~0x774A (Int)]
+    - (4B) Konfigurationskennung TemperaturSensor 2 (9689) [SR13_K4B_KonfiKennungSensoreingang2~0x774B (Int)]
+    - (4C) Verwendung Ausgang 20 (926) [K4C_KonfiVerwendungAusgang20V300~0x774C (Byte)]
+    - (4D) Verwendung Ausgang 29 (928) [K4D_KonfiVerwendungAusgang29~0x774D (Byte)]
+    - (4E) Verwendung von Ausgang Stecker 52 (7887) [K4E_NRx_KonfiVerwendungAusgang52~0x774E (Byte)]
+    - (4F) Nachlaufzeit Beimisch- Verteiler- und Kesselkreispumpe (935) [K4F_KonfiPumpenNachlauf~0x774F (Byte)]
+    - (53) Pumpenfunktion bei hydraulischer Weiche (7875) [NRx_K53_KonfiHydrWeicheKKPumpe~0x7753 (Byte)]
+    - (76) Konfiguration Kommunikationsmodul (981) [K76_KonfiKommunikationsmodul_mitHV~0x7776 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (78) LON - Kommunikation Freigeben/ Sperren (986) [K78_KonfiNVKommunikationLONV100GC1~0x7778 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (988) [K79_KonfiFehlerManagerV100_V050~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne")
+    - (7B) Uhrzeit auf LON (994) [K7B_KonfiFunktionUhrSenden~0x777B (Byte)]
+    - (80) Verzögerung Fehleranzeige (1002) [K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (8B) Kennung KM-Feuerungsautomat (7892) [K8B_KennungKMFeuerungsautomat~0x778B (Byte)]
+    - (97) Konfiguration  Aussentemperatur (1039) [K97_Konfi_Aussentemperatur~0x7797 (Byte)] HIDDEN:(76_KommMod="0 ohne")
+    - (98) Viessmann - Anlagennummer (1043) [K98_KonfiVI_Anlagennummer~0x7798 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="2 ungültig" OR 76_KonfKommMod="2 HV-Bus-Modul")
+    - (9C) Überwachung LON-Teilnehmer (1049) [K9C_KonfiReceiveHeartBeat~0x779C (Byte)]
+    - (9D) Zugriff auf Kesselregler-Parameter (7938) [K9D_KonfiZugriffParameterKR~0x779D (Int)]
+    - (9F) Differenztemperatur VT-Erzeugung (1052) [K9F_KonfiDTKMischerkreise~0x779F (Byte)] HIDDEN:(00_AnlWWS="0 Mehrkessel" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="2 Kessel mit WW" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="2 Kessel mit WW" OR 00_WWS="1 A1" OR 00_WWS="2 A1  + WW")
+- Kessel (20635)
+    - (01) Ein - und Mehrkesselanlage (9690) [SR13_K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (04) Kessel-Schalthysterese (812) [K04_KonfiKesselSchalthysterese~0x5704 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (08) Brennermaximalleistung in 1KW (821) [K08_KonfiBrennermaximalleistung1KW~0x5708 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (09) Brennermaximalleistung in 100KW (823) [K09_KonfiBrennermaximalleistung100KW~0x5709 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0A) Grundleistung Brenner in Prozent der Nennleistung (825) [K0A_KonfiBrennerminimalleistung~0x570A (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0B) Kesselschutz-nachlauf (827) [K0B_KonfiKesselschutzNachlauf~0x570B (Byte)]
+    - (0C) Funktion der Drosselklappe-Rücklaufregelung (829) [K0C_KonfiDKRLFunktionV100GC1~0x570C (Byte)]
+    - (0D) ThermControl (831) [K0D_KonfiTSA_FunktionV100GC1~0x570D (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="1 RL-Regelung")
+    - (13) Ausschaltdifferenz des Kesselreglers (7986) [K13_KonfiAusschaltdifferenz_NRx~0x5713 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (14) Brennermindestlaufzeit (841) [K14_KonfiBrennermindestlaufzeit~0x5714 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (15) Laufzeit Stellantrieb Brenner (842) [K15_KonfiLaufzeitStellantriebBrenner~0x5715 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig")
+    - (16) Offset Modulierender Brenner (844) [K16_KonfiOffsetModBrenner~0x5716 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1A) Anfahroptimierung Modulierender Brenner (850) [K1A_KonfiAnfoptModBrenner~0x571A (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1B) Reglerverzögerung (851) [K1B_KonfiReglerverzoegerung~0x571B (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1C) Startverzögerung Brenner (852) [K1C_KonfiStartverzoegerungBrenner~0x571C (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1D) Beimischpumpe ein wenn Brenner ein (853) [K1D_KonfiPumpenbeiBrennerein~0x571D (Byte)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (28) Intervallzuendung Brenner alle 5 Stunden (873) [K28_KonfiIntervallzuendung~0x5728 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (2B) maximale Vorwaermzeit Drosselklappe (878) [K2B_KonfiVorwaermzeit_DK~0x572B (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2C) maximale Nachlaufzeit Drosselklappe (879) [K2C_KonfiNachlaufzeit_DK~0x572C (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2D) Beimischpumpe Funktion (880) [K2D_KonfiBeimischpumpeFunktion~0x572D (Byte)] HIDDEN:("(1D) Beimischpumpe ein wenn Brenner ein"="aktiv")
+    - (35) Zieltemperatur Regelung (9662) [SR13_EA2_ZieltempRegelung~0x5735 (Byte)]
+    - (36) Einsetzen Zieltemperaturregelung (9663) [SR13_EA2_ZieltempRegelung_Einsetzen~0x5736 (Int)]
+    - (37) Leistungsbez. Volumenstromanpassung (9664) [SR13_EA2_VolumenstromAnpassung~0x5737 (Int)]
+    - (38) Leistung min. Drehzahl (9665) [SR13_EA2_LeistungMinDrehzahl~0x5738 (Int)]
+    - (39) Leistung min. Drehzahl (100kW) (9666) [SR13_EA2_LeistungMinDrehzahl100~0x5739 (Int)]
+    - (3A) Leistung max. Drehzahl (1kW) (9667) [SR13_EA2_LeistungMaxDrehzahl~0x573A (Int)]
+    - (3B) Leistung max. Drehzahl (100kW) (9668) [SR13_EA2_LeistungMaxDrehzahl100~0x573B (Int)]
+    - (3C) Brennwertoptimierung Hydr. Weiche (9669) [SR13_EA2_BrennwertOptHydrWeiche~0x573C (Int)]
+    - (3D) Delta T Weiche (9670) [SR13_EA2_DeltaTWeiche~0x573D (Int)]
+    - (41) Energieerzeuger-Typ (9671) [SR13_EA2_EETyp_GC1~0x5741 (Int)]
+    - (42) Anschluß Kessel in Anlage (9672) [SR13_EA2_EEStellung~0x5742 (Int)]
+    - (43) Fkt. drehzahlger. Pumpe (9673) [SR13_EA2_FktDrehzahlPumpe~0x5743 (Int)]
+    - (71) Max. Rücklauftemp. (9674) [SR13_EA2_Max_RL_Temp~0x5771 (Int)]
+    - (72) Mindestsperrzeit (9675) [SR13_EA2_Mindestsperrzeit~0x5772 (Int)]
+    - (73) Minimale Rücklauftemperatur (9691) [SR13_EA2_Min_RL_Temp~0x5773 (Int)]
+
+# Diagnose Anlage (20640)
+- EA2 (20643)
+    - Temperatursensor S1 (9642) [SR13_TiefpassTemperaturwert_S1~0x0810 (SInt)]
+    - Temperatursensor S2 (9643) [SR13_TiefpassTemperaturwert_S2~0x0812 (SInt)]
+    - Ausgang 20 (9645) [SR13_DA1~0x0850 (Byte)]
+    - Freigabekontakt (9646) [SR13_DA2~0x0851 (Byte)]
+    - Digitaler Eingang (9647) [SR13_DI1~0x0888 (Byte)]
+    - Ausgang 1 (0-10V) (9736) [SR13_EA2_Ausgang1~0x0890 (Byte)]
+    - Ausgang 2 (0-10V) (9737) [SR13_EA2_Ausgang2~0x0891 (Byte)]

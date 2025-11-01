@@ -1,0 +1,274 @@
+VPlus HC2
+=========
+
+# Überblick (16353)
+- Kessel (16315)
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Interne Pumpe Drehzahl (787) [InternePumpeDrehzahl~0x7660 (Int)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - Kesselsolltemperatur (2954) [Kesselsoll_eff~0x555A (Byte)]
+    - Brenner (600) [GWG_Flamme~0x55D3 (Byte)]
+    - Interne Pumpe (245) [DigitalAusgang_InternePumpe~0x7660 (Byte)]
+    - Brennerstarts (111) [BrennerstartsGWG~0x088A (Int4)]
+    - Brenner-Betriebsstunden (104) [BetriebsstundenBrennerBedienungGWG~0x08A7 (Int)]
+    - Brennstoffverbrauch (Liter oder m³) (4237) [Oelverbrauch~0x7574 (Int4)]
+    - Flammensignal (601) [GWG_Flamme1~0x55DD (Byte)]
+    - Hydraulische Weiche (8161) [Temperatur_Hydraulische_Weiche~0x080C (Int)] HIDDEN:("(52) Sensor Hydraulische Weiche"="0 nicht vorhanden")
+- Heizkreis A1 (16316)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Heizkreispumpe A1M1 Drehzahl (778) [HKP_A1Drehzahl~0x7663 (Int)] HIDDEN:(E5_KennPumpHzkA1="0 stufig")
+    - Uhrenthermostat (256) [DigitalEingang_143_3_UT~0x0884 (Byte)]
+- Warmwasser (16317) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwasserbereitung (7179) [WW_Status_NR1~0x650A (Byte)]
+    - Temperatur Speicher Ladesensor Komfortsensor (5381) [TiefpassTemperaturwertWW1~0x0812 (Int)]
+    - Auslauftemperatur (5382) [TiefpassTemperaturwerWW2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Flow Switch (312) [FlowSwitch~0x0883 (Byte)]
+    - Zirkulationspumpe (7181) [Zirkulationspumpe~0x6515 (Byte)]
+- Solarregelung (16318) HIDDEN:(54_SR="0 ohne" OR 54_SR="3 Solarmodul SM1" OR 54_SR="4 Solarmodul SM1 mit DT2")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+- Solar (18757) HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+
+# Bedienung (16354)
+- Betriebsdaten A1 (16310)
+    - Betriebsart A1M1 (93) [BedienteilBA_GWGA1_Konstant~0x2323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb A1M1 (82) [BedienRTSolltemperaturA1M1~0x2306 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Kesselsolltemperatur (66) [BedienKTSolltemperaturGWG_4~0x5300 (Byte)]
+- Heizzeiten A1 (16311)
+    - Schaltzeiten A1M1 (7191) [Schaltzeiten_A1M1_HK (Array)]
+- Warmwasser A1 (16312) HIDDEN:(00_AnlWWS="1 Kessel ohne WW")
+    - Schaltzeiten WW A1M1 (7192) [Schaltzeiten_A1M1_WW (Array)]
+- Datum + Uhr (16308)
+    - Datum und Uhrzeit (5385) [Uhrzeit~0x088E (Array)]
+
+# Inbetriebnahme (16355)
+- Allgemein (16368)
+    - (00) Anlagen-Warmwasserschema (790) [K00_KonfiAnlagenschemaGWG_Uhr~0x7700 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (88) Anzeigemodus Celsius - Fahrenheit (1012) [K88_KonfiCelsiusFahrenheit~0x7788 (Byte)]
+    - (98) Viessmann - Anlagennummer (1043) [K98_KonfiVI_Anlagennummer~0x7798 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="2 ungültig" OR 76_KonfKommMod="2 HV-Bus-Modul")
+    - (9B) VT_Solltemperatur bei externer Anforderung (1047) [K9B_KonfiVT_SolltemperaturExternV100_V333~0x779B (Byte)] HIDDEN:("(2E) Kennung Externe Erweiterung"="0 ohne")
+    - (51) Hydr. Weiche Int. Pumpe (8020) [K51_KonfiHydrWeicheIntPumpe~0x7751 (Byte)]
+- Kessel (16366)
+    - (01) Anlagentyp (805) [K01_KonfiAnlagentypGWG~0x7701 (Byte)]
+    - (06) Kesselmaximal-Temperatur (818) [K06_KonfiKTMaxGWG~0x5706 (Byte)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (2F) Entlüftungs-/ Befüllungsprogramm (883) [K2F_KonfiEntlueftung~0x572F (Byte)]
+- Heizkreis A1M1 (16365)
+    - (A2) Speichervorrang A1M1 (1059) [KA2_KonfiSpeichervorrangA1M1~0x27A2 (Byte)]
+    - (F6) HKP Sommerbetrieb bei Konstantregelung (2972) [KF6_KonfiPumpeSommerbetrieb_4~0x27F6 (Byte)]
+    - (F7) HKP Abschaltbetrieb bei Konstantregelung (2975) [KF7_KonfiPumpeAbschaltbetrieb_4~0x27F7 (Byte)]
+- Warmwasser (16367) HIDDEN:(00_AnlWWS="1 Kessel ohne WW")
+    - (5B) Anbindung Speicher an Hydr. Weiche (952) [K5B_KonfiAnbindungSpeicher~0x675B (Byte)]
+    - (67) WW-Solltemperatur bei Nachladeunterdrückung (963) [K67_KonfiWW_Soll3~0x6767 (Byte)] HIDDEN:(54_SR="0 ohne")
+
+# Codierung 2 (16360)
+- Allgemein (16333)
+    - (00) Anlagen-Warmwasserschema (790) [K00_KonfiAnlagenschemaGWG_Uhr~0x7700 (Byte)]
+    - (25) Außentemperatursensor (868) [K25_ATS_Konstant~0x5725 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel")
+    - (51) Hydr. Weiche Int. Pumpe (8020) [K51_KonfiHydrWeicheIntPumpe~0x7751 (Byte)]
+    - (52) Sensor Hydraulische Weiche (937) [K52_KonfiWeiche~0x7752 (Byte)] HIDDEN:("(01) Anlagentyp"="2 Mehrkessel VI-Kaskade")
+    - (53) Rangierung Relais K12 (938) [K53_Rangierung~0x7753 (Byte)]
+    - (54) Solarregelung (7271) [K54_Solar_GWG_2010~0x7754 (Byte)]
+    - (80) Verzögerung Fehleranzeige (1002) [K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (81) Funktion Uhr (1004) [K81_KonfiFunktionUhr~0x7781 (Byte)]
+    - (88) Anzeigemodus Celsius - Fahrenheit (1012) [K88_KonfiCelsiusFahrenheit~0x7788 (Byte)]
+    - (95) Konfiguration Vitocom 100 (1035) [K95_KennungDekatelM~0x7795 (Byte)]
+    - (9B) VT_Solltemperatur bei externer Anforderung (1047) [K9B_KonfiVT_SolltemperaturExternV100_V333~0x779B (Byte)] HIDDEN:("(2E) Kennung Externe Erweiterung"="0 ohne")
+    - (8F) Zugriff auf Kesselregler - Parameter (1021) [K8F_KonfiZugriffParameterKR~0x778F (Byte)]
+- Kessel (16334)
+    - (06) Kesselmaximal-Temperatur (818) [K06_KonfiKTMaxGWG~0x5706 (Byte)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (26) Verbrauch Brenner 1. Stufe (870) [K26_KonfiVerbrauchBrenner1GWG~0x5726 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (28) Intervallzuendung Brenner alle 5 Stunden (873) [K28_KonfiIntervallzuendung~0x5728 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (29) Verbrauch Brenner 1.+2. Stufe (875) [K29_KonfiVerbrauchBrenner2GWG~0x5729 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (2E) Kennung Externe Erweiterung (881) [K2E_KonfiKennungAnschluss~0x572E (Byte)]
+    - (2F) Entlüftungs-/ Befüllungsprogramm (883) [K2F_KonfiEntlueftung~0x572F (Byte)]
+    - (30) Kennung Interne Umwälzpumpe (884) [K30_KennungIntPumpe~0x5730 (Byte)]
+    - (31) Solldrehzahl Interne Pumpe (886) [K31_DrehzahlIntPumpe~0x5731 (Byte)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - (32) Kennung Anschlusserweiterung AM1 (7247) [K32_GWG_Kennung_AM1~0x7732 (Byte)]
+    - (33) AM1: Funktion Ausgang 1 (7248) [K33_GWG_FunktionAusgang1_AM1~0x7733 (Byte)] HIDDEN:(32_KennAnschlErwAM1="ohne Anschlußerweiterung AM1")
+    - (34) AM1: Funktion Ausgang 2 (7255) [K34_GWG_FunktionAusgang2_AM1~0x7734 (Byte)] HIDDEN:(32_KennAnschlErwAM1="ohne Anschlußerweiterung AM1")
+    - (35) Kennung Anschlusserweiterung EA1 (7250) [K35_GWG_Kennung_EA1~0x7735 (Byte)]
+    - (36) EA1: Funktion Ausgang 1 (7251) [K36_GWG_FunktionAusgang1_EA1~0x7736 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (3A) EA1/AE Eingang 1: Funktion (7252) [K3A_GWG_FunktionEingang1_EA1~0x773A (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (3B) EA1/AE Eingang 2: Funktion (7253) [K3B_GWG_FunktionEingang2_EA1~0x773B (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (3C) EA1/AE Eingang 3: Funktion (7254) [K3C_GWG_FunktionEingang3_EA1~0x773C (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+- Warmwasser (16335) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - (56) Warmwasser-Solltemperatur-Bereich (946) [K56_KonfiWW_SolltempBereichGWG~0x6756 (Byte)] HIDDEN:(00_AnlWWS="0 Mehrkessel" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1  + M2")
+    - (58) Warmwasser-Solltemperatur 2 (949) [K58_KonfiWW_Solltemperatur2~0x6758 (Byte)]
+    - (59) Einschaltpunkt Speicher (950) [K59_KonfiWW_EinschaltOffset~0x6759 (Byte)]
+    - (5B) Anbindung Speicher an Hydr. Weiche (952) [K5B_KonfiAnbindungSpeicher~0x675B (Byte)]
+    - (60) Offset für Kessel- bzw Vorlaufsolltemperatur (auf Warmwasser-Solltemperatur) (7565) [K60_KonfiWW_GWG_KesselOffset~0x6760 (Byte)]
+    - (62) Nachlauf Speicherladepumpe (957) [K62_KonfiLpumpeNachlauf_GWG~0x6762 (Byte)]
+    - (65) Bauart Umschaltventil (960) [K65_KonfibauartUmschaltventil~0x6765 (Byte)]
+    - (67) WW-Solltemperatur bei Nachladeunterdrückung (963) [K67_KonfiWW_Soll3~0x6767 (Byte)] HIDDEN:(54_SR="0 ohne")
+    - (6C) Drehzahl Interne Pumpe bei WW-Bereitung (968) [K6C_KonfiDrehzahlWW~0x676C (Byte)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - (6D) Anzapffunktion (969) [K6D_KonfiAnzapffunktion~0x676D (Byte)]
+    - (6F) Begrenzung Warmwasserleistung (970) [K6F_KonfiBegrenzungWW~0x676F (Byte)] HIDDEN:(00_AnlWWS="0 Mehrkessel" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1  + M2")
+- Heizkreis A1 (16336)
+    - (A2) Speichervorrang A1M1 (1059) [KA2_KonfiSpeichervorrangA1M1~0x27A2 (Byte)]
+    - (A3) Frostgrenze A1M1 (1067) [KA3_KonfiFrostgrenzeA1M1_GWG_4~0x27A3 (SByte)]
+    - (F5) HKP Nachlaufzeit bei Konstantregelung (2969) [KF5_KonfiPumpeNachlauf~0x27F5 (Byte)]
+    - (F6) HKP Sommerbetrieb bei Konstantregelung (2972) [KF6_KonfiPumpeSommerbetrieb_4~0x27F6 (Byte)]
+    - (F7) HKP Abschaltbetrieb bei Konstantregelung (2975) [KF7_KonfiPumpeAbschaltbetrieb_4~0x27F7 (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK1 (2985) [KFB_KonfiDauerUeberhoehungVTSollA1~0x27FB (Byte)]
+- Solarmodul SM1 (17423) HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2")
+    - (00) Einschaltpunkt Kollektorkreispumpe (7656) [SM1_K00_Einschalt_KKPumpe~0xCF00 (Int)]
+    - (01) Ausschaltpunkt Kollektorkreispumpe (7657) [SM1_K01_Ausschalt_KKPumpe~0xCF01 (Int)]
+    - (02) Drehzahlsteuerung (7673) [SM1_K02_Drehzahlsteuerung~0xCF02 (Int)]
+    - (03) Sollwert dT-Regler (7659) [SM1_K03_Sollwert_DT_Regler~0xCF03 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (05) Minimale Pumpendrehzahl (7661) [SM1_K05_Min_Pumpendrehzahl~0xCF05 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (06) Maximale Pumpendrehzahl (7662) [SM1_K06_Max_Pumpendrehzahl~0xCF06 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (07) Intervallfunktion (7674) [SM1_K07_Intervallfunktion~0xCF07 (Int)]
+    - (08) Speicher Maximaltemperatur (7664) [SM1_K08_Speichermaximaltemperatur~0xCF08 (Int)]
+    - (09) Kollektor Maximaltemperatur (7665) [SM1_K09_Kollektormaximaltemperatur~0xCF09 (Int)]
+    - (0A) Stagnationszeit-reduzierung (7666) [SM1_K0A_Stagnationszeitreduzierung~0xCF0A (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (0B) Kollektor Frostschutzfunktion (7675) [SM1_K0B_Kollektorfrostschutzfunktion~0xCF0B (Int)]
+    - (0E) Funktionskontrolle Solarertrag (7678) [SM1_K0E_Funktionskontrolle_Solarertrag~0xCF0E (Int)]
+    - (0F) Volumenstrom bei max. Drehzahl (7671) [SM1_K0F_Volumenstrom_Max_Drehzahl~0xCF0F (Int)] HIDDEN:("(0E) Funktionskontrolle Solarertrag"="0: ausgeschaltet")
+    - (10) Zieltemperaturregelung (7679) [SM1_K10_Zieltemperaturregelung~0xCF10 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (11) Speichersolltemperatur Solar (7680) [SM1_K11_Speichersolltemperatur~0xCF11 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (12) Kollektor Minimaltemperatur (7681) [SM1_K12_Kollektorminimaltemperatur~0xCF12 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (20) Erweiterte Regelungsfunktion (7682) [SM1_K20_Erweiterte_Regelungsfunktion~0xCF20 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (22) Einschaltpunkt dT2-Regler (7683) [SM1_K22_Einschaltpunkt_dT2_Regler~0xCF22 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (23) Ausschaltpunkt dT2-Regler (7684) [SM1_K23_Ausschaltpunkt_dT2_Regler~0xCF23 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (24) Einschalttemperatur Thermostat (7685) [SM1_K24_Einschalttemp_Thermostat~0xCF24 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (25) Ausschalttemperatur Thermostat (7686) [SM1_K25_Ausschalttemp_Thermostat~0xCF25 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (26) Pendelladung (7687) [SM1_K26_Pendelladung~0xCF26 (Int)] HIDDEN:("(20) Erweiterte Regelungsfunktion"="0: Keine erweiterte Regelungsfunktion aktiv" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"="1: Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="2: Zweite Differenztemperaturregelung" OR "(20) Erweiterte Regelungsfunktion"="3: Zweite Differenztemperaturregelung und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="4: Zweite Differenztemperaturregelung zur Heizungsunterstützung" OR "(20) Erweiterte Regelungsfunktion"="5: Thermostat" OR "(20) Erweiterte Regelungsfunktion"="6: Thermostat und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="7: Solare Beladung über ext. Wärmetauscher ohne zus. Sensor" OR "(20) Erweiterte Regelungsfunktion"="8: Solare Beladung über ext. Wärmetauscher mit zus. Sensor" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (27) Pendelladezeit (7688) [SM1_K27_Pendelladezeit~0xCF27 (Int)] HIDDEN:("(20) Erweiterte Regelungsfunktion"="0: Keine erweiterte Regelungsfunktion aktiv" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"="1: Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="2: Zweite Differenztemperaturregelung" OR "(20) Erweiterte Regelungsfunktion"="3: Zweite Differenztemperaturregelung und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="4: Zweite Differenztemperaturregelung zur Heizungsunterstützung" OR "(20) Erweiterte Regelungsfunktion"="5: Thermostat" OR "(20) Erweiterte Regelungsfunktion"="6: Thermostat und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="7: Solare Beladung über ext. Wärmetauscher ohne zus. Sensor" OR "(20) Erweiterte Regelungsfunktion"="8: Solare Beladung über ext. Wärmetauscher mit zus. Sensor" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (28) Pendelpausenzeit (7689) [SM1_K28_Pendelpausenzeit~0xCF28 (Int)] HIDDEN:("(20) Erweiterte Regelungsfunktion"="0: Keine erweiterte Regelungsfunktion aktiv" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"="1: Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="2: Zweite Differenztemperaturregelung" OR "(20) Erweiterte Regelungsfunktion"="3: Zweite Differenztemperaturregelung und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="4: Zweite Differenztemperaturregelung zur Heizungsunterstützung" OR "(20) Erweiterte Regelungsfunktion"="5: Thermostat" OR "(20) Erweiterte Regelungsfunktion"="6: Thermostat und Zusatzfunktion" OR "(20) Erweiterte Regelungsfunktion"="7: Solare Beladung über ext. Wärmetauscher ohne zus. Sensor" OR "(20) Erweiterte Regelungsfunktion"="8: Solare Beladung über ext. Wärmetauscher mit zus. Sensor" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+
+# Gerätedaten (16362)
+- Gerät (16306)
+    - Bauart Warmwasser (50) [BauartWarmwasser~0x8851 (Byte)]
+    - Umschaltventil (961) [K65_KonfibauartUmschaltventil_D~0x6765 (Int)]
+    - Gerätetyp (7563) [KS_Karte_GWG_Typ2~0x7656 (Byte)]
+    - Gerät (7564) [@@viessmann.eventtype.GWG_Kennung.description (Byte)]
+    - Sachnummer Regelung (4682) [Sachnummer~0x08E0 (String)]
+    - Herstellnummer Regelung (7206) [HWHerstellNrRegelung~0xF000 (String)]
+    - Herstellnummer Kessel (7217) [HWHerstellNrKessel~0xF010 (String)]
+
+# Diagnose Anlage (16363)
+- Kessel (16321)
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Interne Pumpe Drehzahl (787) [InternePumpeDrehzahl~0x7660 (Int)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - Kesselsolltemperatur (2954) [Kesselsoll_eff~0x555A (Byte)]
+    - Brenner (600) [GWG_Flamme~0x55D3 (Byte)]
+    - Interne Pumpe (245) [DigitalAusgang_InternePumpe~0x7660 (Byte)]
+    - Brennerstarts (111) [BrennerstartsGWG~0x088A (Int4)]
+    - Brenner-Betriebsstunden (104) [BetriebsstundenBrennerBedienungGWG~0x08A7 (Int)]
+    - Brennstoffverbrauch (Liter oder m³) (4237) [Oelverbrauch~0x7574 (Int4)]
+    - Hydraulische Weiche (8161) [Temperatur_Hydraulische_Weiche~0x080C (Int)] HIDDEN:("(52) Sensor Hydraulische Weiche"="0 nicht vorhanden")
+    - Modulationsgrad (4165) [nvoBoilerState_BLR_value~0xA305 (Byte)] HIDDEN:("aktueller Brennertyp"≠"modulierend" AND "aktueller Brennertyp"≠"modulierend" AND "GWG53: Brennertyp"≠"modulierender Brenner")
+    - Brennertyp (11609) [GWG_8853_Brennertyp~0x8853 (Byte)]
+    - Abgastemperatur (5372) [TiefpassTemperaturwert_AGTS~0x0816 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+- Solar (18765) HIDDEN:(54_SR="0 ohne")
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+    - Solarertrag Aktueller Tag (7895) [NRx_SolarErtrag_0~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 1 Tag zurück (7896) [NRx_SolarErtrag_1~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 2 Tage zurück (7897) [NRx_SolarErtrag_2~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 3 Tage zurück (7898) [NRx_SolarErtrag_3~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 4 Tage zurück (7899) [NRx_SolarErtrag_4~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 5 Tage zurück (7900) [NRx_SolarErtrag_5~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 6 Tage zurück (7901) [NRx_SolarErtrag_6~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 7 Tage zurück (7902) [NRx_SolarErtrag_7~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Nachheizunterdrueckung (11927) [Nachheizunterdrueckung~0x55FE (Byte)]
+- Heizkreis A1 (16323)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Heizkreispumpe A1M1 Drehzahl (778) [HKP_A1Drehzahl~0x7663 (Int)] HIDDEN:(E5_KennPumpHzkA1="0 stufig")
+    - Reglervariante A1M1 (735) [HK_ReglervarianteA1M1~0x2521 (Byte)]
+    - Uhrenthermostat (256) [DigitalEingang_143_3_UT~0x0884 (Byte)]
+- Warmwasser (16324)
+    - Warmwasserbereitung (7179) [WW_Status_NR1~0x650A (Byte)]
+    - Temperatur Speicher Ladesensor Komfortsensor (5381) [TiefpassTemperaturwertWW1~0x0812 (Int)]
+    - Auslauftemperatur (5382) [TiefpassTemperaturwerWW2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Flow Switch (312) [FlowSwitch~0x0883 (Byte)]
+    - Bauart Warmwasser (50) [BauartWarmwasser~0x8851 (Byte)]
+- Feuerungsautomat (16326)
+    - Feuerungsautomat verriegelt (697) [GWG_Verriegelung~0x55D3 (Byte)]
+    - Flammensignal (601) [GWG_Flamme1~0x55DD (Byte)]
+- Fkt.-Erw. 0-10V (16325) HIDDEN:("Externe Erweiterung"="nicht vorhanden")
+    - Eingang 0-10 V (19) [AE_Eingang0_10~0x0A86 (SInt)]
+    - ext. Anfordern/ Betriebsarten-umschaltung (20) [AE_Eingang1~0x0A80 (Byte)]
+    - ext. Sperren (21) [AE_Eingang2~0x0A81 (Byte)]
+    - Sammelstörung (269) [ExtAE_Sammel~0x0A82 (Byte)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Zirkulationspumpe (7181) [Zirkulationspumpe~0x6515 (Byte)]
+    - Rangierung Relais K12 (939) [K53_RangierungD~0x7753 (Byte)]
+    - Relais K12 Interne Anschlußerweiterung (4242) [RelaisK12~0x0842 (Byte)]
+    - Externe Erweiterung (882) [K2E_KonfiKennungAnschlussD~0x572E (Byte)]
+- Wartung (16322)
+    - (23) Eingestelltes Zeitintervall (863) [K23_KonfiZeitintervall_Wartung~0x5723 (Byte)]
+    - (21) Grenzwert Betriebsstunden Brenner (859) [K21_KonfiBetriebsstdBrenner_Wartung~0x5721 (Int)]
+    - vergangene Zeit seit letzter Wartung (3155) [LetzteIntervallWartung~0x756C (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - Betriebsstunden Brenner seit letzter  Wartung (3153) [LetzteBrennerWartung~0x7570 (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - (24) Wartung (865) [K24_KonfiStatus_Wartung~0x5724 (Byte)]
+- Fkt.-Erw. AM1 (16617) HIDDEN:(32_KennAnschlErwAM1="ohne Anschlußerweiterung AM1")
+    - (32) Kennung Anschlusserweiterung AM1 (7247) [K32_GWG_Kennung_AM1~0x7732 (Byte)]
+    - (33) AM1: Funktion Ausgang 1 (7248) [K33_GWG_FunktionAusgang1_AM1~0x7733 (Byte)] HIDDEN:(32_KennAnschlErwAM1="ohne Anschlußerweiterung AM1")
+    - (34) AM1: Funktion Ausgang 2 (7255) [K34_GWG_FunktionAusgang2_AM1~0x7734 (Byte)] HIDDEN:(32_KennAnschlErwAM1="ohne Anschlußerweiterung AM1")
+    - AM1 Ausgang 1 (7236) [AM1_Relais0~0x0AA0 (Byte)]
+    - AM1 Ausgang 2 (7237) [AM1_Relais1~0x0AA1 (Byte)]
+    - SW-Index AM1 (7227) [SWIndex_AM1~0x0A74 (Array)]
+- Fkt.-Erw. EA1 (16618) HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Externer Sollwert 0-10V (7233) [EA1_ExternSollwert0_10V~0x0A93 (Int)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 0 (7230) [EA1_Kontakt0~0x0A90 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 1 (7231) [EA1_Kontakt1~0x0A91 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 2 (7232) [EA1_Kontakt2~0x0A92 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Relais 0 (7235) [EA1_Relais0~0x0A95 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - SW-Index EA1 (7226) [SWIndex_EA1~0x0A70 (Array)]
+
+# Diagnose System (16364)
+- Regelung (16329)
+    - Reglerkennung (7389) [GWGReglerkennung2010~0x00F9 (Byte)]
+    - Software-Index des Gerätes (7567) [Software_Index~0x00FB (String)]
+    - Bedienteil Software-Index (91) [Bedienteil_SW_Index~0x7330 (Array)]
+    - Codierkarte Gerätekennung (3074) [KS_Karte_GWG_Kennung~0x7656 (Array)]
+    - Codierkarte Revision GFA (3075) [KS_Karte_GWG_Rev_F~0x7656 (Array)]
+    - Codierkarte Revision GWG (3076) [KS_Karte_GWG_Rev_R~0x7656 (Array)]
+    - Codierkarte Typ (3077) [KS_Karte_GWG_Typ~0x7656 (Array)]
+    - Kennung Feuerungsautomat-Chip (8395) [GFA_Kennung~0x7650 (String)]
+    - Sachnummer Codierstecker (4685) [Sachnummer_GWG_Codierstecker~0x1010 (String)]
+- KM-Bus-Teiln. (16330)
+    - Solarregelung Software-Index (5303) [SWIndex_Solar~0x0A40 (Array)] HIDDEN:("Solarregelung"="nicht vorhanden" OR 54_SR="0 ohne")
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+    - Interne Umwälzpumpe (885) [K30_KennungIntPumpeKM~0x5730 (Byte)]
+    - SW-Index Solarmodul (7238) [SWIndex_Solarmodul~0x0A68 (Array)]
+    - SW-Index Solarmodul SM1 (7690) [SWIndex_SM1~0x0A68 (Byte)] HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2")
+    - Interne Pumpe Software-Index (5292) [SWIndex_IntPumpe~0x0A54 (Array)] HIDDEN:("Interne Umwälzpumpe"="nicht vorhanden")
+    - HW-Index Solarmodul SM1 (7691) [HWIndex_SM1~0x0A68 (Byte)] HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2")
+    - Vitocom 100 (1036) [K95_KennungVitocom100~0x7795 (Byte)]
+    - Vitocom 100 Software-Index (5305) [SWIndex_Vitocom~0x0A58 (Array)] HIDDEN:("Vitocom 100"="nicht vorhanden")
+    - Externe Erweiterung (882) [K2E_KonfiKennungAnschlussD~0x572E (Byte)]
+    - Externe Anschlußerweiterung Software-Index (5289) [SWIndex_extAE~0x0A48 (Array)] HIDDEN:("Externe Erweiterung"="nicht vorhanden")

@@ -1,0 +1,764 @@
+VT 100 (CC1E, CC1I)
+===================
+
+# Überblick (23151)
+- @@viessmann.eventtypegroup.name.V100CC1x~Overview~Kessel (23168)
+    - Außentemperatur (12315) [NRP_Temperaturwert_ATS~0x05A0 (SInt)] HIDDEN:("Sensor-Status ATS"="Nicht vorhanden")
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Kesselleistung Ist (12335) [NRP_BDE_Kesselleistung_Ist~0x5400 (Int)]
+    - Rücklauftemperatur 17A (12320) [NRP_Temperaturwert_RLTS_17A~0x05AF (SInt)] HIDDEN:("Sensor-Status RLTS 17A"="Nicht vorhanden")
+    - Rücklauftemperatur 17B (12321) [NRP_Temperaturwert_RLTS_17B~0x05B2 (SInt)] HIDDEN:("Sensor-Status RLTS 17B"="Nicht vorhanden")
+    - Sensor 9 (12322) [NRP_Temperaturwert_PTS~0x05B5 (SInt)] HIDDEN:("Sensor-Status PTS"="Nicht vorhanden")
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - Sammelstörmeldung (12325) [NRP_DigitalAusgang_Sammelstoerung~0x0605 (Byte)]
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - Ausgang 29 (12324) [NRP_DigitalAusgang_29~0x0602 (Byte)]
+    - Ausgang 52 (12326) [NRP_DigitalAusgang_52~0x0650 (SByte)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+    - Viessmann - Teilnehmernummer (984) [K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Sollwertvorgabe 0-10V Erw. EA1 (12333) [NRP_EA1_ExternSollwert0_10V~0x0853 (Int)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Datum und Uhrzeit (5385) [Uhrzeit~0x088E (Array)]
+    - Herstellnummer Kessel (7217) [HWHerstellNrKessel~0xF010 (String)]
+    - Herstellnummer Regelung (7206) [HWHerstellNrRegelung~0xF000 (String)]
+    - Ausgabesignal Pumpe PM1 (12578) [PM1_Setpoint_AnalogOut~0x5F00 (Int)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Volumenstrom Sollwert Pumpe PM1 (12579) [PM1_Setpoint_mdot~0x5F02 (Int)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Netzspannungsverhalten Pumpe PM1 (12580) [PM1_Status_RelaiK1~0x5F04 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Potentialfreier Kontakt Pumpe PM1 (12581) [PM1_Status_RelaiK2~0x5F05 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 1 PM1 (12582) [PM1_Temperature_Sensor1~0x5F06 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 2 PM1 (12583) [PM1_Temperature_Sensor2~0x5F08 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 3 PM1 (12584) [PM1_Temperature_Sensor3~0x5F0A (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 4 PM1 (12585) [PM1_Temperature_Sensor4~0x5F0C (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Störmeldeeingang PM1 (12590) [PM1_Status_FaultInput~0x5F14 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+- Brenner (23192)
+    - Brenner (12353) [NRP_DigitalAusgang_Brennerstufe1~0x0600 (Byte)]
+    - Brenner-Betriebsstunden 1. Stufe (12354) [NRP_BetriebsstundenBrenner1Bedienung~0x0688 (Int)]
+    - Brenner-Betriebsstunden 2. Stufe (12355) [NRP_BetriebsstundenBrenner2Bedienung~0x068C (Int)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig")
+    - Brennerstarts (12356) [NRP_Brennerstarts~0x0690 (Int4)]
+    - Brennerzustand (12357) [NRP_BDE_Brennerzustand~0x5400 (Int)]
+    - Brennerleistung Ist (12358) [NRP_BDE_Brennerleistung_Relativ_Ist~0x5400 (Byte)]
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - (06) Kesselmaximalbegrenzung (10421) [GW6B_K06_KonfiKesselMaxTemp~0x5806 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (08) Integralschwellwert Regler (10422) [GW6B_K08_KonfiIntegralSchwelle~0x5808 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (09) Laufzeitoptimierung (10423) [GW6B_K09_KonfiLaufzeitOpt~0x5809 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (03) Gasart (10425) [GW6B_K03_KonfiGasart~0x5803 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (04) Aufstellhöhe (10426) [GW6B_K04_KonfiAufstellhoehe~0x5804 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+- Warmwasser (23128) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speichertemperatur 5A (12317) [NRP_Temperaturwert_STS_5A~0x05A6 (SInt)] HIDDEN:("Sensor-Status STS (5A)"="Nicht vorhanden")
+    - Speichertemperatur 5B (12318) [NRP_Temperaturwert_STS_5B~0x05A9 (SInt)] HIDDEN:("Sensor-Status STS (5B)"="Nicht vorhanden")
+    - Speicherladepumpe (12336) [NRP_DigitalAusgang_Speicherladepumpe~0x0603 (Byte)]
+    - Zirkulationspumpe (12337) [NRP_DigitalAusgang_Zirkulationspumpe~0x0604 (Byte)]
+- Solar (23163) HIDDEN:("(1A) Solarregelung"="0 ohne" OR "(1A) Solarregelung"="3 Solarmodul SM1" OR "(1A) Solarregelung"="4 Solarmodul SM1 mit DT2")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+- Verbrauchsdaten (23201)
+    - Gasverbrauch Heizen Aktuelles Jahr-1 (10511) [HO2B_Gasverbrauch_Heizen_Akt_Jahr-1~0x912C (Int4)]
+    - Gasverbrauch Heizen Aktuelles Jahr-2 (10512) [HO2B_Gasverbrauch_Heizen_Akt_Jahr-2~0x9130 (Int4)]
+    - Gasverbrauch WW Aktuelles Jahr-1 (10514) [HO2B_Gasverbrauch_WW_Akt_Jahr-1~0x9260 (Int4)]
+    - Gasverbrauch WW Aktuelles Jahr-2 (10515) [HO2B_Gasverbrauch_WW_Akt_Jahr-2~0x9264 (Int4)]
+
+# Bedienung (23152)
+- Betriebsdaten (23126)
+    - Kesselsolltemperatur (63) [BedienKTSolltemperatur_NR2~0x5300 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Kessel freigeben (12455) [NRP_Kessel_Blockieren~0x5301 (Byte)]
+    - Betriebsart A1M1 (93) [BedienteilBA_GWGA1_Konstant~0x2323 (Byte)]
+- LAN (23677)
+    - SA171 MAC-Adresse (12243) [NRP_SA171_MAC_Address~0xD000 (String)]
+    - SA171 IP-Adresse (12244) [NRP_SA171_IP_Address~0xD012 (String)]
+    - SA171 Netzmaske (12245) [NRP_SA171_NetMask~0xD016 (String)]
+    - SA171 Standard Gateway (12246) [NRP_SA171_GWAddr~0xD01A (String)]
+    - SA171 DHCP Server (12247) [NRP_SA171_DCHP~0xD01E (String)]
+    - SA171 Primary DNS Server (12248) [NRP_SA171_PrimaryDNS~0xD022 (String)]
+    - SA171 Secondary DNS Server (12249) [NRP_SA171_SecondaryDNS~0xD026 (String)]
+    - SA171 Dynamic IP aktiviert (12250) [NRP_SA171_DynamicIP~0xD02A (Byte)]
+
+# Inbetriebnahme (23153)
+- Allgemein (23169)
+    - (00) Anlagen-Warmwasserschema (794) [K00_KonfiAnlagenschemaV100GC1~0x7700 (Byte)]
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (03) Anzeigemodus Celsius - Fahrenheit (12212) [K03_NRP_KonfiCelsiusFahrenheit~0x7703 (Byte)]
+    - (0B) VT_Solltemperatur bei externer Anforderung (12214) [K0B_NRP_KonfiVT_SolltemperaturExtern~0x770B (Byte)]
+    - (53) Verwendung Ausgang Stecker 20 (12236) [K53_NRP_KonfiVerwendungAusgang20~0x7753 (Byte)]
+    - (56) Laufzeit Stellantrieb Drosselklappe/Rücklaufregelung (12240) [K56_NRP_KonfiLaufzeitDKRLStellantrieb~0x7756 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (988) [K79_KonfiFehlerManagerV100_V050~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne")
+- Kessel (23170)
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (1F) Maximale Abgastemperatur (7846) [K1F_NRx_KonfiAbgastemperaturMax~0x571F (Int)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+- Warmwasser (23171) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - (00) Regelalgorithmus Speicher (12293) [K00_NRP_KonfiWW_Algorithmus~0x6700 (Byte)]
+    - (01) Speichertemperatur-Sollwertbereich (12294) [K01_NRP_KonfiWW_SolltemperaturBereich~0x6701 (Byte)]
+    - (0C) WW-Sollwert bei Nachladeunterdrückung Solar (12302) [K0C_NRP_KonfiWW_Solltemperatur3~0x670C (Byte)]
+- Feuerungsautomat CAN-Bus (23714) HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (02) Maximale Leistung im Betrieb (12561) [K02_NRP_CAN_KonfiMaxLeistungBetrieb~0x5882 (Int)]
+    - (03) Gasart (12501) [K03_NRP_CAN_KonfiGasart~0x5883 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (04) Aufstellhöhe (12502) [K04_NRP_CAN_KonfiAufstellhoehe~0x5884 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (06) Kesselmaximalbegrenzung (12562) [K06_NRP_CAN_KonfiKesselMaxTemp~0x5886 (Int)]
+    - (08) Integralschwellwert Regler (12563) [K08_NRP_CAN_KonfiIntegralSchwelle~0x5888 (Int)]
+    - (09) Laufzeitoptimierung (12564) [K09_NRP_CAN_KonfiLaufzeitOpt~0x5889 (Int)]
+    - (0A) Motorisierte Entlüftungsklappe (Schema) (12567) [K0A_NRP_CAN_KonfiSchema~0x588A (Int)]
+    - (0B) Abschaltung des GDW Lack Lock Out (Ein/Aus) (12568) [K0B_NRP_CAN_KonfiGDWLackLockOut~0x588B (Int)]
+    - (0C) Brenner Einschaltdifferenz (12565) [K0C_NRP_CAN_KonfiBrennerEinschaltdiff~0x588C (Int)]
+    - (0D) Brenner Ausschaltdifferenz (12566) [K0D_NRP_CAN_KonfiBrennerAusschaltdiff~0x588D (Int)]
+- Solarmodul SM1 (23182) HIDDEN:("(1A) Solarregelung"≠"3 Solarmodul SM1" AND "(1A) Solarregelung"≠"4 Solarmodul SM1 mit DT2")
+    - (02) Drehzahlsteuerung (7673) [SM1_K02_Drehzahlsteuerung~0xCF02 (Int)]
+    - (08) Speicher Maximaltemperatur (7664) [SM1_K08_Speichermaximaltemperatur~0xCF08 (Int)]
+    - (0A) Stagnationszeit-reduzierung (7666) [SM1_K0A_Stagnationszeitreduzierung~0xCF0A (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (0F) Volumenstrom bei max. Drehzahl (7671) [SM1_K0F_Volumenstrom_Max_Drehzahl~0xCF0F (Int)] HIDDEN:("(0E) Funktionskontrolle Solarertrag"="0: ausgeschaltet")
+    - (20) Erweiterte Regelungsfunktion (8031) [SM1_K20_NRx_Erweiterte_Regelungsfunktion~0xCF20 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+
+# Codierung 2 (23158)
+- Allgemein (23140)
+    - (00) Anlagen-Warmwasserschema (794) [K00_KonfiAnlagenschemaV100GC1~0x7700 (Byte)]
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (03) Anzeigemodus Celsius - Fahrenheit (12212) [K03_NRP_KonfiCelsiusFahrenheit~0x7703 (Byte)]
+    - (0B) VT_Solltemperatur bei externer Anforderung (12214) [K0B_NRP_KonfiVT_SolltemperaturExtern~0x770B (Byte)]
+    - (14) Kennung Störmeldemodul 1 (12215) [K14_NRP_NRx_KonfiKennungSSM1~0x7714 (Int)]
+    - (15) Kennung Störmeldemodul 2 (12216) [K15_NRP_KonfiKennungSSM2~0x7715 (Int)]
+    - (16) Kennung BUS Feuerungsautomat (12217) [K16_NRP_KennungKMFeuerungsautomat~0x7716 (Byte)]
+    - (1A) Solarregelung (12218) [K1A_NRP_KonfiKennungSolarregelung~0x771A (Byte)]
+    - (1B) Pumpenmodul PM1 (12569) [K1B_KonfiKennungPumpenmodul~0x771B (Byte)]
+    - (20) Sensor Hydraulische Weiche (12219) [K20_NRP_KonfiSensorHydraulischeWeiche~0x7720 (Byte)]
+    - (22) Nachstellzeit Hydraulische Weiche / Pufferspeicher (12220) [K22_NRP_KonfiHdWPuReglernachstellzeit~0x7722 (Int)]
+    - (23) Reglerverzoegerung Hydraulische Weiche / Pufferspeicher (12221) [K23_NRP_KonfiHdWPuReglerverzoegerung~0x7723 (Byte)]
+    - (24) Pumpenfunktion bei hydraulischer Weiche (12222) [K24_NRP_KonfiHydrWeicheKKPumpe~0x7724 (Byte)]
+    - (2B) Energieverbrauch anzeigen (12223) [K2B_NRP_KonfiEnergieverbrauchAnzeigen~0x772B (Byte)]
+    - (30) Kennung Anschlusserweiterung AM1 (12224) [K30_NRP_Kennung_AM1~0x7730 (Byte)]
+    - (31) AM1: Funktion Ausgang 1 (12225) [K31_NRP_KonfiAM1FunktionAusgang1~0x7731 (Byte)]
+    - (32) AM1: Funktion Ausgang 2 (12226) [K32_NRP_KonfiAM1FunktionAusgang2~0x7732 (Byte)]
+    - (40) Kennung Anschlusserweiterung EA1 (12227) [K40_NRP_Kennung_EA1~0x7740 (Byte)]
+    - (41) EA1 Funktion Ausgang 1 (12228) [K41_NRP_KonfiEA1FunktionAusgang1~0x7741 (Byte)]
+    - (42) EA1 Funktion Eingang 1 (12229) [K42_NRP_KonfiExtEingang1~0x7742 (Int)]
+    - (43) EA1 Funktion Eingang 2 (12230) [K43_NRP_KonfiExtEingang2~0x7743 (Byte)]
+    - (44) EA1 Funktion Eingang 3 (12231) [K44_NRP_KonfiExtEingang3~0x7744 (Byte)]
+    - (45) EA1 Temperatur oder Leistungsanforderung (12232) [K45_NRP_EA1_Temperatur_Leistungsanforderung~0x7745 (Byte)]
+    - (46) Anforderung 0..10V Anschlußerweiterung EA1 (12233) [K46_NRP_KonfiBereichAnalogwertEA1~0x7746 (Int)]
+    - (51) Verwendung Sensoreingang Stecker 17 (12234) [K51_NRP_KonfiVerwendungEingang17~0x7751 (Byte)]
+    - (52) Verwendung Sensoreingang Stecker 17B (12235) [K52_NRP_KonfiVerwendungEingang17B~0x7752 (Byte)]
+    - (53) Verwendung Ausgang Stecker 20 (12236) [K53_NRP_KonfiVerwendungAusgang20~0x7753 (Byte)]
+    - (54) Verwendung Ausgang Stecker 29 (12237) [K54_NRP_KonfiVerwendungAusgang29~0x7754 (Byte)]
+    - (55) Verwendung von Ausgang Stecker 52 (12238) [K55_NRP_onfiVerwendungAusgang52~0x7755 (Byte)]
+    - (56) Laufzeit Stellantrieb Drosselklappe/Rücklaufregelung (12240) [K56_NRP_KonfiLaufzeitDKRLStellantrieb~0x7756 (Byte)]
+    - (57) Nachlaufzeit BP/KKP/VP (12241) [K57_NRP_KonfiPumpenNachlauf~0x7757 (Byte)]
+    - (70) Korrekturwert für Außentemperatur (12242) [K70_NRP_KonfiOffsetAussentemperatur~0x7770 (Int)]
+    - (76) Konfiguration Kommunikationsmodul (981) [K76_KonfiKommunikationsmodul_mitHV~0x7776 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (78) LON - Kommunikation Freigeben/ Sperren (986) [K78_KonfiNVKommunikationLONV100GC1~0x7778 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (988) [K79_KonfiFehlerManagerV100_V050~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne")
+    - (80) Verzögerung Fehleranzeige (1002) [K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (93) SP-Betrieb - Wartungsanzeige wirken auf Sammelstörung (1030) [K93_KonfiSPBetriebWartungsanzeige~0x7793 (Byte)]
+    - (98) Viessmann - Anlagennummer (1043) [K98_KonfiVI_Anlagennummer~0x7798 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="2 ungültig" OR 76_KonfKommMod="2 HV-Bus-Modul")
+    - (9C) Überwachung LON-Teilnehmer (1049) [K9C_KonfiReceiveHeartBeat~0x779C (Byte)]
+    - (9D) Zugriff auf Kesselregler-Parameter (7938) [K9D_KonfiZugriffParameterKR~0x779D (Int)]
+- Kessel (23141)
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (04) Kessel-Schalthysterese (812) [K04_KonfiKesselSchalthysterese~0x5704 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (08) Brennermaximalleistung in 1KW (821) [K08_KonfiBrennermaximalleistung1KW~0x5708 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (09) Brennermaximalleistung in 100KW (823) [K09_KonfiBrennermaximalleistung100KW~0x5709 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0A) Grundleistung Brenner in Prozent der Nennleistung (825) [K0A_KonfiBrennerminimalleistung~0x570A (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0B) Kesselschutz-nachlauf (827) [K0B_KonfiKesselschutzNachlauf~0x570B (Byte)]
+    - (0C) Funktion der Drosselklappe-Rücklaufregelung (829) [K0C_KonfiDKRLFunktionV100GC1~0x570C (Byte)]
+    - (0D) ThermControl (831) [K0D_KonfiTSA_FunktionV100GC1~0x570D (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="1 RL-Regelung")
+    - (0E) ThermControl-Reglerverstaerkung (835) [K0E_KonfiTSAReglerverstaerkung~0x570E (Byte)]
+    - (0F) ThermControl-Reglernachstellzeit (836) [K0F_KonfiTSAReglernachstellzeit~0x570F (Byte)]
+    - (13) Ausschaltdifferenz des Kesselreglers (7986) [K13_KonfiAusschaltdifferenz_NRx~0x5713 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (14) Brennermindestlaufzeit (841) [K14_KonfiBrennermindestlaufzeit~0x5714 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (15) Laufzeit Stellantrieb Brenner (843) [K15_KonfiLaufzeitStellantriebBrenner_G~0x5715 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (16) Offset Modulierender Brenner (844) [K16_KonfiOffsetModBrenner~0x5716 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (17) Verstaerkung Kesselregler (847) [K17_KonfiKTReglerverstaerkung~0x5717 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (18) Nachstellzeit Kesselregler \n(eingestellter Wert * 10) (848) [K18_KonfiKTReglernachstellzeit~0x5718 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (1A) Anfahroptimierung Modulierender Brenner (850) [K1A_KonfiAnfoptModBrenner~0x571A (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1B) Reglerverzögerung (851) [K1B_KonfiReglerverzoegerung~0x571B (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1C) Startverzögerung Brenner (852) [K1C_KonfiStartverzoegerungBrenner~0x571C (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1D) Beimischpumpe ein wenn Brenner ein (853) [K1D_KonfiPumpenbeiBrennerein~0x571D (Byte)]
+    - (1F) Maximale Abgastemperatur (7846) [K1F_NRx_KonfiAbgastemperaturMax~0x571F (Int)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (26) Verbrauch Brenner 1. Stufe pro Stunde (Zehntel-Schritte) (871) [K26_KonfiVerbrauchBrenner1Low~0x5726 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend")
+    - (27) Verbrauch Brenner 1. Stufe pro Stunde (Zehner-Schritte) (872) [K27_KonfiVerbrauchBrenner1High~0x5727 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (28) Intervallzuendung Brenner alle 5 Stunden (873) [K28_KonfiIntervallzuendung~0x5728 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (29) Verbrauch Brenner 2. Stufe pro Stunde (Zehntel-Schritte) (876) [K29_KonfiVerbrauchBrenner2Low~0x5729 (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig")
+    - (2A) Verbrauch Brenner 2. Stufe (Zehner-Schritte) (877) [K2A_KonfiVerbrauchBrenner2High~0x572A (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (2B) maximale Vorwaermzeit Drosselklappe (878) [K2B_KonfiVorwaermzeit_DK~0x572B (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2C) maximale Nachlaufzeit Drosselklappe (879) [K2C_KonfiNachlaufzeit_DK~0x572C (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2D) Beimischpumpe Funktion (880) [K2D_KonfiBeimischpumpeFunktion~0x572D (Byte)] HIDDEN:("(1D) Beimischpumpe ein wenn Brenner ein"="aktiv")
+- Pumpenmodul PM1 (23796) HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (00) Pumpentyp (12570) [K80_KonfiPumpentyp0x5780 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (03) Funktionsauswahl (12591) [K83_KonfiFunktionsauswahl~0x5783 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (04) Störmeldeeingang (12592) [K84_KonfiStoermeldeeingang~0x5784 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (05) Leistungsgesteuerte Drehzahl Kennlinie Min (12593) [K85_KonfiFkt1DrehzahlMin~0x5785 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"≠"1: Leistungsgesteuerte Drehzahl")
+    - (06) Leistungsgesteuerte Drehzahl Kennlinie Max (12594) [K86_KonfiFkt1DrehzahlMax~0x5786 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"≠"1: Leistungsgesteuerte Drehzahl")
+    - (07) Soll-Differenztemperatur Funktion 2/6 (12595) [K87_KonfiFkt2u6DifferenztemperaturSollZielTR~0x5787 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (08) Regelverstärkung Funktion 2/6 (12596) [K88_KonfiFkt2u6RegelverstaerkungZielTR~0x5788 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (09) Nachstellzeit Funktion 2/6 (12597) [K89_KonfiFkt2u6NachstellzeitZielTR~0x5789 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0A) Soll-Differenztemperatur Funktion 3/4 (12598) [K8A_KonfiFkt3u4DifferenztempSoll~0x578A (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="6: Puffertemperaturregelung mit Zieltemperaturregelung" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0B) Regelverstärkung Funktion 3/4 (12599) [K8B_KonfiFkt3u4Regelverstaerkung~0x578B (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="6: Puffertemperaturregelung mit Zieltemperaturregelung" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0C) Nachstellzeit Funktion 3/4 (12600) [K8C_KonfiFkt3u4Nachstellzeit~0x578C (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="6: Puffertemperaturregelung mit Zieltemperaturregelung" OR "(03) Funktionsauswahl"="5: Puffertemperaturregelung" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0D) Soll-Differenztemperatur Funktion 5/6 (12601) [K8D_KonfiFkt5u6DifferenztempSollPufferTR~0x578D (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0E) Regelverstärkung Funktion 5/6 (12602) [K8E_KonfiFkt5u6RegelverstaerkungPufferTR~0x578E (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (0F) Nachstellzeit Funktion 5/6 (12603) [K8F_KonfiFkt5u6NachstellzeitPufferTR~0x578F (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"="0: Ohne Funktion" OR "(03) Funktionsauswahl"="1: Leistungsgesteuerte Drehzahl" OR "(03) Funktionsauswahl"="2: Zieltemperaturregelung" OR "(03) Funktionsauswahl"="3: Differenztemperaturregelung RL Weiche" OR "(03) Funktionsauswahl"="4: Differenztemperaturregelung VL Weiche" OR "(03) Funktionsauswahl"="7: Differenztemperaturregelung Mehrkesselanlage")
+    - (10) Soll-Differenztemperatur Funktion 7 (12604) [K90_KonfiFkt7DifferenztempSoll~0x5790 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"≠"7: Differenztemperaturregelung Mehrkesselanlage")
+    - (11) Regelverstärkung Funktion 7 (12605) [K91_KonfiFkt7Regelverstaerkung~0x5791 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"≠"7: Differenztemperaturregelung Mehrkesselanlage")
+    - (12) Nachstellzeit Funktion 7 (12606) [K92_KonfiFkt7Nachstellzeit~0x5792 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul" OR "(03) Funktionsauswahl"≠"7: Differenztemperaturregelung Mehrkesselanlage")
+    - (20) Ansteuerwert Pumpe 0..10V 'Aus' (12571) [KA0_KonfiDrehzahlsollAus~0x57A0 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (21) Ansteuerwert Pumpe 0..10V 'Regelbereich min' (12572) [KA1_KonfiDrehzahlsollMin~0x57A1 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (22) Ansteuerwert Pumpe 0..10V 'Regelbereich max' (12573) [KA2_KonfiDrehzahlsollMax~0x57A2 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (23) Massenstrom bei Regelbereich min (12574) [KA3_KonfiDrehzahlMdotMin~0x57A3 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (24) Massenstrom bei Regelbereich Mitte (12575) [KA4_KonfiDrehzahlMdotMin~0x57A4 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (25) Massenstrom bei Regelbereich max (12576) [KA5_KonfiDrehzahlMdotMax~0x57A5 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (26) Netzspannung Pumpe (12577) [KA6_KonfiNetzspannung~0x57A6 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (28) Nachlaufzeit Netzspannung nach Wegfall Anforderung (12607) [KA8_KonfiPumpenNachlaufNetz~0x57A8 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (29) Massenstrom Untergrenze (12608) [KA9_KonfiMassenstromMin~0x57A9 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (2A) Massenstrom Obergrenze (12609) [KAA_KonfiMassenstromMax~0x57AA (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (2B) Alternative Verwendung Sensor 3 (12610) [KAB_KonfiAlternativeVerwSensor3~0x57AB (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (2C) Alternative Verwendung Sensor 4 (12611) [KAC_KonfiAlternativeVerwSensor4~0x57AC (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - (2D) Freigabezeit Kickfunktion Pumpenmodul (0 … 100s) (12612) [KAD_KonfiFreigabezeitKickfunktion~0x57AD (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+- Brenner (23200)
+    - (03) Gasart (10425) [GW6B_K03_KonfiGasart~0x5803 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (04) Aufstellhöhe (10426) [GW6B_K04_KonfiAufstellhoehe~0x5804 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (06) Kesselmaximalbegrenzung (10421) [GW6B_K06_KonfiKesselMaxTemp~0x5806 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (08) Integralschwellwert Regler (10422) [GW6B_K08_KonfiIntegralSchwelle~0x5808 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+    - (09) Laufzeitoptimierung (10423) [GW6B_K09_KonfiLaufzeitOpt~0x5809 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"="2: CAN Feuerungsautomat")
+- Feuerungsautomat CAN-Bus (23712) HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (02) Maximale Leistung im Betrieb (12561) [K02_NRP_CAN_KonfiMaxLeistungBetrieb~0x5882 (Int)]
+    - (03) Gasart (12501) [K03_NRP_CAN_KonfiGasart~0x5883 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (04) Aufstellhöhe (12502) [K04_NRP_CAN_KonfiAufstellhoehe~0x5884 (Int)] HIDDEN:("(16) Kennung BUS Feuerungsautomat"≠"2: CAN Feuerungsautomat")
+    - (06) Kesselmaximalbegrenzung (12562) [K06_NRP_CAN_KonfiKesselMaxTemp~0x5886 (Int)]
+    - (08) Integralschwellwert Regler (12563) [K08_NRP_CAN_KonfiIntegralSchwelle~0x5888 (Int)]
+    - (09) Laufzeitoptimierung (12564) [K09_NRP_CAN_KonfiLaufzeitOpt~0x5889 (Int)]
+    - (0A) Motorisierte Entlüftungsklappe (Schema) (12567) [K0A_NRP_CAN_KonfiSchema~0x588A (Int)]
+    - (0B) Abschaltung des GDW Lack Lock Out (Ein/Aus) (12568) [K0B_NRP_CAN_KonfiGDWLackLockOut~0x588B (Int)]
+    - (0C) Brenner Einschaltdifferenz (12565) [K0C_NRP_CAN_KonfiBrennerEinschaltdiff~0x588C (Int)]
+    - (0D) Brenner Ausschaltdifferenz (12566) [K0D_NRP_CAN_KonfiBrennerAusschaltdiff~0x588D (Int)]
+- Warmwasser (23142) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - (00) Regelalgorithmus Speicher (12293) [K00_NRP_KonfiWW_Algorithmus~0x6700 (Byte)]
+    - (01) Speichertemperatur-Sollwertbereich (12294) [K01_NRP_KonfiWW_SolltemperaturBereich~0x6701 (Byte)]
+    - (03) Zweiter Speichersollwert (12295) [K03_NRP_KonfiWW_Solltemperatur2~0x6703 (Byte)]
+    - (04) Speicher Einschaltpunkt (12296) [K04_NRP_KonfiWW_EinschaltOffset~0x6704 (Byte)]
+    - (05) VT-Anforderung von Speicher ist Maximalwert (12297) [K05_NRP_KonfiSpeichersollwertMax~0x6705 (Byte)]
+    - (06) Kesselsollwert bei Speicherladung (12298) [K06_NRP_KonfiWW_KesselOffset~0x6706 (Byte)]
+    - (07) Speicherladepumpenstart (12299) [K07_NRP_KonfiLpumpeKTabhaengig~0x6707 (Byte)]
+    - (08) Speichernachlaufzeit (12300) [K08_NRP_KonfiLpumpeNachlauf~0x6708 (Byte)]
+    - (09) Legionellenfunktion (Häufigkeit WWAL) (12301) [K09_NRP_KonfiWWAL_Haeufigkeit~0x6709 (Byte)]
+    - (0C) WW-Sollwert bei Nachladeunterdrückung Solar (12302) [K0C_NRP_KonfiWW_Solltemperatur3~0x670C (Byte)]
+    - (0D) Speichersensor 2 Faktor Ausschaltpunkt (12303) [K0D_NRP_KonfiWW_Sensor2FaktorAus~0x670D (Byte)]
+    - (0E) Speichersensor 2 Faktor Einschaltpunkt (12304) [K0E_NRP_KonfiWW_Sensor2FaktorEin~0x670E (Byte)]
+    - (0F) Laufzeit Mischer Wärmetauscherset (12305) [K0F_NRP_KonfiLaufzeitMischerWTSet~0x670F (Byte)]
+    - (11) Laufzeit Primärpumpe Wärmetauscherset (12306) [K11_NRP_KonfiLaufzeitPPumpeWTSet~0x6711 (Byte)]
+- Solarmodul SM1 (23180) HIDDEN:("(1A) Solarregelung"="0 ohne" OR "(1A) Solarregelung"="1 Vitosolic 100" OR "(1A) Solarregelung"="2 Vitosolic 200")
+    - (00) Einschaltpunkt Kollektorkreispumpe (7656) [SM1_K00_Einschalt_KKPumpe~0xCF00 (Int)]
+    - (01) Ausschaltpunkt Kollektorkreispumpe (7657) [SM1_K01_Ausschalt_KKPumpe~0xCF01 (Int)]
+    - (02) Drehzahlsteuerung (7673) [SM1_K02_Drehzahlsteuerung~0xCF02 (Int)]
+    - (03) Sollwert dT-Regler (7659) [SM1_K03_Sollwert_DT_Regler~0xCF03 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (05) Minimale Pumpendrehzahl (7661) [SM1_K05_Min_Pumpendrehzahl~0xCF05 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (06) Maximale Pumpendrehzahl (7662) [SM1_K06_Max_Pumpendrehzahl~0xCF06 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (07) Intervallfunktion (7674) [SM1_K07_Intervallfunktion~0xCF07 (Int)]
+    - (08) Speicher Maximaltemperatur (7664) [SM1_K08_Speichermaximaltemperatur~0xCF08 (Int)]
+    - (09) Kollektor Maximaltemperatur (7665) [SM1_K09_Kollektormaximaltemperatur~0xCF09 (Int)]
+    - (0A) Stagnationszeit-reduzierung (7666) [SM1_K0A_Stagnationszeitreduzierung~0xCF0A (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (0B) Kollektor Frostschutzfunktion (7675) [SM1_K0B_Kollektorfrostschutzfunktion~0xCF0B (Int)]
+    - (0E) Funktionskontrolle Solarertrag (7678) [SM1_K0E_Funktionskontrolle_Solarertrag~0xCF0E (Int)]
+    - (0F) Volumenstrom bei max. Drehzahl (7671) [SM1_K0F_Volumenstrom_Max_Drehzahl~0xCF0F (Int)] HIDDEN:("(0E) Funktionskontrolle Solarertrag"="0: ausgeschaltet")
+    - (10) Zieltemperaturregelung (7679) [SM1_K10_Zieltemperaturregelung~0xCF10 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (11) Speichersolltemperatur Solar (7680) [SM1_K11_Speichersolltemperatur~0xCF11 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (12) Kollektor Minimaltemperatur (7681) [SM1_K12_Kollektorminimaltemperatur~0xCF12 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (20) Erweiterte Regelungsfunktion (8031) [SM1_K20_NRx_Erweiterte_Regelungsfunktion~0xCF20 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (22) Einschaltpunkt dT2-Regler (8032) [SM1_K22_NRx_Einschaltpunkt_dT2_Regler~0xCF22 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (23) Ausschaltpunkt dT2-Regler (8033) [SM1_K23_NRx_Ausschaltpunkt_dT2_Regler~0xCF23 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (24) Einschalttemperatur Thermostat (8034) [SM1_K24_NRx_Einschalttemp_Thermostat~0xCF24 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (25) Ausschalttemperatur Thermostat (8035) [SM1_K25_NRx_Ausschalttemp_Thermostat~0xCF25 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (26) Pendelladung (8036) [SM1_K26_NRx_Pendelladung~0xCF26 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+    - (27) Pendelladezeit (8037) [SM1_K27_NRx_Pendelladezeit~0xCF27 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+    - (28) Pendelpausenzeit (8038) [SM1_K28_NRx_Pendelpausenzeit~0xCF28 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+
+# Diagnose Anlage (23161)
+- Kessel (23195)
+    - Außentemperatur (12315) [NRP_Temperaturwert_ATS~0x05A0 (SInt)] HIDDEN:("Sensor-Status ATS"="Nicht vorhanden")
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Kesseltemperatur Kessel 1 (12456) [NRP_BDE_Kesseltemperatur_Ist~0x5400 (Int)]
+    - Kesselleistung Ist (12335) [NRP_BDE_Kesselleistung_Ist~0x5400 (Int)]
+    - Rücklauftemperatur 17A (12320) [NRP_Temperaturwert_RLTS_17A~0x05AF (SInt)] HIDDEN:("Sensor-Status RLTS 17A"="Nicht vorhanden")
+    - Rücklauftemperatur 17B (12321) [NRP_Temperaturwert_RLTS_17B~0x05B2 (SInt)] HIDDEN:("Sensor-Status RLTS 17B"="Nicht vorhanden")
+    - Sensor 9 (12322) [NRP_Temperaturwert_PTS~0x05B5 (SInt)] HIDDEN:("Sensor-Status PTS"="Nicht vorhanden")
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - Maximal erreichte Abgastemperatur (12516) [NRP_AGTemperaturwertMAX~0x0592 (Int)]
+    - Kesselfreigabe (4263) [RKR_01Freigabe_Kessel~0x5556 (Byte)]
+    - Sammelstörmeldung (12325) [NRP_DigitalAusgang_Sammelstoerung~0x0605 (Byte)]
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - (53) Verwendung Ausgang Stecker 20 (12236) [K53_NRP_KonfiVerwendungAusgang20~0x7753 (Byte)]
+    - Ausgang 29 (12324) [NRP_DigitalAusgang_29~0x0602 (Byte)]
+    - (54) Verwendung Ausgang Stecker 29 (12237) [K54_NRP_KonfiVerwendungAusgang29~0x7754 (Byte)]
+    - Ausgang 52 (12326) [NRP_DigitalAusgang_52~0x0650 (SByte)]
+    - (55) Verwendung von Ausgang Stecker 52 (12238) [K55_NRP_onfiVerwendungAusgang52~0x7755 (Byte)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+    - Viessmann - Teilnehmernummer (984) [K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - (42) EA1 Funktion Eingang 1 (12229) [K42_NRP_KonfiExtEingang1~0x7742 (Int)]
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - (43) EA1 Funktion Eingang 2 (12230) [K43_NRP_KonfiExtEingang2~0x7743 (Byte)]
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - (44) EA1 Funktion Eingang 3 (12231) [K44_NRP_KonfiExtEingang3~0x7744 (Byte)]
+    - Sollwertvorgabe 0-10V Erw. EA1 (12333) [NRP_EA1_ExternSollwert0_10V~0x0853 (Int)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - (41) EA1 Funktion Ausgang 1 (12228) [K41_NRP_KonfiEA1FunktionAusgang1~0x7741 (Byte)]
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (31) AM1: Funktion Ausgang 1 (12225) [K31_NRP_KonfiAM1FunktionAusgang1~0x7731 (Byte)]
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (32) AM1: Funktion Ausgang 2 (12226) [K32_NRP_KonfiAM1FunktionAusgang2~0x7732 (Byte)]
+    - Datum und Uhrzeit (5385) [Uhrzeit~0x088E (Array)]
+    - Herstellnummer Kessel (7217) [HWHerstellNrKessel~0xF010 (String)]
+    - Herstellnummer Regelung (7206) [HWHerstellNrRegelung~0xF000 (String)]
+    - Kesselsolltemperatur (effektiv) (4272) [RKR_11KTSolleff_Kessel~0x555A (Int)]
+    - Brennerleistung (4266) [RKR_04PIst_Kessel~0x55E0 (Byte)]
+    - Kesselsollleistung (effektiv) (4273) [RKR_12PSolleff_Kessel~0x555C (Byte)]
+    - Ausgabesignal Pumpe PM1 (12578) [PM1_Setpoint_AnalogOut~0x5F00 (Int)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Volumenstrom Sollwert Pumpe PM1 (12579) [PM1_Setpoint_mdot~0x5F02 (Int)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Netzspannungsverhalten Pumpe PM1 (12580) [PM1_Status_RelaiK1~0x5F04 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Potentialfreier Kontakt Pumpe PM1 (12581) [PM1_Status_RelaiK2~0x5F05 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 1 PM1 (12582) [PM1_Temperature_Sensor1~0x5F06 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 2 PM1 (12583) [PM1_Temperature_Sensor2~0x5F08 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 3 PM1 (12584) [PM1_Temperature_Sensor3~0x5F0A (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 4 PM1 (12585) [PM1_Temperature_Sensor4~0x5F0C (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+- Warmwasser (23196)
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speichertemperatur 5A (12317) [NRP_Temperaturwert_STS_5A~0x05A6 (SInt)] HIDDEN:("Sensor-Status STS (5A)"="Nicht vorhanden")
+    - Speichertemperatur 5B (12318) [NRP_Temperaturwert_STS_5B~0x05A9 (SInt)] HIDDEN:("Sensor-Status STS (5B)"="Nicht vorhanden")
+    - Speicherladepumpe (12336) [NRP_DigitalAusgang_Speicherladepumpe~0x0603 (Byte)]
+    - Zirkulationspumpe (12337) [NRP_DigitalAusgang_Zirkulationspumpe~0x0604 (Byte)]
+    - (00) Regelalgorithmus Speicher (12293) [K00_NRP_KonfiWW_Algorithmus~0x6700 (Byte)]
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - Ausgang 52 (12326) [NRP_DigitalAusgang_52~0x0650 (SByte)]
+- Solar (23184) HIDDEN:("(1A) Solarregelung"="0 ohne")
+    - Solarertrag Aktueller Tag (7895) [NRx_SolarErtrag_0~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 1 Tag zurück (7896) [NRx_SolarErtrag_1~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 2 Tage zurück (7897) [NRx_SolarErtrag_2~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 3 Tage zurück (7898) [NRx_SolarErtrag_3~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 4 Tage zurück (7899) [NRx_SolarErtrag_4~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 5 Tage zurück (7900) [NRx_SolarErtrag_5~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 6 Tage zurück (7901) [NRx_SolarErtrag_6~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 7 Tage zurück (7902) [NRx_SolarErtrag_7~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solarkreispumpe Starts (12349) [NRP_SM1_Solarpumpe_Starts~0x6580 (Int4)]
+    - Solar Stagnation (12350) [NRP_SM1_Solar_Stagnation~0x6580 (Int4)]
+    - Fehlzirkulation (12351) [NRP_SM1_Solar_Fehlzirkulation~0x6580 (Int4)]
+    - Solar DeltaT Überwachung (12352) [NRP_SM1_Solar_DeltaT_Ueberwachung~0x6580 (Int4)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Drehzahl Solarpumpe (12340) [NRP_SM1_Solarpumpe_Drehzahl~0x0431 (Int)]
+    - Heizunterdrückung WW (12346) [NRP_BDE_Solar_Heizunterdrueckung_WW~0x6580 (Byte)]
+    - SM1 Ausgang 22 (12338) [NRP_SM1_DigitalAusgang_22~0x0432 (Byte)]
+    - SM1 Ausgang 22 Laufzeit (12339) [NRP_SM1_DigitalAusgang_22_Laufzeit~0x0433 (Int4)]
+    - SM1 Ausgang 22 Starts (12348) [NRP_SM1_DigitalAusgang_22_Zyklen~0x6580 (Int4)]
+    - Status Sensor 7 (12341) [NRP_SM1_Sensor_7_Status~0x0437 (Byte)]
+    - Sensor 7 (12342) [NRP_SM1_Sensor_7~0x0438 (SInt)] HIDDEN:("Status Sensor 7"="Sensor nicht vorhanden")
+    - Status Sensor 10 (12343) [NRP_SM1_Sensor_10_Status~0x043A (Byte)]
+    - Sensor 10 (12344) [NRP_SM1_Sensor_10~0x043B (SInt)] HIDDEN:("Status Sensor 10"="Sensor nicht vorhanden")
+    - Heizunterdrückung Heizen (12347) [NRP_BDE_Solar_Heizunterdrueckung_Heizen~0x6580 (Byte)]
+    - (1A) Solarregelung (12218) [K1A_NRP_KonfiKennungSolarregelung~0x771A (Byte)]
+- Erweiterung AM1 (23179) HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (30) Kennung Anschlusserweiterung AM1 (12224) [K30_NRP_Kennung_AM1~0x7730 (Byte)]
+    - (31) AM1: Funktion Ausgang 1 (12225) [K31_NRP_KonfiAM1FunktionAusgang1~0x7731 (Byte)]
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (32) AM1: Funktion Ausgang 2 (12226) [K32_NRP_KonfiAM1FunktionAusgang2~0x7732 (Byte)]
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+- Erweiterung EA1 (23178) HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Sollwertvorgabe 0-10V Erw. EA1 (12333) [NRP_EA1_ExternSollwert0_10V~0x0853 (Int)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+- Wartung (23130)
+    - (21) Grenzwert Betriebsstunden Brenner (859) [K21_KonfiBetriebsstdBrenner_Wartung~0x5721 (Int)]
+    - (23) Eingestelltes Zeitintervall (863) [K23_KonfiZeitintervall_Wartung~0x5723 (Byte)]
+    - (24) Wartung (865) [K24_KonfiStatus_Wartung~0x5724 (Byte)]
+    - Betriebsstunden Brenner seit letzter  Wartung (3153) [LetzteBrennerWartung~0x7570 (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - vergangene Zeit seit letzter Wartung (3155) [LetzteIntervallWartung~0x756C (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - (1F) Grenzwert Abgastemperatur (856) [K1F_KonfiAbgastemperaturMax_Wartung~0x571F (Int)]
+
+# Diagnose System (23162)
+- Regelung (23133)
+    - Reglerkennung (12359) [K09_NRP_Reglerkennung_Klartext~0x7709 (Byte)]
+    - Software-Index des Gerätes (7567) [Software_Index~0x00FB (String)]
+    - Bedienteil Software-Index (91) [Bedienteil_SW_Index~0x7330 (Array)]
+    - Herstellnummer Regelung (7206) [HWHerstellNrRegelung~0xF000 (String)]
+    - Herstellnummer Kessel (7217) [HWHerstellNrKessel~0xF010 (String)]
+    - Kommunikations-Coprozessor Software-Index (2923) [Kennung_87c652_SW_Index~0xA018 (Array)]
+    - Neuron Software-Index (2926) [Kennung1_Neuron_SW_Index~0xA01C (Array)]
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+    - Sachnummer LON (4686) [Sachnummer_LON~0xA011 (String)]
+    - Sachnummer 87c652 (4683) [Sachnummer_87c652~0xA03D (String)]
+    - Sachnummer Codierstecker (4685) [Sachnummer_GWG_Codierstecker~0x1010 (String)]
+    - Kesselcodierstecker (486) [GWG_Codierstecker_Kennziffer~0x1040 (Array)]
+- Kommunikation (23134) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+    - LON - Kommunikation freigegeben (987) [K78_KonfiNVKommunikationLONV100GC1_D~0x7778 (Byte)]
+    - Viessmann - Anlagennummer (1044) [K98_KonfiVI_Anlagennummer_D~0x7798 (Byte)]
+    - Viessmann - Teilnehmernummer (984) [K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - Anlagentyp (804) [K01_KonfiAnlagentyp_D~0x7701 (Byte)]
+    - Kesselnummer (820) [K07_KonfiKesselnummerV100GC1_D~0x5707 (Byte)]
+    - Fehlermanager der Anlage (989) [K79_KonfiFehlerManagerV100_V050_D~0x7779 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - nciNetConfig (3461) [nciNetConfig~0xA102 (Byte)]
+    - Domain (3464) [Node_Domain~0xA000 (Int)]
+    - Subnet (3466) [Node_Subnet~0xA000 (Int)]
+    - Node (3465) [Node_Node~0xA000 (Int)]
+    - Neuron ID (3463) [Neuron_ID~0xA009 (String)]
+    - SW-Index Solarmodul SM1 (12450) [SWIndex_SM1_NRP~0x7E28 (Byte)]
+    - HW-Index Solarmodul SM1 (12451) [HWIndex_SM1_NRP~0x7E28 (Byte)]
+    - Fernbedienung A1 Software-Index (12452) [SWIndex_FB1_NRP~0x7E04 (Array)]
+    - (1B) Pumpenmodul PM1 (12569) [K1B_KonfiKennungPumpenmodul~0x771B (Byte)]
+- LON-Teilnehmer (23135) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Fehlermanager (4127) [nvoAlarm_Fehlermanager_Teilnehmerliste~0xA132 (Byte)]
+    - Teilnehmerliste LON eigene TN-Nummer Anlage/TN (5333) [Teilnehmerliste_LON_00~0xA010 (Array)]
+    - Teilnehmerliste LON (01) Anlage/TN (5334) [Teilnehmerliste_LON_01~0xA010 (Array)]
+    - Teilnehmerliste LON (02)  Anlage/TN (5335) [Teilnehmerliste_LON_02~0xA010 (Array)]
+    - Teilnehmerliste LON (03)  Anlage/TN (5336) [Teilnehmerliste_LON_03~0xA010 (Array)]
+    - Teilnehmerliste LON (04)  Anlage/TN (5337) [Teilnehmerliste_LON_04~0xA010 (Array)]
+    - Teilnehmerliste LON (05)  Anlage/TN (5338) [Teilnehmerliste_LON_05~0xA010 (Array)]
+    - Teilnehmerliste LON (06)  Anlage/TN (5339) [Teilnehmerliste_LON_06~0xA010 (Array)]
+    - Teilnehmerliste LON (07)  Anlage/TN (5340) [Teilnehmerliste_LON_07~0xA010 (Array)]
+    - Teilnehmerliste LON (08)  Anlage/TN (5341) [Teilnehmerliste_LON_08~0xA010 (Array)]
+    - Teilnehmerliste LON (09)  Anlage/TN (5342) [Teilnehmerliste_LON_09~0xA010 (Array)]
+    - Teilnehmerliste LON (10)  Anlage/TN (5343) [Teilnehmerliste_LON_10~0xA010 (Array)]
+    - Teilnehmerliste LON (11)  Anlage/TN (5344) [Teilnehmerliste_LON_11~0xA010 (Array)]
+    - Teilnehmerliste LON (12)  Anlage/TN (5345) [Teilnehmerliste_LON_12~0xA010 (Array)]
+    - Teilnehmerliste LON (13)  Anlage/TN (5346) [Teilnehmerliste_LON_13~0xA010 (Array)]
+    - Teilnehmerliste LON (14)  Anlage/TN (5347) [Teilnehmerliste_LON_14~0xA010 (Array)]
+    - Teilnehmerliste LON (15)  Anlage/TN (5348) [Teilnehmerliste_LON_15~0xA010 (Array)]
+- Eingänge (23137)
+    - Sensor-Status ATS (12307) [NRP_SensorStatus_ATS~0x05A0 (Byte)]
+    - Sensor-Status STS (5A) (12309) [NRP_SensorStatus_STS_5A~0x05A6 (Byte)]
+    - Sensor-Status STS (5B) (12310) [NRP_SensorStatus_STS_5B~0x05A9 (Byte)]
+    - Sensor-Status AGTS (12311) [NRP_SensorStatus_AGTS~0x05AC (Byte)]
+    - Sensor-Status RLTS 17A (12312) [NRP_SensorStatus_RLTS_17A~0x05AF (Byte)]
+    - Sensor-Status RLTS 17B (12313) [NRP_SensorStatus_RLTS_17B~0x05B2 (Byte)]
+    - Sensor-Status PTS (12314) [NRP_SensorStatus_PTS~0x05B5 (Byte)]
+    - Außentemperatur (12315) [NRP_Temperaturwert_ATS~0x05A0 (SInt)] HIDDEN:("Sensor-Status ATS"="Nicht vorhanden")
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Speichertemperatur 5A (12317) [NRP_Temperaturwert_STS_5A~0x05A6 (SInt)] HIDDEN:("Sensor-Status STS (5A)"="Nicht vorhanden")
+    - Speichertemperatur 5B (12318) [NRP_Temperaturwert_STS_5B~0x05A9 (SInt)] HIDDEN:("Sensor-Status STS (5B)"="Nicht vorhanden")
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - Rücklauftemperatur 17A (12320) [NRP_Temperaturwert_RLTS_17A~0x05AF (SInt)] HIDDEN:("Sensor-Status RLTS 17A"="Nicht vorhanden")
+    - Rücklauftemperatur 17B (12321) [NRP_Temperaturwert_RLTS_17B~0x05B2 (SInt)] HIDDEN:("Sensor-Status RLTS 17B"="Nicht vorhanden")
+    - Sensor 9 (12322) [NRP_Temperaturwert_PTS~0x05B5 (SInt)] HIDDEN:("Sensor-Status PTS"="Nicht vorhanden")
+    - Eingang STB-Störung (12360) [NRP_DigitalEingang_STB~0x0704 (Byte)]
+    - Eingang externe Sicherheitskette (12361) [NRP_DigitalEingang_ExtSicherheit~0x0703 (Byte)]
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Temperatursensor 1 PM1 (12582) [PM1_Temperature_Sensor1~0x5F06 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 2 PM1 (12583) [PM1_Temperature_Sensor2~0x5F08 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 3 PM1 (12584) [PM1_Temperature_Sensor3~0x5F0A (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 4 PM1 (12585) [PM1_Temperature_Sensor4~0x5F0C (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Sensorstatus Temperatursensor 1 PM1 (12586) [PM1_Status_Sensor1~0x5F10 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Sensorstatus Temperatursensor 2 PM1 (12587) [PM1_Status_Sensor2~0x5F11 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Sensorstatus Temperatursensor 3 PM1 (12588) [PM1_Status_Sensor3~0x5F12 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Sensorstatus Temperatursensor 4 PM1 (12589) [PM1_Status_Sensor4~0x5F13 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Störmeldeeingang PM1 (12590) [PM1_Status_FaultInput~0x5F14 (Byte)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Status Kesselsensor (12624) [NRP_TemperaturFehler_KTS~0x5400 (Byte)]
+- Ausgänge (23138)
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - Ausgang 29 (12324) [NRP_DigitalAusgang_29~0x0602 (Byte)]
+    - Ausgang 52 (12326) [NRP_DigitalAusgang_52~0x0650 (SByte)]
+    - Sammelstörmeldung (12325) [NRP_DigitalAusgang_Sammelstoerung~0x0605 (Byte)]
+    - Brenner (12353) [NRP_DigitalAusgang_Brennerstufe1~0x0600 (Byte)]
+    - (30) Kennung Anschlusserweiterung AM1 (12224) [K30_NRP_Kennung_AM1~0x7730 (Byte)]
+    - (31) AM1: Funktion Ausgang 1 (12225) [K31_NRP_KonfiAM1FunktionAusgang1~0x7731 (Byte)]
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (32) AM1: Funktion Ausgang 2 (12226) [K32_NRP_KonfiAM1FunktionAusgang2~0x7732 (Byte)]
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - (40) Kennung Anschlusserweiterung EA1 (12227) [K40_NRP_Kennung_EA1~0x7740 (Byte)]
+    - (41) EA1 Funktion Ausgang 1 (12228) [K41_NRP_KonfiEA1FunktionAusgang1~0x7741 (Byte)]
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+- ext. Sicherheitsadapter (23139)
+    - Eingang STB-Störung (12360) [NRP_DigitalEingang_STB~0x0704 (Byte)]
+    - Eingang externe Sicherheitskette (12361) [NRP_DigitalEingang_ExtSicherheit~0x0703 (Byte)]
+
+# Erweiterte Diagnose (23175)
+- Codierkarte Gas (23143)
+    - Kesselcodierstecker (486) [GWG_Codierstecker_Kennziffer~0x1040 (Array)]
+    - Nachstellzeit Kesselregler (9684) [KS_Karte_GasKonfiKTRegNachst_Nrx~0x1080 (Byte)]
+    - Kesselschutz Nachlauf (9685) [KS_Karte_GasKonfiKesselschutzNachlauf_NRx~0x1080 (Int)]
+    - Gasbetrieb: Grenzwert der Grundleistung (3024) [KS_Karte_GasGrenzwertGrundleistung~0x1070 (Int)]
+    - Gasbetrieb: Kesselmindesttemperatur oberhalb Grenzwert Brennerleistung (3033) [KS_Karte_GasKTminHG~0x1080 (Byte)]
+    - Gasbetrieb: Kesselmindesttemperatur unterhalb Grenzwert Brennerleistung (3034) [KS_Karte_GasKTminNG~0x1080 (Byte)]
+    - Gasbetrieb: Mindestrücklauf-Solltemperatur oberhalb Grenzwert Brennerleistung (3070) [KS_Karte_GasT1SolltemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Mindestrücklauf-Solltemperatur unterhalb Grenzwert Brennerleistung (3071) [KS_Karte_GasT1SolltemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Therm-Control-Solltemperatur oberhalb Grenzwert Brennerleistung (3072) [KS_Karte_GasTSASolltemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Therm-Control-Solltemperatur unterhalb Grenzwert Brennerleistung (3073) [KS_Karte_GasTSASolltemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Drosselklappenschalttemperatur oberhalb Grenzwert Brennerleistung (3015) [KS_Karte_GasDKSchalttemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Drosselklappenschalttemperatur unterhalb Grenzwert Brennerleistung (3016) [KS_Karte_GasDKSchalttemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Verstaerkung Kesselregler (3029) [KS_Karte_GasKonfiKTRegVerst~0x1070 (Byte)]
+    - Gasbetrieb: Nachstellzeit Therm-Control-Regler (3031) [KS_Karte_GasKonfiTSARegNachst~0x1070 (Byte)]
+    - Gasbetrieb: Verstaerkung Therm-Control-Regler (3032) [KS_Karte_GasKonfiTSARegVerst~0x1070 (Byte)]
+    - Brennermaximalleistung 100 kW (3081) [KS_Karte_KonfiBrennermaxleistung100kW~0x1090 (Byte)]
+    - Brennermaximalleistung 1 kW (3082) [KS_Karte_KonfiBrennermaxleistungkW~0x1090 (Int)]
+    - Brennerminimalleistung (3084) [KS_Karte_KonfiBrennerminimalleistung~0x1090 (Int)]
+    - Kesselschalthysterese (3085) [KS_Karte_KonfiKesselschalthysterese~0x1090 (Byte)]
+    - Ausschaltdifferenz (3080) [KS_Karte_KonfiAusschaltdifferenz~0x1090 (Int)]
+    - Mindestbrennerlaufzeit (3083) [KS_Karte_KonfiBrennerMindestbrennerlaufzeit~0x1090 (Int)]
+    - Offset der Anfahroptimierung (3086) [KS_Karte_KonfiOffsetModBrenner~0x1090 (Int)]
+    - Zeit der Anfahroptimierung (3079) [KS_Karte_KonfiAnfOptModBrenner~0x1090 (Int)]
+- Codierkarte Oel (23144)
+    - Oelbetrieb: Name der Kesselschutz-Codierkarte (3104) [KS_Karte_OelKennziffer~0x1030 (Int)]
+    - Oelbetrieb: Grenzwert der Grundleistung (3103) [KS_Karte_OelGrenzwertGrundleistung~0x1040 (Int)]
+    - Oelbetrieb: Kesselmindesttemperatur oberhalb Grenzwert Brennerleistung (3111) [KS_Karte_OelKTminHG~0x1050 (Byte)]
+    - Oelbetrieb: Kesselmindesttemperatur unterhalb Grenzwert Brennerleistung (3112) [KS_Karte_OelKTminNG~0x1050 (Byte)]
+    - Oelbetrieb: Mindestrücklauf-Solltemperatur oberhalb Grenzwert Brennerleistung (3148) [KS_Karte_OelT1SolltemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Mindestrücklauf-Solltemperatur unterhalb Grenzwert Brennerleistung (3149) [KS_Karte_OelT1SolltemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Therm-Control-Solltemperatur oberhalb Grenzwert Brennerleistung (3150) [KS_Karte_OelTSASolltemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Therm-Control-Solltemperatur unterhalb Grenzwert Brennerleistung (3151) [KS_Karte_OelTSASolltemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Drosselklappenschalttemperatur oberhalb Grenzwert Brennerleistung (3094) [KS_Karte_OelDKSchalttemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Drosselklappenschalttemperatur unterhalb Grenzwert Brennerleistung (3095) [KS_Karte_OelDKSchalttemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Kesselschutz-nachlauf (3105) [KS_Karte_OelKonfiKesselschutzNachlauf~0x1040 (Int)]
+    - Oelbetrieb: Pumpe bei Brennerbetrieb (3108) [KS_Karte_OelKonfiPumpebeiBrennerbetrieb~0x1040 (Int)]
+    - Oelbetrieb: Nachstellzeit Kesselregler (3106) [KS_Karte_OelKonfiKTRegNachst~0x1040 (Byte)]
+    - Oelbetrieb: Verstaerkung Kesselregler (3107) [KS_Karte_OelKonfiKTRegVerst~0x1040 (Byte)]
+    - Oelbetrieb: Nachstellzeit Therm-Control-Regler (3109) [KS_Karte_OelKonfiTSARegNachst~0x1040 (Byte)]
+    - Oelbetrieb: Verstaerkung Therm-Control-Regler (3110) [KS_Karte_OelKonfiTSARegVerst~0x1040 (Byte)]
+    - Brennermaximalleistung 100 kW (3081) [KS_Karte_KonfiBrennermaxleistung100kW~0x1090 (Byte)]
+    - Brennermaximalleistung 1 kW (3082) [KS_Karte_KonfiBrennermaxleistungkW~0x1090 (Int)]
+    - Brennerminimalleistung (3084) [KS_Karte_KonfiBrennerminimalleistung~0x1090 (Int)]
+    - Kesselschalthysterese (3085) [KS_Karte_KonfiKesselschalthysterese~0x1090 (Byte)]
+    - Ausschaltdifferenz (3080) [KS_Karte_KonfiAusschaltdifferenz~0x1090 (Int)]
+    - Mindestbrennerlaufzeit (3083) [KS_Karte_KonfiBrennerMindestbrennerlaufzeit~0x1090 (Int)]
+    - Offset der Anfahroptimierung (3086) [KS_Karte_KonfiOffsetModBrenner~0x1090 (Int)]
+    - Zeit der Anfahroptimierung (3079) [KS_Karte_KonfiAnfOptModBrenner~0x1090 (Int)]
+- Zugriff Codierkarte (23145)
+    - (0B) Kesselschutz-nachlauf (827) [K0B_KonfiKesselschutzNachlauf~0x570B (Byte)]
+    - (0E) ThermControl-Reglerverstaerkung (835) [K0E_KonfiTSAReglerverstaerkung~0x570E (Byte)]
+    - (0F) ThermControl-Reglernachstellzeit (836) [K0F_KonfiTSAReglernachstellzeit~0x570F (Byte)]
+    - (17) Verstaerkung Kesselregler (847) [K17_KonfiKTReglerverstaerkung~0x5717 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (18) Nachstellzeit Kesselregler \n(eingestellter Wert * 10) (848) [K18_KonfiKTReglernachstellzeit~0x5718 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (1D) Beimischpumpe ein wenn Brenner ein (853) [K1D_KonfiPumpenbeiBrennerein~0x571D (Byte)]
+    - (8F) Zugriff auf Kesselregler - Parameter (1021) [K8F_KonfiZugriffParameterKR~0x778F (Byte)]
+    - (11) Erweiterung DAP 2 (7868) [NRx_KonfiKennungDAP2~0x7711 (Byte)]
+    - (10) Erweiterung DAP 1 (7867) [NRx_KonfiKennungDAP1~0x7710 (Byte)]
+    - Pumpe bei Brennerbetrieb (9686) [KS_Karte_GasKonfiPumpebeiBrennerbetrieb_NRx~0x1080 (Int)]
+- BOC-Objekt (23148)
+    - Kesselsollleistung - Wert (4073) [nviBoilerCmd_BLR_value~0xA300 (Byte)]
+    - Kesselsollleistung - Status (4072) [nviBoilerCmd_BLR_state~0xA300 (Byte)]
+    - Betriebsart - Kessel (4018) [nviApplicMode_BLR~0xA302 (Byte)]
+    - Kesselsolltemperatur (4112) [nviSetpoint_BLR~0xA303 (Byte)]
+    - Modulationsgrad (4165) [nvoBoilerState_BLR_value~0xA305 (Byte)] HIDDEN:("aktueller Brennertyp"≠"modulierend" AND "aktueller Brennertyp"≠"modulierend" AND "GWG53: Brennertyp"≠"modulierender Brenner")
+    - Kesselleistung Status (4164) [nvoBoilerState_BLR_state~0xA305 (Byte)]
+    - Kesselltemperatur (4228) [nvoSupplyTemp_BLR~0xA309 (Byte)]
+    - effektive Kessellsolltemperatur (4171) [nvoEffectSetpt_BLR~0xA307 (Byte)]
+    - Nennleistung in KW (4151) [nvoBoCState_RatedPower_BLR~0xA30B (Byte)]
+    - Leistung Grundstufe (relativ) (4152) [nvoBoCState_RelPower_BLR~0xA30B (Byte)]
+    - Leistungsreduzierung (4142) [nvoBoCState_AlphaTSA_BLR~0xA30B (Byte)]
+    - Leistungsreduzierung ist (4149) [nvoBoCState_LF_Kritisch_BLR~0xA30B (Byte)]
+    - Drosselklappenstatus - Drosselklappe ist (4144) [nvoBoCState_DK_Status_BLR~0xA30B (Byte)]
+    - Abgemeldet (4145) [nvoBoCState_HarteSperre_BLR~0xA30B (Byte)]
+    - Abmeldeanforderung (4155) [nvoBoCState_WeicheSperre_BLR~0xA30B (Byte)]
+    - Kesselfehler (4146) [nvoBoCState_Kesselfehler_BLR~0xA30B (Byte)]
+    - Schornsteinfeger- Pruefbetrieb (4154) [nvoBoCState_SP_BLR~0xA30B (Byte)]
+    - Brennertyp (4143) [nvoBoCState_BurnerState_BLR~0xA30B (Byte)]
+    - Betriebsstunden Brennerstufe 1 (4150) [nvoBoCState_OperatTime_BLR~0xA30B (Byte)]
+    - Sollwert Rücklaufregelung (4153) [nvoBoCState_ReturnTSet_BLR~0xA30B (Byte)]
+- DHWC Objekt (23150)
+    - DHWC: Betriebsmodus - Warmwasser (4085) [nviDHWC_ApplicMode~0xA3C2 (Byte)]
+    - DHWC: Warmwasser-Solltemperatur (4086) [nviDHWC_Setpt~0xA3C0 (Byte)]
+    - DHWC: Warmwasser-Isttemperatur (4169) [nvoDHWC_ActTemp~0xA3C3 (Byte)]
+    - DHWC: Effektive Warmwasser-Solltemperatur (4170) [nvoDHWC_EffSetpt~0xA3C5 (SInt)]
+- CFDM-Objekt (23149)
+    - Anlagen-/ Kessel-Sollleistung - Wert (4098) [nviProdCmd_CFDM_value~0xA380 (Byte)]
+    - Anlagen-/ Kessel-Sollleistung - Status (4097) [nviProdCmd_CFDM_state~0xA380 (Byte)]
+    - Betriebsmodus Anlage / Kessel (4019) [nviApplicMode_CFDM~0xA382 (Byte)]
+    - Vorlauf-Solltemperatur Anlagen / Kessel (4113) [nviSetpoint_CFDM~0xA383 (SInt)]
+    - Vorlauf-Solltemperatur der Heizkreisregler (4084) [nviConsumerDmd_Temp_CFDM~0xA385 (Byte)]
+    - Temperaturanfoderung ist Maximalwert (4082) [nviConsumerDmd_Attribute1_CFDM~0xA385 (Byte)]
+    - Anforderung an Zentralspeicher (4083) [nviConsumerDmd_Attribute2_CFDM~0xA385 (Byte)]
+    - Anlagen-Istleistung - Wert (4195) [nvoPWRState_CFDM_value~0xA38F (Byte)]
+    - Anlagen-Istleistung - Status (4194) [nvoPWRState_CFDM_state~0xA38F (Byte)]
+    - Aktiver Anlagen- / Solltemperaturwert (4173) [nvoEffectSetpt_CFDM~0xA391 (SInt)]
+    - Anlagenvorlauf- Kessel-Isttemperatur (4229) [nvoSupplyTemp_CFDM~0xA393 (SInt)]
+    - Leistungsreduzierung von den Verbrauchern gefordert (4193) [nvoProdState_AlphaTSA_CFDM~0xA395 (Byte)]
+    - Leistungsreduzierung (4184) [nvoProdCState_LF_Kritisch_CFDM~0xA395 (Byte)]
+    - Speicherladung (4188) [nvoProdCState_Speicher_CFDM~0xA395 (Byte)]
+    - Warmwasseranforderung an den internen Speicher (4192) [nvoProdCState_ZentralSpeicher_CFDM~0xA340 (Byte)]
+    - Prod. Status Harte Sperre (4183) [nvoProdCState_HarteSperre_CFDM~0xA395 (Byte)]
+    - Prod. Status Weiche Sperre (4189) [nvoProdCState_WeicheSperre_CFDM~0xA395 (Byte)]
+    - Prod. Status Fehler (4182) [nvoProdCState_Fehler_CFDM~0xA395 (Byte)]
+    - Prod. Status SP-Betrieb (4187) [nvoProdCState_SP_CFDM~0xA395 (Byte)]
+    - Zentralbedienung der Anlage (4190) [nvoProdCState_Zentralbed_CFDM~0xA395 (Byte)]
+    - Zentrales Ferienprogramm (4191) [nvoProdCState_ZentralFerien_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Abschaltbetrieb (4181) [nvoProdCState_AbschaltBetrieb_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Nur Warmwasser (4186) [nvoProdCState_nurWW_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Heizen und  Warmwasser (4185) [nvoProdCState_NormalBetrieb_CFDM~0xA395 (Byte)]
+- Node_RelayState (23146)
+    - Relais-Status Brenner 1. Stufe (4201) [nvoRelayState_Brennerstufe1~0xA152 (Byte)]
+    - Relais-Status Brennerstörung (4200) [nvoRelayState_Brennerstoerung~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 (4203) [nvoRelayState_HKP1~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 Nachtkontakt (4204) [nvoRelayState_HKP1_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 (4205) [nvoRelayState_HKP2~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 Nachtkontakt (4206) [nvoRelayState_HKP2_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 3 (4207) [nvoRelayState_HKP3~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 3 Nachtkontakt (4209) [nvoRelayState_HKP3_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Beimischpumpe (4198) [nvoRelayState_Beimischpumpe~0xA152 (Byte)]
+    - Relais-Status Kesselkreis oder Verteilerpumpe (4212) [nvoRelayState_Kesselkreis_Verteilerpumpe~0xA152 (Byte)]
+    - Relais-Status TSA-Kontakt (4217) [nvoRelayState_TSA_Kontakt~0xA152 (Byte)]
+    - Relais-Status Speicherladepumpe (4216) [nvoRelayState_SLP~0xA152 (Byte)]
+    - Relais-Status Zirkulationspumpe (4220) [nvoRelayState_ZP~0xA152 (Byte)]
+    - Relais-Status Primärpumpe WT-Set (4213) [nvoRelayState_Primaerpumpe_WTSet~0xA152 (Byte)]
+    - Relais-Status Zubringerpumpe (4221) [nvoRelayState_Zubringerpumpe~0xA152 (Byte)]
+    - Relais-Status AbgasWärmetauscher-Pumpe (4196) [nvoRelayState_Abgas_WTPumpe~0xA152 (Byte)]
+
+# Aktorentest (23159)
+- Aktorentest (23136)
+    - Aktorentest (8003) [Relaistest_NR2011_V100GC1A~0x7500 (Byte)]
+
+# Trending (23156)
+- Solar (23167) HIDDEN:("(1A) Solarregelung"="0 ohne")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - SM1 Ausgang 22 (12338) [NRP_SM1_DigitalAusgang_22~0x0432 (Byte)]
+    - Sensor 7 (12342) [NRP_SM1_Sensor_7~0x0438 (SInt)] HIDDEN:("Status Sensor 7"="Sensor nicht vorhanden")
+    - Sensor 10 (12344) [NRP_SM1_Sensor_10~0x043B (SInt)] HIDDEN:("Status Sensor 10"="Sensor nicht vorhanden")
+- Kessel (23197)
+    - Außentemperatur (12315) [NRP_Temperaturwert_ATS~0x05A0 (SInt)] HIDDEN:("Sensor-Status ATS"="Nicht vorhanden")
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Kesselleistung Ist (12335) [NRP_BDE_Kesselleistung_Ist~0x5400 (Int)]
+    - Rücklauftemperatur 17A (12320) [NRP_Temperaturwert_RLTS_17A~0x05AF (SInt)] HIDDEN:("Sensor-Status RLTS 17A"="Nicht vorhanden")
+    - Rücklauftemperatur 17B (12321) [NRP_Temperaturwert_RLTS_17B~0x05B2 (SInt)] HIDDEN:("Sensor-Status RLTS 17B"="Nicht vorhanden")
+    - Sensor 9 (12322) [NRP_Temperaturwert_PTS~0x05B5 (SInt)] HIDDEN:("Sensor-Status PTS"="Nicht vorhanden")
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - Sammelstörmeldung (12325) [NRP_DigitalAusgang_Sammelstoerung~0x0605 (Byte)]
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - Ausgang 29 (12324) [NRP_DigitalAusgang_29~0x0602 (Byte)]
+    - Ausgang 52 (12326) [NRP_DigitalAusgang_52~0x0650 (SByte)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Sollwertvorgabe 0-10V Erw. EA1 (12333) [NRP_EA1_ExternSollwert0_10V~0x0853 (Int)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Kesselsolltemperatur (63) [BedienKTSolltemperatur_NR2~0x5300 (Byte)]
+    - Betriebsart A1M1 (93) [BedienteilBA_GWGA1_Konstant~0x2323 (Byte)]
+    - Temperatursensor 1 PM1 (12582) [PM1_Temperature_Sensor1~0x5F06 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 2 PM1 (12583) [PM1_Temperature_Sensor2~0x5F08 (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 3 PM1 (12584) [PM1_Temperature_Sensor3~0x5F0A (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+    - Temperatursensor 4 PM1 (12585) [PM1_Temperature_Sensor4~0x5F0C (SInt)] HIDDEN:("(1B) Pumpenmodul PM1"="0: ohne Pumpenmodul")
+- Brenner (23199)
+    - Brenner (12353) [NRP_DigitalAusgang_Brennerstufe1~0x0600 (Byte)]
+    - Brenner-Betriebsstunden 1. Stufe (12354) [NRP_BetriebsstundenBrenner1Bedienung~0x0688 (Int)]
+    - Brenner-Betriebsstunden 2. Stufe (12355) [NRP_BetriebsstundenBrenner2Bedienung~0x068C (Int)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig")
+    - Brennerstarts (12356) [NRP_Brennerstarts~0x0690 (Int4)]
+    - Brennerzustand (12357) [NRP_BDE_Brennerzustand~0x5400 (Int)]
+    - Brennerleistung Ist (12358) [NRP_BDE_Brennerleistung_Relativ_Ist~0x5400 (Byte)]
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+- Warmwasser (23198)
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speichertemperatur 5A (12317) [NRP_Temperaturwert_STS_5A~0x05A6 (SInt)] HIDDEN:("Sensor-Status STS (5A)"="Nicht vorhanden")
+    - Speichertemperatur 5B (12318) [NRP_Temperaturwert_STS_5B~0x05A9 (SInt)] HIDDEN:("Sensor-Status STS (5B)"="Nicht vorhanden")
+    - Speicherladepumpe (12336) [NRP_DigitalAusgang_Speicherladepumpe~0x0603 (Byte)]
+    - Zirkulationspumpe (12337) [NRP_DigitalAusgang_Zirkulationspumpe~0x0604 (Byte)]
+- Eingänge (23191)
+    - Eingang STB-Störung (12360) [NRP_DigitalEingang_STB~0x0704 (Byte)]
+    - Eingang externe Sicherheitskette (12361) [NRP_DigitalEingang_ExtSicherheit~0x0703 (Byte)]
+    - Außentemperatur (12315) [NRP_Temperaturwert_ATS~0x05A0 (SInt)] HIDDEN:("Sensor-Status ATS"="Nicht vorhanden")
+    - Kesseltemperatur (12316) [NRP_Temperaturwert_KTS~0x05A3 (SInt)]
+    - Speichertemperatur 5A (12317) [NRP_Temperaturwert_STS_5A~0x05A6 (SInt)] HIDDEN:("Sensor-Status STS (5A)"="Nicht vorhanden")
+    - Speichertemperatur 5B (12318) [NRP_Temperaturwert_STS_5B~0x05A9 (SInt)] HIDDEN:("Sensor-Status STS (5B)"="Nicht vorhanden")
+    - Abgastemperatur (12319) [NRP_Temperaturwert_AGTS~0x05AC (SInt)] HIDDEN:("Sensor-Status AGTS"="Nicht vorhanden")
+    - Rücklauftemperatur 17A (12320) [NRP_Temperaturwert_RLTS_17A~0x05AF (SInt)] HIDDEN:("Sensor-Status RLTS 17A"="Nicht vorhanden")
+    - Rücklauftemperatur 17B (12321) [NRP_Temperaturwert_RLTS_17B~0x05B2 (SInt)] HIDDEN:("Sensor-Status RLTS 17B"="Nicht vorhanden")
+    - Sensor 9 (12322) [NRP_Temperaturwert_PTS~0x05B5 (SInt)] HIDDEN:("Sensor-Status PTS"="Nicht vorhanden")
+- Ausgänge (23190)
+    - Ausgang 20 (12323) [NRP_DigitalAusgang_20~0x0601 (Byte)]
+    - Ausgang 29 (12324) [NRP_DigitalAusgang_29~0x0602 (Byte)]
+    - Sammelstörmeldung (12325) [NRP_DigitalAusgang_Sammelstoerung~0x0605 (Byte)]
+    - Brenner (12353) [NRP_DigitalAusgang_Brennerstufe1~0x0600 (Byte)]
+- Erweiterung AM1 (23186) HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Ausgang 1 AM1 (12328) [NRP_Ausgang1_AM1~0x0860 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+    - Ausgang 2 AM1 (12329) [NRP_Ausgang2_AM1~0x0861 (Byte)] HIDDEN:("(30) Kennung Anschlusserweiterung AM1"="0: Ohne Anschlußerweiterung 1")
+- Erweiterung EA1 (23185) HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Ausgang EA1 (12327) [NRP_Ausgang_EA1~0x0855 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 1 (12330) [NRP_EA1_Eingang1~0x0850 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 2 (12331) [NRP_EA1_Eingang2~0x0851 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - EA1 Eingang 3 (12332) [NRP_EA1_Eingang3~0x0852 (Byte)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+    - Sollwertvorgabe 0-10V Erw. EA1 (12333) [NRP_EA1_ExternSollwert0_10V~0x0853 (Int)] HIDDEN:("(40) Kennung Anschlusserweiterung EA1"="ohne Anschlußerweiterung EA1")
+
+# Konnektivität (23647)
+- Solar (23183) HIDDEN:("(1A) Solarregelung"="0 ohne" OR "(1A) Solarregelung"="1 Vitosolic 100" OR "(1A) Solarregelung"="2 Vitosolic 200")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Drehzahl Solarpumpe (12340) [NRP_SM1_Solarpumpe_Drehzahl~0x0431 (Int)]
+    - SM1 Ausgang 22 (12338) [NRP_SM1_DigitalAusgang_22~0x0432 (Byte)]
+    - SM1 Ausgang 22 Laufzeit (12339) [NRP_SM1_DigitalAusgang_22_Laufzeit~0x0433 (Int4)]
+    - Sensor 7 (12342) [NRP_SM1_Sensor_7~0x0438 (SInt)] HIDDEN:("Status Sensor 7"="Sensor nicht vorhanden")
+    - Sensor 10 (12344) [NRP_SM1_Sensor_10~0x043B (SInt)] HIDDEN:("Status Sensor 10"="Sensor nicht vorhanden")
+    - Heizunterdrückung WW (12346) [NRP_BDE_Solar_Heizunterdrueckung_WW~0x6580 (Byte)]
+    - Heizunterdrückung Heizen (12347) [NRP_BDE_Solar_Heizunterdrueckung_Heizen~0x6580 (Byte)]
+    - SM1 Ausgang 22 Starts (12348) [NRP_SM1_DigitalAusgang_22_Zyklen~0x6580 (Int4)]
+- WLAN (23203)
+    - MAC-Adresse (12285) [NRP_SA171_WLAN_MAC~0xD12E (String)]
+    - Access Point aktiviert (12274) [NRP_SA171_APModeEnabled~0xD11B (Byte)]
+    - SSID (12271) [NRP_SA171_SSIDIdentification~0xD0FF (String)]
+    - Passwort (12272) [NRP_SA171_PasswordAccessPoint~0xD112 (Int)]
+    - Kanal (12286) [NRP_SA171_WLAN_Channel~0xD140 (Byte)]
+    - Verschlüsselung (12288) [NRP_SA171_WLAN_EncryptionSTD~0xD145 (String)]
+    - WiFi Standard (12289) [NRP_SA171_WLAN_Standard~0xD165 (String)]
+    - IPv4 Adresse (12287) [NRP_SA171_WLAN_IP~0xD141 (String)]
+    - WiFi Fehler (12292) [NRP_SA171_WLAN_Error~0xD178 (Byte)]
+    - Ländercode (12290) [NRP_SA171_WLAN_CountryCode~0xD175 (String)]
+    - Anzahl Clients (12291) [NRP_SA171_WLAN_NumberOfClients~0xD177 (Byte)]
+    - WiFi Status (12538) [NRP_SA171_APStatus~0xD11A (Byte)]
+- LAN (23679)
+    - SA171 Manufacturing Data (12262) [NRP_SA171_ManufacturerData~0xD0D2 (String)]
+    - SA171 Serial Number (12260) [NRP_SA171_Serial~0xD0A2 (String)]
+    - SA171 MAC-Adresse (12243) [NRP_SA171_MAC_Address~0xD000 (String)]
+    - SA171 LAN enabled (12256) [NRP_SA171_LAN_Enabled~0xD08E (Byte)]
+    - SA171 Dynamic IP aktiviert (12250) [NRP_SA171_DynamicIP~0xD02A (Byte)]
+    - SA171 DHCP Server (12247) [NRP_SA171_DCHP~0xD01E (String)]
+    - SA171 IP-Adresse (12244) [NRP_SA171_IP_Address~0xD012 (String)]
+    - SA171 Netzmaske (12245) [NRP_SA171_NetMask~0xD016 (String)]
+    - SA171 Standard Gateway (12246) [NRP_SA171_GWAddr~0xD01A (String)]
+    - SA171 Primary DNS Server (12248) [NRP_SA171_PrimaryDNS~0xD022 (String)]
+    - SA171 Secondary DNS Server (12249) [NRP_SA171_SecondaryDNS~0xD026 (String)]
+    - SA171 LAN Status (12257) [NRP_SA171_LAN_State~0xD08F (Byte)]
+    - SA171 Error (12258) [NRP_SA171_Error~0xD090 (Int4)]
+    - SA171 Detailed Error (12264) [NRP_SA171_DetailedError~0xD0F2 (Int)]
+    - SA171 Update Status (12535) [NRP_SA171_UpdateStatus~0xD179 (Int)]
+    - SA171 Update Error (12537) [NRP_SA171_UpdateError~0xD0F5 (Int4)]

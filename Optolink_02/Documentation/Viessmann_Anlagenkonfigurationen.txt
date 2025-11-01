@@ -1,0 +1,65 @@
+ Vitodens: 
+ ---------
+ 
+ Ein Heizkreis ohne Mischer A1 (Heizkreis 1), ohne Trinkwassererwärmung
+ 00:1
+ 
+Ein Heizkreis ohne Mischer A1 (Heizkreis 1), mit Trinkwassererwärmung
+ 00:2
+ 
+Ein Heizkreis mit Mischer M2 (Heizkreis 2), ohne Trinkwassererwärmung
+ 00:3
+ 
+Ein Heizkreis mit Mischer M2 (Heizkreis 2), mit Trinkwassererwärmung
+ 00:4
+ 
+Ein Heizkreis ohne Mischer A1 (Heizkreis 1) und ein Heizkreis mit Mischer M2 (Heizkreis 2), ohne Trinkwassererwärmung
+ 00:5
+ 
+Ein Heizkreis ohne Mischer A1 (Heizkreis 1) und ein Heizkreis mit Mischer M2 (Heizkreis 2), mit Trinkwassererwärmung
+ 00:6
+ 
+Ein Heizkreis mit Mischer M2 (Heizkreis 2) und ein Heizkreis mit Mischer M3 (Heizkreis 3), ohne Trinkwassererwärmung
+ 00:7
+
+Ein Heizkreis mit Mischer M2 (Heizkreis 2) und ein Heizkreis mit Mischer M3 (Heizkreis 3), mit Trinkwassererwärmung
+ 00:8
+
+Ein Heizkreis ohne Mischer A1 (Heizkreis 1), ein Heizkreis mit Mischer M2 (Heizkreis 2) und ein Heizkreis mit Mischer M3 (Heizkreis 3), ohne Trinkwassererwärmung
+ 00:9
+ 
+Ein Heizkreis ohne Mischer A1 (Heizkreis 1), ein Heizkreis mit Mischer M2 (Heizkreis 2) und ein Heizkreis mit Mischer M3 (Heizkreis 3), mit Trinkwassererwärmung
+ 00:10
+ 
+ 
+ Vitocal:
+ --------
+ 
+ Übersicht aller möglichen Anlagenschemen
+  
+ Komponente 						Anlagenschema
+ Heizkreis  						0 1 2 3 4 5 6 7 8 9 10 11
+ A1/HK1     						— X X — — X X — — X  X —
+ M2/HK2 						— — — X X X X X X X  X —
+ M3/HK3 						— — — — — — — X X X  X —
+ Speicher-Wassererwärmer				X — X — X — X — X —  X —
+ Elektro-Heizeinsatz					0 — 0 — 0 — 0 — 0 —  0 —
+ Heizwasser-Pufferspeicher				— 0 0 X X X X X X X  X —
+ Heiz-/Kühlwasser-Pufferspeicher			— 0 0²0 0 0 0 0 0 0  0 —
+ Externer Wärmeerzeuger					0 0²0²0 0 0 0 0 0 0  0 —
+ Heizwasser-Durchlauferhitzer				0 0 0 0 0 0 0 0 0 0  0 0
+ Schwimmbad						— 0 0 0 0 0 0 0 0 0  0 —
+ Solaranlage						0 — 0 — 0 — 0 — 0 —  0 —
+ Kühlung							
+ A1/HK1 						— 0 0 — — 0 0 — — 0  0 —
+ M2/HK2 						— — — 0 0 0 0 0 0 0  0 —
+ M3/HK3 						— — — — — — — 0 0 0  0 —
+ Sep. Kühlkreis
+ SKK							0 0 0 0 0 0 0 0 0 0  0 —
+ Energiezähler						0 0 0 0 0 0 0 0 0 0  0 —
+ Lüftungsgerät						0 0 0 0 0 0 0 0 0 0  0 —
+ 
+  X  = Komponente ist gewählt.
+  0  = Komponente kann hinzugefügt werden.
+  0² = Nur in Verbindung mit Heizwasser-Pufferspeicher.
+  —  = Nicht verfügbar.

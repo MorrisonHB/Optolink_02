@@ -1,0 +1,120 @@
+﻿Command Syntax for Requests via MQTT and TCP/IP
+These commands can get used to request reading or writing of values from/to your Optolink device.
+
+The whole command always is a string. Command items/parts are sperated by ;.
+
+Since it is already a string, ommit further ' or " (even those will be erased on reception). Also empty spaces or line breaks get erased on reception.
+
+Read Requests
+<command>; <address>; <length> [; <scale/type> [; signed]]
+
+command
+may be read or short r
+
+address, length, scaleType, signed
+same as for polling items, see here
+
+If ByteBit Filter is used, the term may expand to
+
+<command>; <address>; <length>; <ByteBitFilter> [; <scale/type> [; <signed>]]
+
+Write Requests (Value)
+<command>; <address>; <length>; <value>
+
+command
+may be write or short w
+
+address, length
+same as for polling items, see here
+
+value
+currently only integers (possible as hex with leading 0x also) as to be written as byte value are supported. So in case of scaled values perform the 'reverse scaling' by yourself. E.g. a setpoint 7.3 scaled by 1/10 has to be written as 73.
+
+negative (decimal integer) values are possible since V1.4.2.2. With older versions you need to calculate the 2's complement of you value and write that. E.g. you want to write -150 to a 2-byte datapoint, calc 2^16 -150 = 65386 = 0xff6a
+
+Write Raw Requests (hex byte string)
+<command>; <address>; <value>
+
+This is used to write 'complex' data points.
+
+command
+may be writeraw or short wraw
+
+address
+same as for polling items, see here
+
+value
+a hex byte string without leading '0x'
+
+Response to Requests
+<return_code>; <address>; <value>
+
+return_code
+01=success
+03=ErrMsg, 15=NACK, 20=UnknB0_Err, 41=STX_Err, AA=HandleLost, FD=PlLen_Err, FE=CRC_Err, FF=TimeOut (all hex)
+data in case of 03 - ErrMsg (as known):
+
+0x01: invalid address
+0x04: invalid length
+0x21: value out of bounds
+writing a read only value is ignored, does not return an error.
+
+address
+the datapoint address of the request. the format accords to settings_ini/resp_addr_format.
+
+value
+the requested (rsp. written) value, or the payload data or full telegram in case of an error
+
+Examples
+read ambient temperature, scaled with sign:
+
+cmnd = read;0x0800;2;0.1;true
+resp = 1;2048;8.2
+read DeviceIdent as raw:
+
+cmnd = read;0xf8;8
+resp = 1;248;20CB1FC900000114
+write hotwater temperature setpoint:
+
+cmnd = write;0x6300;1;45
+resp = 1;25344;45
+write level of heating curve to -15°C (Vitocal):
+
+cmnd = write;0x2006;2;0xff6a
+resp = 1;8198;65386
+write heating period monday 08:30-13:00
+
+cmnd = writeraw;0x2000;4368FFFFFFFFFFFF
+resp = 1;8192;4368FFFFFFFFFFFF
+ByteBit Filter
+'b:<startbyte>[:<lastbyte>[:<mask>[:<endian>]]]'
+
+a sub-array of the data bytes starting at startbyte to lastbyte gets picked. If no lastbyte is given, only startbyte gets picked.
+
+if mask is given (else missing or empty string) the mask gets applied (bit-wise AND junction) to the picked sub-array of bytes. mask can be decimal or hex (leading '0x') integer.
+
+Attention: mask gets applied byte by byte 'left to right'. So if you have two bytes
+
+00000110 00000000 which would be 6 as little endian, and you want to mask 4, you need the mask
+00000100 00000000 which is 4<<8 = 0x0400 = 1024 as mask.
+If the result gets evaluated as little endian, it gives 4.
+
+endian might be 'little' or 'big'. If missing, little is default. Relevant only in case of using a scale (at least 1) to convert the hex data to decimal.
+
+Remark: With version lower 1.4.0.0 the ByteBit Filter returns a decimal value by default (different to using read without ByteBit Filter). With those versions endian has to be set 'raw' to receive hex data.
+
+additional explaination and examples see here
+
+Examples
+read Heissgas temperature of a Vitocal, scaled:
+
+cmnd = read;0xB40a;3;'b:0:1';0.1
+resp = 1;0xB40A;66.4
+read room target temperature of a Vitodens, scaled without sign:
+
+cmnd = read;0x2500;22;'b:12:13';0.1;False
+resp = 1;0x2500;18.0
+read Frostgefahr of a Vitodens as hex value:
+
+cmnd = read;0x2500;22;'b:16:16'
+resp = 1;0x2500;00

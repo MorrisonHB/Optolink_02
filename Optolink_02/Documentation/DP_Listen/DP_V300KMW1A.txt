@@ -1,0 +1,977 @@
+V300 KMW1A
+==========
+
+# Überblick (17708)
+- Kaskade (17754)
+    - Aussentemperatur (5373) [TiefpassTemperaturwert_ATS~0x5525 (SInt)]
+    - Anzahl Wärmeerzeuger (7914) [K35_NRx_Konfi_AnzahlKessel_D~0x5735 (Byte)]
+    - Vorlaufmaximal-begrenzung Anlage (895) [K37_Konfi_VTMaxKaskade~0x5737 (Byte)]
+    - Ist-Kesselfolge (7998) [NRx_KesselFolgeIst~0x56E0 (Int)]
+    - Rücklaufsolltemperatur Anlage (1096) [Kas_Rueck_Soll~0x56A0 (Byte)]
+    - Vorlaufsolltemperatur Anlage (1097) [Kas_VTSolleff~0x5600 (Int)]
+    - Vorlauftemperatur Anlage (6056) [VorlauftemperaturV333MW1~0x0950 (Int)]
+    - (Kessel1) Kesseltemperatur (4114) [nviSupplyTemp_PM_Boiler1~0xA202 (SInt)]
+    - (Kessel2) Kesseltemperatur (4115) [nviSupplyTemp_PM_Boiler2~0xA242 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (Kessel3) Kesseltemperatur (4116) [nviSupplyTemp_PM_Boiler3~0xA282 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel4) Kesseltemperatur (4117) [nviSupplyTemp_PM_Boiler4~0xA2C2 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (Kessel5) Kesseltemperatur (7910) [nviSupplyTemp_PM_Boiler5~0xA502 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4")
+    - (Kessel6) Kesseltemperatur (7911) [nviSupplyTemp_PM_Boiler6~0xA542 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4" OR "Anzahl Wärmeerzeuger"="5")
+    - (Kessel7) Kesseltemperatur (7912) [nviSupplyTemp_PM_Boiler1~0xA582 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"7" AND "Anzahl Wärmeerzeuger"≠"8")
+    - (Kessel8) Kesseltemperatur (7913) [nviSupplyTemp_PM_Boiler8~0xA5C2 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"8")
+    - Vorlaufminimal-begrenzung Anlage (893) [K36_Konfi_VTMinKaskade~0x5736 (Byte)]
+    - Sensor 17A (921) [K4A_KonfiEingang17A~0x774A (Byte)]
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Sensor 17B (923) [K4B_KonfiEingang17B~0x774B (Byte)]
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+- Heizkreis A1 (17663) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Betriebsart A1M1 (92) [BedienteilBA_GWGA1~0x2323 (Byte)]
+    - Externe Betriebsarten-umschaltung A1M1 (270) [ExtBetriebsartenumschaltung_A1M1~0x2549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - Raumtemperatur Soll Normalbetrieb A1M1 (82) [BedienRTSolltemperaturA1M1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb A1M1 (85) [BedienRTSolltemperaturReduziertA1M1~0x2307 (Byte)]
+    - Neigung der Heizkennlinie A1M1 (67) [BedienNeigungA1M1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie A1M1 (70) [BedienNiveauA1M1~0x2304 (SByte)]
+    - Heizkreispumpe A1M1 (729) [HK_PumpenzustandA1M1~0x2906 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Raumtemperatur A1M1 (5367) [TiefpassTemperatur_RTS_A1M1~0x0896 (Int)] HIDDEN:(FBA1M1="nicht vorhanden" OR A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden" OR RaumTempSensHK1="Nicht vorhanden")
+    - Frostgefahr des Heizkreises A1M1 (717) [HK_Frostgefahr_aktivA1M1~0x2500 (Byte)]
+    - Raumsolltemperatur Partybetrieb A1M1 (79) [BedienRTSoll_PartyA1M1~0x2308 (Byte)]
+    - Zustand Partybetrieb A1M1 (7855) [NRx_PartybetriebA1M1_D~0x2330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb A1M1 (7852) [NRx_SparbetriebA1M1_D~0x2331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferienprogramm A1M1 (714) [HK_FerienbetriebA1M1~0x2535 (Byte)]
+    - Ferien Abreisetag A1M1 (306) [FerienBeginnA1M1~0x2309 (Array)]
+    - Ferien Rückreisetag A1M1 (309) [FerienEndeA1M1~0x2311 (Array)]
+- Heizkreis M2 (17664) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Aktuelle Betriebsart M2 (709) [HK_AktuelleBetriebsartM2~0x3500 (Byte)]
+    - Betriebsart M2 (94) [BedienteilBA_GWGM2~0x3323 (Byte)]
+    - Externe Betriebsarten-umschaltung M2 (271) [ExtBetriebsartenumschaltung_M2~0x3549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - Raumtemperatur Soll Normalbetrieb M2 (83) [BedienRTSolltemperaturM2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M2 (86) [BedienRTSolltemperaturReduziertM2~0x3307 (Byte)]
+    - Neigung der Heizkennlinie M2 (68) [BedienNeigungM2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie M2 (71) [BedienNiveauM2~0x3304 (SByte)]
+    - Heizkreispumpe M2 (730) [HK_PumpenzustandM2~0x3906 (Byte)]
+    - Mischerposition M2 (721) [HK_Mischerposition_akt_M2~0x354C (Byte)]
+    - Vorlauftemperatur M2 (6053) [VorlauftemperaturM2~0x3900 (Int)]
+    - Raumtemperatur M2 (5376) [TiefpassTemperaturwert_RTS_M2~0x0898 (Int)] HIDDEN:(RaumTempSensHK2="Nicht vorhanden" OR A0_KennFBM2="nicht vorhanden" OR A0_KennFBM2="0 ohne" OR FBM2="nicht vorhanden")
+    - Frostgefahr des Heizkreises M2 (718) [HK_Frostgefahr_aktivM2~0x3500 (Byte)]
+    - Raumsolltemperatur Partybetrieb M2 (80) [BedienRTSoll_PartyM2~0x3308 (Byte)]
+    - Zustand Partybetrieb M2 (7856) [NRx_PartybetriebM2_D~0x3330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb M2 (7853) [NRx_SparbetriebM2_D~0x3331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferienprogramm M2 (715) [HK_FerienbetriebM2~0x3535 (Byte)]
+    - Ferien Abreisetag M2 (307) [FerienBeginnM2~0x3309 (Array)]
+    - Ferien Rückreisetag M2 (310) [FerienEndeM2~0x3311 (Array)]
+- Heizkreis M3 (17732) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Aktuelle Betriebsart M3 (710) [HK_AktuelleBetriebsartM3~0x4500 (Byte)]
+    - Betriebsart M3 (7219) [BedienteilBA_GWGM3~4323 (Byte)]
+    - Externe Betriebsarten-umschaltung M3 (272) [ExtBetriebsartenumschaltung_M3~0x4549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - Raumtemperatur Soll Normalbetrieb M3 (84) [BedienRTSolltemperaturM3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M3 (87) [BedienRTSolltemperaturReduziertM3~0x4307 (Byte)]
+    - Neigung der Heizkennlinie M3 (69) [BedienNeigungM3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie M3 (72) [BedienNiveauM3~0x4304 (SByte)]
+    - Heizkreispumpe M3 (731) [HK_PumpenzustandM3~0x4906 (Byte)]
+    - Mischerposition M3 (722) [HK_Mischerposition_akt_M3~0x454C (Byte)]
+    - Vorlauftemperatur M3 (6054) [VorlauftemperaturM3~0x4900 (Int)]
+    - Raumtemperatur M3 (5377) [TiefpassTemperaturwert_RTS_M3~0x089A (Int)] HIDDEN:(FBM3="nicht vorhanden" OR A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden" OR RaumTempSensHK3="Nicht vorhanden")
+    - Frostgefahr des Heizkreises M3 (719) [HK_Frostgefahr_aktivM3~0x4500 (Byte)]
+    - Raumsolltemperatur Partybetrieb M3 (81) [BedienRTSoll_PartyM3~0x4308 (Byte)]
+    - Zustand Partybetrieb M3 (7857) [NRx_PartybetriebM3_D~0x4330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb M3 (7854) [NRx_SparbetriebM3_D~0x4331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferienprogramm M3 (716) [HK_FerienbetriebM3~0x4535 (Byte)]
+    - Ferien Abreisetag M3 (308) [FerienBeginnM3~0x4309 (Array)]
+    - Ferien Rückreisetag M3 (311) [FerienEndeM3~0x4311 (Array)]
+- Solar (18751) HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Drehzahl Solarpumpe (8313) [SM1_Solarpumpe_Drehzahl~0x0F10 (Int)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Ausgang 22 (8311) [SM1_DigitalAusgang_22~0x0F11 (Byte)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Laufzeit Ausgang 22 (8312) [SM1_DigitalAusgang_22_Laufzeit~0x0F12 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Sensor 7 (8309) [SM1_Sensor_7~0x0F17 (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 7"="Sensor nicht vorhanden")
+    - Sensor 10 (8310) [SM1_Sensor_10~0x0F1A (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 10"="Sensor nicht vorhanden")
+- Warmwasser (17665) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Zirkulationspumpe (252) [DigitalAusgang_Zirkulationspumpe~0x0846 (Byte)]
+- Solarregelung (17666) HIDDEN:(54_SR="0 ohne" OR 54_SR="3 Solarmodul SM1" OR 54_SR="4 Solarmodul SM1 mit DT2")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+
+# Bedienung (17701)
+- Betriebsdaten A1 (17654) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Betriebsart A1M1 (92) [BedienteilBA_GWGA1~0x2323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb A1M1 (82) [BedienRTSolltemperaturA1M1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb A1M1 (85) [BedienRTSolltemperaturReduziertA1M1~0x2307 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Neigung der Heizkennlinie A1M1 (67) [BedienNeigungA1M1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie A1M1 (70) [BedienNiveauA1M1~0x2304 (SByte)]
+    - Raumsolltemperatur Partybetrieb A1M1 (79) [BedienRTSoll_PartyA1M1~0x2308 (Byte)]
+    - Zustand Partybetrieb A1M1 (7855) [NRx_PartybetriebA1M1_D~0x2330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb A1M1 (7852) [NRx_SparbetriebA1M1_D~0x2331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferien Abreisetag A1M1 (306) [FerienBeginnA1M1~0x2309 (Array)]
+    - Ferien Rückreisetag A1M1 (309) [FerienEndeA1M1~0x2311 (Array)]
+- Heizzeiten A1 (17655) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Schaltzeiten A1M1 (7191) [Schaltzeiten_A1M1_HK (Array)]
+- Warmwasser A1 (17656)
+    - Schaltzeiten WW A1M1 (7192) [Schaltzeiten_A1M1_WW (Array)]
+- Zirkulation A1 (17657)
+    - Schaltzeiten ZP A1M1 (7193) [Schaltzeiten_A1M1_ZP (Array)]
+- Betriebsdaten M2 (17658) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Betriebsart M2 (94) [BedienteilBA_GWGM2~0x3323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb M2 (83) [BedienRTSolltemperaturM2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M2 (86) [BedienRTSolltemperaturReduziertM2~0x3307 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Neigung der Heizkennlinie M2 (68) [BedienNeigungM2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie M2 (71) [BedienNiveauM2~0x3304 (SByte)]
+    - Raumsolltemperatur Partybetrieb M2 (80) [BedienRTSoll_PartyM2~0x3308 (Byte)]
+    - Zustand Partybetrieb M2 (7856) [NRx_PartybetriebM2_D~0x3330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb M2 (7853) [NRx_SparbetriebM2_D~0x3331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferien Abreisetag M2 (307) [FerienBeginnM2~0x3309 (Array)]
+    - Ferien Rückreisetag M2 (310) [FerienEndeM2~0x3311 (Array)]
+- Heizzeiten M2 (17659) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Schaltzeiten M2 (7194) [Schaltzeiten_M2_HK (Array)]
+- Warmwasser M2 (17660) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3" OR 00_WWS="2 A1 + WW" OR 7F_EFH="1 Einfamilienhaus")
+    - Schaltzeiten WW M2 (7195) [Schaltzeiten_M2_WW (Array)] HIDDEN:(7F_EFH="1 Einfamilienhaus")
+- Zirkulation M2 (17661) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3" OR 00_WWS="2 A1 + WW" OR 7F_EFH="1 Einfamilienhaus")
+    - Schaltzeiten ZP M2 (7196) [Schaltzeiten_M2_ZP (Array)] HIDDEN:(7F_EFH="1 Einfamilienhaus")
+- Betriebsdaten M3 (17734) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Betriebsart M3 (7219) [BedienteilBA_GWGM3~4323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb M3 (84) [BedienRTSolltemperaturM3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M3 (87) [BedienRTSolltemperaturReduziertM3~0x4307 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Neigung der Heizkennlinie M3 (69) [BedienNeigungM3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie M3 (72) [BedienNiveauM3~0x4304 (SByte)]
+    - Raumsolltemperatur Partybetrieb M3 (81) [BedienRTSoll_PartyM3~0x4308 (Byte)]
+    - Zustand Partybetrieb M3 (7857) [NRx_PartybetriebM3_D~0x4330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Sparbetrieb M3 (7854) [NRx_SparbetriebM3_D~0x4331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Ferien Abreisetag M3 (308) [FerienBeginnM3~0x4309 (Array)]
+    - Ferien Rückreisetag M3 (311) [FerienEndeM3~0x4311 (Array)]
+- Heizzeiten M3 (17735) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Schaltzeiten M3 (7197) [Schaltzeiten_M3_HK (Array)]
+- Warmwasser M3 (17736) HIDDEN:(00_WWS="1 A1" OR 7F_EFH="1 Einfamilienhaus" OR 00_WWS="2 A1 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR 00_WWS="5 A1 + M2" OR 00_WWS="6 A1 + M2 + WW" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - Schaltzeiten WW M3 (7198) [Schaltzeiten_M3_WW (Array)] HIDDEN:(7F_EFH="1 Einfamilienhaus")
+- Zirkulation M3 (17737) HIDDEN:(00_WWS="1 A1" OR 7F_EFH="1 Einfamilienhaus" OR 00_WWS="2 A1 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR 00_WWS="5 A1 + M2" OR 00_WWS="6 A1 + M2 + WW" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - Schaltzeiten ZP M3 (7199) [Schaltzeiten_M3_ZP (Array)] HIDDEN:(7F_EFH="1 Einfamilienhaus")
+- Datum + Uhr (17653)
+    - Datum und Uhrzeit (5385) [Uhrzeit~0x088E (Array)]
+
+# Inbetriebnahme (17702)
+- Allgemein (17726)
+    - (00) Heizkreis-Warmwasserschema (801) [K00_KonfiAnlagenschemaV300_V333~0x7700 (Byte)]
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - (8F) Sperren Expert (7894) [NRx_K8F_KonfiSperrenExpert.description~0x778F (Byte)]
+    - (9B) VT_Solltemperatur bei externer Anforderung (1048) [K9B_KonfiVT_SolltemperaturExternV300~0x779B (Byte)]
+- Kaskade (17753)
+    - (35) Anzahl Kessel (7847) [K35_NRx_Konfi_AnzahlKessel~0x5735 (Int)]
+    - (36) Vorlaufminimal-temperatur Anlage (894) [K36_KonfiVTMinKaskade~0x5736 (Byte)]
+    - (37) Vorlaufmaximal-temperatur Anlage (896) [K37_KonfiVTMaxKaskade~0x5737 (Byte)]
+    - (38) Kesselfolgeumschaltung (899) [K38_KonfiKesselfolgeumschaltung~0x5738 (Byte)]
+    - (39) Fester Führungs-Kessel (7849) [K39_NRx_KonfiFesterFuehrungskessel~0x5739 (Int)]
+    - (3A) Fester letzter Kessel (7850) [K3A_NRx_KonfiFesterLetzterKessel~0x573A (Int)]
+    - (3C) Regelungsstrategie (904) [K3C_KonfiRegelungsstrategie~0x573C (Byte)]
+    - (3E) Ansteuerung Verteilerpumpe (907) [K3E_KonfiAnsteuerungVerteilerpumpe~0x573E (Byte)]
+    - (41) ECO Sperre für Kessel 1 (911) [K41_KonfiECO_SperreKessel1~0x5741 (SByte)]
+    - (42) ECO Sperre für Kessel 2 (912) [K42_KonfiECO_SperreKessel2~0x5742 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (43) ECO Sperre für Kessel 3 (913) [K43_KonfiECO_SperreKessel3~0x5743 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (44) ECO Sperre für Kessel 4 (914) [K44_KonfiECO_SperreKessel4~0x5744 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (65) ECO Sperre für Kessel 5 (7851) [K65_NRx_KonfiECO_SperreKessel5~0x5765 (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4")
+    - (6F) ECO Sperre für Kessel 6 (7862) [K6F_NRx_KonfiECO_SperreKessel6~0x576F (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4" OR "Anzahl Wärmeerzeuger"="5")
+    - (74) ECO Sperre für Kessel 7 (7863) [K74_NRx_KonfiECO_SperreKessel7~0x5774 (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"≠"7" AND "Anzahl Wärmeerzeuger"≠"8")
+    - (7D) ECO Sperre für Kessel 8 (7864) [K7D_NRx_KonfiECO_SperreKessel8~0x577D (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"≠"8")
+- Heizkreis A1M1 (17729) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - (A2) Speichervorrang A1M1 (1059) [KA2_KonfiSpeichervorrangA1M1~0x27A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle A1M1 (1075) [KA5_KonfSommersparSchaltschwelleA1M1~0x27A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung A1M1 (1078) [KA6_KonfiAbsolutSommersparA1M1~0x27A6 (Byte)]
+    - (A7) Mischersparfunktion M1 (1081) [KA7_KonfiMischersparfunktionM1~0x27A7 (Byte)] HIDDEN:("Kennung HK1"≠"Mischerkreis")
+    - (A9) Pumpenstillstand A1M1 bei Übergang in reduzierten Betrieb (1085) [KA9_KonfiHKpumpeBeiReduziertA1M1~0x27A9 (Byte)] HIDDEN:("(B0) Raumaufschaltung A1M1"="1 WS - RS" OR "(B0) Raumaufschaltung A1M1"="2 RS - WS" OR "(B0) Raumaufschaltung A1M1"="3 RS - RS")
+    - (B0) Raumaufschaltung A1M1 (1101) [KB0_KonfiRaumaufschaltungA1M1~0x27B0 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden")
+    - (B5) Sommersparschaltung RS A1M1 (1107) [KB5_KonfiRaumSommerspar_GWGA1M1~0x27B5 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - (C5) Vorlauf - Minimalbegrenzung A1M1 (2847) [KC5_KonfiMinimalbegrenzungA1M1~0x27C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung A1M1 (2852) [KC6_KonfiMaximalbegrenzung_VT_SollwertA1M1~0x27C6 (Byte)]
+    - (D5) Wirkung Betriebsarten-umschaltung A1M1 (2880) [KD5_KonfiWirkungExtBA_UmschaltungA1M1~0x27D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7287) [KD8_GWG_HK1_Zuordnung_BA_auf_DigEingang~0x27D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung A1 (2962) [KF2_KonfiPartyzeitGWGA1~0x27F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK1 (2976) [KF8_KonfiStartModTRSollredA1~0x27F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK1 (2979) [KF9_KonfiEndeModTRSollredA1~0x27F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK1 (2982) [KFA_KonfiUeberhoehungVTSollA1~0x27FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK1 (2985) [KFB_KonfiDauerUeberhoehungVTSollA1~0x27FB (Byte)]
+- Heizkreis M2 (17730) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - (A2) Speichervorrang M2 (1061) [KA2_KonfiSpeichervorrangM2~0x37A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M2 (1076) [KA5_KonfSommersparSchaltschwelleM2~0x37A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M2 (1079) [KA6_KonfiAbsolutSommersparM2~0x37A6 (Byte)]
+    - (A7) Mischersparfunktion M2 (1082) [KA7_KonfiMischersparfunktionM2~0x37A7 (Byte)] HIDDEN:("Kennung HK2"≠"Mischerkreis")
+    - (A9) Pumpenstillstand M2 bei Übergang in reduzierten Betrieb (1087) [KA9_KonfiHKpumpeBeiReduziertM2~0x37A9 (Byte)] HIDDEN:("(B0) Raumaufschaltung M2"="1 WS - RS" OR "(B0) Raumaufschaltung M2"="2 RS - WS" OR "(B0) Raumaufschaltung M2"="3 RS - RS")
+    - (B0) Raumaufschaltung M2 (1102) [KB0_KonfiRaumaufschaltungM2~0x37B0 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne" OR A0_KennFBM2="nicht vorhanden")
+    - (B5) Sommersparschaltung RS M2 (1108) [KB5_KonfiRaumSommerspar_GWGM2~0x37B5 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - (C5) Vorlauf - Minimalbegrenzung M2 (2848) [KC5_KonfiMinimalbegrenzungM2~0x37C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung M2 (2853) [KC6_KonfiMaximalbegrenzung_VT_SollwertM2~0x37C6 (Byte)]
+    - (D5) Wirkung Betriebsarten-umschaltung M2 (2881) [KD5_KonfiWirkungExtBA_UmschaltungM2~0x37D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7288) [KD8_GWG_HK2_Zuordnung_BA_auf_DigEingang~0x37D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung M2 (2963) [KF2_KonfiPartyzeitGWGM2~0x37F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK2 (2977) [KF8_KonfiStartModTRSollredM2~0x37F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK2 (2980) [KF9_KonfiEndeModTRSollredM2~0x37F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK2 (2983) [KFA_KonfiUeberhoehungVTSollM2~0x37FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK2 (2986) [KFB_KonfiDauerUeberhoehungVTSollM2~0x37FB (Byte)]
+- Heizkreis M3 (17739) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - (A2) Speichervorrang M3 (1063) [KA2_KonfiSpeichervorrangM3~0x47A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M3 (1077) [KA5_KonfSommersparSchaltschwelleM3~0x47A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M3 (1080) [KA6_KonfiAbsolutSommersparM3~0x47A6 (Byte)]
+    - (A7) Mischersparfunktion M3 (1083) [KA7_KonfiMischersparfunktionM3~0x47A7 (Byte)] HIDDEN:("Kennung HK3"≠"Mischerkreis")
+    - (A9) Pumpenstillstand M3 bei Übergang in reduzierten Betrieb (1089) [KA9_KonfiHKpumpeBeiReduziertM3~0x47A9 (Byte)]
+    - (B5) Sommersparschaltung RS M3 (1109) [KB5_KonfiRaumSommerspar_GWGM3~0x47B5 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne")
+    - (C5) Vorlauf - Minimalbegrenzung M3 (2849) [KC5_KonfiMinimalbegrenzungM3~0x47C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung M3 (2854) [KC6_KonfiMaximalbegrenzung_VT_SollwertM3~0x47C6 (Byte)]
+    - (D5) Wirkung Betriebsarten-umschaltung M3 (2882) [KD5_KonfiWirkungExtBA_UmschaltungM3~0x47D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7289) [KD8_GWG_HK3_Zuordnung_BA_auf_DigEingang~0x47D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F2) Partyfunktion Zeitbegrenzung HK3 (2966) [KF2_KonfiPartyzeitM3~0x47F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK3 (2978) [KF8_KonfiStartModTRSollredM3~0x47F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK3 (2981) [KF9_KonfiEndeModTRSollredM3~0x47F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK3 (2984) [KFA_KonfiUeberhoehungVTSollM3~0x47FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK3 (2987) [KFB_KonfiDauerUeberhoehungVTSollM3~0x47FB (Byte)]
+- Fernbedienung A1M1 (17721) HIDDEN:(00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR A0_KennFBA1M1="0 ohne" OR 00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW")
+    - (B0) Raumaufschaltung A1M1 (1101) [KB0_KonfiRaumaufschaltungA1M1~0x27B0 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden")
+    - (B5) Sommersparschaltung RS A1M1 (1107) [KB5_KonfiRaumSommerspar_GWGA1M1~0x27B5 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+- Fernbedienung M2 (17722) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW" OR A0_KennFBM2="0 ohne")
+    - (B0) Raumaufschaltung M2 (1102) [KB0_KonfiRaumaufschaltungM2~0x37B0 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne" OR A0_KennFBM2="nicht vorhanden")
+    - (B5) Sommersparschaltung RS M2 (1108) [KB5_KonfiRaumSommerspar_GWGM2~0x37B5 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+- Fernbedienung M3 (17742) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR 00_WWS="5 A1 + M2" OR A0_KennFBM3="0 ohne" OR 00_WWS="6 A1 + M2 + WW")
+    - (B0) Raumaufschaltung M3 (1103) [KB0_KonfiRaumaufschaltungM3~0x47B0 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden")
+    - (B5) Sommersparschaltung RS M3 (1109) [KB5_KonfiRaumSommerspar_GWGM3~0x47B5 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne")
+- Warmwasser (17728) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - (55) Warmwasser - Algorithmus (944) [K55_KonfiWW_Algorithmus~0x6755 (Byte)]
+    - (67) WW-Solltemperatur bei Nachladeunterdrückung (963) [K67_KonfiWW_Soll3~0x6767 (Byte)] HIDDEN:(54_SR="0 ohne")
+    - (73) Intervall-Freigabe Zirkulationspumpe (974) [K73_KonfiZpumpeIntervallFreigabe~0x6773 (Byte)] HIDDEN:("(70) Zirk.-pumpenausgang als Relaisausgang"="1 Relaisausgang")
+- Solarmodul SM1 (17748) HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2")
+    - (02) Drehzahlsteuerung (7673) [SM1_K02_Drehzahlsteuerung~0xCF02 (Int)]
+    - (08) Speicher Maximaltemperatur (7664) [SM1_K08_Speichermaximaltemperatur~0xCF08 (Int)]
+    - (0A) Stagnationszeit-reduzierung (7666) [SM1_K0A_Stagnationszeitreduzierung~0xCF0A (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (0F) Volumenstrom bei max. Drehzahl (7671) [SM1_K0F_Volumenstrom_Max_Drehzahl~0xCF0F (Int)] HIDDEN:("(0E) Funktionskontrolle Solarertrag"="0: ausgeschaltet")
+    - (20) Erweiterte Regelungsfunktion (8031) [SM1_K20_NRx_Erweiterte_Regelungsfunktion~0xCF20 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+
+# Codierung 2 (17703)
+- Allgemein (17719)
+    - (00) Heizkreis-Warmwasserschema (801) [K00_KonfiAnlagenschemaV300_V333~0x7700 (Byte)]
+    - (12) Laufzeit Zirkulationspumpe im Kurzzeitbetrieb (7869) [NRx_KonfiKurzzeitZPLaufzeit~0x7712 (Int)]
+    - (1E) Anforderung 0..10V Anschlußerweiterung EA1 (7871) [NRx_KonfiBereichAnalogwertEA1~0x771E (Int)]
+    - (2E) Status Funkbasis Außentemperatursensor (7866) [K2E_NRx_KonfiKennungFunkATS~0x772E (Int)]
+    - (2F) Status Funkbasis (7876) [K2F_NRx_KonfiKennungFunkbasis~0x772F (Int)]
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+    - (4A) Eingang Sensor 17A (922) [K4A_KonfiVerwendungEingang17~0x774A (Byte)]
+    - (4B) Eingang Sensor 17B (924) [K4B_KonfiVerwendungEingang17B~0x774B (Byte)]
+    - (4C) Verwendung Ausgang 20 (926) [K4C_KonfiVerwendungAusgang20V300~0x774C (Byte)]
+    - (4D) Verwendung Ausgang 29 (928) [K4D_KonfiVerwendungAusgang29~0x774D (Byte)]
+    - (4E) Verwendung von Ausgang Stecker 52 (7887) [K4E_NRx_KonfiVerwendungAusgang52~0x774E (Byte)]
+    - (4F) Nachlaufzeit Beimisch- Verteiler- und Kesselkreispumpe (935) [K4F_KonfiPumpenNachlauf~0x774F (Byte)]
+    - (54) Solarregelung (7271) [K54_Solar_GWG_2010~0x7754 (Byte)]
+    - (5B) Kennung Anschlusserweiterung EA1 (7877) [NRx_K5B_Kennung_EA1~0x775B (Byte)]
+    - (5C) EA1 Funktion Ausgang 1 (7878) [NRx_K5C_KonfiEA1FunktionAusgang1~0x775C (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (5D) EA1 Funktion Eingang 1 (7880) [NRx_K5D_KonfiExtEingang1~0x775D (Int)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (5E) EA1 Funktion Eingang 2 (7882) [NRx_K5E_KonfiExtEingang2~0x775E (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (5F) EA1 Funktion Eingang 3 (7883) [NRx_K5F_KonfiExtEingang3~0x775F (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (76) Konfiguration Kommunikationsmodul (979) [K76_KonfiKommunikationsmodul~0x7776 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (78) LON - Kommunikation Freigeben/ Sperren (986) [K78_KonfiNVKommunikationLONV100GC1~0x7778 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (990) [K79_KonfiFehlerManagerV300_V333~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (7A) Bedienung aller HKs von einem Heizkreis dieses Gerätes (991) [K7A_KonfiZentraleHeizkreisbedienung~0x777A (Byte)]
+    - (7B) Uhrzeit auf LON (995) [K7B_KonfiFunktionUhrSenden_3~0x777B (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (7E) Abgaskaskade (1000) [K7E_KonfiAbgaskaskade~0x777E (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel")
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - (80) Verzögerung Fehleranzeige (1002) [K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (81) Funktion Uhr (1004) [K81_KonfiFunktionUhr~0x7781 (Byte)]
+    - (82) Sommerzeit Monat (1006) [K82_KonfiSommerzeitMonat~0x7782 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (83) Sommerzeit Woche (1007) [K83_KonfiSommerzeitWoche~0x7783 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (84) Sommerzeit Tag (1008) [K84_KonfiSommerzeitTag~0x7784 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (85) Winterzeit Monat (1009) [K85_KonfiWinterzeitMonat~0x7785 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (86) Winterzeit Woche (1010) [K86_KonfiWinterzeitWoche~0x7786 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (87) Winterzeit Tag (1011) [K87_KonfiWinterzeitTag~0x7787 (Byte)] HIDDEN:("(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit" AND "(81) Funktion Uhr"≠"1 Uhr mit Sommerzeit")
+    - (88) Anzeigemodus Celsius - Fahrenheit (1012) [K88_KonfiCelsiusFahrenheit~0x7788 (Byte)]
+    - (8F) Sperren Expert (7894) [NRx_K8F_KonfiSperrenExpert.description~0x778F (Byte)]
+    - (90) Zeitkonstante Aussentemperatur (1022) [K90_KonfiZeitkonstAussentemperatur~0x7790 (Byte)]
+    - (91) Zuordnung externe Betriebsarten-umschaltung (1024) [K91_KonfiZuordnungExtBA_Umschaltung~0x7791 (Byte)]
+    - (95) Konfiguration Vitocom 100 (1035) [K95_KennungDekatelM~0x7795 (Byte)]
+    - (96) Konfiguration Mischermodul (1037) [K96_KonfiKennungMischermodul~0x7796 (Byte)]
+    - (97) Konfiguration  Aussentemperatur (1039) [K97_Konfi_Aussentemperatur~0x7797 (Byte)] HIDDEN:(76_KommMod="0 ohne")
+    - (98) Viessmann - Anlagennummer (1043) [K98_KonfiVI_Anlagennummer~0x7798 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="2 ungültig" OR 76_KonfKommMod="2 HV-Bus-Modul")
+    - (99) Zuordnung ExtSperren - ExtMischerZU (1045) [K99_KonfiZuordnungExtMischerZU~0x7799 (Byte)]
+    - (9A) Zuordnung ExtMischer AUF (1046) [K9A_KonfiZuordnungExtMischerAUF~0x779A (Byte)]
+    - (9B) VT_Solltemperatur bei externer Anforderung (1048) [K9B_KonfiVT_SolltemperaturExternV300~0x779B (Byte)]
+    - (9C) Überwachung LON-Teilnehmer (1049) [K9C_KonfiReceiveHeartBeat~0x779C (Byte)]
+    - (9F) Differenztemperatur VT-Erzeugung (1052) [K9F_KonfiDTKMischerkreise~0x779F (Byte)] HIDDEN:(00_AnlWWS="0 Mehrkessel" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="2 Kessel mit WW" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="2 Kessel mit WW" OR 00_WWS="1 A1" OR 00_WWS="2 A1  + WW")
+- Kaskade (17751)
+    - (35) Anzahl Kessel (7847) [K35_NRx_Konfi_AnzahlKessel~0x5735 (Int)]
+    - (36) Vorlaufminimal-temperatur Anlage (894) [K36_KonfiVTMinKaskade~0x5736 (Byte)]
+    - (37) Vorlaufmaximal-temperatur Anlage (896) [K37_KonfiVTMaxKaskade~0x5737 (Byte)]
+    - (38) Kesselfolgeumschaltung (899) [K38_KonfiKesselfolgeumschaltung~0x5738 (Byte)]
+    - (39) Fester Führungs-Kessel (7849) [K39_NRx_KonfiFesterFuehrungskessel~0x5739 (Int)]
+    - (3A) Fester letzter Kessel (7850) [K3A_NRx_KonfiFesterLetzterKessel~0x573A (Int)]
+    - (3B) Regelungsart der Kaskadenregelung (902) [K3B_KonfiRegelungsart~0x573B (Byte)]
+    - (3C) Regelungsstrategie (904) [K3C_KonfiRegelungsstrategie~0x573C (Byte)]
+    - (3D) Kessel schalten über Leistungsbilanz (906) [K3D_KonfiLeistungsbilanz~0x573D (Byte)]
+    - (3E) Ansteuerung Verteilerpumpe (907) [K3E_KonfiAnsteuerungVerteilerpumpe~0x573E (Byte)]
+    - (3F) Speichervorrang auf  Verteilerpumpe (908) [K3F_KonfiSpeichervorrang_aufVP~0x573F (Byte)]
+    - (41) ECO Sperre für Kessel 1 (911) [K41_KonfiECO_SperreKessel1~0x5741 (SByte)]
+    - (42) ECO Sperre für Kessel 2 (912) [K42_KonfiECO_SperreKessel2~0x5742 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (43) ECO Sperre für Kessel 3 (913) [K43_KonfiECO_SperreKessel3~0x5743 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (44) ECO Sperre für Kessel 4 (914) [K44_KonfiECO_SperreKessel4~0x5744 (SByte)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (45) Zuschaltintegralschwelle (915) [K45_KonfiZuschaltintegralschwelle~0x5745 (Byte)]
+    - (46) Abschaltintegralschwelle (916) [K46_KonfiAbschaltintegralschwelle~0x5746 (Byte)]
+    - (47) Abschaltdifferenz (918) [K47_KonfiAbschaltdifferenz~0x5747 (Byte)]
+    - (48) Reglerverstaerkung (bei sequentiellem Betrieb) (919) [K48_KonfiVTReglerverstaerkung~0x5748 (Byte)] HIDDEN:("(3B) Regelungsart der Kaskadenregelung"≠"Sequentiell")
+    - (49) Reglernachstellzeit (bei sequentiellem Betrieb) (920) [K49_KonfiVTReglernachstellzeit~0x5749 (Byte)] HIDDEN:("(3B) Regelungsart der Kaskadenregelung"≠"Sequentiell")
+    - (65) ECO Sperre für Kessel 5 (7851) [K65_NRx_KonfiECO_SperreKessel5~0x5765 (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4")
+    - (6F) ECO Sperre für Kessel 6 (7862) [K6F_NRx_KonfiECO_SperreKessel6~0x576F (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4" OR "Anzahl Wärmeerzeuger"="5")
+    - (74) ECO Sperre für Kessel 7 (7863) [K74_NRx_KonfiECO_SperreKessel7~0x5774 (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"≠"7" AND "Anzahl Wärmeerzeuger"≠"8")
+    - (7D) ECO Sperre für Kessel 8 (7864) [K7D_NRx_KonfiECO_SperreKessel8~0x577D (SByte)] HIDDEN:("Anzahl Wärmeerzeuger"≠"8")
+- Warmwasser (17681) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - (55) Warmwasser - Algorithmus (944) [K55_KonfiWW_Algorithmus~0x6755 (Byte)]
+    - (56) Warmwasser-Solltemperatur-Bereich (946) [K56_KonfiWW_SolltempBereichGWG~0x6756 (Byte)] HIDDEN:(00_AnlWWS="0 Mehrkessel" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_AnlWWS="1 Kessel ohne WW" OR 00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1  + M2")
+    - (58) Warmwasser-Solltemperatur 2 (949) [K58_KonfiWW_Solltemperatur2~0x6758 (Byte)]
+    - (59) Einschaltpunkt Speicher (950) [K59_KonfiWW_EinschaltOffset~0x6759 (Byte)]
+    - (5A) Warmwassersollwert ist Maximalwert (951) [K5A_KonfiSpeichersollwertMax~0x675A (Byte)]
+    - (60) Offset für Kessel- bzw Vorlaufsolltemperatur (auf Warmwasser-Solltemperatur) (7565) [K60_KonfiWW_GWG_KesselOffset~0x6760 (Byte)]
+    - (64) WW-Bereitung bei Party- oder dauernd Normalbetrieb (959) [K64_KonfiWW_BeiPartyDNormal~0x6764 (Byte)]
+    - (66) Zugriffsberechtigung WW-Solltemperatur (962) [K66_KonfiZugriffWW_Solltemperatur~0x6766 (Byte)]
+    - (67) WW-Solltemperatur bei Nachladeunterdrückung (963) [K67_KonfiWW_Soll3~0x6767 (Byte)] HIDDEN:(54_SR="0 ohne")
+    - (70) Zirk.-pumpenausgang als Relaisausgang (971) [K70_KonfiZpumpeRelaisausgang~0x6770 (Byte)]
+    - (71) Zirkulationspumpe bei Speicherladung 1. WW-Sollwert (972) [K71_KonfiZpumpeBeiWW_Soll1~0x6771 (Byte)] HIDDEN:("(53) Rangierung Relais K12"≠"1 Zirkulationspumpe" OR "(2E) Kennung Externe Erweiterung"="0 ohne" OR "(70) Zirk.-pumpenausgang als Relaisausgang"="1 Relaisausgang")
+    - (72)  Zirkulationspumpe bei Speicherladung 2. WW-Sollwert (973) [K72_KonfiZpumpeBeiWW_Soll2~0x6772 (Byte)] HIDDEN:("(53) Rangierung Relais K12"≠"1 Zirkulationspumpe" OR "(2E) Kennung Externe Erweiterung"="0 ohne" OR "(70) Zirk.-pumpenausgang als Relaisausgang"="1 Relaisausgang")
+    - (73) Intervall-Freigabe Zirkulationspumpe (974) [K73_KonfiZpumpeIntervallFreigabe~0x6773 (Byte)] HIDDEN:("(70) Zirk.-pumpenausgang als Relaisausgang"="1 Relaisausgang")
+    - (75) Zirkulationspumpe bei Sparbetrieb (976) [K75_KonfiZpumpeBeiSparbetrieb~0x6775 (Byte)] HIDDEN:("(70) Zirk.-pumpenausgang als Relaisausgang"="1 Relaisausgang")
+    - (62) Nachlauf Speicherladepumpe (956) [K62_KonfiLpumpeNachlauf~0x6762 (Byte)]
+- Heizkreis A1 (17682) HIDDEN:(00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR 00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW")
+    - (A0) Kennung Fernbedienung A1M1 (1056) [KA0_KonfiKennungFernbedienungA1M1~0x27A0 (Byte)]
+    - (A1) Sperren FB HK1 (7242) [KA1_GWG_Sperren_FB_HK1~0x27A1 (Byte)]
+    - (A2) Speichervorrang A1M1 (1059) [KA2_KonfiSpeichervorrangA1M1~0x27A2 (Byte)]
+    - (A3) Frostgrenze A1M1 (1067) [KA3_KonfiFrostgrenzeA1M1_GWG_4~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion A1M1 (1072) [KA4_KonfiKeineFrostschutzfunktionA1M1~0x27A4 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle A1M1 (1075) [KA5_KonfSommersparSchaltschwelleA1M1~0x27A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung A1M1 (1078) [KA6_KonfiAbsolutSommersparA1M1~0x27A6 (Byte)]
+    - (A7) Mischersparfunktion M1 (1081) [KA7_KonfiMischersparfunktionM1~0x27A7 (Byte)] HIDDEN:("Kennung HK1"≠"Mischerkreis")
+    - (A9) Pumpenstillstand A1M1 bei Übergang in reduzierten Betrieb (1085) [KA9_KonfiHKpumpeBeiReduziertA1M1~0x27A9 (Byte)] HIDDEN:("(B0) Raumaufschaltung A1M1"="1 WS - RS" OR "(B0) Raumaufschaltung A1M1"="2 RS - WS" OR "(B0) Raumaufschaltung A1M1"="3 RS - RS")
+    - (B0) Raumaufschaltung A1M1 (1101) [KB0_KonfiRaumaufschaltungA1M1~0x27B0 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden")
+    - (B3) Raumregelung Grundwert A1M1 (7969) [KB3_KonfiGrundwertA1M1~0x27B3 (Byte)]
+    - (C3) Laufzeit Heizkreis Mischer M1 (2841) [KC3_KonfiLaufzeitHKMischerM1~0x27C3 (Byte)]
+    - (B5) Sommersparschaltung RS A1M1 (1107) [KB5_KonfiRaumSommerspar_GWGA1M1~0x27B5 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - (C5) Vorlauf - Minimalbegrenzung A1M1 (2847) [KC5_KonfiMinimalbegrenzungA1M1~0x27C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung A1M1 (2852) [KC6_KonfiMaximalbegrenzung_VT_SollwertA1M1~0x27C6 (Byte)]
+    - (D5) Wirkung Betriebsarten-umschaltung A1M1 (2880) [KD5_KonfiWirkungExtBA_UmschaltungA1M1~0x27D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7287) [KD8_GWG_HK1_Zuordnung_BA_auf_DigEingang~0x27D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F1) Estrichfunktion A1M1 (2957) [KF1_KonfiTemperaturprogrammM1~0x27F1 (Byte)] HIDDEN:("Kennung HK1"≠"Mischerkreis")
+    - (F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung A1 (2962) [KF2_KonfiPartyzeitGWGA1~0x27F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK1 (2976) [KF8_KonfiStartModTRSollredA1~0x27F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK1 (2979) [KF9_KonfiEndeModTRSollredA1~0x27F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK1 (2982) [KFA_KonfiUeberhoehungVTSollA1~0x27FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK1 (2985) [KFB_KonfiDauerUeberhoehungVTSollA1~0x27FB (Byte)]
+- Heizkreis M2 (17683) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - (A0) Kennung Fernbedienung M2 (1057) [KA0_KonfiKennungFernbedienungM2~0x37A0 (Byte)]
+    - (A1) Sperren FB HK2 (7243) [KA1_GWG_Sperren_FB_HK2~0x37A1 (Byte)]
+    - (A2) Speichervorrang M2 (1061) [KA2_KonfiSpeichervorrangM2~0x37A2 (Byte)]
+    - (A3) Frostgrenze M2 (1070) [KA3_KonfiFrostgrenzeM2_GWG_4~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion M2 (1073) [KA4_KonfiKeineFrostschutzfunktionM2~0x37A4 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M2 (1076) [KA5_KonfSommersparSchaltschwelleM2~0x37A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M2 (1079) [KA6_KonfiAbsolutSommersparM2~0x37A6 (Byte)]
+    - (A7) Mischersparfunktion M2 (1082) [KA7_KonfiMischersparfunktionM2~0x37A7 (Byte)] HIDDEN:("Kennung HK2"≠"Mischerkreis")
+    - (A9) Pumpenstillstand M2 bei Übergang in reduzierten Betrieb (1087) [KA9_KonfiHKpumpeBeiReduziertM2~0x37A9 (Byte)] HIDDEN:("(B0) Raumaufschaltung M2"="1 WS - RS" OR "(B0) Raumaufschaltung M2"="2 RS - WS" OR "(B0) Raumaufschaltung M2"="3 RS - RS")
+    - (B0) Raumaufschaltung M2 (1102) [KB0_KonfiRaumaufschaltungM2~0x37B0 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne" OR A0_KennFBM2="nicht vorhanden")
+    - (B3) Raumregelung Grundwert M2 (7970) [KB3_KonfiGrundwertM2~0x37B3 (Byte)]
+    - (B5) Sommersparschaltung RS M2 (1108) [KB5_KonfiRaumSommerspar_GWGM2~0x37B5 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - (C3) Laufzeit Heizkreis Mischer M2 (2842) [KC3_KonfiLaufzeitHKMischerM2~0x37C3 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung M2 (2848) [KC5_KonfiMinimalbegrenzungM2~0x37C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung M2 (2853) [KC6_KonfiMaximalbegrenzung_VT_SollwertM2~0x37C6 (Byte)]
+    - (D5) Wirkung Betriebsarten-umschaltung M2 (2881) [KD5_KonfiWirkungExtBA_UmschaltungM2~0x37D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7288) [KD8_GWG_HK2_Zuordnung_BA_auf_DigEingang~0x37D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F1) Estrichfunktion M2 (2958) [KF1_KonfiTemperaturprogrammM2~0x37F1 (Byte)] HIDDEN:("Kennung HK2"≠"Mischerkreis")
+    - (F2) Zeitbegrenzung Party/ Betriebsarten-Umschaltung M2 (2963) [KF2_KonfiPartyzeitGWGM2~0x37F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK2 (2977) [KF8_KonfiStartModTRSollredM2~0x37F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK2 (2980) [KF9_KonfiEndeModTRSollredM2~0x37F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK2 (2983) [KFA_KonfiUeberhoehungVTSollM2~0x37FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK2 (2986) [KFB_KonfiDauerUeberhoehungVTSollM2~0x37FB (Byte)]
+- Heizkreis M3 (17738) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - (A0) Kennung Fernbedienung M3 (1058) [KA0_KonfiKennungFernbedienungM3~0x47A0 (Byte)]
+    - (A1) Sperren FB HK3 (7245) [KA1_GWG_Sperren_FB_HK3~0x47A1 (Byte)]
+    - (A2) Speichervorrang M3 (1063) [KA2_KonfiSpeichervorrangM3~0x47A2 (Byte)]
+    - (A3) Frostgrenze M3 (1071) [KA3_KonfiFrostgrenzeM3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion M3 (1074) [KA4_KonfiKeineFrostschutzfunktionM3~0x47A4 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M3 (1077) [KA5_KonfSommersparSchaltschwelleM3~0x47A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M3 (1080) [KA6_KonfiAbsolutSommersparM3~0x47A6 (Byte)]
+    - (A7) Mischersparfunktion M3 (1083) [KA7_KonfiMischersparfunktionM3~0x47A7 (Byte)] HIDDEN:("Kennung HK3"≠"Mischerkreis")
+    - (A9) Pumpenstillstand M3 bei Übergang in reduzierten Betrieb (1089) [KA9_KonfiHKpumpeBeiReduziertM3~0x47A9 (Byte)]
+    - (B0) Raumaufschaltung M3 (1103) [KB0_KonfiRaumaufschaltungM3~0x47B0 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden")
+    - (B3) Raumregelung Grundwert M3 (7971) [KB3_KonfiGrundwertM3~0x47B3 (Byte)]
+    - (B5) Sommersparschaltung RS M3 (1109) [KB5_KonfiRaumSommerspar_GWGM3~0x47B5 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne")
+    - (C3) Laufzeit Heizkreis Mischer M3 (2843) [KC3_KonfiLaufzeitHKMischerM3~0x47C3 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung M3 (2849) [KC5_KonfiMinimalbegrenzungM3~0x47C5 (Byte)]
+    - (C6) Vorlauf - Maximalbegrenzung M3 (2854) [KC6_KonfiMaximalbegrenzung_VT_SollwertM3~0x47C6 (Byte)]
+    - (D5) Richtung externe Aufschaltung M3 (2885) [KD5_WirkungExtBA_UmschaltungM3~0x47D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - (D8) Betriebsarten-umschaltung über Digitaleingang (7289) [KD8_GWG_HK3_Zuordnung_BA_auf_DigEingang~0x47D8 (Byte)] HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - (F1) Estrichfunktion M3 (2959) [KF1_KonfiTemperaturprogrammM3~0x47F1 (Byte)] HIDDEN:("Kennung HK3"≠"Mischerkreis")
+    - (F2) Partyfunktion Zeitbegrenzung HK3 (2966) [KF2_KonfiPartyzeitM3~0x47F2 (Byte)]
+    - (F8) Start Modifizierung Raumtemp. Soll red. HK3 (2978) [KF8_KonfiStartModTRSollredM3~0x47F8 (SByte)]
+    - (F9) Ende Modifizierung Raumtemp. Soll red. HK3 (2981) [KF9_KonfiEndeModTRSollredM3~0x47F9 (SByte)]
+    - (FA) Überhöhung Vorlauftemperatur Soll HK3 (2984) [KFA_KonfiUeberhoehungVTSollM3~0x47FA (Byte)]
+    - (FB) Dauer Überhöhung Vorlauftemperatur Soll HK3 (2987) [KFB_KonfiDauerUeberhoehungVTSollM3~0x47FB (Byte)]
+- Fernbed. für A1 (17684) HIDDEN:(00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR A0_KennFBA1M1="0 ohne" OR 00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW")
+    - (B0) Raumaufschaltung A1M1 (1101) [KB0_KonfiRaumaufschaltungA1M1~0x27B0 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK1 (1104) [KB2_KonfiRaumeinflussA1M1~0x27B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung A1M1"="0 WS - WS")
+    - (B3) Raumregelung Grundwert A1M1 (7969) [KB3_KonfiGrundwertA1M1~0x27B3 (Byte)]
+    - (B5) Sommersparschaltung RS A1M1 (1107) [KB5_KonfiRaumSommerspar_GWGA1M1~0x27B5 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - (E1) Bereich Tagsolltemperatur Fernbedienung A1M1 (2886) [KE1_KonfiOffsetRT_SolltemperaturA1M1~0x27E1 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - (E2) Raumgerät Istwertkorrektur A1M1 (2889) [KE2_KonfiRT_KorrekturFernbedienungA1M1~0x27E2 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+- Fernbed. für M2 (17685) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW" OR A0_KennFBM2="0 ohne")
+    - (B0) Raumaufschaltung M2 (1102) [KB0_KonfiRaumaufschaltungM2~0x37B0 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne" OR A0_KennFBM2="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK2 (1105) [KB2_KonfiRaumeinflussM2~0x37B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung M2"="0 WS - WS")
+    - (B3) Raumregelung Grundwert M2 (7970) [KB3_KonfiGrundwertM2~0x37B3 (Byte)]
+    - (B5) Sommersparschaltung RS M2 (1108) [KB5_KonfiRaumSommerspar_GWGM2~0x37B5 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - (E1) Bereich Tagsolltemperatur Fernbedienung M2 (2887) [KE1_KonfiOffsetRT_SolltemperaturM2~0x37E1 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - (E2) Raumgerät Istwertkorrektur M2 (2890) [KE2_KonfiRT_KorrekturFernbedienungM2~0x37E2 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+- Fernbed. für M3 (17741) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW" OR 00_WWS="5 A1 + M2" OR A0_KennFBM3="0 ohne" OR 00_WWS="6 A1 + M2 + WW")
+    - (B0) Raumaufschaltung M3 (1103) [KB0_KonfiRaumaufschaltungM3~0x47B0 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK3 (1106) [KB2_KonfiRaumeinflussM3~0x47B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung M3"="0 WS - WS")
+    - (B3) Raumregelung Grundwert M3 (7971) [KB3_KonfiGrundwertM3~0x47B3 (Byte)]
+    - (B5) Sommersparschaltung RS M3 (1109) [KB5_KonfiRaumSommerspar_GWGM3~0x47B5 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne")
+    - (E1) Bereich Tagsolltemperatur Fernbedienung M3 (2888) [KE1_KonfiOffsetRT_SolltemperaturM3~0x47E1 (Byte)]
+    - (E2) Raumgerät Istwertkorrektur M3 (2891) [KE2_KonfiRT_KorrekturFernbedienungM3~0x47E2 (Byte)]
+- Solarmodul SM1 (17746) HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2")
+    - (00) Einschaltpunkt Kollektorkreispumpe (7656) [SM1_K00_Einschalt_KKPumpe~0xCF00 (Int)]
+    - (01) Ausschaltpunkt Kollektorkreispumpe (7657) [SM1_K01_Ausschalt_KKPumpe~0xCF01 (Int)]
+    - (02) Drehzahlsteuerung (7673) [SM1_K02_Drehzahlsteuerung~0xCF02 (Int)]
+    - (03) Sollwert dT-Regler (7659) [SM1_K03_Sollwert_DT_Regler~0xCF03 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (05) Minimale Pumpendrehzahl (7661) [SM1_K05_Min_Pumpendrehzahl~0xCF05 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (06) Maximale Pumpendrehzahl (7662) [SM1_K06_Max_Pumpendrehzahl~0xCF06 (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (07) Intervallfunktion (7674) [SM1_K07_Intervallfunktion~0xCF07 (Int)]
+    - (08) Speicher Maximaltemperatur (7664) [SM1_K08_Speichermaximaltemperatur~0xCF08 (Int)]
+    - (09) Kollektor Maximaltemperatur (7665) [SM1_K09_Kollektormaximaltemperatur~0xCF09 (Int)]
+    - (0A) Stagnationszeit-reduzierung (7666) [SM1_K0A_Stagnationszeitreduzierung~0xCF0A (Int)] HIDDEN:("(02) Drehzahlsteuerung"="0: Drehzahlsteuerung abgeschaltet")
+    - (0B) Kollektor Frostschutzfunktion (7675) [SM1_K0B_Kollektorfrostschutzfunktion~0xCF0B (Int)]
+    - (0E) Funktionskontrolle Solarertrag (7678) [SM1_K0E_Funktionskontrolle_Solarertrag~0xCF0E (Int)]
+    - (0F) Volumenstrom bei max. Drehzahl (7671) [SM1_K0F_Volumenstrom_Max_Drehzahl~0xCF0F (Int)] HIDDEN:("(0E) Funktionskontrolle Solarertrag"="0: ausgeschaltet")
+    - (10) Zieltemperaturregelung (7679) [SM1_K10_Zieltemperaturregelung~0xCF10 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (11) Speichersolltemperatur Solar (7680) [SM1_K11_Speichersolltemperatur~0xCF11 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (12) Kollektor Minimaltemperatur (7681) [SM1_K12_Kollektorminimaltemperatur~0xCF12 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR SWIdxSolarSM1="0" OR SWIdxSolarSM1="1")
+    - (20) Erweiterte Regelungsfunktion (8031) [SM1_K20_NRx_Erweiterte_Regelungsfunktion~0xCF20 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (22) Einschaltpunkt dT2-Regler (8032) [SM1_K22_NRx_Einschaltpunkt_dT2_Regler~0xCF22 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (23) Ausschaltpunkt dT2-Regler (8033) [SM1_K23_NRx_Ausschaltpunkt_dT2_Regler~0xCF23 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (24) Einschalttemperatur Thermostat (8034) [SM1_K24_NRx_Einschalttemp_Thermostat~0xCF24 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (25) Ausschalttemperatur Thermostat (8035) [SM1_K25_NRx_Ausschalttemp_Thermostat~0xCF25 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0")
+    - (26) Pendelladung (8036) [SM1_K26_NRx_Pendelladung~0xCF26 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+    - (27) Pendelladezeit (8037) [SM1_K27_NRx_Pendelladezeit~0xCF27 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+    - (28) Pendelpausenzeit (8038) [SM1_K28_NRx_Pendelpausenzeit~0xCF28 (Int)] HIDDEN:(SWIdxSolarSM1="0" OR SWIdxSolarSM1="1" OR HWIdxSolarSM1="0" OR "(20) Erweiterte Regelungsfunktion"≠"9: Solare Beladung zweier Speicher")
+
+# Gerätedaten (17710)
+- Gerät (17652)
+    - Sachnummer Regelung (4682) [Sachnummer~0x08E0 (String)]
+
+# Diagnose Anlage (17711)
+- Solar (17747) HIDDEN:(54_SR≠"3 Solarmodul SM1" AND 54_SR≠"4 Solarmodul SM1 mit DT2"54_SR="0 ohne")
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+    - Solarertrag Aktueller Tag (7895) [NRx_SolarErtrag_0~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 1 Tag zurück (7896) [NRx_SolarErtrag_1~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 2 Tage zurück (7897) [NRx_SolarErtrag_2~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 3 Tage zurück (7898) [NRx_SolarErtrag_3~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 4 Tage zurück (7899) [NRx_SolarErtrag_4~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 5 Tage zurück (7900) [NRx_SolarErtrag_5~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 6 Tage zurück (7901) [NRx_SolarErtrag_6~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Solarertrag 7 Tage zurück (7902) [NRx_SolarErtrag_7~0xCF30 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Ausgang 22 (8311) [SM1_DigitalAusgang_22~0x0F11 (Byte)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Laufzeit Ausgang 22 (8312) [SM1_DigitalAusgang_22_Laufzeit~0x0F12 (Int4)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Status Sensor 7 (8314) [SM1_Sensor_7_Status~0x0F16 (Byte)]
+    - Sensor 7 (8309) [SM1_Sensor_7~0x0F17 (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 7"="Sensor nicht vorhanden")
+    - Status Sensor 10 (8315) [SM1_Sensor_10_Status~0x0F19 (Byte)]
+    - Sensor 10 (8310) [SM1_Sensor_10~0x0F1A (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 10"="Sensor nicht vorhanden")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Drehzahl Solarpumpe (8313) [SM1_Solarpumpe_Drehzahl~0x0F10 (Int)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Nachheizunterdrueckung (11927) [Nachheizunterdrueckung~0x55FE (Byte)]
+- Kaskade (17752)
+    - Aussentemperatur (5373) [TiefpassTemperaturwert_ATS~0x5525 (SInt)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+    - Anzahl Wärmeerzeuger (7914) [K35_NRx_Konfi_AnzahlKessel_D~0x5735 (Byte)]
+    - Ist-Kesselfolge (7998) [NRx_KesselFolgeIst~0x56E0 (Int)]
+    - Zuschaltintegral (1098) [Kas_Zuschaltintegral~0x5620 (SInt)]
+    - Abschaltintegral (1095) [Kas_Abschaltintegral~0x5624 (SInt)]
+    - Vorlaufsolltemperatur Anlage (1097) [Kas_VTSolleff~0x5600 (Int)]
+    - Vorlauftemperatur Anlage (6056) [VorlauftemperaturV333MW1~0x0950 (Int)]
+    - Vorlaufmaximal-begrenzung Anlage (895) [K37_Konfi_VTMaxKaskade~0x5737 (Byte)]
+    - Kesselsolltemperatur (4222) [nvoSetpoint_PM_Boiler~0xA226 (Byte)]
+    - (Kessel1) Kesseltemperatur (4114) [nviSupplyTemp_PM_Boiler1~0xA202 (SInt)]
+    - (Kessel2) Kesseltemperatur (4115) [nviSupplyTemp_PM_Boiler2~0xA242 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (Kessel3) Kesseltemperatur (4116) [nviSupplyTemp_PM_Boiler3~0xA282 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel4) Kesseltemperatur (4117) [nviSupplyTemp_PM_Boiler4~0xA2C2 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (Kessel5) Kesseltemperatur (7910) [nviSupplyTemp_PM_Boiler5~0xA502 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4")
+    - (Kessel6) Kesseltemperatur (7911) [nviSupplyTemp_PM_Boiler6~0xA542 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4" OR "Anzahl Wärmeerzeuger"="5")
+    - (Kessel7) Kesseltemperatur (7912) [nviSupplyTemp_PM_Boiler1~0xA582 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"7" AND "Anzahl Wärmeerzeuger"≠"8")
+    - (Kessel8) Kesseltemperatur (7913) [nviSupplyTemp_PM_Boiler8~0xA5C2 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"8")
+    - Vorlaufminimal-begrenzung Anlage (893) [K36_Konfi_VTMinKaskade~0x5736 (Byte)]
+    - Rücklaufsolltemperatur Anlage (1096) [Kas_Rueck_Soll~0x56A0 (Byte)]
+    - Sensor 17A (921) [K4A_KonfiEingang17A~0x774A (Byte)]
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Sensor 17B (923) [K4B_KonfiEingang17B~0x774B (Byte)]
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+- Heizkreis A1 (17669) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Betriebsart A1M1 (92) [BedienteilBA_GWGA1~0x2323 (Byte)]
+    - Externe Betriebsarten-umschaltung A1M1 (270) [ExtBetriebsartenumschaltung_A1M1~0x2549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - Raumtemperatur Soll A1M1 (732) [HK_RaumsolltemperaturaktuellA1M1~0x2500 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb A1M1 (82) [BedienRTSolltemperaturA1M1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb A1M1 (85) [BedienRTSolltemperaturReduziertA1M1~0x2307 (Byte)]
+    - Neigung der Heizkennlinie A1M1 (67) [BedienNeigungA1M1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie A1M1 (70) [BedienNiveauA1M1~0x2304 (SByte)]
+    - Heizkreispumpe A1M1 (729) [HK_PumpenzustandA1M1~0x2906 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Raumtemperatur A1M1 (5367) [TiefpassTemperatur_RTS_A1M1~0x0896 (Int)] HIDDEN:(FBA1M1="nicht vorhanden" OR A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden" OR RaumTempSensHK1="Nicht vorhanden")
+    - Kennung HK1 (7987) [HK1_Kennung~0x2520 (Byte)]
+    - Frostgefahr des Heizkreises A1M1 (717) [HK_Frostgefahr_aktivA1M1~0x2500 (Byte)]
+    - Ferienprogramm A1M1 (714) [HK_FerienbetriebA1M1~0x2535 (Byte)]
+    - (D5) Richtung externe Aufschaltung A1M1 (2883) [KD5_WirkungExtBA_UmschaltungA1M1~0x27D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - Reglervariante A1M1 (735) [HK_ReglervarianteA1M1~0x2521 (Byte)]
+    - Zustand Sparbetrieb A1M1 (7852) [NRx_SparbetriebA1M1_D~0x2331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb A1M1 (7855) [NRx_PartybetriebA1M1_D~0x2330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Heizkreisname HK1 (8747) [Beschriftung_HK1~0x7360 (String)]
+    - Status Vorlauftemperatursensor A1M1 (8400) [VorlauftemperaturstatusA1M1~0x2904 (Byte)]
+- Heizkreis M2 (17670) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Aktuelle Betriebsart M2 (709) [HK_AktuelleBetriebsartM2~0x3500 (Byte)]
+    - Betriebsart M2 (94) [BedienteilBA_GWGM2~0x3323 (Byte)]
+    - Externe Betriebsarten-umschaltung M2 (271) [ExtBetriebsartenumschaltung_M2~0x3549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - Raumtemperatur Soll M2 (733) [HK_RaumsolltemperaturaktuellM2~0x3500 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb M2 (83) [BedienRTSolltemperaturM2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M2 (86) [BedienRTSolltemperaturReduziertM2~0x3307 (Byte)]
+    - Neigung der Heizkennlinie M2 (68) [BedienNeigungM2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie M2 (71) [BedienNiveauM2~0x3304 (SByte)]
+    - Heizkreispumpe M2 (730) [HK_PumpenzustandM2~0x3906 (Byte)]
+    - Vorlauftemperatur M2 (6053) [VorlauftemperaturM2~0x3900 (Int)]
+    - Vorlauftemperatur Soll M2 (6064) [VT_SolltemperaturM2~0x3544 (Int)]
+    - Raumtemperatur M2 (5376) [TiefpassTemperaturwert_RTS_M2~0x0898 (Int)] HIDDEN:(RaumTempSensHK2="Nicht vorhanden" OR A0_KennFBM2="nicht vorhanden" OR A0_KennFBM2="0 ohne" OR FBM2="nicht vorhanden")
+    - Kennung HK2 (7988) [HK2_Kennung~0x3520 (Byte)]
+    - Frostgefahr des Heizkreises M2 (718) [HK_Frostgefahr_aktivM2~0x3500 (Byte)]
+    - Ferienprogramm M2 (715) [HK_FerienbetriebM2~0x3535 (Byte)]
+    - (D5) Richtung externe Aufschaltung M2 (2884) [KD5_WirkungExtBA_UmschaltungM2~0x37D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - Reglervariante M2 (737) [HK_ReglervarianteM2~0x3521 (Byte)]
+    - Mischerposition M2 (721) [HK_Mischerposition_akt_M2~0x354C (Byte)]
+    - Zustand Sparbetrieb M2 (7853) [NRx_SparbetriebM2_D~0x3331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb M2 (7856) [NRx_PartybetriebM2_D~0x3330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Heizkreisname HK2 (8748) [Beschriftung_HK2~0x738A (String)]
+- Heizkreis M3 (17731) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Aktuelle Betriebsart M3 (710) [HK_AktuelleBetriebsartM3~0x4500 (Byte)]
+    - Betriebsart M3 (7219) [BedienteilBA_GWGM3~4323 (Byte)]
+    - Externe Betriebsarten-umschaltung M3 (272) [ExtBetriebsartenumschaltung_M3~0x4549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - Raumtemperatur Soll M3 (734) [HK_RaumsolltemperaturaktuellM3~0x4500 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb M3 (84) [BedienRTSolltemperaturM3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M3 (87) [BedienRTSolltemperaturReduziertM3~0x4307 (Byte)]
+    - Neigung der Heizkennlinie M3 (69) [BedienNeigungM3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie M3 (72) [BedienNiveauM3~0x4304 (SByte)]
+    - Heizkreispumpe M3 (731) [HK_PumpenzustandM3~0x4906 (Byte)]
+    - Vorlauftemperatur M3 (6054) [VorlauftemperaturM3~0x4900 (Int)]
+    - Vorlauftemperatur Soll M3 (6065) [VT_SolltemperaturM3~0x4544 (Int)]
+    - Raumtemperatur M3 (5377) [TiefpassTemperaturwert_RTS_M3~0x089A (Int)] HIDDEN:(FBM3="nicht vorhanden" OR A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden" OR RaumTempSensHK3="Nicht vorhanden")
+    - Kennung HK3 (7989) [HK3_Kennung~0x4520 (Byte)]
+    - Frostgefahr des Heizkreises M3 (719) [HK_Frostgefahr_aktivM3~0x4500 (Byte)]
+    - Ferienprogramm M3 (716) [HK_FerienbetriebM3~0x4535 (Byte)]
+    - (D5) Richtung externe Aufschaltung M3 (2885) [KD5_WirkungExtBA_UmschaltungM3~0x47D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - Reglervariante M3 (739) [HK_ReglervarianteM3~0x4521 (Byte)]
+    - Mischerposition M3 (722) [HK_Mischerposition_akt_M3~0x454C (Byte)]
+    - Zustand Sparbetrieb M3 (7854) [NRx_SparbetriebM3_D~0x4331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb M3 (7857) [NRx_PartybetriebM3_D~0x4330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Heizkreisname HK3 (8749) [Beschriftung_HK3~0x73B4 (String)]
+- Warmwasser (17671) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Zirkulationspumpe (252) [DigitalAusgang_Zirkulationspumpe~0x0846 (Byte)]
+- Fkt.-Erw. EA1 (17744) HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Externer Sollwert 0-10V (7233) [EA1_ExternSollwert0_10V~0x0A93 (Int)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 0 (7230) [EA1_Kontakt0~0x0A90 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 1 (7231) [EA1_Kontakt1~0x0A91 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 2 (7232) [EA1_Kontakt2~0x0A92 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Relais 0 (7235) [EA1_Relais0~0x0A95 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - SW-Index EA1 (7977) [SWIndex_EA1~0x76EC (Array)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+- Wartung (17668)
+    - (23) Eingestelltes Zeitintervall (863) [K23_KonfiZeitintervall_Wartung~0x5723 (Byte)]
+    - (21) Grenzwert Betriebsstunden Brenner (859) [K21_KonfiBetriebsstdBrenner_Wartung~0x5721 (Int)]
+    - Betriebsstunden Brenner seit letzter  Wartung (3153) [LetzteBrennerWartung~0x7570 (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - vergangene Zeit seit letzter Wartung (3155) [LetzteIntervallWartung~0x756C (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+
+# Diagnose System (17712)
+- Regelung (17675)
+    - Gerätekennung (1029) [K92_Reglerkennung_Klartext~0x7792 (Byte)]
+    - Software-Index des Gerätes (7567) [Software_Index~0x00FB (String)]
+    - Bedienteil Software-Index (91) [Bedienteil_SW_Index~0x7330 (Array)]
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+    - Herstellnummer Kessel (7217) [HWHerstellNrKessel~0xF010 (String)]
+    - Herstellnummer Regelung (7206) [HWHerstellNrRegelung~0xF000 (String)]
+    - Sachnummer Codierstecker (4685) [Sachnummer_GWG_Codierstecker~0x1010 (String)]
+    - Kesselcodierstecker (486) [GWG_Codierstecker_Kennziffer~0x1040 (Array)]
+- Teilnehmerliste LON (17678) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Fehlermanager (4127) [nvoAlarm_Fehlermanager_Teilnehmerliste~0xA132 (Byte)]
+    - Teilnehmerliste LON eigene TN-Nummer Anlage/TN (5333) [Teilnehmerliste_LON_00~0xA010 (Array)]
+    - Teilnehmerliste LON (01) Anlage/TN (5334) [Teilnehmerliste_LON_01~0xA010 (Array)]
+    - Teilnehmerliste LON (02)  Anlage/TN (5335) [Teilnehmerliste_LON_02~0xA010 (Array)]
+    - Teilnehmerliste LON (03)  Anlage/TN (5336) [Teilnehmerliste_LON_03~0xA010 (Array)]
+    - Teilnehmerliste LON (04)  Anlage/TN (5337) [Teilnehmerliste_LON_04~0xA010 (Array)]
+    - Teilnehmerliste LON (05)  Anlage/TN (5338) [Teilnehmerliste_LON_05~0xA010 (Array)]
+    - Teilnehmerliste LON (06)  Anlage/TN (5339) [Teilnehmerliste_LON_06~0xA010 (Array)]
+    - Teilnehmerliste LON (07)  Anlage/TN (5340) [Teilnehmerliste_LON_07~0xA010 (Array)]
+    - Teilnehmerliste LON (08)  Anlage/TN (5341) [Teilnehmerliste_LON_08~0xA010 (Array)]
+    - Teilnehmerliste LON (09)  Anlage/TN (5342) [Teilnehmerliste_LON_09~0xA010 (Array)]
+    - Teilnehmerliste LON (10)  Anlage/TN (5343) [Teilnehmerliste_LON_10~0xA010 (Array)]
+    - Teilnehmerliste LON (11)  Anlage/TN (5344) [Teilnehmerliste_LON_11~0xA010 (Array)]
+    - Teilnehmerliste LON (12)  Anlage/TN (5345) [Teilnehmerliste_LON_12~0xA010 (Array)]
+    - Teilnehmerliste LON (13)  Anlage/TN (5346) [Teilnehmerliste_LON_13~0xA010 (Array)]
+    - Teilnehmerliste LON (14)  Anlage/TN (5347) [Teilnehmerliste_LON_14~0xA010 (Array)]
+    - Teilnehmerliste LON (15)  Anlage/TN (5348) [Teilnehmerliste_LON_15~0xA010 (Array)]
+- KM-Bus-Teiln. (17676)
+    - (96) Konfiguration Mischermodul (1037) [K96_KonfiKennungMischermodul~0x7796 (Byte)]
+    - Mischererweiterung Software-Index (7985) [SWIndex_Mischer_NRx~0x0A04 (Array)] HIDDEN:("(96) Konfiguration Mischermodul"="0 ohne")
+    - Solarregelung (7390) [K54_Solar_GWG_2010_Info~0x7754 (Byte)]
+    - SW-Index Solarmodul SM1 (7979) [SWIndex_SM1_NRx~0x76E0 (Byte)] HIDDEN:("Solarregelung"="nicht vorhanden" OR "Solarregelung"="Vitosolic 100" OR "Solarregelung"="Vitosolic 200")
+    - HW-Index Solarmodul SM1 (7980) [HWIndex_SM1_NRx~0x76E0 (Byte)] HIDDEN:("Solarregelung"="nicht vorhanden" OR "Solarregelung"="Vitosolic 100" OR "Solarregelung"="Vitosolic 200")
+    - Fernbedienung Heizkreis A1M1 (1055) [KA0_KennungFernbedienungA1M1~0x27A0 (Byte)]
+    - Fernbedienung A1 Software-Index (7982) [SWIndex_FB1_NRx~0x76C0 (Array)] HIDDEN:(FBA1M1="nicht vorhanden")
+    - Fernbedienung Heizkreis M2 (1053) [KA0_FernbedienungM2~0x37A0 (Byte)]
+    - Fernbedienung M2 Software-Index (7983) [SWIndex_FB2_NRx~0x76C4 (Array)] HIDDEN:(FBM2="nicht vorhanden")
+    - Fernbedienung Heizkreis M3 (1054) [KA0_FernbedienungM3~0x47A0 (Byte)]
+    - Fernbedienung M3 Software-Index (7984) [SWIndex_FB3_NRx~0x76C8 (Array)] HIDDEN:(FBM3="nicht vorhanden")
+    - Vitocom 100 (1036) [K95_KennungVitocom100~0x7795 (Byte)]
+    - Vitocom 100 Software-Index (7981) [SWIndex_Vitocom_NRx~0x76DC (Array)] HIDDEN:("Vitocom 100"="nicht vorhanden")
+- Kommunikation LON (17677) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Viessmann - Anlagennummer (1044) [K98_KonfiVI_Anlagennummer_D~0x7798 (Byte)]
+    - (97) Konfiguration  Aussentemperatur (1039) [K97_Konfi_Aussentemperatur~0x7797 (Byte)] HIDDEN:(76_KommMod="0 ohne")
+    - Uhrzeit auf LON (993) [K7B_Konfi_FunktionUhrSenden~0x777B (Byte)]
+    - Uhrzeit vom LON (1003) [K81_Konfi_FunktionUhr_D~0x7781 (Byte)]
+    - Viessmann - Teilnehmernummer (984) [K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - Fehlermanager der Anlage (989) [K79_KonfiFehlerManagerV100_V050_D~0x7779 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - Binding (3462) [nciNetConfig1~0xA102 (Int)]
+    - Neuron ID (3463) [Neuron_ID~0xA009 (String)]
+    - Domain (3464) [Node_Domain~0xA000 (Int)]
+    - Node (3465) [Node_Node~0xA000 (Int)]
+    - Subnet (3466) [Node_Subnet~0xA000 (Int)]
+    - Sachnummer 87c652 (4683) [Sachnummer_87c652~0xA03D (String)]
+    - Sachnummer LON (4686) [Sachnummer_LON~0xA011 (String)]
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+- Eingänge (18048)
+    - Temperatur Sensor 1 (10) [ADC_IstTemperaturwert_ATS~0x0800 (SInt)] HIDDEN:("Status Sensor 1"="nicht vorhanden")
+    - Temperatur Sensor 2 Anlage (7) [ADC_Isttemperaturwert_2~0x2900 (Int)] HIDDEN:("Status Sensor 2 Anlage"="Unterbrechung" OR "Status Sensor 2 Anlage"="nicht vorhanden")
+    - Temperatur Sensor 2 M2 (5353) [Temperatur_2_M2~0x3900 (Int)] HIDDEN:("Status Vorlauftemperatursensor M2"="Unterbrechung" OR "Status Vorlauftemperatursensor M2"="nicht vorhanden")
+    - Temperatur Sensor 2 M3 (5354) [Temperatur_2_M3~0x4900 (Int)] HIDDEN:("Status Vorlauftemperatursensor 2 M3"="Unterbrechung" OR "Status Vorlauftemperatursensor 2 M3"="nicht vorhanden")
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+    - IstTemperaturwert_RLTS (13) [ADC_IstTemperaturwert_RLTSV333MW1~0x080A (Int)]
+    - IstTemperaturwert_VLTS (18) [ADC_IstTemperaturwert_VLTSV333MW1~0x080C (Int)]
+    - Status Sensor 1 (5360) [TemperaturFehler_ATS~0x083A (Byte)]
+    - Status Sensor 2 Anlage (5356) [TemperaturFehler_2~0x083B (Byte)]
+    - Status Vorlauftemperatursensor M2 (5283) [Status_2_M2~0x3904 (Byte)]
+    - Status Vorlauftemperatursensor 2 M3 (5284) [Status_2_M3~0x4904 (Byte)]
+    - Status Sensor 5 (5364) [TemperaturFehler_STS1~0x083C (Byte)]
+    - Status Sensor 5B (5365) [TemperaturFehler_STS2~0x083D (Byte)]
+    - Status Sensor 17A (5363) [TemperaturFehler_RLTS~0x083F (Byte)]
+    - Status Sensor 17B (5366) [TemperaturFehler_VLTS~0x0840 (Byte)]
+    - Eingang 143 Pin 1 (253) [DigitalEingang_143_1~0x087E (Byte)]
+    - Eingang 143 Pin 3 (254) [DigitalEingang_143_3~0x0884 (Byte)]
+    - Eingang 146 Pin 1 (257) [DigitalEingang_146_1~0x0963 (Byte)]
+    - Eingang 146 Pin 3 (258) [DigitalEingang_146_3~0x0964 (Byte)]
+    - Eingang SP-Schalter (263) [DigitalEingang_SP~0x0885 (Byte)]
+    - Status Raumtemp.-Sensor HK1 (10796) [HO2B_SensorStatus_RTS_M1~0x089C (Byte)]
+    - Status Raumtemp.-Sensor HK2 (10797) [HO2B_SensorStatus_RTS_M2~0x089D (Byte)]
+    - Status Raumtemp.-Sensor HK3 (10800) [HO2B_SensorStatus_RTS_M3~0x089E (Byte)]
+    - Status Sensor 17 A1M1 (12541) [Status_17_A1M1~0x2905 (Byte)]
+    - Status Sensor 17 M2 (5281) [Status_17_M2~0x3905 (Byte)]
+    - Status Sensor 17 M3 (5282) [Status_17_M3~0x4905 (Byte)]
+- Ausgänge (18050)
+    - Ausgang 50 (240) [DigitalAusgang_50~0x0847 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 20 M2 (117) [D_Ausgang20_M2~0x3906 (Byte)]
+    - Ausgang 20 M3 (118) [D_Ausgang20_M3~0x4906 (Byte)]
+    - Ausgang 21 (237) [DigitalAusgang_21~0x0845 (Byte)]
+    - Ausgang 28 (238) [DigitalAusgang_28~0x0846 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+    - Ausgang 52 M2 Position (42) [Ausgang52_Mischerposition_M2~0x354C (Byte)]
+    - Ausgang 52 M3 Position (43) [Ausgang52_Mischerposition_M3~0x454C (Byte)]
+
+# Erweiterte Diagnose (17725)
+- Ist-Temperaturen (17756)
+    - Temperatur Sensor 1 (10) [ADC_IstTemperaturwert_ATS~0x0800 (SInt)] HIDDEN:("Status Sensor 1"="nicht vorhanden")
+    - IstTemperaturwert_RLTS (13) [ADC_IstTemperaturwert_RLTSV333MW1~0x080A (Int)]
+    - IstTemperaturwert_VLTS (18) [ADC_IstTemperaturwert_VLTSV333MW1~0x080C (Int)]
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+- Zusatzinfo (17693)
+    - Anzahl Kessel (7291) [K35_Konfi_AnzahlKessel_D~0x5735 (Byte)]
+    - (11) Erweiterung DAP 2 (7868) [NRx_KonfiKennungDAP2~0x7711 (Byte)]
+    - (10) Erweiterung DAP 1 (7867) [NRx_KonfiKennungDAP1~0x7710 (Byte)]
+- Estrich (17758)
+    - (F1) Estrichfunktion M2 (2958) [KF1_KonfiTemperaturprogrammM2~0x37F1 (Byte)] HIDDEN:("Kennung HK2"≠"Mischerkreis")
+    - Vorlauftemperatur Soll M2 (6064) [VT_SolltemperaturM2~0x3544 (Int)]
+    - Vorlauftemperatur M2 (6053) [VorlauftemperaturM2~0x3900 (Int)]
+    - Estrichprogramm M2 Schritt (768) [HK_TP_Schritt_aktuellM2_Schritt~0x3533 (Byte)]
+    - (F1) Estrichfunktion M3 (2959) [KF1_KonfiTemperaturprogrammM3~0x47F1 (Byte)] HIDDEN:("Kennung HK3"≠"Mischerkreis")
+    - Vorlauftemperatur Soll M3 (6065) [VT_SolltemperaturM3~0x4544 (Int)]
+    - Vorlauftemperatur M3 (6054) [VorlauftemperaturM3~0x4900 (Int)]
+    - Estrichprogramm M3 Schritt (770) [HK_TP_Schritt_aktuellM3_Schritt~0x4533 (Byte)]
+- RelayState (17695)
+    - Relais-Status Sammelstörung (4215) [nvoRelayState_Sammelstoerung~0xA152 (Byte)]
+    - Relais-Status Umschaltventil Heizen (4218) [nvoRelayState_UV_Heizen~0xA152 (Byte)]
+    - Relais-Status Umschaltventil Warmwasser (4219) [nvoRelayState_UV_Warmwasser~0xA152 (Byte)]
+    - nicht belegt (4199) [nvoRelayState_Brenner~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 Nachtkontakt (4204) [nvoRelayState_HKP1_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Interne Pumpe (4211) [nvoRelayState_Interne_Pumpe~0xA152 (Byte)]
+    - nicht belegt (4197) [nvoRelayState_Abgas_WTPumpeGWG~0xA152 (Byte)]
+    - Relais-Status Pumpe Ladesystem (4214) [nvoRelayState_Pumpe_Ladesystem~0xA152 (Byte)]
+    - nicht belegt (4208) [nvoRelayState_HKP3_GWG~0xA152 (Byte)]
+    - nicht belegt (4210) [nvoRelayState_HKP3_Nachtkontakt_GWG~0xA152 (Byte)]
+    - Relais-Status Speicherladepumpe (4216) [nvoRelayState_SLP~0xA152 (Byte)]
+    - Relais-Status Zubringerpumpe (4221) [nvoRelayState_Zubringerpumpe~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 (4203) [nvoRelayState_HKP1~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 Nachtkontakt (4206) [nvoRelayState_HKP2_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 (4205) [nvoRelayState_HKP2~0xA152 (Byte)]
+    - Relais-Status Zirkulationspumpe (4220) [nvoRelayState_ZP~0xA152 (Byte)]
+- Node Objekt (17696)
+    - Uhrzeit Senden - Minute (4231) [nvoTimeSet_Minute~0xA12B (Byte)]
+    - Alarm Fehlermanager (4126) [nvoAlarm_Fehlermanager~0xA132 (Byte)]
+    - Alarm  Anlagennummer (4124) [nvoAlarm_Anlagennummer~0xA132 (Byte)]
+    - Alarm Sekunde (4133) [nvoAlarm_Sekunde~0xA132 (Byte)]
+    - Sachnummer LON (4686) [Sachnummer_LON~0xA011 (String)]
+    - Alarm Veraenderungsflag (4137) [nvoAlarm_Veraenderung~0xA132 (Byte)]
+    - Uhrzeit Senden - Jahr (4230) [nvoTimeSet_Jahr~0xA12B (Byte)]
+    - Alarm  Nummer gestoerter Teilnehmer (4132) [nvoAlarm_Nr_gestoerterTeilnehmer~0xA132 (Byte)]
+    - Alarm Stunde (4134) [nvoAlarm_Stunde~0xA132 (Byte)]
+    - Neuron ID (3463) [Neuron_ID~0xA009 (String)]
+    - Uhrzeit Senden - Sekunde (4233) [nvoTimeSet_Sekunde~0xA12B (Byte)]
+    - Domain (3464) [Node_Domain~0xA000 (Int)]
+    - Alarm Teilnehmernummer - Gerät (4136) [nvoAlarm_Teilnehmernummer~0xA132 (Byte)]
+    - Alarm Monat (4131) [nvoAlarm_Monat~0xA132 (Byte)]
+    - Node (3465) [Node_Node~0xA000 (Int)]
+    - Sachnummer 87c652 (4683) [Sachnummer_87c652~0xA03D (String)]
+    - Alarm Tag (4135) [nvoAlarm_Tag~0xA132 (Byte)]
+    - Uhrzeit Senden - Stunde (4234) [nvoTimeSet_Stunde~0xA12B (Byte)]
+    - Subnet (3466) [Node_Subnet~0xA000 (Int)]
+    - Alarm Fehlercode (4125) [nvoAlarm_Fehlercode~0xA132 (Array)]
+    - Aussentemperatur Senden (4180) [nvoOATemp~0xA14F (SInt)]
+    - Uhrzeit Senden - Tag (4235) [nvoTimeSet_Tag~0xA12B (Byte)]
+    - Uhrzeit Senden - Monat (4232) [nvoTimeSet_Monat~0xA12B (Byte)]
+    - Alarm Minute (4130) [nvoAlarm_Minute~0xA132 (Byte)]
+    - Alarm Jahr (4128) [nvoAlarm_Jahr~0xA132 (Byte)]
+- CFDM Objekt (17697)
+    - Speicherladung (4188) [nvoProdCState_Speicher_CFDM~0xA395 (Byte)]
+    - Anlagen-Istleistung - Status (4194) [nvoPWRState_CFDM_state~0xA38F (Byte)]
+    - Vorlauf-Solltemperatur Anlagen / Kessel (4113) [nviSetpoint_CFDM~0xA383 (SInt)]
+    - Betriebsmodus Anlage / Kessel (4019) [nviApplicMode_CFDM~0xA382 (Byte)]
+    - Anlagen-/ Kessel-Sollleistung - Status (4097) [nviProdCmd_CFDM_state~0xA380 (Byte)]
+    - Anlagen-Istleistung - Wert (4195) [nvoPWRState_CFDM_value~0xA38F (Byte)]
+    - Prod. Status SP-Betrieb (4187) [nvoProdCState_SP_CFDM~0xA395 (Byte)]
+    - Aktiver Anlagen- / Solltemperaturwert (4173) [nvoEffectSetpt_CFDM~0xA391 (SInt)]
+    - Anlagenvorlauf- Kessel-Isttemperatur (4229) [nvoSupplyTemp_CFDM~0xA393 (SInt)]
+    - Prod. Status Harte Sperre (4183) [nvoProdCState_HarteSperre_CFDM~0xA395 (Byte)]
+    - Anlagen-/ Kessel-Sollleistung - Wert (4098) [nviProdCmd_CFDM_value~0xA380 (Byte)]
+    - Prod. Status Fehler (4182) [nvoProdCState_Fehler_CFDM~0xA395 (Byte)]
+- Kessel Objekte (22495)
+    - (Kessel1) Kesselleistung - Status (4074) [nviBoilerState_PM_state_Boiler1~0xA200 (Byte)]
+    - Leistung Wärmeerzeuger 1 (4078) [nviBoilerState_PM_value_Boiler1~0xA200 (Byte)]
+    - (Kessel1) Kesseltemperatur (4114) [nviSupplyTemp_PM_Boiler1~0xA202 (SInt)]
+    - (Kessel1) Betriebsart (4138) [nvoApplicMode_PM_Boiler1~0xA225 (Byte)]
+    - (Kessel1) Kesselsollleistung - Status (4156) [nvoBoilerCmd_PM_state_Boiler1~0xA223 (Byte)]
+    - (Kessel1) Kesselsollleistung - Wert (4160) [nvoBoilerCmd_PM_value_Boiler1~0xA223 (Byte)]
+    - (Kessel1) Kesselsolltemperatur (4223) [nvoSetpoint_PM_Boiler1~0xA226 (SInt)]
+    - (Kessel2) Kesselleistung - Status (4075) [nviBoilerState_PM_state_Boiler2~0xA240 (Byte)]
+    - Leistung Wärmeerzeuger 2 (4079) [nviBoilerState_PM_value_Boiler2~0xA240 (Byte)] HIDDEN:("Anzahl Wärmeerzeuger"="1")
+    - (Kessel2) Kesseltemperatur (4115) [nviSupplyTemp_PM_Boiler2~0xA242 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (Kessel2) Betriebsart (4139) [nvoApplicMode_PM_Boiler2~0xA265 (Byte)]
+    - (Kessel2) Kesselsollleistung - Status (4157) [nvoBoilerCmd_PM_state_Boiler2~0xA263 (Byte)]
+    - (Kessel2) Kesselsollleistung - Wert (4161) [nvoBoilerCmd_PM_value_Boiler2~0xA263 (Byte)]
+    - (Kessel2) Kesselsolltemperatur (4224) [nvoSetpoint_PM_Boiler2~0xA266 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (Kessel3) Kesselleistung - Status (4076) [nviBoilerState_PM_state_Boiler3~0xA280 (Byte)]
+    - Leistung Wärmeerzeuger 3 (4080) [nviBoilerState_PM_value_Boiler3~0xA280 (Byte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel3) Kesseltemperatur (4116) [nviSupplyTemp_PM_Boiler3~0xA282 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel3) Betriebsart (4140) [nvoApplicMode_PM_Boiler3~0xA2A5 (Byte)]
+    - (Kessel3) Kesselsollleistung - Status (4158) [nvoBoilerCmd_PM_state_Boiler3~0xA2A3 (Byte)]
+    - (Kessel3) Kesselsollleistung - Wert (4162) [nvoBoilerCmd_PM_value_Boiler3~0xA2A3 (Byte)]
+    - (Kessel3) Kesselsolltemperatur (4225) [nvoSetpoint_PM_Boiler3~0xA2A6 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel4) Kesselleistung - Status (4077) [nviBoilerState_PM_state_Boiler4~0xA2C0 (Byte)]
+    - Leistung Wärmeerzeuger 4 (4081) [nviBoilerState_PM_value_Boiler4~0xA2C0 (Byte)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (Kessel4) Kesseltemperatur (4117) [nviSupplyTemp_PM_Boiler4~0xA2C2 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (Kessel4) Betriebsart (4141) [nvoApplicMode_PM_Boiler4~0xA2E5 (Byte)]
+    - (Kessel4) Kesselsollleistung - Status (4159) [nvoBoilerCmd_PM_state_Boiler4~0xA2E3 (Byte)]
+    - (Kessel4) Kesselsollleistung - Wert (4163) [nvoBoilerCmd_PM_value_Boiler4~0xA2E3 (Byte)]
+    - (Kessel4) Kesselsolltemperatur (4226) [nvoSetpoint_PM_Boiler4~0xA2E6 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+- HCC-Objekt für A1/M1 (17698) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Aktuelle Betriebsart HK1 (4175) [nvoHCC1_UnitState~0xA405 (Byte)]
+    - Externe Raumsolltemperatur HK1 (4089) [nviHCC1_SpaceSetpt~0xA401 (Byte)]
+    - Externe Vorlaufsolltemperatur HK1 (4088) [nviHCC1_FlowSetpt~0xA403 (Byte)]
+    - Betriebsart - bei externer Vorgabe HK1 (4087) [nviHCC1_ApplicMode~0xA400 (Byte)]
+    - Effektive Raumsolltemperatur HK1 (4174) [nvoHCC1_EffRoomSetpt~0xA406 (SInt)]
+    - Relais-Status Heizkreispumpe 1 (4203) [nvoRelayState_HKP1~0xA152 (Byte)]
+- HCC-Objekt für M2 (17699) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Betriebsart - bei externer Vorgabe HK2 (4090) [nviHCC2_ApplicMode~0xA440 (Byte)]
+    - Externe Raumsolltemperatur HK2 (4092) [nviHCC2_SpaceSetpt~0xA441 (Byte)]
+    - Externe Vorlaufsolltemperatur HK2 (4091) [nviHCC2_FlowSetpt~0xA443 (Byte)]
+    - Effektive Raumsolltemperatur HK2 (4176) [nvoHCC2_EffRoomSetpt~0xA446 (SInt)]
+    - Aktuelle Betriebsart HK2 (4177) [nvoHCC2_UnitState~0xA445 (Byte)]
+- DHWC Objekt (17700) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - DHWC: Warmwasser-Solltemperatur (4086) [nviDHWC_Setpt~0xA3C0 (Byte)]
+    - DHWC: Warmwasser-Isttemperatur (4169) [nvoDHWC_ActTemp~0xA3C3 (Byte)]
+    - DHWC: Betriebsmodus - Warmwasser (4085) [nviDHWC_ApplicMode~0xA3C2 (Byte)]
+    - DHWC: Effektive Warmwasser-Solltemperatur (4170) [nvoDHWC_EffSetpt~0xA3C5 (SInt)]
+- HCC-Objekt für M3 (23693) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Betriebsart - bei externer Vorgabe HK3 (4093) [nviHCC3_ApplicMode~0xA480 (Byte)]
+    - Externe Vorlaufsolltemperatur HK3 (4094) [nviHCC3_FlowSetpt~0xA483 (Byte)]
+    - Externe Raumsolltemperatur HK3 (4095) [nviHCC3_SpaceSetpt~0xA481 (Byte)]
+    - Aktuelle Betriebsart HK3 (4179) [nvoHCC3_UnitState~0xA485 (Byte)]
+    - Effektive Raumsolltemperatur HK3 (4178) [nvoHCC3_EffRoomSetpt~0xA486 (SInt)]
+
+# Aktorentest (17706)
+- Aktorentest (17679)
+    - Aktorentest (8001) [Relaistest_NR2011_V300K~0x7500 (Byte)]
+
+# Trending (17707)
+- Kaskade (17755)
+    - Aussentemperatur (5373) [TiefpassTemperaturwert_ATS~0x5525 (SInt)]
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Vorlauftemperatur Anlage (6056) [VorlauftemperaturV333MW1~0x0950 (Int)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Vorlaufsolltemperatur Anlage (1097) [Kas_VTSolleff~0x5600 (Int)]
+    - Kesselsolltemperatur (4222) [nvoSetpoint_PM_Boiler~0xA226 (Byte)]
+    - (Kessel1) Kesseltemperatur (4114) [nviSupplyTemp_PM_Boiler1~0xA202 (SInt)]
+    - (Kessel2) Kesseltemperatur (4115) [nviSupplyTemp_PM_Boiler2~0xA242 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Wärmeerzeuger"="1")
+    - (Kessel3) Kesseltemperatur (4116) [nviSupplyTemp_PM_Boiler3~0xA282 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2")
+    - (Kessel4) Kesseltemperatur (4117) [nviSupplyTemp_PM_Boiler4~0xA2C2 (SInt)] HIDDEN:("Anzahl Kessel"="1" OR "Anzahl Kessel"="2" OR "Anzahl Kessel"="3" OR "Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3")
+    - (Kessel5) Kesseltemperatur (7910) [nviSupplyTemp_PM_Boiler5~0xA502 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4")
+    - (Kessel6) Kesseltemperatur (7911) [nviSupplyTemp_PM_Boiler6~0xA542 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"="1" OR "Anzahl Wärmeerzeuger"="2" OR "Anzahl Wärmeerzeuger"="3" OR "Anzahl Wärmeerzeuger"="4" OR "Anzahl Wärmeerzeuger"="5")
+    - (Kessel7) Kesseltemperatur (7912) [nviSupplyTemp_PM_Boiler1~0xA582 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"7" AND "Anzahl Wärmeerzeuger"≠"8")
+    - (Kessel8) Kesseltemperatur (7913) [nviSupplyTemp_PM_Boiler8~0xA5C2 (SInt)] HIDDEN:("Anzahl Wärmeerzeuger"≠"8")
+    - Rücklaufsolltemperatur Anlage (1096) [Kas_Rueck_Soll~0x56A0 (Byte)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+- Heizkreis 1 (17714) HIDDEN:(00_WWS="7 M2 + M3" OR 00_WWS="8 M2 + M3 + WW" OR 00_WWS="3 M2" OR 00_WWS="4 M2 + WW")
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Raumtemperatur Soll Reduzierter Betrieb A1M1 (85) [BedienRTSolltemperaturReduziertA1M1~0x2307 (Byte)]
+    - Externe Raumsolltemperatur Normal A1M1 (273) [ExternRTSolltemperaturA1M1~0x2321 (Byte)]
+    - Raumtemperatur Soll A1M1 (732) [HK_RaumsolltemperaturaktuellA1M1~0x2500 (Byte)]
+    - Raumtemperatur A1M1 (5367) [TiefpassTemperatur_RTS_A1M1~0x0896 (Int)] HIDDEN:(FBA1M1="nicht vorhanden" OR A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden" OR RaumTempSensHK1="Nicht vorhanden")
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+    - Heizkreispumpe A1M1 (729) [HK_PumpenzustandA1M1~0x2906 (Byte)]
+    - Externe Betriebsarten-umschaltung A1M1 (270) [ExtBetriebsartenumschaltung_A1M1~0x2549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - Frostgefahr des Heizkreises A1M1 (717) [HK_Frostgefahr_aktivA1M1~0x2500 (Byte)]
+    - (D5) Richtung externe Aufschaltung A1M1 (2883) [KD5_WirkungExtBA_UmschaltungA1M1~0x27D5 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="6 M2 + M3")
+    - Neigung der Heizkennlinie A1M1 (67) [BedienNeigungA1M1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie A1M1 (70) [BedienNiveauA1M1~0x2304 (SByte)]
+    - Zustand Sparbetrieb A1M1 (7852) [NRx_SparbetriebA1M1_D~0x2331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb A1M1 (7855) [NRx_PartybetriebA1M1_D~0x2330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Betriebsart A1M1 (92) [BedienteilBA_GWGA1~0x2323 (Byte)]
+- Heizkreis 2 (17715) HIDDEN:(00_WWS="1 A1" OR 00_WWS="2 A1 + WW")
+    - Aktuelle Betriebsart M2 (709) [HK_AktuelleBetriebsartM2~0x3500 (Byte)]
+    - Vorlauftemperatur M2 (6053) [VorlauftemperaturM2~0x3900 (Int)]
+    - Vorlauftemperatur Soll M2 (6064) [VT_SolltemperaturM2~0x3544 (Int)]
+    - Raumtemperatur Soll M2 (733) [HK_RaumsolltemperaturaktuellM2~0x3500 (Byte)]
+    - Externe Raumsolltemperatur Normal M2 (274) [ExternRTSolltemperaturM2~0x3321 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M2 (86) [BedienRTSolltemperaturReduziertM2~0x3307 (Byte)]
+    - Raumtemperatur M2 (5376) [TiefpassTemperaturwert_RTS_M2~0x0898 (Int)] HIDDEN:(RaumTempSensHK2="Nicht vorhanden" OR A0_KennFBM2="nicht vorhanden" OR A0_KennFBM2="0 ohne" OR FBM2="nicht vorhanden")
+    - Externe Betriebsarten-umschaltung M2 (271) [ExtBetriebsartenumschaltung_M2~0x3549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="4 M3" OR ZuordExtBetrUmsch="5 A1/M1 + M3")
+    - Frostgefahr des Heizkreises M2 (718) [HK_Frostgefahr_aktivM2~0x3500 (Byte)]
+    - Neigung der Heizkennlinie M2 (68) [BedienNeigungM2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie M2 (71) [BedienNiveauM2~0x3304 (SByte)]
+    - Zustand Sparbetrieb M2 (7853) [NRx_SparbetriebM2_D~0x3331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb M2 (7856) [NRx_PartybetriebM2_D~0x3330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Heizkreispumpe M2 (730) [HK_PumpenzustandM2~0x3906 (Byte)]
+    - Betriebsart M2 (94) [BedienteilBA_GWGM2~0x3323 (Byte)]
+- Heizkreis 3 (17740) HIDDEN:(00_WWS≠"7 M2 + M3" AND 00_WWS≠"8 M2 + M3 + WW" AND 00_WWS≠"9 A1 + M2 + M3" AND 00_WWS≠"10 A1 + M2 + M3 + WW")
+    - Aktuelle Betriebsart M3 (710) [HK_AktuelleBetriebsartM3~0x4500 (Byte)]
+    - Vorlauftemperatur M3 (6054) [VorlauftemperaturM3~0x4900 (Int)]
+    - Vorlauftemperatur Soll M3 (6065) [VT_SolltemperaturM3~0x4544 (Int)]
+    - Raumtemperatur Soll M3 (734) [HK_RaumsolltemperaturaktuellM3~0x4500 (Byte)]
+    - Externe Raumsolltemperatur Normal M3 (7220) [ExternRTSolltemperaturM3~0x4321 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb M3 (87) [BedienRTSolltemperaturReduziertM3~0x4307 (Byte)]
+    - Raumtemperatur M3 (5377) [TiefpassTemperaturwert_RTS_M3~0x089A (Int)] HIDDEN:(FBM3="nicht vorhanden" OR A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden" OR RaumTempSensHK3="Nicht vorhanden")
+    - Externe Betriebsarten-umschaltung M3 (272) [ExtBetriebsartenumschaltung_M3~0x4549 (Byte)] HIDDEN:(ZuordExtBetrUmsch="0 inaktiv" OR ZuordExtBetrUmsch="1 A1/M1" OR ZuordExtBetrUmsch="2 M2" OR ZuordExtBetrUmsch="3 A1/M1 + M2")
+    - Frostgefahr des Heizkreises M3 (719) [HK_Frostgefahr_aktivM3~0x4500 (Byte)]
+    - Neigung der Heizkennlinie M3 (69) [BedienNeigungM3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie M3 (72) [BedienNiveauM3~0x4304 (SByte)]
+    - Zustand Sparbetrieb M3 (7854) [NRx_SparbetriebM3_D~0x4331 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Zustand Partybetrieb M3 (7857) [NRx_PartybetriebM3_D~0x4330 (Byte)] HIDDEN:(SWIdx="40" OR SWIdx="41" OR SWIdx="42" OR SWIdx="43" OR SWIdx="44")
+    - Heizkreispumpe M3 (731) [HK_PumpenzustandM3~0x4906 (Byte)]
+    - Betriebsart M3 (7219) [BedienteilBA_GWGM3~4323 (Byte)]
+- Eingänge (21513)
+    - Temperatur Sensor 1 (10) [ADC_IstTemperaturwert_ATS~0x0800 (SInt)] HIDDEN:("Status Sensor 1"="nicht vorhanden")
+    - Temperatur Sensor 2 Anlage (7) [ADC_Isttemperaturwert_2~0x2900 (Int)] HIDDEN:("Status Sensor 2 Anlage"="Unterbrechung" OR "Status Sensor 2 Anlage"="nicht vorhanden")
+    - Temperatur Sensor 2 M2 (5353) [Temperatur_2_M2~0x3900 (Int)] HIDDEN:("Status Vorlauftemperatursensor M2"="Unterbrechung" OR "Status Vorlauftemperatursensor M2"="nicht vorhanden")
+    - Temperatur Sensor 2 M3 (5354) [Temperatur_2_M3~0x4900 (Int)] HIDDEN:("Status Vorlauftemperatursensor 2 M3"="Unterbrechung" OR "Status Vorlauftemperatursensor 2 M3"="nicht vorhanden")
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+    - IstTemperaturwert_RLTS (13) [ADC_IstTemperaturwert_RLTSV333MW1~0x080A (Int)]
+    - IstTemperaturwert_VLTS (18) [ADC_IstTemperaturwert_VLTSV333MW1~0x080C (Int)]
+    - Status Sensor 1 (5360) [TemperaturFehler_ATS~0x083A (Byte)]
+    - Status Sensor 2 Anlage (5356) [TemperaturFehler_2~0x083B (Byte)]
+    - Status Vorlauftemperatursensor M2 (5283) [Status_2_M2~0x3904 (Byte)]
+    - Status Vorlauftemperatursensor 2 M3 (5284) [Status_2_M3~0x4904 (Byte)]
+    - Status Sensor 5 (5364) [TemperaturFehler_STS1~0x083C (Byte)]
+    - Status Sensor 5B (5365) [TemperaturFehler_STS2~0x083D (Byte)]
+    - Status Sensor 17A (5363) [TemperaturFehler_RLTS~0x083F (Byte)]
+    - Status Sensor 17B (5366) [TemperaturFehler_VLTS~0x0840 (Byte)]
+    - Eingang 143 Pin 1 (253) [DigitalEingang_143_1~0x087E (Byte)]
+    - Eingang 143 Pin 3 (254) [DigitalEingang_143_3~0x0884 (Byte)]
+    - Eingang 146 Pin 1 (257) [DigitalEingang_146_1~0x0963 (Byte)]
+    - Eingang 146 Pin 3 (258) [DigitalEingang_146_3~0x0964 (Byte)]
+    - Eingang SP-Schalter (263) [DigitalEingang_SP~0x0885 (Byte)]
+- Warmwasser (17718) HIDDEN:(00_WWS="1 A1" OR 00_WWS="3 M2" OR 00_WWS="5 A1 + M2" OR 00_WWS="7 M2 + M3" OR 00_WWS="9 A1 + M2 + M3")
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Speichertemperatur 5A (7990) [TiefpassTemperaturwert_STS_5A~0x0812 (Int)]
+    - Speichertemperatur 5B (7991) [TiefpassTemperaturwert_STS_5B~0x0814 (Int)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Zirkulationspumpe (252) [DigitalAusgang_Zirkulationspumpe~0x0846 (Byte)]
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+- Ausgänge (21512)
+    - Ausgang 50 (240) [DigitalAusgang_50~0x0847 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 20 M2 (117) [D_Ausgang20_M2~0x3906 (Byte)]
+    - Ausgang 20 M3 (118) [D_Ausgang20_M3~0x4906 (Byte)]
+    - Ausgang 21 (237) [DigitalAusgang_21~0x0845 (Byte)]
+    - Ausgang 28 (238) [DigitalAusgang_28~0x0846 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+    - Ausgang 52 M2 Position (42) [Ausgang52_Mischerposition_M2~0x354C (Byte)]
+    - Ausgang 52 M3 Position (43) [Ausgang52_Mischerposition_M3~0x454C (Byte)]
+- Solar (17717) HIDDEN:(54_SR="0 ohne")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Ausgang 22 (8311) [SM1_DigitalAusgang_22~0x0F11 (Byte)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200")
+    - Sensor 10 (8310) [SM1_Sensor_10~0x0F1A (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 10"="Sensor nicht vorhanden")
+    - Sensor 7 (8309) [SM1_Sensor_7~0x0F17 (SInt)] HIDDEN:(54_SR="0 ohne" OR 54_SR="1 Vitosolic 100" OR 54_SR="2 Vitosolic 200" OR "Status Sensor 7"="Sensor nicht vorhanden")
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+- Erweiterung EA1 (21214) HIDDEN:(5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Externer Sollwert 0-10V (7233) [EA1_ExternSollwert0_10V~0x0A93 (Int)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 0 (7230) [EA1_Kontakt0~0x0A90 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 1 (7231) [EA1_Kontakt1~0x0A91 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Kontakt 2 (7232) [EA1_Kontakt2~0x0A92 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")
+    - EA1: Relais 0 (7235) [EA1_Relais0~0x0A95 (Byte)] HIDDEN:(35_KennAnschlErwEA1="ohne Anschlußerweiterung EA1" OR 5B_KennAnschlErwEA1="ohne Anschlußerweiterung EA1")

@@ -1,0 +1,485 @@
+V100GC1
+=======
+
+# Überblick (10802)
+- @@viessmann.eventtypegroup.name.V100GC1_7~Overview~Kessel (13476)
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Brennerleistung (4266) [RKR_04PIst_Kessel~0x55E0 (Byte)]
+    - Kessel-Mindesttemperatur (4268) [RKR_07KTMin_Kessel~0x55E0 (Byte)]
+    - Kessel-Maximaltemperatur (4269) [RKR_08KTMax_Kessel~0x55E0 (Byte)]
+    - Rücklaufsolltemperatur (4270) [RKR_09RLTSoll_Kessel~0x55E0 (Byte)]
+    - ThermControl-Solltemperatur (4271) [RKR_10TSASoll_Kessel~0x55E0 (Byte)]
+    - Kesselsolltemperatur (effektiv) (4272) [RKR_11KTSolleff_Kessel~0x555A (Int)]
+    - Kesselsollleistung (effektiv) (4273) [RKR_12PSolleff_Kessel~0x555C (Byte)]
+    - Abgastemperatur (5372) [TiefpassTemperaturwert_AGTS~0x0816 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+    - Maximale Abgastemperatur (23) [AGTemperaturwertMAXBedien~0x08A1 (Int)]
+    - Sensor 17A (921) [K4A_KonfiEingang17A~0x774A (Byte)]
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Sensor 17B (923) [K4B_KonfiEingang17B~0x774B (Byte)]
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+    - aktueller Brennertyp (114) [Brennertyp~0xA30B (Byte)]
+    - Brenner 1. Stufe (244) [DigitalAusgang_Brenner~0x0842 (Byte)]
+    - Brenner 2. Stufe (248) [DigitalAusgang_ModAuf_Benner2~0x0849 (Byte)] HIDDEN:("aktueller Brennertyp"≠"zweistufig")
+    - Brennerstarts (108) [Brennerstarts~0x088A (Int4)]
+    - Brenner-Betriebsstunden 1. Stufe (99) [BetriebsstundenBrenner1Bedienung~0x08A7 (Int)]
+    - Brenner-Betriebsstunden 2. Stufe (102) [BetriebsstundenBrenner2Bedienung~0x08AB (Int)] HIDDEN:("aktueller Brennertyp"≠"zweistufig" AND "aktueller Brennertyp"≠"zweistufig""aktueller Brennertyp"≠"zweistufig")
+    - Brennstoffverbrauch (Liter oder m³) (4237) [Oelverbrauch~0x7574 (Int4)]
+- Heizkreis A1 (10769)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+- Warmwasser (10770) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwassertemperatur (STS1) (5378) [TiefpassTemperaturwert_STS1~0x0812 (Int)]
+    - Warmwassertemperatur (STS2) (5379) [TiefpassTemperaturwert_STS2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Warmwasser-Algorithmus (942) [K55_Algorithmus_Info~0x6755 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+
+# Bedienung (10803)
+- Betriebsdaten (10765)
+    - Betriebsart A1M1 (95) [BedienteilBetriebsartA1M1~0x2320 (Byte)]
+    - Kesselsolltemperatur (63) [BedienKTSolltemperatur_NR2~0x5300 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+
+# Inbetriebnahme (10804)
+- Allgemein (14190)
+    - (00) Anlagen-Warmwasserschema (794) [K00_KonfiAnlagenschemaV100GC1~0x7700 (Byte)]
+    - (4A) Eingang Sensor 17A (922) [K4A_KonfiVerwendungEingang17~0x774A (Byte)]
+    - (4B) Eingang Sensor 17B (924) [K4B_KonfiVerwendungEingang17B~0x774B (Byte)]
+    - (4C) Verwendung Ausgang 20 (925) [K4C_KonfiVerwendungAusgang20V100GC1~0x774C (Byte)]
+    - (4D) Verwendung Ausgang 29 (928) [K4D_KonfiVerwendungAusgang29~0x774D (Byte)]
+    - (4E) Verwendung Ausgang 52 (934) [K4E_KonfiVerwendungAusgang52V100_V300_V333~0x774E (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (988) [K79_KonfiFehlerManagerV100_V050~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne")
+    - (88) Anzeigemodus Celsius - Fahrenheit (1012) [K88_KonfiCelsiusFahrenheit~0x7788 (Byte)]
+    - (9B) VT_Solltemperatur bei externer Anforderung (1047) [K9B_KonfiVT_SolltemperaturExternV100_V333~0x779B (Byte)] HIDDEN:("(2E) Kennung Externe Erweiterung"="0 ohne")
+- Kessel (14193)
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (08) Brennermaximalleistung in 1KW (821) [K08_KonfiBrennermaximalleistung1KW~0x5708 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (09) Brennermaximalleistung in 100KW (823) [K09_KonfiBrennermaximalleistung100KW~0x5709 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0A) Grundleistung Brenner in Prozent der Nennleistung (825) [K0A_KonfiBrennerminimalleistung~0x570A (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0C) Funktion der Drosselklappe-Rücklaufregelung (829) [K0C_KonfiDKRLFunktionV100GC1~0x570C (Byte)]
+    - (0D) ThermControl (831) [K0D_KonfiTSA_FunktionV100GC1~0x570D (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="1 RL-Regelung")
+    - (15) Laufzeit Stellantrieb Brenner (843) [K15_KonfiLaufzeitStellantriebBrenner_G~0x5715 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1F) Maximale Abgastemperatur (858) [K1F_KonfiAbgastemperaturMax10~0x571F (Int)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (26) Verbrauch Brenner 1. Stufe pro Stunde (Zehntel-Schritte) (871) [K26_KonfiVerbrauchBrenner1Low~0x5726 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend")
+    - (27) Verbrauch Brenner 1. Stufe pro Stunde (Zehner-Schritte) (872) [K27_KonfiVerbrauchBrenner1High~0x5727 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (29) Verbrauch Brenner 2. Stufe pro Stunde (Zehntel-Schritte) (876) [K29_KonfiVerbrauchBrenner2Low~0x5729 (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig")
+    - (2A) Verbrauch Brenner 2. Stufe (Zehner-Schritte) (877) [K2A_KonfiVerbrauchBrenner2High~0x572A (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+- Warmwasser (14196) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - (55) Warmwasser - Algorithmus (944) [K55_KonfiWW_Algorithmus~0x6755 (Byte)]
+    - (56) Warmwasser-Solltemperatur-Bereich (947) [K56_KonfiWW_SolltemperaturBereich~0x6756 (Byte)]
+    - (58) Warmwasser-Solltemperatur 2 (949) [K58_KonfiWW_Solltemperatur2~0x6758 (Byte)]
+
+# Codierung 2 (10809)
+- Allgemein (10787)
+    - (00) Anlagen-Warmwasserschema (794) [K00_KonfiAnlagenschemaV100GC1~0x7700 (Byte)]
+    - (4A) Eingang Sensor 17A (922) [K4A_KonfiVerwendungEingang17~0x774A (Byte)]
+    - (4B) Eingang Sensor 17B (924) [K4B_KonfiVerwendungEingang17B~0x774B (Byte)]
+    - (4C) Verwendung Ausgang 20 (925) [K4C_KonfiVerwendungAusgang20V100GC1~0x774C (Byte)]
+    - (4D) Verwendung Ausgang 29 (928) [K4D_KonfiVerwendungAusgang29~0x774D (Byte)]
+    - (4E) Verwendung Ausgang 52 (934) [K4E_KonfiVerwendungAusgang52V100_V300_V333~0x774E (Byte)]
+    - (4F) Nachlaufzeit Beimisch- Verteiler- und Kesselkreispumpe (935) [K4F_KonfiPumpenNachlauf~0x774F (Byte)]
+    - (76) Konfiguration Kommunikationsmodul (981) [K76_KonfiKommunikationsmodul_mitHV~0x7776 (Byte)]
+    - (77) Viessmann - Teilnehmernummer (983) [K77_KonfiVI_TeilnehmernummerV100_V300~0x7777 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (78) LON - Kommunikation Freigeben/ Sperren (986) [K78_KonfiNVKommunikationLONV100GC1~0x7778 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KommMod="0 ohne")
+    - (79) Zentraler Fehlermanager der Anlage (988) [K79_KonfiFehlerManagerV100_V050~0x7779 (Byte)] HIDDEN:(76_KonfKommMod="0 ohne")
+    - (80) Verzögerung Fehleranzeige (1002) [K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (88) Anzeigemodus Celsius - Fahrenheit (1012) [K88_KonfiCelsiusFahrenheit~0x7788 (Byte)]
+    - (93) SP-Betrieb - Wartungsanzeige wirken auf Sammelstörung (1030) [K93_KonfiSPBetriebWartungsanzeige~0x7793 (Byte)]
+    - (94) Konfiguration Steckadapter Sicherheitseinrichtungen (1034) [K94_KonfiKennungSichSteckadapter~0x7794 (Byte)]
+    - (98) Viessmann - Anlagennummer (1043) [K98_KonfiVI_Anlagennummer~0x7798 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="0 ohne" OR 76_KonfKommMod="2 ungültig" OR 76_KonfKommMod="2 HV-Bus-Modul")
+    - (9B) VT_Solltemperatur bei externer Anforderung (1047) [K9B_KonfiVT_SolltemperaturExternV100_V333~0x779B (Byte)] HIDDEN:("(2E) Kennung Externe Erweiterung"="0 ohne")
+    - (9C) Überwachung LON-Teilnehmer (1049) [K9C_KonfiReceiveHeartBeat~0x779C (Byte)]
+    - (9D) Konfiguration Funktionserweiterung 0 - 10 V (1051) [K9D_KonfiKennungKAE0_10V~0x779D (Byte)]
+- Kessel (10788)
+    - (01) Anlagentyp (803) [K01_KonfiAnlagentyp~0x7701 (Byte)]
+    - (02) Brennertyp (809) [K02_KonfiBrennertyp_G~0x5702 (Byte)]
+    - (03) Oel- oder Gasbetrieb (Nicht rueckstellbar) (811) [K03_KonfiOelGasBetrieb~0x5703 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (04) Kessel-Schalthysterese (812) [K04_KonfiKesselSchalthysterese~0x5704 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (05) Brennerkennlinie (813) [K05_KonfiBrennerkennlinie~0x5705 (Byte)] HIDDEN:("(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (06) Kesselmaximal-Temperatur (815) [K06_KonfiKTMax~0x5706 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (07) Kesselnummer an Kaskade (819) [K07_KonfiKesselnummerV100GC1~0x5707 (Byte)] HIDDEN:("(01) Anlagentyp"="1 Einkessel" OR "(01) Anlagentyp"="1 Einkessel")
+    - (08) Brennermaximalleistung in 1KW (821) [K08_KonfiBrennermaximalleistung1KW~0x5708 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (09) Brennermaximalleistung in 100KW (823) [K09_KonfiBrennermaximalleistung100KW~0x5709 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0A) Grundleistung Brenner in Prozent der Nennleistung (825) [K0A_KonfiBrennerminimalleistung~0x570A (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (0C) Funktion der Drosselklappe-Rücklaufregelung (829) [K0C_KonfiDKRLFunktionV100GC1~0x570C (Byte)]
+    - (0D) ThermControl (831) [K0D_KonfiTSA_FunktionV100GC1~0x570D (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="1 RL-Regelung")
+    - (13) Ausschaltdifferenz des Kesselreglers (840) [K13_KonfiAusschaltdifferenz~0x5713 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(02) Brennertyp"="0 einstufig")
+    - (14) Brennermindestlaufzeit (841) [K14_KonfiBrennermindestlaufzeit~0x5714 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (15) Laufzeit Stellantrieb Brenner (843) [K15_KonfiLaufzeitStellantriebBrenner_G~0x5715 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (16) Offset Modulierender Brenner (844) [K16_KonfiOffsetModBrenner~0x5716 (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1A) Anfahroptimierung Modulierender Brenner (850) [K1A_KonfiAnfoptModBrenner~0x571A (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(02) Brennertyp"≠"2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1B) Reglerverzögerung (851) [K1B_KonfiReglerverzoegerung~0x571B (Byte)] HIDDEN:("(02) Brennertyp"="0 einstufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1C) Startverzögerung Brenner (852) [K1C_KonfiStartverzoegerungBrenner~0x571C (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (1F) Maximale Abgastemperatur (858) [K1F_KonfiAbgastemperaturMax10~0x571F (Int)]
+    - (21) Betriebsstunden Brenner für Wartung (862) [K21_KonfiBetriebsstdBrennerWart100~0x5721 (Int)]
+    - (23) Zeitintervall für Wartung (864) [K23_KonfiZeitintervallWartung~0x5723 (Byte)]
+    - (24) Status der Wartung (866) [K24_KonfiStatusWartung~0x5724 (Byte)]
+    - (26) Verbrauch Brenner 1. Stufe pro Stunde (Zehntel-Schritte) (871) [K26_KonfiVerbrauchBrenner1Low~0x5726 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend")
+    - (27) Verbrauch Brenner 1. Stufe pro Stunde (Zehner-Schritte) (872) [K27_KonfiVerbrauchBrenner1High~0x5727 (Byte)] HIDDEN:("(02) Brennertyp"="2 modulierend" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (28) Intervallzuendung Brenner alle 5 Stunden (873) [K28_KonfiIntervallzuendung~0x5728 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (29) Verbrauch Brenner 2. Stufe pro Stunde (Zehntel-Schritte) (876) [K29_KonfiVerbrauchBrenner2Low~0x5729 (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig")
+    - (2A) Verbrauch Brenner 2. Stufe (Zehner-Schritte) (877) [K2A_KonfiVerbrauchBrenner2High~0x572A (Byte)] HIDDEN:("(02) Brennertyp"≠"1 zweistufig" OR "(8B) Kennung KM-Feuerungsautomat"="1: vorhanden")
+    - (2B) maximale Vorwaermzeit Drosselklappe (878) [K2B_KonfiVorwaermzeit_DK~0x572B (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2C) maximale Nachlaufzeit Drosselklappe (879) [K2C_KonfiNachlaufzeit_DK~0x572C (Byte)] HIDDEN:("(0C) Funktion der Drosselklappe-Rücklaufregelung"="0 ohne Funktion")
+    - (2D) Beimischpumpe Funktion (880) [K2D_KonfiBeimischpumpeFunktion~0x572D (Byte)] HIDDEN:("(1D) Beimischpumpe ein wenn Brenner ein"="aktiv")
+    - (40) Laufzeit Stellantrieb Drosselklappe-Rücklaufregelung (909) [K40_KonfiLaufzeitDKRLStellantrieb~0x7740 (Byte)]
+- Warmwasser (10789) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - (55) Warmwasser - Algorithmus (944) [K55_KonfiWW_Algorithmus~0x6755 (Byte)]
+    - (56) Warmwasser-Solltemperatur-Bereich (947) [K56_KonfiWW_SolltemperaturBereich~0x6756 (Byte)]
+    - (58) Warmwasser-Solltemperatur 2 (949) [K58_KonfiWW_Solltemperatur2~0x6758 (Byte)]
+    - (59) Einschaltpunkt Speicher (950) [K59_KonfiWW_EinschaltOffset~0x6759 (Byte)]
+    - (5A) Warmwassersollwert ist Maximalwert (951) [K5A_KonfiSpeichersollwertMax~0x675A (Byte)]
+    - (60) Offset für Kessel- bzw Vorlaufsolltemperatur (auf Warmwasser-Solltemperatur) (953) [K60_KonfiWW_KesselOffset~0x6760 (Byte)]
+    - (61) Speicherladepumpe kesseltemperaturabhaengig EIN (954) [K61_KonfiLpumpeKTabhaengig~0x6761 (Byte)]
+    - (62) Nachlauf Speicherladepumpe (956) [K62_KonfiLpumpeNachlauf~0x6762 (Byte)]
+    - (63) Haeufigkeit Zusatzfunktion Warmwasser (958) [K63_KonfiWWAL_Haeufigkeit~0x6763 (Byte)]
+    - (68) Speichersensor 2 Faktor Ausschaltpunkt (964) [K68_KonfiWW_Sensor2FaktorAus~0x6768 (Byte)] HIDDEN:("(55) Warmwasser - Algorithmus"≠"2 2-Sensor")
+    - (69) Speichersensor 2 Faktor Einschaltpunkt (965) [K69_KonfiWW_Sensor2FaktorEin~0x6769 (Byte)] HIDDEN:("(55) Warmwasser - Algorithmus"≠"2 2-Sensor")
+    - (6A) Laufzeit Mischer Wärmetauscher-Set (966) [K6A_KonfiLaufzeitMischerWTSet~0x676A (Byte)]
+    - (6B) Dynamik Primaerkreismischer WT-Set (967) [K6B_KonfiWWPrimaerMischerDynamik~0x676B (Byte)]
+
+# Diagnose Anlage (10812)
+- Kessel (10773)
+    - Kesselsolltemperatur (effektiv) (4272) [RKR_11KTSolleff_Kessel~0x555A (Int)]
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Kesselsollleistung (effektiv) (4273) [RKR_12PSolleff_Kessel~0x555C (Byte)]
+    - Brennerleistung (4266) [RKR_04PIst_Kessel~0x55E0 (Byte)]
+    - Kesselfreigabe (4263) [RKR_01Freigabe_Kessel~0x5556 (Byte)]
+    - Kessel-Mindesttemperatur (4268) [RKR_07KTMin_Kessel~0x55E0 (Byte)]
+    - Kessel-Maximaltemperatur (4269) [RKR_08KTMax_Kessel~0x55E0 (Byte)]
+    - Name der Kesselschutz-Codierkarte (3026) [KS_Karte_GasKennzifferallgemein~0x1060 (Int)]
+    - Kesselschutz-nachlaufzeit (826) [K0B_KesselschutzNachlauf_Diagnose~0x570B (Byte)]
+    - ThermControl (834) [K0D_ThermControl_100GC1~0x570D (Byte)]
+    - ThermControl-Solltemperatur (4271) [RKR_10TSASoll_Kessel~0x55E0 (Byte)]
+    - Rücklaufregelung (828) [K0C_Funktion_Ruecklauf~0x570C (Byte)]
+    - Rücklaufsolltemperatur (4270) [RKR_09RLTSoll_Kessel~0x55E0 (Byte)]
+    - Sensor 17A (921) [K4A_KonfiEingang17A~0x774A (Byte)]
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Sensor 17B (923) [K4B_KonfiEingang17B~0x774B (Byte)]
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Abgastemperatur (5372) [TiefpassTemperaturwert_AGTS~0x0816 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+    - Maximale Abgastemperatur (23) [AGTemperaturwertMAXBedien~0x08A1 (Int)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+    - aktueller Brennertyp (114) [Brennertyp~0xA30B (Byte)]
+    - Brennergrundleistung (824) [K0A_Brennergrundleistung~0x570A (Byte)]
+    - Brenner 1. Stufe (244) [DigitalAusgang_Brenner~0x0842 (Byte)]
+    - Brenner 2. Stufe (248) [DigitalAusgang_ModAuf_Benner2~0x0849 (Byte)] HIDDEN:("aktueller Brennertyp"≠"zweistufig")
+    - Brennerstarts (108) [Brennerstarts~0x088A (Int4)]
+    - Brenner-Betriebsstunden 1. Stufe (99) [BetriebsstundenBrenner1Bedienung~0x08A7 (Int)]
+    - Brenner-Betriebsstunden 2. Stufe (102) [BetriebsstundenBrenner2Bedienung~0x08AB (Int)] HIDDEN:("aktueller Brennertyp"≠"zweistufig" AND "aktueller Brennertyp"≠"zweistufig""aktueller Brennertyp"≠"zweistufig")
+    - Brennstoffverbrauch (Liter oder m³) (4237) [Oelverbrauch~0x7574 (Int4)]
+- Heizkreis A1 (10775)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Reglervariante A1M1 (735) [HK_ReglervarianteA1M1~0x2521 (Byte)]
+- Wartung (10774)
+    - (21) Grenzwert Betriebsstunden Brenner (859) [K21_KonfiBetriebsstdBrenner_Wartung~0x5721 (Int)]
+    - (23) Eingestelltes Zeitintervall (863) [K23_KonfiZeitintervall_Wartung~0x5723 (Byte)]
+    - (24) Wartung (865) [K24_KonfiStatus_Wartung~0x5724 (Byte)]
+    - Betriebsstunden Brenner seit letzter  Wartung (3153) [LetzteBrennerWartung~0x7570 (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - vergangene Zeit seit letzter Wartung (3155) [LetzteIntervallWartung~0x756C (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - (1F) Grenzwert Abgastemperatur (856) [K1F_KonfiAbgastemperaturMax_Wartung~0x571F (Int)]
+    - Maximal erreichte Abgastemperatur (22) [AGTemperaturwertMAX~0x089F (Byte)]
+- Warmwasser (10776) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Warmwassertemperatur (STS1) (5378) [TiefpassTemperaturwert_STS1~0x0812 (Int)]
+    - Warmwassertemperatur (STS2) (5379) [TiefpassTemperaturwert_STS2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Warmwasserbereitung (7180) [WW_Status_NR2~0x650A (Byte)]
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Warmwasser-Algorithmus (942) [K55_Algorithmus_Info~0x6755 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+- Fkt.-Erw. 0-10V (10814) HIDDEN:("Funktionserweiterung 0 - 10 V"="nicht vorhanden")
+    - Funktionserweiterung 0 - 10 V (1050) [K9D_KennungKAE0_10V~0x779D (Byte)]
+    - Funktionserweiterung 0 - 10 V Software-Index (1094) [KAE0_10V_SW_Index~0x7580 (Array)]
+    - Externer Sollwert über 0-10V Schnittstelle (275) [ExternSollwert0_10V~0x757D (Int)]
+    - DIP-Schalter Funktionserweiterung Sollwertbereich eingestellt auf (265) [DIPSchalterKAE0_10V_Bereich~0x757F (Byte)]
+    - DIP-Schalter Funktionserweiterung eingestellt auf (267) [DIPSchalterKAE0_10V_PumpenKR~0x757F (Byte)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+
+# Diagnose System (10813)
+- Regelung (10779)
+    - Gerätekennung (1029) [K92_Reglerkennung_Klartext~0x7792 (Byte)]
+    - Software-Index des Gerätes (7567) [Software_Index~0x00FB (String)]
+    - Bedienteil Software-Index (91) [Bedienteil_SW_Index~0x7330 (Array)]
+    - Kommunikations-Coprozessor Software-Index (2923) [Kennung_87c652_SW_Index~0xA018 (Array)]
+    - Neuron Software-Index (2926) [Kennung1_Neuron_SW_Index~0xA01C (Array)]
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+    - Sachnummer LON (4686) [Sachnummer_LON~0xA011 (String)]
+    - Sachnummer 87c652 (4683) [Sachnummer_87c652~0xA03D (String)]
+    - Sachnummer Codierstecker (4685) [Sachnummer_GWG_Codierstecker~0x1010 (String)]
+- Kommunikation (10780) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Kommunikationsmodul (980) [K76_KonfiKommunikationsmodul_D~0x7776 (Byte)]
+    - LON - Kommunikation freigegeben (987) [K78_KonfiNVKommunikationLONV100GC1_D~0x7778 (Byte)]
+    - Viessmann - Anlagennummer (1044) [K98_KonfiVI_Anlagennummer_D~0x7798 (Byte)]
+    - Viessmann - Teilnehmernummer (984) [K77_KonfiVI_TeilnehmernummerV100_V300_D~0x7777 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - Anlagentyp (804) [K01_KonfiAnlagentyp_D~0x7701 (Byte)]
+    - Kesselnummer (820) [K07_KonfiKesselnummerV100GC1_D~0x5707 (Byte)]
+    - Fehlermanager der Anlage (989) [K79_KonfiFehlerManagerV100_V050_D~0x7779 (Byte)] HIDDEN:(76_KommMod="0 ohne" OR 76_KommMod="2 Kaskaden-Modul")
+    - nciNetConfig (3461) [nciNetConfig~0xA102 (Byte)]
+    - Domain (3464) [Node_Domain~0xA000 (Int)]
+    - Subnet (3466) [Node_Subnet~0xA000 (Int)]
+    - Node (3465) [Node_Node~0xA000 (Int)]
+    - Neuron ID (3463) [Neuron_ID~0xA009 (String)]
+- LON-Teilnehmer (10781) HIDDEN:(76_KonfKommMod≠"1 LON-Modul")
+    - Fehlermanager (4127) [nvoAlarm_Fehlermanager_Teilnehmerliste~0xA132 (Byte)]
+    - Teilnehmerliste LON eigene TN-Nummer Anlage/TN (5333) [Teilnehmerliste_LON_00~0xA010 (Array)]
+    - Teilnehmerliste LON (01) Anlage/TN (5334) [Teilnehmerliste_LON_01~0xA010 (Array)]
+    - Teilnehmerliste LON (02)  Anlage/TN (5335) [Teilnehmerliste_LON_02~0xA010 (Array)]
+    - Teilnehmerliste LON (03)  Anlage/TN (5336) [Teilnehmerliste_LON_03~0xA010 (Array)]
+    - Teilnehmerliste LON (04)  Anlage/TN (5337) [Teilnehmerliste_LON_04~0xA010 (Array)]
+    - Teilnehmerliste LON (05)  Anlage/TN (5338) [Teilnehmerliste_LON_05~0xA010 (Array)]
+    - Teilnehmerliste LON (06)  Anlage/TN (5339) [Teilnehmerliste_LON_06~0xA010 (Array)]
+    - Teilnehmerliste LON (07)  Anlage/TN (5340) [Teilnehmerliste_LON_07~0xA010 (Array)]
+    - Teilnehmerliste LON (08)  Anlage/TN (5341) [Teilnehmerliste_LON_08~0xA010 (Array)]
+    - Teilnehmerliste LON (09)  Anlage/TN (5342) [Teilnehmerliste_LON_09~0xA010 (Array)]
+    - Teilnehmerliste LON (10)  Anlage/TN (5343) [Teilnehmerliste_LON_10~0xA010 (Array)]
+    - Teilnehmerliste LON (11)  Anlage/TN (5344) [Teilnehmerliste_LON_11~0xA010 (Array)]
+    - Teilnehmerliste LON (12)  Anlage/TN (5345) [Teilnehmerliste_LON_12~0xA010 (Array)]
+    - Teilnehmerliste LON (13)  Anlage/TN (5346) [Teilnehmerliste_LON_13~0xA010 (Array)]
+    - Teilnehmerliste LON (14)  Anlage/TN (5347) [Teilnehmerliste_LON_14~0xA010 (Array)]
+    - Teilnehmerliste LON (15)  Anlage/TN (5348) [Teilnehmerliste_LON_15~0xA010 (Array)]
+- Eingänge (10783)
+    - Temperatur Sensor 3 (12) [ADC_Isttemperaturwert_KTS~0x0802 (Int)] HIDDEN:("Status Sensor 3"="Unterbrechung" OR "Status Sensor 3"="nicht vorhanden")
+    - Temperatur Sensor 5 (14) [ADC_IstTemperaturwert_STS1~0x0804 (Int)] HIDDEN:("Status Sensor 5"="Unterbrechung" OR "Status Sensor 5"="nicht vorhanden")
+    - Temperatur Sensor 5B (16) [ADC_IstTemperaturwert_STS2~0x0806 (Int)] HIDDEN:("Status Sensor 5B"="Unterbrechung" OR "Status Sensor 5B"="nicht vorhanden")
+    - Temperatur Sensor 15 (9) [ADC_IstTemperaturwert_AGTS~0x0808 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+    - Temperatur Sensor 17A (5) [ADC_IstTemperaturwert_17A~0x080A (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden" OR "(4A) Eingang Sensor 17A"="0 nicht vorhanden")
+    - Temperatur Sensor 17B (6) [ADC_IstTemperaturwert_17B~0x080C (Int)] HIDDEN:("(4B) Eingang Sensor 17B"="0 nicht vorhanden" OR "Sensor 17B"="nicht vorhanden")
+    - Status Sensor 3 (5361) [TemperaturFehler_KTS~0x083B (Byte)]
+    - Status Sensor 5 (5364) [TemperaturFehler_STS1~0x083C (Byte)]
+    - Status Sensor 5B (5365) [TemperaturFehler_STS2~0x083D (Byte)]
+    - Status Sensor 15 (5359) [TemperaturFehler_AGTS~0x083E (Byte)]
+    - Status Sensor 17A (5363) [TemperaturFehler_RLTS~0x083F (Byte)]
+    - Status Sensor 17B (5366) [TemperaturFehler_VLTS~0x0840 (Byte)]
+    - Eingang 143 Pin 1 (253) [DigitalEingang_143_1~0x087E (Byte)]
+    - Eingang 143 Pin 3 (254) [DigitalEingang_143_3~0x0884 (Byte)]
+    - Eingang 146 Pin 1 (257) [DigitalEingang_146_1~0x0963 (Byte)]
+    - Eingang 146 Pin 3 (258) [DigitalEingang_146_3~0x0964 (Byte)]
+    - Eingang Brennerstörung (259) [DigitalEingang_BrennerStoerung~0x0883 (Byte)]
+    - Eingang Brenner B4 (260) [DigitalEingang_BZ1~0x087F (Byte)]
+    - Eingang SP-Schalter (263) [DigitalEingang_SP~0x0885 (Byte)]
+    - Eingang STB-Störung (264) [DigitalEingang_STB~0x0882 (Byte)]
+    - Eingang externe Sicherheitskette (262) [DigitalEingang_ExtSicherheit~0x0881 (Byte)]
+- Ausgänge (10784)
+    - Ausgang 50 (240) [DigitalAusgang_50~0x0847 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 21 (237) [DigitalAusgang_21~0x0845 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Ausgang 52 AUF (241) [DigitalAusgang_52Auf~0x084D (Byte)]
+    - Ausgang 52 ZU (242) [DigitalAusgang_52Zu~0x084C (Byte)]
+    - Brenner 1. Stufe (244) [DigitalAusgang_Brenner~0x0842 (Byte)]
+    - Brenner 2. Stufe (248) [DigitalAusgang_ModAuf_Benner2~0x0849 (Byte)] HIDDEN:("aktueller Brennertyp"≠"zweistufig")
+- ext. Sicherheitsadapter (10785) HIDDEN:("(94) Konfiguration Steckadapter Sicherheitseinrichtungen"="0 ohne")
+    - Eingang STB-Störung (264) [DigitalEingang_STB~0x0882 (Byte)]
+    - Eingang externe Sicherheitskette (262) [DigitalEingang_ExtSicherheit~0x0881 (Byte)]
+    - Steckadapter Sicherheitseinrichtung (1033) [K94_KonfiKennungSicherheits_Steckadapter~0x7794 (Byte)]
+    - Steckadapter Sicherheitseinrichtung Fehlermeldung Sicherheitskette (130) [D2_Fehler_Eingang_230V~0x757A (Byte)]
+    - Steckadapter Sicherheitseinrichtung Fehlermeldung  d6 (127) [D2_Fehler_d6~0x757A (Byte)]
+    - Steckadapter Sicherheitseinrichtung Fehlermeldung  d7 (128) [D2_Fehler_d7~0x757A (Byte)]
+    - Steckadapter Sicherheitseinrichtung Fehlermeldung  d8 (129) [D2_Fehler_d8~0x757A (Byte)]
+
+# Erweiterte Diagnose (15326)
+- Codierkarte Gas (10792)
+    - Gasbetrieb: Name der Kesselschutz-Codierkarte (3025) [KS_Karte_GasKennziffer~0x1060 (Array)]
+    - Gasbetrieb: Grenzwert der Grundleistung (3024) [KS_Karte_GasGrenzwertGrundleistung~0x1070 (Int)]
+    - Gasbetrieb: Kesselmindesttemperatur oberhalb Grenzwert Brennerleistung (3033) [KS_Karte_GasKTminHG~0x1080 (Byte)]
+    - Gasbetrieb: Kesselmindesttemperatur unterhalb Grenzwert Brennerleistung (3034) [KS_Karte_GasKTminNG~0x1080 (Byte)]
+    - Gasbetrieb: Mindestrücklauf-Solltemperatur oberhalb Grenzwert Brennerleistung (3070) [KS_Karte_GasT1SolltemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Mindestrücklauf-Solltemperatur unterhalb Grenzwert Brennerleistung (3071) [KS_Karte_GasT1SolltemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Therm-Control-Solltemperatur oberhalb Grenzwert Brennerleistung (3072) [KS_Karte_GasTSASolltemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Therm-Control-Solltemperatur unterhalb Grenzwert Brennerleistung (3073) [KS_Karte_GasTSASolltemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Drosselklappenschalttemperatur oberhalb Grenzwert Brennerleistung (3015) [KS_Karte_GasDKSchalttemperaturHG~0x1080 (Byte)]
+    - Gasbetrieb: Drosselklappenschalttemperatur unterhalb Grenzwert Brennerleistung (3016) [KS_Karte_GasDKSchalttemperaturNG~0x1080 (Byte)]
+    - Gasbetrieb: Kesselschutz-nachlauf (3027) [KS_Karte_GasKonfiKesselschutzNachlauf~0x1070 (Int)]
+    - Gasbetrieb: Pumpe bei Brennerbetrieb (3030) [KS_Karte_GasKonfiPumpebeiBrennerbetrieb~0x1070 (Int)]
+    - Gasbetrieb: Nachstellzeit Kesselregler (3028) [KS_Karte_GasKonfiKTRegNachst~0x1070 (Byte)]
+    - Gasbetrieb: Verstaerkung Kesselregler (3029) [KS_Karte_GasKonfiKTRegVerst~0x1070 (Byte)]
+    - Gasbetrieb: Nachstellzeit Therm-Control-Regler (3031) [KS_Karte_GasKonfiTSARegNachst~0x1070 (Byte)]
+    - Gasbetrieb: Verstaerkung Therm-Control-Regler (3032) [KS_Karte_GasKonfiTSARegVerst~0x1070 (Byte)]
+    - Brennermaximalleistung 100 kW (3081) [KS_Karte_KonfiBrennermaxleistung100kW~0x1090 (Byte)]
+    - Brennermaximalleistung 1 kW (3082) [KS_Karte_KonfiBrennermaxleistungkW~0x1090 (Int)]
+    - Brennerminimalleistung (3084) [KS_Karte_KonfiBrennerminimalleistung~0x1090 (Int)]
+    - Kesselschalthysterese (3085) [KS_Karte_KonfiKesselschalthysterese~0x1090 (Byte)]
+    - Ausschaltdifferenz (3080) [KS_Karte_KonfiAusschaltdifferenz~0x1090 (Int)]
+    - Mindestbrennerlaufzeit (3083) [KS_Karte_KonfiBrennerMindestbrennerlaufzeit~0x1090 (Int)]
+    - Offset der Anfahroptimierung (3086) [KS_Karte_KonfiOffsetModBrenner~0x1090 (Int)]
+    - Zeit der Anfahroptimierung (3079) [KS_Karte_KonfiAnfOptModBrenner~0x1090 (Int)]
+- Codierkarte Oel (10793)
+    - Oelbetrieb: Name der Kesselschutz-Codierkarte (3104) [KS_Karte_OelKennziffer~0x1030 (Int)]
+    - Oelbetrieb: Grenzwert der Grundleistung (3103) [KS_Karte_OelGrenzwertGrundleistung~0x1040 (Int)]
+    - Oelbetrieb: Kesselmindesttemperatur oberhalb Grenzwert Brennerleistung (3111) [KS_Karte_OelKTminHG~0x1050 (Byte)]
+    - Oelbetrieb: Kesselmindesttemperatur unterhalb Grenzwert Brennerleistung (3112) [KS_Karte_OelKTminNG~0x1050 (Byte)]
+    - Oelbetrieb: Mindestrücklauf-Solltemperatur oberhalb Grenzwert Brennerleistung (3148) [KS_Karte_OelT1SolltemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Mindestrücklauf-Solltemperatur unterhalb Grenzwert Brennerleistung (3149) [KS_Karte_OelT1SolltemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Therm-Control-Solltemperatur oberhalb Grenzwert Brennerleistung (3150) [KS_Karte_OelTSASolltemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Therm-Control-Solltemperatur unterhalb Grenzwert Brennerleistung (3151) [KS_Karte_OelTSASolltemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Drosselklappenschalttemperatur oberhalb Grenzwert Brennerleistung (3094) [KS_Karte_OelDKSchalttemperaturHG~0x1050 (Byte)]
+    - Oelbetrieb: Drosselklappenschalttemperatur unterhalb Grenzwert Brennerleistung (3095) [KS_Karte_OelDKSchalttemperaturNG~0x1050 (Byte)]
+    - Oelbetrieb: Kesselschutz-nachlauf (3105) [KS_Karte_OelKonfiKesselschutzNachlauf~0x1040 (Int)]
+    - Oelbetrieb: Pumpe bei Brennerbetrieb (3108) [KS_Karte_OelKonfiPumpebeiBrennerbetrieb~0x1040 (Int)]
+    - Oelbetrieb: Nachstellzeit Kesselregler (3106) [KS_Karte_OelKonfiKTRegNachst~0x1040 (Byte)]
+    - Oelbetrieb: Verstaerkung Kesselregler (3107) [KS_Karte_OelKonfiKTRegVerst~0x1040 (Byte)]
+    - Oelbetrieb: Nachstellzeit Therm-Control-Regler (3109) [KS_Karte_OelKonfiTSARegNachst~0x1040 (Byte)]
+    - Oelbetrieb: Verstaerkung Therm-Control-Regler (3110) [KS_Karte_OelKonfiTSARegVerst~0x1040 (Byte)]
+    - Brennermaximalleistung 100 kW (3081) [KS_Karte_KonfiBrennermaxleistung100kW~0x1090 (Byte)]
+    - Brennermaximalleistung 1 kW (3082) [KS_Karte_KonfiBrennermaxleistungkW~0x1090 (Int)]
+    - Brennerminimalleistung (3084) [KS_Karte_KonfiBrennerminimalleistung~0x1090 (Int)]
+    - Kesselschalthysterese (3085) [KS_Karte_KonfiKesselschalthysterese~0x1090 (Byte)]
+    - Ausschaltdifferenz (3080) [KS_Karte_KonfiAusschaltdifferenz~0x1090 (Int)]
+    - Mindestbrennerlaufzeit (3083) [KS_Karte_KonfiBrennerMindestbrennerlaufzeit~0x1090 (Int)]
+    - Offset der Anfahroptimierung (3086) [KS_Karte_KonfiOffsetModBrenner~0x1090 (Int)]
+    - Zeit der Anfahroptimierung (3079) [KS_Karte_KonfiAnfOptModBrenner~0x1090 (Int)]
+- Zugriff Codierkarte (10794)
+    - (8F) Zugriff auf Kesselregler - Parameter (1021) [K8F_KonfiZugriffParameterKR~0x778F (Byte)]
+    - (0B) Kesselschutz-nachlauf (827) [K0B_KonfiKesselschutzNachlauf~0x570B (Byte)]
+    - (0E) ThermControl-Reglerverstaerkung (835) [K0E_KonfiTSAReglerverstaerkung~0x570E (Byte)]
+    - (0F) ThermControl-Reglernachstellzeit (836) [K0F_KonfiTSAReglernachstellzeit~0x570F (Byte)]
+    - (17) Verstaerkung Kesselregler (847) [K17_KonfiKTReglerverstaerkung~0x5717 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (18) Nachstellzeit Kesselregler \n(eingestellter Wert * 10) (848) [K18_KonfiKTReglernachstellzeit~0x5718 (Byte)] HIDDEN:("(8B) Kennung KM-Feuerungsautomat"="1: vorhanden" OR "(02) Brennertyp"≠"2 modulierend")
+    - (1D) Beimischpumpe ein wenn Brenner ein (853) [K1D_KonfiPumpenbeiBrennerein~0x571D (Byte)]
+- BOC-Objekt (10799)
+    - Kesselsollleistung - Wert (4073) [nviBoilerCmd_BLR_value~0xA300 (Byte)]
+    - Kesselsollleistung - Status (4072) [nviBoilerCmd_BLR_state~0xA300 (Byte)]
+    - Betriebsart - Kessel (4018) [nviApplicMode_BLR~0xA302 (Byte)]
+    - Kesselsolltemperatur (4112) [nviSetpoint_BLR~0xA303 (Byte)]
+    - Modulationsgrad (4165) [nvoBoilerState_BLR_value~0xA305 (Byte)] HIDDEN:("aktueller Brennertyp"≠"modulierend" AND "aktueller Brennertyp"≠"modulierend" AND "GWG53: Brennertyp"≠"modulierender Brenner")
+    - Kesselleistung Status (4164) [nvoBoilerState_BLR_state~0xA305 (Byte)]
+    - Kesselltemperatur (4228) [nvoSupplyTemp_BLR~0xA309 (Byte)]
+    - effektive Kessellsolltemperatur (4171) [nvoEffectSetpt_BLR~0xA307 (Byte)]
+    - Nennleistung in KW (4151) [nvoBoCState_RatedPower_BLR~0xA30B (Byte)]
+    - Leistung Grundstufe (relativ) (4152) [nvoBoCState_RelPower_BLR~0xA30B (Byte)]
+    - Leistungsreduzierung (4142) [nvoBoCState_AlphaTSA_BLR~0xA30B (Byte)]
+    - Leistungsreduzierung ist (4149) [nvoBoCState_LF_Kritisch_BLR~0xA30B (Byte)]
+    - Drosselklappenstatus - Drosselklappe ist (4144) [nvoBoCState_DK_Status_BLR~0xA30B (Byte)]
+    - Abgemeldet (4145) [nvoBoCState_HarteSperre_BLR~0xA30B (Byte)]
+    - Abmeldeanforderung (4155) [nvoBoCState_WeicheSperre_BLR~0xA30B (Byte)]
+    - Kesselfehler (4146) [nvoBoCState_Kesselfehler_BLR~0xA30B (Byte)]
+    - Schornsteinfeger- Pruefbetrieb (4154) [nvoBoCState_SP_BLR~0xA30B (Byte)]
+    - Brennertyp (4143) [nvoBoCState_BurnerState_BLR~0xA30B (Byte)]
+    - Betriebsstunden Brennerstufe 1 (4150) [nvoBoCState_OperatTime_BLR~0xA30B (Byte)]
+    - Sollwert Rücklaufregelung (4153) [nvoBoCState_ReturnTSet_BLR~0xA30B (Byte)]
+- Node_Objekt (10798)
+    - Domain (3464) [Node_Domain~0xA000 (Int)]
+    - Subnet (3466) [Node_Subnet~0xA000 (Int)]
+    - Node (3465) [Node_Node~0xA000 (Int)]
+    - Neuron ID (3463) [Neuron_ID~0xA009 (String)]
+    - Sachnummer 87c652 (4683) [Sachnummer_87c652~0xA03D (String)]
+    - Sachnummer LON (4686) [Sachnummer_LON~0xA011 (String)]
+    - Alarm  Anlagennummer (4124) [nvoAlarm_Anlagennummer~0xA132 (Byte)]
+    - Alarm Teilnehmernummer - Gerät (4136) [nvoAlarm_Teilnehmernummer~0xA132 (Byte)]
+    - Alarm Jahr (4128) [nvoAlarm_Jahr~0xA132 (Byte)]
+    - Alarm Monat (4131) [nvoAlarm_Monat~0xA132 (Byte)]
+    - Alarm Tag (4135) [nvoAlarm_Tag~0xA132 (Byte)]
+    - Alarm Stunde (4134) [nvoAlarm_Stunde~0xA132 (Byte)]
+    - Alarm Minute (4130) [nvoAlarm_Minute~0xA132 (Byte)]
+    - Alarm Sekunde (4133) [nvoAlarm_Sekunde~0xA132 (Byte)]
+    - Alarm Veraenderungsflag (4137) [nvoAlarm_Veraenderung~0xA132 (Byte)]
+    - Alarm Fehlermanager (4126) [nvoAlarm_Fehlermanager~0xA132 (Byte)]
+    - Alarm  Nummer gestoerter Teilnehmer (4132) [nvoAlarm_Nr_gestoerterTeilnehmer~0xA132 (Byte)]
+    - Alarm Fehlercode (4125) [nvoAlarm_Fehlercode~0xA132 (Array)]
+- DHWC Objekt (10801)
+    - DHWC: Betriebsmodus - Warmwasser (4085) [nviDHWC_ApplicMode~0xA3C2 (Byte)]
+    - DHWC: Warmwasser-Solltemperatur (4086) [nviDHWC_Setpt~0xA3C0 (Byte)]
+    - DHWC: Warmwasser-Isttemperatur (4169) [nvoDHWC_ActTemp~0xA3C3 (Byte)]
+    - DHWC: Effektive Warmwasser-Solltemperatur (4170) [nvoDHWC_EffSetpt~0xA3C5 (SInt)]
+- CFDM-Objekt (10800)
+    - Anlagen-/ Kessel-Sollleistung - Wert (4098) [nviProdCmd_CFDM_value~0xA380 (Byte)]
+    - Anlagen-/ Kessel-Sollleistung - Status (4097) [nviProdCmd_CFDM_state~0xA380 (Byte)]
+    - Betriebsmodus Anlage / Kessel (4019) [nviApplicMode_CFDM~0xA382 (Byte)]
+    - Vorlauf-Solltemperatur Anlagen / Kessel (4113) [nviSetpoint_CFDM~0xA383 (SInt)]
+    - Vorlauf-Solltemperatur der Heizkreisregler (4084) [nviConsumerDmd_Temp_CFDM~0xA385 (Byte)]
+    - Temperaturanfoderung ist Maximalwert (4082) [nviConsumerDmd_Attribute1_CFDM~0xA385 (Byte)]
+    - Anforderung an Zentralspeicher (4083) [nviConsumerDmd_Attribute2_CFDM~0xA385 (Byte)]
+    - Anlagen-Istleistung - Wert (4195) [nvoPWRState_CFDM_value~0xA38F (Byte)]
+    - Anlagen-Istleistung - Status (4194) [nvoPWRState_CFDM_state~0xA38F (Byte)]
+    - Aktiver Anlagen- / Solltemperaturwert (4173) [nvoEffectSetpt_CFDM~0xA391 (SInt)]
+    - Anlagenvorlauf- Kessel-Isttemperatur (4229) [nvoSupplyTemp_CFDM~0xA393 (SInt)]
+    - Leistungsreduzierung von den Verbrauchern gefordert (4193) [nvoProdState_AlphaTSA_CFDM~0xA395 (Byte)]
+    - Leistungsreduzierung (4184) [nvoProdCState_LF_Kritisch_CFDM~0xA395 (Byte)]
+    - Speicherladung (4188) [nvoProdCState_Speicher_CFDM~0xA395 (Byte)]
+    - Warmwasseranforderung an den internen Speicher (4192) [nvoProdCState_ZentralSpeicher_CFDM~0xA340 (Byte)]
+    - Prod. Status Harte Sperre (4183) [nvoProdCState_HarteSperre_CFDM~0xA395 (Byte)]
+    - Prod. Status Weiche Sperre (4189) [nvoProdCState_WeicheSperre_CFDM~0xA395 (Byte)]
+    - Prod. Status Fehler (4182) [nvoProdCState_Fehler_CFDM~0xA395 (Byte)]
+    - Prod. Status SP-Betrieb (4187) [nvoProdCState_SP_CFDM~0xA395 (Byte)]
+    - Zentralbedienung der Anlage (4190) [nvoProdCState_Zentralbed_CFDM~0xA395 (Byte)]
+    - Zentrales Ferienprogramm (4191) [nvoProdCState_ZentralFerien_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Abschaltbetrieb (4181) [nvoProdCState_AbschaltBetrieb_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Nur Warmwasser (4186) [nvoProdCState_nurWW_CFDM~0xA395 (Byte)]
+    - Zentral- Betriebsart Heizen und  Warmwasser (4185) [nvoProdCState_NormalBetrieb_CFDM~0xA395 (Byte)]
+- Node_RelayState (10797)
+    - Relais-Status Brenner 1. Stufe (4201) [nvoRelayState_Brennerstufe1~0xA152 (Byte)]
+    - Relais-Status Brennerstörung (4200) [nvoRelayState_Brennerstoerung~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 (4203) [nvoRelayState_HKP1~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 1 Nachtkontakt (4204) [nvoRelayState_HKP1_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 (4205) [nvoRelayState_HKP2~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 2 Nachtkontakt (4206) [nvoRelayState_HKP2_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 3 (4207) [nvoRelayState_HKP3~0xA152 (Byte)]
+    - Relais-Status Heizkreispumpe 3 Nachtkontakt (4209) [nvoRelayState_HKP3_Nachtkontakt~0xA152 (Byte)]
+    - Relais-Status Beimischpumpe (4198) [nvoRelayState_Beimischpumpe~0xA152 (Byte)]
+    - Relais-Status Kesselkreis oder Verteilerpumpe (4212) [nvoRelayState_Kesselkreis_Verteilerpumpe~0xA152 (Byte)]
+    - Relais-Status TSA-Kontakt (4217) [nvoRelayState_TSA_Kontakt~0xA152 (Byte)]
+    - Relais-Status Speicherladepumpe (4216) [nvoRelayState_SLP~0xA152 (Byte)]
+    - Relais-Status Zirkulationspumpe (4220) [nvoRelayState_ZP~0xA152 (Byte)]
+    - Relais-Status Primärpumpe WT-Set (4213) [nvoRelayState_Primaerpumpe_WTSet~0xA152 (Byte)]
+    - Relais-Status Zubringerpumpe (4221) [nvoRelayState_Zubringerpumpe~0xA152 (Byte)]
+    - Relais-Status AbgasWärmetauscher-Pumpe (4196) [nvoRelayState_Abgas_WTPumpe~0xA152 (Byte)]
+
+# Aktorentest (10810)
+- Aktorentest (10782)
+    - Aktorentest (4248) [RelaistestV100GC1~0x7500 (Byte)]
+
+# Trending (10807)
+- Kessel (13466)
+    - Rücklauftemperatur 17A (5369) [TiefpassTemperaturwert_17A~0x0818 (Int)] HIDDEN:("Sensor 17A"="nicht vorhanden")
+    - Rücklauftemperatur 17B (5370) [TiefpassTemperaturwert_17B~0x081A (Int)] HIDDEN:("Sensor 17B"="nicht vorhanden")
+    - Abgastemperatur (5372) [TiefpassTemperaturwert_AGTS~0x0816 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Sensor 17A (921) [K4A_KonfiEingang17A~0x774A (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Ausgang 29 (239) [DigitalAusgang_29~0x0844 (Byte)]
+    - Kesselsolltemperatur (effektiv) (4272) [RKR_11KTSolleff_Kessel~0x555A (Int)]
+    - Kesselsollleistung (effektiv) (4273) [RKR_12PSolleff_Kessel~0x555C (Byte)]
+    - Brennerleistung (4266) [RKR_04PIst_Kessel~0x55E0 (Byte)]
+    - Rücklaufsolltemperatur (4270) [RKR_09RLTSoll_Kessel~0x55E0 (Byte)]
+    - Kesselsolltemperatur (63) [BedienKTSolltemperatur_NR2~0x5300 (Byte)]
+    - Externer Sollwert über 0-10V Schnittstelle (275) [ExternSollwert0_10V~0x757D (Int)]
+    - Zubringerpumpe (7182) [Zubringerpumpe~0x757C (Byte)]
+    - Brenner-Betriebsstunden 1. Stufe (99) [BetriebsstundenBrenner1Bedienung~0x08A7 (Int)]
+    - Brennerstarts (108) [Brennerstarts~0x088A (Int4)]
+- Heizkreis A1 (13469)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+- Warmwasser (13472) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwassertemperatur (STS1) (5378) [TiefpassTemperaturwert_STS1~0x0812 (Int)]
+    - Warmwassertemperatur (STS2) (5379) [TiefpassTemperaturwert_STS2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Speicherladepumpe (251) [DigitalAusgang_Speicherladepumpe~0x0845 (Byte)]
+    - Ausgang 20 (236) [DigitalAusgang_20~0x0843 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]

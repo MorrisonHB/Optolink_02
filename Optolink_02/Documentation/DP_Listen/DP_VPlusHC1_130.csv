@@ -1,0 +1,17 @@
+dbo_ecnDatapointType.Address;DataPointTypeId;Id;CompanyId;EnumType;Name;dbo_ecnEventType.Address;Conversion;Description;Priority;Filtercriterion;Reportingcriterion;Type;URL;DefaultValue;ObjectId
+VPlusHC1_130;435;1;24;-1;ecnStatusEventType;ecnStatusEventType;NoConversion;;50;-1;-1;1;;;-1
+VPlusHC1_130;435;98;24;0;@@viessmann.eventtype.name.BetriebsstundenBrenner1;BetriebsstundenBrenner1~0x0886;Sec2Hour;@@viessmann.eventtype.BetriebsstundenBrenner1.description;100;-1;-1;1;;;-1
+VPlusHC1_130;435;111;24;0;@@viessmann.eventtype.name.BrennerstartsGWG;BrennerstartsGWG~0x088A;NoConversion;@@viessmann.eventtype.BrennerstartsGWG.description;100;-1;-1;3;;;-1
+VPlusHC1_130;435;600;24;-1;@@viessmann.eventtype.name.GWG_Flamme;GWG_Flamme~0x55D3;NoConversion;@@viessmann.eventtype.GWG_Flamme.description;50;-1;-1;1;;;-1
+VPlusHC1_130;435;988;24;-1;@@viessmann.eventtype.name.K79_KonfiFehlerManagerV100_V050;K79_KonfiFehlerManagerV100_V050~0x7779;NoConversion;@@viessmann.eventtype.K79_KonfiFehlerManagerV100_V050.description;50;-1;-1;3;;0;-1
+VPlusHC1_130;435;5389;24;-1;@@viessmann.eventtype.name.Umschaltventil;Umschaltventil~0x0A10;NoConversion;@@viessmann.eventtype.Umschaltventil.description;50;-1;-1;1;;0;-1
+VPlusHC1_130;435;4018;24;-1;@@viessmann.eventtype.name.nviApplicMode_BLR;nviApplicMode_BLR~0xA302;NoConversion;@@viessmann.eventtype.nviApplicMode_BLR.description;50;-1;-1;3;;0;-1
+VPlusHC1_130;435;4072;24;-1;@@viessmann.eventtype.name.nviBoilerCmd_BLR_state;nviBoilerCmd_BLR_state~0xA300;NoConversion;@@viessmann.eventtype.nviBoilerCmd_BLR_state.description;50;-1;-1;3;;;-1
+VPlusHC1_130;435;4073;24;0;@@viessmann.eventtype.name.nviBoilerCmd_BLR_value;nviBoilerCmd_BLR_value~0xA300;Div2;@@viessmann.eventtype.nviBoilerCmd_BLR_value.description;100;-1;-1;3;;;-1
+VPlusHC1_130;435;4112;24;0;@@viessmann.eventtype.name.nviSetpoint_BLR;nviSetpoint_BLR~0xA303;Div100;@@viessmann.eventtype.nviSetpoint_BLR.description;100;-1;-1;3;;;-1
+VPlusHC1_130;435;5372;24;0;@@viessmann.eventtype.name.TiefpassTemperaturwert_AGTS;TiefpassTemperaturwert_AGTS~0x0816;Div10;@@viessmann.eventtype.TiefpassTemperaturwert_AGTS.description;100;-1;-1;1;;;-1
+VPlusHC1_130;435;5374;24;0;@@viessmann.eventtype.name.TiefpassTemperaturwert_KTS;TiefpassTemperaturwert_KTS~0x0810;Div10;@@viessmann.eventtype.TiefpassTemperaturwert_KTS.description;100;-1;-1;1;;;-1
+VPlusHC1_130;435;7608;24;0;ecnsysEventType~ErrorNotification;ecnsysEventType~ErrorNotification;NoConversion;;100;-1;-1;1;;;-1
+VPlusHC1_130;435;7183;24;0;ecnsysEventType~Error;ecnsysEventType~Error;NoConversion;;100;-1;-1;1;;;-1
+VPlusHC1_130;435;7184;24;0;ecnsysEventType~ErrorIndex;ecnsysEventType~ErrorIndex;NoConversion;;100;-1;-1;1;;;-1
+VPlusHC1_130;435;12646;24;0;@@viessmann.eventtype.name.DatabaseVersionForExport;DatabaseVersionForExport;NoConversion;@@viessmann.eventtype.DatabaseVersionForExport.description;100;-1;-1;1;;1.0.0;-1

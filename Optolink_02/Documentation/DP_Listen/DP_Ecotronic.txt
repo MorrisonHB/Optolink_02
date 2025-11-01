@@ -1,0 +1,884 @@
+Ecotronic (VL300C)
+==================
+
+# Überblick (22177)
+- Kessel (22139)
+    - Gesamtstatus (11194) [Ecotronic_Kessel_Gesamtstatus~0x5158 (Int)]
+    - Kesselstatus (10938) [Ecotronic_Kesselstatus~0x0B11 (Int)]
+    - Kesseltyp (10939) [Ecotronic_Kesseltype~0x75B0 (Int)]
+    - Kesselpumpe (10946) [Ecotronic_Kesselpumpe~0x0844 (Int)]
+    - Laufzeit Kesselventil (11640) [Ecotronic_Laufzeit_Kesselventil~0x5150 (SInt)] HIDDEN:("Kesselventil"≠"1: thermisch")
+    - Kesselsolltemperatur (10947) [Ecotronic_Kesselsolltemperatur~0x0B2F (Int)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Position Primärluftklappe (4743) [SC100_PositionPrimaerluftklappe~0x0B1A (Byte)]
+    - Position Sekundärluftklappe (4744) [SC100_PositionSekundaerluftklappe~0x0B1B (Byte)]
+    - Drehzahl Gebläse Soll (4723) [SC100_DrehzahlSoll~0x0B1C (Int)]
+    - Drehzahl Gebläse Ist (4722) [SC100_DrehzahlIst~0x0B1E (Int)] HIDDEN:("Status Hallsensor Abgasgebläse"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur 4 (10953) [Ecotronic_Puffertemperatur_4~0x0822 (Int)] HIDDEN:("Status PTS4"="Nicht vorhanden")
+    - Puffertemperatur 5 (10954) [Ecotronic_Puffertemperatur_5~0x0824 (Int)] HIDDEN:("Status PTS5"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Puffertemperatur Soll (10956) [Ecotronic_Puffertemperatur_Soll~0x0828 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Pufferventil (12093) [Ecotronic_Laufzeit_Pufferventil~0x5114 (SInt)] HIDDEN:("Speicherventil vorhanden"="Nein")
+    - Uhrzeit (4001) [NRF_Uhrzeit~0x088E (Array)]
+    - Aussentemperatur (3993) [NRF_TiefpassTemperaturwert_ATS~0x080E (SInt)]
+    - Brennerstarts (11099) [Ecotronic_Kesselstarts~0x08A3 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Betriebsstunden Volllast (11100) [Ecotronic_Betriebsstunden_Volllast~0x5104 (Int)]
+    - Betriebsstunden Teillast (11101) [Ecotronic_Betriebsstunden_Teillast~0x5106 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Betriebsstunden (12032) [Ecotronic_Betriebsstunden_Kessel~0x5108 (Int)]
+    - Brennstoffverbrauch (3488) [NRF_Brennstoffverbrauch_Bedien~0x08B4 (Int4)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Aktuelle Leistung (10942) [Ecotronic_Abgasdrehzahl~0x0B20 (Byte)]
+- Allgemein (22211)
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - (80) Verzögerung Fehleranzeige (3630) [NRF_K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (90) Zeitkonstante Aussentemperatur (1022) [K90_KonfiZeitkonstAussentemperatur~0x7790 (Byte)]
+    - Ausgang Sammelstörung (3514) [NRF_DigitalAusgang_SSM~0x0847 (Byte)]
+    - Ausgang Zirkulationspumpe (3515) [NRF_DigitalAusgang_ZP~0x0846 (Byte)] HIDDEN:("Zirkulation am Kessel"="Nein")
+    - Kessel (12034) [Ecotronic_Kessel_Ein_Aus~0x512E (Int)]
+- Beschickung (22219) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Beschickungsschema (10958) [Ecotronic_Beschickungsschema~0x5717 (Int)]
+    - Einschubschnecke Takt (10959) [Ecotronic_Einschubschnecke_Ist~0x0B2B (Byte)]
+    - Umschalteinheit aktuelle Sonde (11223) [Ecotronic_Umschalteinheit Sonde~0x57B0 (Int)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit  Laufzeit aktuelle Sonde (11224) [Ecotronic_Umschalteinheit_Sonde_Laufzeit~0x57B1 (Int)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Betriebsstunden Saugmodul (12037) [Ecotronic_Betriebsstunden_Saugmodul~0x57B4 (Int)]
+- Heizkreis 1 (22140) HIDDEN:("Heizkreis HK1"="Nein")
+    - Betriebsart HK1 (11249) [Ecotronic_Betriebsart_HK1 (Byte)]
+    - Aktueller Betriebsstatus HK1 (10940) [Ecotronic_Heizungstatus~0x2500 (Int)]
+    - Vorlauftemperatur HK1 (11263) [Ecotronic_Vorlauftemperatur_HK1~0x2900 (Int)] HIDDEN:("Status VTS1"="Nicht vorhanden")
+    - Raumtemperatur Soll Normalbetrieb HK1 (11253) [Ecotronic_Raumsoll_Normal_HK1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK1 (11254) [Ecotronic_Raumsoll_Reduziert_HK1~0x2307 (Byte)]
+    - Raumtemperatur Ist (11107) [Ecotronic_Heizung_Raumtemperatur_HK1~0x2610 (SInt)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - Partybetrieb HK1 (11051) [Ecotronic_BedienPartybetriebM1~0x2300 (Byte)]
+    - Sparbetrieb HK1 (11585) [Ecotronic_BedienSparbetrieb_HK1~0x2302 (Byte)]
+    - Neigung der Heizkrennlinie HK1 (11588) [Ecotronic_BedienNeigung_HK1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie HK1 (11054) [Ecotronic_BedienNiveauM1~0x2304 (SByte)]
+    - Ferienprogramm HK1 (11591) [Ecotronic_HK_Ferienbetrieb_HK1~0x2535 (Byte)]
+    - Ferien Abreisetag HK1 (11594) [Ecotronic_FerienBeginn_HK1~0x2309 (Array)]
+    - Ferien Rückreisetag HK1 (11597) [Ecotronic_FerienEnde_HK1~0x2311 (Array)]
+    - (A3) Frostgrenze HK1 (11600) [Ecotronic_KA3_KonfiFrostgrenze_HK1~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion HK1 (11603) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK1~0x27A4 (Byte)]
+    - Heizung Wunschtemperatur HK1 (11103) [Ecotronic_Heizung_Wunschtemperatur_HK1~0x2602 (SInt)]
+    - Heizkreispumpe HK1 (10961) [Ecotronic_Pumpe_HK1~0x2600 (Byte)]
+    - Mischerposition HK1 (11245) [Ecotronic_Mischerposition_HK1 (Byte)]
+- Heizkreis 2 (22141) HIDDEN:("Heizkreis HK2"="Nein")
+    - Betriebsart HK2 (11250) [Ecotronic_Betriebsart_HK2~0x3323 (Byte)]
+    - Aktueller Betriebsstatus HK2 (10963) [Ecotronic_Heizungstatus_HK2~0x3500 (Int)]
+    - Vorlauftemperatur HK2 (11264) [Ecotronic_Vorlauftemperatur_HK2~0x3900 (Int)] HIDDEN:("Status VTS2"="Nicht vorhanden")
+    - Raumtemperatur Soll Normalbetrieb HK2 (11255) [Ecotronic_Raumsoll_Normal_HK2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK2 (11256) [Ecotronic_Raumsoll_Reduziert_HK2~0x3307 (Byte)]
+    - Raumtemperatur Ist (11108) [Ecotronic_Heizung_Raumtemperatur_HK2~0x3610 (SInt)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - Partybetrieb HK2 (11050) [Ecotronic_BedienPartybetriebM2~0x3300 (Byte)]
+    - Sparbetrieb HK2 (11586) [Ecotronic_BedienSparbetrieb_HK2~0x3302 (Byte)]
+    - Neigung der Heizkennlinie HK2 (11589) [Ecotronic_BedienNeigung_HK2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie HK2 (11053) [Ecotronic_BedienNiveauM2~0x3304 (SByte)]
+    - Ferienprogramm HK2 (11592) [Ecotronic_HK_Ferienbetrieb_HK2~0x3535 (Byte)]
+    - Ferien Abreisetag HK2 (11595) [Ecotronic_FerienBeginn_HK2~0x3309 (Array)]
+    - Ferien Rückreisetag HK2 (11598) [Ecotronic_FerienEnde_HK2~0x3311 (Array)]
+    - (A3) Frostgrenze HK2 (11601) [Ecotronic_KA3_KonfiFrostgrenze_HK2~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion HK2 (11604) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK2~0x37A4 (Byte)]
+    - Heizung Wunschtemperatur HK2 (11104) [Ecotronic_Heizung_Wunschtemperatur_HK2~0x3602 (SInt)]
+    - Heizkreispumpe HK2 (10962) [Ecotronic_Pumpe_HK2~0x3600 (Byte)]
+    - Mischerposition HK2 (11246) [Ecotronic_Mischerposition_HK2 (Byte)]
+- Heizkreis 3 (22231) HIDDEN:("Heizkreis HK3"="Nein")
+    - Betriebsart HK3 (11251) [Ecotronic_Betriebsart_HK3~0x4323 (Byte)]
+    - Aktueller Betriebsstatus HK3 (10966) [Ecotronic_Heizungstatus_HK3~0x4500 (Int)]
+    - Vorlauftemperatur HK3 (11265) [Ecotronic_Vorlauftemperatur_HK3~0x4900 (Int)] HIDDEN:("Status VTS3"="Nicht vorhanden")
+    - Raumtemperatur Soll Normalbetrieb HK3 (11257) [Ecotronic_Raumsoll_Normal_HK3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK3 (11258) [Ecotronic_Raumsoll_Reduziert_HK3~0x4307 (Byte)]
+    - Raumtemperatur Ist (11109) [Ecotronic_Heizung_Raumtemperatur_HK3~0x4610 (SInt)] HIDDEN:(A0_KennFBM3="0 ohne")
+    - Partybetrieb HK3 (11049) [Ecotronic_BedienPartybetriebM3~0x4300 (Byte)]
+    - Sparbetrieb HK3 (11587) [Ecotronic_BedienSparbetrieb_HK3~0x4302 (Byte)]
+    - Neigung der Heizkennlinie HK3 (11590) [Ecotronic_BedienNeigung_HK3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie HK3 (11052) [Ecotronic_BedienNiveauM3~0x4304 (SByte)]
+    - Ferienprogramm HK3 (11593) [Ecotronic_HK_Ferienbetrieb_HK3~0x4535 (Byte)]
+    - Ferien Abreisetag HK3 (11596) [Ecotronic_FerienBeginn_HK3~0x4309 (Array)]
+    - Ferien Rückreisetag HK3 (11599) [Ecotronic_FerienEnde_HK3~0x4311 (Array)]
+    - (A3) Frostgrenze HK3 (11602) [Ecotronic_KA3_KonfiFrostgrenze_HK3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion HK3 (11605) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK3~0x47A4 (Byte)]
+    - Heizung Wunschtemperatur HK3 (11105) [Ecotronic_Heizung_Wunschtemperatur_HK3~0x4602 (SInt)]
+    - Heizkreispumpe HK3 (10964) [Ecotronic_Pumpe_HK3~0x4500 (Byte)]
+    - Mischerposition HK3 (11247) [Ecotronic_Mischerposition_HK3 (Byte)]
+- Heizkreis 4 (22234) HIDDEN:("Heizkreis HK4"="Nein")
+    - Betriebsart HK4 (10969) [Ecotronic_BedienteilBA_GWGM4~0x8323 (Byte)]
+    - Aktueller Betriebsstatus HK4 (10967) [Ecotronic_Heizungstatus_HK4~8500 (Int)]
+    - Vorlauftemperatur HK4 (10970) [Ecotronic_VorlauftemperaturM4~0x8900 (Int)] HIDDEN:("Status VTS4"="Nicht vorhanden")
+    - Raumtemperatur Soll Normalbetrieb HK4 (10968) [Ecotronic_BedienRTSolltemperaturHK4~0x8306 (Byte)]
+    - Raumtemperatur Soll reduzierter Betrieb HK4 (10971) [Ecotronic_BedienRTSolltemperaturReduziertM4~0x8307 (Byte)]
+    - Raumtemperatur Ist (11110) [Ecotronic_Heizung_Raumtemperatur_HK4~0x8610 (SInt)] HIDDEN:("(A0) Kennung Fernbedienung HK4"="0 ohne")
+    - Partybetrieb HK4 (10972) [Ecotronic_BedienPartybetriebM4~0x8300 (Byte)]
+    - Sparbetrieb HK4 (10973) [Ecotronic_BedienSparbetriebM4~0x8302 (Byte)]
+    - Neigung der Heizkennlinie HK4 (10975) [Ecotronic_BedienNeigungM4~0x8305 (Byte)]
+    - Niveau der Heizkennlinie HK4 (10974) [Ecotronic_BedienNiveauM4~0x8304 (SByte)]
+    - Ferienprogramm HK4 (10976) [Ecotronic_HK_FerienbetriebM4~0x8535 (Byte)]
+    - Ferien Abreisetag HK4 (10977) [Ecotronic_FerienBeginnM4~0x8309 (Array)]
+    - Ferien Rückreisetag HK4 (10978) [Ecotronic_FerienEndeM4~0x8311 (Array)]
+    - (A3) Frostgrenze HK4 (10979) [Ecotronic_KA3_KonfiFrostgrenzeM4~0x87A3 (SByte)]
+    - (A4) Frostschutzfunktion HK4 (10980) [Ecotronic_KA4_KonfiKeineFrostschutzfunktionM4~0x87A4 (Byte)]
+    - Heizung Wunschtemperatur HK4 (11106) [Ecotronic_Heizung_Wunschtemperatur_HK4~0x8602 (SInt)]
+    - Heizkreispumpe HK4 (10965) [Ecotronic_Pumpe_HK4~0x8600 (Byte)]
+    - Mischerposition HK4 (10981) [Ecotronic_HK_Mischerposition_akt_M4~0x854C (Byte)]
+- Warmwasser (22142) HIDDEN:("Warmwasser"="Nein")
+    - WW Betriebsart (10982) [Ecotronic_WW_Programm_Zustand~0x6323 (Byte)]
+    - WW interner Status (10944) [Ecotronic_WW_Status~0x650A (Byte)]
+    - Warmwassertemperatur Soll (10983) [Ecotronic_Bedien_WW_Solltemperatur~0x6300 (Int)]
+    - Speichertemperatur (3996) [NRF_TiefpassTemperaturwert_STS~0x0814 (SInt)] HIDDEN:("Status Speichersensor"="Nicht vorhanden")
+    - Ausgang SLP (3513) [NRF_DigitalAusgang_SLP~0x0845 (Byte)]
+    - Mischerposition WW (10985) [Ecotronic_HK_Mischerposition_akt_WW~0x654C (Byte)] HIDDEN:("Warmwasser"≠"Am Mischermodul")
+    - WW Wunschtemperatur (11195) [Ecotronic_WW_Wunschtemperatur~0x6602 (Int)]
+- Solarregelung (22143) HIDDEN:("Solar"="Nein")
+    - Betriebsart (10986) [Ecotronic_Solar_Programm_Zustand~0x6521 (Byte)]
+    - Aktueller Betriebsstatus (10987) [Ecotronic_Solar_Status~0x6520 (Byte)]
+    - Solar WW-Temperatur Unten (3997) [NRF_TiefpassTemperaturwert_STSSOL~0x081A (SInt)] HIDDEN:("Status Solar WW-Sensor"="Nicht vorhanden")
+    - (6C) Speicher Maximaltemperatur (3624) [NRF_K6C_KonfiSpeichermaximaltemperatur~0x676C (Byte)]
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Kollektortemperatur Soll (10988) [Ecotronic_Bedien_Solar_Speichertemperatur_Max~0x676C (Int)]
+    - Wärmemenge (10989) [Ecotronic_SolarWaerme~0x6556 (Int4)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solarpumpe (11641) [Ecotronic_Solarpumpe_Drehzahl~0x6552 (Int)]
+    - Solarertrag Heute (11895) [Ecotronic_Solarertrag_Heute~0x6600 (Int)]
+    - Solarertrag Gestern (11896) [Ecotronic_Solarertrag_Tag-1~0x6602 (Int)]
+    - Solarertrag Tag 3 (11897) [Ecotronic_Solarertrag_Tag-2~0x6604 (Int)]
+    - Solarertrag Tag 4 (11898) [Ecotronic_Solarertrag_Tag-3~0x6606 (Int)]
+    - Solarertrag Tag 5 (11899) [Ecotronic_Solarertrag_Tag-4~0x6608 (Int)]
+    - Solarertrag Tag 6 (11900) [Ecotronic_Solarertrag_Tag-5~0x660A (Int)]
+    - Solarertrag Tag 7 (11901) [Ecotronic_Solarertrag_Tag-6~0x660C (Int)]
+    - Solarertrag Tag 8 (12033) [Ecotronic_Solarertrag_Tag-7~0x6610 (Int)]
+
+# Bedienung (22178)
+- Kessel (22240)
+    - Kesselsolltemperatur (10947) [Ecotronic_Kesselsolltemperatur~0x0B2F (Int)]
+    - (C) Abgas Lambda Sollwert (10991) [Ecotronic_Lambda_Soll~0x5790 (Int)]
+- Allgemein (22241)
+    - Minimale Systemtemperatur (10992) [Ecotronic_Systemtemperatur_Min_Vorhanden~0x578A (Byte)]
+    - Minimale Systemtemperatur (10993) [Ecotronic_Systemtempratur_Min~0x578C (Int)] HIDDEN:("Minimale Systemtemperatur"="Nein")
+    - Zusätzlicher Kessel Pufferladung bis (10995) [Ecotronic_Zus_WE_Speicherladung_Bis~0x5850 (Int)] HIDDEN:("Zusatzkessel vorhanden"="Nein")
+    - Zusätzlicher Kessel Einschalttemperatur (10998) [Ecotronic_Zus_WE_Einschalttemperatur~0x5856 (SInt)] HIDDEN:("Zusatzkessel vorhanden"="Nein")
+    - Zusätzlicher Kessel unverzögert Einschalten (11661) [Ecotronic_Zus_WE_unverzoegert_Einschalten~0x585C (SInt)] HIDDEN:("Zusatzkessel vorhanden"="Nein")
+    - Zusätzlicher Kessel Laufzeit Min. (10999) [Ecotronic_Zus_WE_Min_Laufzeit~0x5858 (Int)] HIDDEN:("Zusatzkessel vorhanden"="Nein")
+    - Zusätzlicher Kessel Pausenzeit Min. (11000) [Ecotronic_Zus_WE_Min_Pausenzeit~0x585A (Int)] HIDDEN:("Zusatzkessel vorhanden"="Nein")
+    - Störmeldungen quittieren (11248) [Ecotronic_Fehler_Quittierung~0x7300 (Byte)]
+- Beschickung (22226) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (2C) Saugmodul Leerfahrzeit (11001) [Ecotronic_Pellet_Leerfahrzeit~0x572C (Int)] HIDDEN:("Beschickungsschema"≠"1: Saugmodul" AND "Beschickungsschema"≠"2: Saugmodul und Austragschnecke" AND "Beschickungsschema"≠"3: Saugmodul und externe Beschickung" AND "Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Förderschnecke Verzögerung (11662) [Ecotronic_Foerderschnecke_Verzoegerung~0x5751 (Int)]
+    - Austragung Takt Ein (11002) [Ecotronic_Austragung_Takt_Ein~0x5730 (Int)] HIDDEN:("Beschickungsschema"≠"5: Austragschnecke" AND "Beschickungsschema"≠"2: Saugmodul und Austragschnecke" AND "Beschickungsschema"≠"7: Förderschnecke und Austragschnecke")
+    - Austragung Takt Aus (11003) [Ecotronic_Austragung_Takt_Aus~0x5732 (Int)] HIDDEN:("Beschickungsschema"≠"5: Austragschnecke" AND "Beschickungsschema"≠"2: Saugmodul und Austragschnecke" AND "Beschickungsschema"≠"7: Förderschnecke und Austragschnecke")
+    - Umschalteinheit Laufzeit Sonde Soll (11005) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_Soll~0x5736 (Int)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 1 (11006) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_1~0x5738 (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 2 (11007) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_2~0x5739 (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 3 (11008) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_3~0x573A (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 4 (11009) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_4~0x573B (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 5 (11010) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_5~0x573C (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 6 (11011) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_6~0x573D (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 7 (11012) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_7~0x573E (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+    - Umschalteinheit Laufzeit Sonde 8 (11013) [Ecotronic_Umschalteinheit_Laufzeit_Sonde_8~0x573F (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+- Foerderzeiten (22138) HIDDEN:("Kesseltyp (ohne kW)"="VL250S" OR "Kesseltyp (ohne kW)"="VL300S" OR "Kesseltyp (ohne kW)"="VL200S" OR "Kesseltyp (ohne kW)"="VL150S")
+    - Schaltzeiten FT (11680) [Ecotronic_Schaltzeiten_FT~0x2180 (Array)]
+- Puffer (22666) HIDDEN:("Anzahl Puffersensoren"="Nein" OR "Kesseltyp (ohne kW)"="VL250S" OR "Kesseltyp (ohne kW)"="VL200S" OR "Kesseltyp (ohne kW)"="VL150S" OR "Kesseltyp (ohne kW)"="VL300S")
+    - Betriebsart (11664) [Ecotronic_Puffer_Betriebsart~0x5830 (Byte)]
+    - Neigung der Heizkennlinie (11665) [Ecotronic_Puffer_Neigung~0x5832 (Int)]
+    - Niveau der Heizkennlinie (11666) [Ecotronic_Puffer_Niveau~0x5834 (Int)]
+    - Temperatur Handbetrieb (11667) [Ecotronic_Puffer_Temp_Handbetrieb~0x5808 (Int)]
+- Puffer Heizzeiten (22665) HIDDEN:("Anzahl Puffersensoren"="Nein" OR "Kesseltyp (ohne kW)"="VL250S" OR "Kesseltyp (ohne kW)"="VL200S" OR "Kesseltyp (ohne kW)"="VL150S" OR "Kesseltyp (ohne kW)"="VL300S")
+    - Schaltzeiten Puffer (11663) [Ecotronic_Puffer_Schaltzeiten~0x5900 (Array)]
+- Betriebsdaten HK1 (22125) HIDDEN:("Heizkreis HK1"="Nein")
+    - Betriebsart HK1 (11249) [Ecotronic_Betriebsart_HK1 (Byte)]
+    - Partybetrieb HK1 (11051) [Ecotronic_BedienPartybetriebM1~0x2300 (Byte)]
+    - Sparbetrieb HK1 (11585) [Ecotronic_BedienSparbetrieb_HK1~0x2302 (Byte)]
+    - Neigung der Heizkrennlinie HK1 (11588) [Ecotronic_BedienNeigung_HK1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie HK1 (11054) [Ecotronic_BedienNiveauM1~0x2304 (SByte)]
+    - Raumtemperatur Soll Normalbetrieb HK1 (11253) [Ecotronic_Raumsoll_Normal_HK1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK1 (11254) [Ecotronic_Raumsoll_Reduziert_HK1~0x2307 (Byte)]
+    - Ferien Abreisetag HK1 (11594) [Ecotronic_FerienBeginn_HK1~0x2309 (Array)]
+    - Ferien Rückreisetag HK1 (11597) [Ecotronic_FerienEnde_HK1~0x2311 (Array)]
+    - (A3) Frostgrenze HK1 (11600) [Ecotronic_KA3_KonfiFrostgrenze_HK1~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion HK1 (11603) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK1~0x27A4 (Byte)]
+- Heizzeiten HK1 (22126) HIDDEN:("Heizkreis HK1"="Nein")
+    - Schaltzeiten A1M1 (7191) [Schaltzeiten_A1M1_HK (Array)]
+- Betriebsdaten HK2 (22129) HIDDEN:("Heizkreis HK2"="Nein")
+    - Betriebsart HK2 (11250) [Ecotronic_Betriebsart_HK2~0x3323 (Byte)]
+    - Partybetrieb HK2 (11050) [Ecotronic_BedienPartybetriebM2~0x3300 (Byte)]
+    - Sparbetrieb HK2 (11586) [Ecotronic_BedienSparbetrieb_HK2~0x3302 (Byte)]
+    - Neigung der Heizkennlinie HK2 (11589) [Ecotronic_BedienNeigung_HK2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie HK2 (11053) [Ecotronic_BedienNiveauM2~0x3304 (SByte)]
+    - Raumtemperatur Soll Normalbetrieb HK2 (11255) [Ecotronic_Raumsoll_Normal_HK2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK2 (11256) [Ecotronic_Raumsoll_Reduziert_HK2~0x3307 (Byte)]
+    - Ferien Abreisetag HK2 (11595) [Ecotronic_FerienBeginn_HK2~0x3309 (Array)]
+    - Ferien Rückreisetag HK2 (11598) [Ecotronic_FerienEnde_HK2~0x3311 (Array)]
+    - (A3) Frostgrenze HK2 (11601) [Ecotronic_KA3_KonfiFrostgrenze_HK2~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion HK2 (11604) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK2~0x37A4 (Byte)]
+- Heizzeiten HK2 (22130) HIDDEN:("Heizkreis HK2"="Nein")
+    - Schaltzeiten M2 (7194) [Schaltzeiten_M2_HK (Array)]
+- Betriebsdaten HK3 (22236) HIDDEN:("Heizkreis HK3"="Nein")
+    - Betriebsart HK3 (11251) [Ecotronic_Betriebsart_HK3~0x4323 (Byte)]
+    - Partybetrieb HK3 (11049) [Ecotronic_BedienPartybetriebM3~0x4300 (Byte)]
+    - Sparbetrieb HK3 (11587) [Ecotronic_BedienSparbetrieb_HK3~0x4302 (Byte)]
+    - Neigung der Heizkennlinie HK3 (11590) [Ecotronic_BedienNeigung_HK3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie HK3 (11052) [Ecotronic_BedienNiveauM3~0x4304 (SByte)]
+    - Raumtemperatur Soll Normalbetrieb HK3 (11257) [Ecotronic_Raumsoll_Normal_HK3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK3 (11258) [Ecotronic_Raumsoll_Reduziert_HK3~0x4307 (Byte)]
+    - Ferien Abreisetag HK3 (11596) [Ecotronic_FerienBeginn_HK3~0x4309 (Array)]
+    - Ferien Rückreisetag HK3 (11599) [Ecotronic_FerienEnde_HK3~0x4311 (Array)]
+    - (A3) Frostgrenze HK3 (11602) [Ecotronic_KA3_KonfiFrostgrenze_HK3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion HK3 (11605) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK3~0x47A4 (Byte)]
+- Heizzeiten HK3 (22242) HIDDEN:("Heizkreis HK3"="Nein")
+    - Schaltzeiten M3 (7197) [Schaltzeiten_M3_HK (Array)]
+- Betriebsdaten HK4 (22237) HIDDEN:("Heizkreis HK4"="Nein")
+    - Betriebsart HK4 (10969) [Ecotronic_BedienteilBA_GWGM4~0x8323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb HK4 (10968) [Ecotronic_BedienRTSolltemperaturHK4~0x8306 (Byte)]
+    - Raumtemperatur Soll reduzierter Betrieb HK4 (10971) [Ecotronic_BedienRTSolltemperaturReduziertM4~0x8307 (Byte)]
+    - Partybetrieb HK4 (10972) [Ecotronic_BedienPartybetriebM4~0x8300 (Byte)]
+    - Sparbetrieb HK4 (10973) [Ecotronic_BedienSparbetriebM4~0x8302 (Byte)]
+    - Neigung der Heizkennlinie HK4 (10975) [Ecotronic_BedienNeigungM4~0x8305 (Byte)]
+    - Niveau der Heizkennlinie HK4 (10974) [Ecotronic_BedienNiveauM4~0x8304 (SByte)]
+    - Ferien Abreisetag HK4 (10977) [Ecotronic_FerienBeginnM4~0x8309 (Array)]
+    - Ferien Rückreisetag HK4 (10978) [Ecotronic_FerienEndeM4~0x8311 (Array)]
+    - (A3) Frostgrenze HK4 (10979) [Ecotronic_KA3_KonfiFrostgrenzeM4~0x87A3 (SByte)]
+    - (A4) Frostschutzfunktion HK4 (10980) [Ecotronic_KA4_KonfiKeineFrostschutzfunktionM4~0x87A4 (Byte)]
+- Heizzeiten HK4 (22243) HIDDEN:("Heizkreis HK4"="Nein")
+    - Schaltzeiten HK4 (11014) [Ecotronic_Schaltzeiten_M4_HK~0x8000 (Array)]
+- Warmwasser (22238) HIDDEN:("Warmwasser"="Nein")
+    - WW Betriebsart (10982) [Ecotronic_WW_Programm_Zustand~0x6323 (Byte)]
+    - Warmwassertemperatur Soll (10983) [Ecotronic_Bedien_WW_Solltemperatur~0x6300 (Int)]
+- Heizzeiten Warmwasser (22136) HIDDEN:("Warmwasser"="Nein")
+    - Schaltzeiten M1 WW (7212) [NRF_Schaltzeiten_M1 (Array)]
+- Zirkulation (22266) HIDDEN:("Zirkulation am Kessel"="Nein")
+    - Zirkulation Betriebsprogramm (11221) [Ecotronic_Zirkulation_BA~0x2140 (Byte)]
+- Heizzeiten Zirkulation (22137) HIDDEN:("Zirkulation am Kessel"="Nein")
+    - Schaltzeiten M1 ZP (7215) [NRF_Schaltzeiten_M1_ZP (Array)]
+- Solar (22244) HIDDEN:("Solar"="Nein")
+    - Betriebsart (10986) [Ecotronic_Solar_Programm_Zustand~0x6521 (Byte)]
+
+# Inbetriebnahme (22179)
+- Kessel (22203)
+    - Externe Leistungsvorgabe (11022) [Ecotronic_Externe_Leistungsvorgabe~0x779D (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Externe Anforderung (11021) [Ecotronic_Externe_Anforderung~0x57A4 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Automatische Zündung (11978) [Ecotronic_Automatische_Zuendung~0x57E0 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - Kesselventil (11979) [Ecotronic_Kesselventil~0x5803 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S")
+- Allgemein (22194)
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - Anzahl Puffersensoren (11222) [Ecotronic_Anzahl_Puffer~0x5800 (Byte)]
+    - Puffertype (11018) [Ecotronic_Puffertype~0x5801 (Byte)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Speicherventil vorhanden (11019) [Ecotronic_Speicherventil_vorhanden~0x5802 (Byte)] HIDDEN:("Kesseltyp"≠"VL200S" AND "Kesseltyp"≠"VL200S 20kW" AND "Kesseltyp"≠"VL200S 30kW" AND "Kesseltyp"≠"VL200S 40kW" AND "Kesseltyp"≠"VL200S 50kW")
+    - Zusatzkessel vorhanden (11020) [Ecotronic_Zusatzkessel_vorhanden~0x57A8 (Byte)]
+    - Zusatzkessel Parallelbetrieb erlaubt (11668) [Ecotronic_Zusatzkessel_Parallelbetrieb_erlaubt~0x585E (Byte)]
+- LAN-Karte (22247)
+    - LAN Card enabled (10461) [HO2B_LAN_Card_Enabled~0xD063 (Byte)]
+    - DHCP (10459) [HO2B_DynamicIP~0xD01A (Byte)]
+    - IP Adresse (10458) [HO2B_IP_Adresse~0xD006 (Array)]
+    - Subnetzmaske (11041) [Ecotronic_LAN_Netzmaske~0xD00A (Array)]
+    - Standard Gateway (11042) [Ecotronic_LAN_Gateway~0xD00E (Array)]
+    - Sekundärer DNS Server (11044) [Ecotronic_LAN_Sek_DNS_Server~0xD012 (Array)]
+    - Proxy Server enabled (10460) [HO2B_Proxy~0xD062 (Byte)]
+    - Proxy Server (11045) [Ecotronic_LAN_Proxy_Server~0xD01B (String)]
+    - Proxy Port (11048) [Ecotronic_LAN_Proxy_Port~0xD03B (Int)]
+    - Proxy User (11046) [Ecotronic_LAN_Proxy_User~0xD03D (String)]
+    - Proxy Passwort (11047) [Ecotronic_LAN_Proxy_Passwort~0xD05D (String)]
+    - MAC Adresse (11128) [Ecotronic_LAN_MAC_Adresse~0xD000 (String)]
+- Beschickung (22227) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Sensor Silo (11023) [Ecotronic_Sensor_Silo~0x5726 (Byte)]
+    - Beschickungsschema (10958) [Ecotronic_Beschickungsschema~0x5717 (Int)]
+    - Anzahl Saugsonden (11259) [Ecotronic_Anzahl_Saugsonden~0x5752 (Byte)] HIDDEN:("Beschickungsschema"≠"4: Saugmodul und Umschalteinheit" AND "Beschickungsschema"≠"7: Förderschnecke und Austragschnecke")
+- Heizkreis HK1 (22195)
+    - Heizkreis HK1 (11024) [Ecotronic_HK1_Angeschlossen~0x2400 (Byte)]
+    - (A2) Speichervorrang HK1 (11606) [Ecotronic_KA2_KonfiSpeichervorrang_HK1~0x27A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle A1M1 (1075) [KA5_KonfSommersparSchaltschwelleA1M1~0x27A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung A1M1 (1078) [KA6_KonfiAbsolutSommersparA1M1~0x27A6 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung A1M1 (2847) [KC5_KonfiMinimalbegrenzungA1M1~0x27C5 (Byte)]
+    - (C6) Maximalbegrenzung VT-Sollwert A1M1 (3661) [NRF_KC6_KonfiVTMaxA1M1~0x27C6 (Byte)]
+- Heizkreis HK2 (22196)
+    - Heizkreis HK2 (11025) [Ecotronic_HK2_Angeschlossen~0x3400 (Byte)]
+    - (A2) Speichervorrang HK2 (11607) [Ecotronic_KA2_KonfiSpeichervorrang_HK2~0x37A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M2 (1076) [KA5_KonfSommersparSchaltschwelleM2~0x37A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M2 (1079) [KA6_KonfiAbsolutSommersparM2~0x37A6 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung M2 (2848) [KC5_KonfiMinimalbegrenzungM2~0x37C5 (Byte)]
+    - (C6) Maximalbegrenzung VT-Sollwert M2 (3662) [NRF_KC6_KonfiVTMaxM2~0x37C6 (Byte)]
+- Heizkreis HK3 (22246)
+    - Heizkreis HK3 (11026) [Ecotronic_HK3_Angeschlossen~0x4400 (Byte)]
+    - (A2) Speichervorrang HK3 (11608) [Ecotronic_KA2_KonfiSpeichervorrang_HK3~0x47A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle M3 (1077) [KA5_KonfSommersparSchaltschwelleM3~0x47A5 (Byte)]
+    - (A6) Absolute Sommersparschaltung M3 (1080) [KA6_KonfiAbsolutSommersparM3~0x47A6 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung M3 (2849) [KC5_KonfiMinimalbegrenzungM3~0x47C5 (Byte)]
+    - (C6) Maximalbegrenzung VT-Sollwert HK3 (11028) [Ecotronic_KC6_KonfiVTMaxM3~0x47C6 (Byte)]
+- Heizkreis HK4 (22245)
+    - Heizkreis HK4 (11027) [Ecotronic_HK4_Angeschlossen~8400 (Byte)]
+    - (A2) Speichervorrang HK4 (11030) [KA2_KonfiSpeichervorrangM4~0x87A2 (Byte)]
+    - (A5) Sommersparschaltung Schaltschwelle HK4 (11031) [KA5_KonfSommersparSchaltschwelleM4~0x87A5 (Byte)]
+    - (A6) Sommersparschaltung Absolut HK4 (11032) [KA6_KonfiAbsolutSommersparM4~0x87A6 (Byte)]
+    - (C5) Vorlauf - Minimalbegrenzung HK4 (11033) [KC5_KonfiMinimalbegrenzungM4~0x87C5 (Byte)]
+    - (C6) Maximalbegrenzung VT-Sollwert HK4 (11029) [Ecotronic_KC6_KonfiVTMaxM4~0x87C6 (Byte)]
+- Warmwasser (22197)
+    - Warmwasser (11034) [Ecotronic_WW_Angeschlossen~0x6400 (Byte)]
+    - Zirkulation am Kessel (11035) [Ecotronic_WW_Zirkulation_Kessel~0x6402 (Byte)]
+    - (67) WW Soll bei Nachladeunterdrückung Solar (11036) [Ecotronic_WW_Soll_Nachlade~0x6768 (Byte)]
+    - (85) Einschalthysterese WW (11037) [Ecotronic_WW_Hysterese~0x6306 (Byte)]
+- Solar (22204)
+    - Solar (11039) [Ecotronic_Solar_Aktiv~0x6401 (Byte)]
+    - Solar am Kessel Umschaltventil vorhanden (11040) [Ecotronic_Solar_Umschaltventil~0x6404 (Byte)]
+
+# Codierung 2 (22184)
+- Kessel (22158)
+    - (1) Laufzeit Lastbetrieb (11055) [Ecotronic_Laufzeit_Lastbetrieb~0x5782 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - (C) Abgas Lambda Sollwert (10991) [Ecotronic_Lambda_Soll~0x5790 (Int)]
+    - (D) Abgas Lambda Korrektur (11057) [Ecotronic_Lambda_Korrektur~0x57AA (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (E) Maximale Kesseltemperatur (11058) [Ecotronic_Kessel_Maximaltemperatur~0x5706 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (11) Vorlaufregler aktiv (11669) [Ecotronic_Vorlaufregler_aktiv~0x5786 (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - (1C) Kesselpumpe Minimaldrehzahl (11061) [Ecotronic_KP_Min_Drehzahl~0x57AE (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - (1D) Kesselpumpe Maximaldrehzahl (11062) [Ecotronic_KP_Max_Drehzahl~0x57AD (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - (3C) Abgasgebläse Drehzahl Start (11063) [Ecotronic_Abgasventilator_Drehzahl_Start~0x579A (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (3D) Abgasgebläse Drehzahl Minimal (11064) [Ecotronic_Abgasventilator_Drehzahl_Min~0x579C (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (3E) Abgasgebläse Drehzahl Maximal (11065) [Ecotronic_Abgasventilator_Drehzahl_Max~0x579E (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (3F) Abgastemperatur Minimal (11670) [Ecotronic_Abgas_Minimaltemperatur~0x57C1 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - Abgastemperatur Grenzwert (11066) [Ecotronic_Abgastemperatur_Grenzwert~0x5780 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (50) Geregelter Pufferladebetrieb (12001) [Ecotronic_Geregelter_Pufferladebetrieb~0x5810 (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL250S" AND "Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (FD) Puffersolltemperatur Zündung (12005) [Ecotronic_Speichertemperatur_Zuendung~0x57E2 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (FC) Puffer Maximaltemperatur (12006) [Ecotronic_Puffer_Maximaltemperatur~0x57E4 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (FE) Zündung Laufzeit (12007) [Ecotronic_Zuendung_Laufzeit~0x57E6 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+- Allgemein (22157)
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - (80) Verzögerung Fehleranzeige (3630) [NRF_K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (81) Funktion Uhr (11260) [Ecotronic_K81_KonfiFunktionUhr~0x7781 (Byte)]
+    - (90) Zeitkonstante Aussentemperatur (1022) [K90_KonfiZeitkonstAussentemperatur~0x7790 (Byte)]
+    - (91) Minimaltemperatur Puffer 1 oben (11067) [Ecotronic_Min_Temp_Puffer~0x5812 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - (92) Witterungstemperatur Offset (11068) [Ecotronic_Offset_Witterung~0x5814 (SInt)]
+- Beschickung (22159)
+    - (2C) Saugmodul Leerfahrzeit (11001) [Ecotronic_Pellet_Leerfahrzeit~0x572C (Int)] HIDDEN:("Beschickungsschema"≠"1: Saugmodul" AND "Beschickungsschema"≠"2: Saugmodul und Austragschnecke" AND "Beschickungsschema"≠"3: Saugmodul und externe Beschickung" AND "Beschickungsschema"≠"4: Saugmodul und Umschalteinheit")
+- Puffer (22667)
+    - (34) Puffersolltemperatur Maximal (11671) [Ecotronic_Puffersoll_Maximal~0x5806 (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (35) Puffersolltemperatur Minimal (11672) [Ecotronic_Puffersoll_Minimal~5804 (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (36) Pufferladung bis Sensor (11673) [Ecotronic_Pufferladung_bis_Sensor~0x580A (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (37) Pufferladung bis Temperatur (11674) [Ecotronic_Pufferladung_bis_Temp~0x580E (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (39) Kesselstart bei Sensor (11675) [Ecotronic_Kesselstart_bei_Sensor~0x5816 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (50) Geregelter Pufferladebetrieb (12001) [Ecotronic_Geregelter_Pufferladebetrieb~0x5810 (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL250S" AND "Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+- Heizkreis HK1 (22161)
+    - (A0) Kennung Fernbedienung A1M1 (1056) [KA0_KonfiKennungFernbedienungA1M1~0x27A0 (Byte)]
+    - (A3) Frostgrenze HK1 (11600) [Ecotronic_KA3_KonfiFrostgrenze_HK1~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion HK1 (11603) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK1~0x27A4 (Byte)]
+    - (A7) Mischersparfunktion HK1 (11226) [Ecotronic_KA7_KonfiMischersparfunktionHK1~0x27A7 (Byte)]
+    - (F1) Estrichfunktion Soll HK1 (11229) [Ecotronic_KF1_KonfiTemperaturprogrammHK1~0x27F1 (Byte)]
+    - (F2) Partyfunktion Zeitbegrenzung HK1 (2960) [KF2_KonfiPartyzeitA1M1~0x27F2 (Byte)]
+    - (F4) Mischerlaufzeit Soll HK1 (11072) [Ecotronic_Mischermodul_Laufzeit_HK1~0x27C3 (Byte)]
+- Heizkreis HK2 (22162)
+    - (A0) Kennung Fernbedienung M2 (1057) [KA0_KonfiKennungFernbedienungM2~0x37A0 (Byte)]
+    - (A3) Frostgrenze HK2 (11601) [Ecotronic_KA3_KonfiFrostgrenze_HK2~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion HK2 (11604) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK2~0x37A4 (Byte)]
+    - (A7) Mischersparfunktion HK2 (11227) [Ecotronic_KA7_KonfiMischersparfunktionHK2~0x37A7 (Byte)]
+    - (F1) Estrichfunktion Soll HK2 (11230) [Ecotronic_KF1_KonfiTemperaturprogrammHK2~0x37F1 (Byte)]
+    - (F2) Partyfunktion Zeitbegrenzung HK2 (2964) [KF2_KonfiPartyzeitM2~0x37F2 (Byte)]
+    - (F4) Mischerlaufzeit Soll HK2 (11074) [Ecotronic_Mischermodul_Laufzeit_HK2~0x37C3 (Byte)]
+- Heizkreis HK3 (22248)
+    - (A0) Kennung Fernbedienung M3 (1058) [KA0_KonfiKennungFernbedienungM3~0x47A0 (Byte)]
+    - (A3) Frostgrenze HK3 (11602) [Ecotronic_KA3_KonfiFrostgrenze_HK3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion HK3 (11605) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK3~0x47A4 (Byte)]
+    - (A7) Mischersparfunktion HK3 (11228) [Ecotronic_KA7_KonfiMischersparfunktionHK3~0x47A7 (Byte)]
+    - (F1) Estrichfunktion Soll HK3 (11231) [Ecotronic_KF1_KonfiTemperaturprogrammHK3~0x47F1 (Byte)]
+    - (F2) Partyfunktion Zeitbegrenzung HK3 (2966) [KF2_KonfiPartyzeitM3~0x47F2 (Byte)]
+    - (F4) Mischerlaufzeit Soll HK3 (11075) [Ecotronic_Mischermodul_Laufzeit_HK3~0x47C3 (Byte)]
+- Heizkreis HK4 (22250)
+    - (A0) Kennung Fernbedienung HK4 (11078) [Ecotronic_KA0_KonfiKennungFernbedienungM4~0x87A0 (Byte)]
+    - (A3) Frostgrenze HK4 (10979) [Ecotronic_KA3_KonfiFrostgrenzeM4~0x87A3 (SByte)]
+    - (A4) Frostschutzfunktion HK4 (10980) [Ecotronic_KA4_KonfiKeineFrostschutzfunktionM4~0x87A4 (Byte)]
+    - (A7) Mischersparfunktion HK4 (11079) [Ecotronic_KA7_KonfiMischersparfunktionM4~0x87B0 (Byte)]
+    - (F1) Estrichfunktion Soll HK4 (11080) [Ecotronic_KF1_KonfiTemperaturprogrammM4~0x87F1 (Byte)]
+    - (F2) Partyfunktion Zeitbegrenzung HK4 (11081) [Ecotronic_KF2_KonfiPartyzeitM4~0x87F2 (Byte)]
+    - (F4) Mischerlaufzeit Soll HK4 (11083) [Ecotronic_Mischermodul_Laufzeit_HK4~0x87C3 (Byte)]
+- Fernbedienung HK1 (22163) HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - (B0) Raumaufschaltung A1M1 (1101) [KB0_KonfiRaumaufschaltungA1M1~0x27B0 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne" OR A0_KennFBA1M1="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK1 (1104) [KB2_KonfiRaumeinflussA1M1~0x27B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung A1M1"="0 WS - WS")
+    - (B5) Raumgerät Sommersparfunktion A1M1 (3653) [NRF_KB5_KonfiRaumSommersparA1M1~0x27B5 (Byte)]
+    - (C8) Raumgerät Begrenzung A1M1 (2859) [KC8_KonfiBegrenzungRaumeinflussA1M1~0x27C8 (Byte)]
+    - (E2) Raumgerät Istwertkorrektur A1M1 (2889) [KE2_KonfiRT_KorrekturFernbedienungA1M1~0x27E2 (Byte)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+- Fernbedienung HK2 (22164) HIDDEN:(A0_KennFBM2="0 ohne")
+    - (B0) Raumaufschaltung M2 (1102) [KB0_KonfiRaumaufschaltungM2~0x37B0 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne" OR A0_KennFBM2="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK2 (1105) [KB2_KonfiRaumeinflussM2~0x37B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung M2"="0 WS - WS")
+    - (B5) Raumgerät Sommersparfunktion M2 (3654) [NRF_KB5_KonfiRaumSommersparM2~0x37B5 (Byte)]
+    - (C8) Raumgerät Begrenzung M2 (2860) [KC8_KonfiBegrenzungRaumeinflussM2~0x37C8 (Byte)]
+    - (E2) Raumgerät Istwertkorrektur M2 (2890) [KE2_KonfiRT_KorrekturFernbedienungM2~0x37E2 (Byte)] HIDDEN:(A0_KennFBM2="0 ohne")
+- Fernbedienung HK3 (22249) HIDDEN:(A0_KennFBM3="0 ohne")
+    - (B0) Raumaufschaltung M3 (1103) [KB0_KonfiRaumaufschaltungM3~0x47B0 (Byte)] HIDDEN:(A0_KennFBM3="0 ohne" OR A0_KennFBM3="nicht vorhanden")
+    - (B2) Raumgerät Raumeinfluß HK3 (1106) [KB2_KonfiRaumeinflussM3~0x47B2 (Byte)] HIDDEN:("(B0) Raumaufschaltung M3"="0 WS - WS")
+    - (B5) Raumgerät Sommersparfunktion (11077) [Ecotronic_KonfiRaumSommersparM3~0x47B5 (Byte)]
+    - (C8) Raumgerät Begrenzung M3 (2861) [KC8_KonfiBegrenzungRaumeinflussM3~0x47C8 (Byte)]
+    - (E2) Raumgerät Istwertkorrektur M3 (2891) [KE2_KonfiRT_KorrekturFernbedienungM3~0x47E2 (Byte)]
+- Fernbedienung HK4 (22251) HIDDEN:("(A0) Kennung Fernbedienung HK4"="0 ohne")
+    - (B0) Raumaufschaltung (11084) [Ecotronic_KB0_KonfiRaumaufschaltungM4~0x87B0 (Byte)]
+    - (B2) Raumgerät Raumeinfluß HK4 (11085) [Ecotronic_KB2_KonfiRaumeinflussM4~0x87B2 (Byte)]
+    - (B5) Raumgerät Sommersparfunktion (11086) [Ecotronic_KonfiRaumSommersparM4~0x87B5 (Byte)]
+    - (C8) Raumgerät Begrenzung HK4 (11087) [Ecotronic_KC8_KonfiBegrenzungRaumeinflussM4~0x87C8 (Byte)]
+    - (E2) Raumgerät Istwertkorrektur HK4 (11088) [Ecotronic_KE2_KonfiRT_KorrekturFernbedienungM4~0x87E2 (Byte)]
+- Warmwasser (22160)
+    - (C) Warmwasser Differenz (11089) [Ecotronic_WW_Differenz~0x6302 (Byte)]
+    - (85) Einschalthysterese WW (11037) [Ecotronic_WW_Hysterese~0x6306 (Byte)]
+- Solarregelung (22252)
+    - (6E) Differenztemperatur Warmwasser (11091) [Ecotronic_Solar_Differenz_WW~0x676D (Byte)]
+    - (6F) Maximaltemperatur Warmwasser (11092) [Ecotronic_Solar_Maximaltemp_WW~0x676C (Byte)] HIDDEN:("Warmwasser"="Nein")
+    - (70) Differenztemperatur Puffer (11093) [Ecotronic_Solar_Differenztemp_Puffer~0x676E (Byte)]
+    - (73) Solarpumpe Maximaldrehzahl (11094) [Ecotronic_Solar_Pumpe_Drehzahl_Max~0x6770 (Byte)]
+    - (74) Solarpumpe Minimaldrehzahl (11095) [Ecotronic_Solar_Pumpe_Drehzahl_Min~0x6771 (Byte)]
+    - (75) Nennvolumensstrom Kollektorkreis (11096) [Ecotronic_Solar_Volumenstrom~0x6766 (Int)]
+    - (71) Zusatzfunktion Solar Startzeit (11097) [Ecotronic_Solar_Zusatzfunktion_Startzeit~0x6403 (Byte)]
+    - (72) Zusatzfunktion Laufzeit (11098) [Ecotronic_Solar_Zusatzfunktion_Laufzeit~0x676F (Byte)]
+
+# Gerätedaten (22186)
+- Regelung (22152)
+    - Kesseltyp (10939) [Ecotronic_Kesseltype~0x75B0 (Int)]
+    - Regelung Gerätegruppe (5319) [SystemIdent_SX~0x00F8 (Array)]
+    - KSK HW-Version (11111) [Ecotronic_0D02~0x0D02 (Byte)]
+    - KSK Seriennummer (11112) [Ecotronic_0D00~0x0D00 (Int)]
+    - ZPK HW-Version (11113) [Ecotronic_0D03~0x0D03 (Byte)]
+    - HKK HW-Version (11114) [Ecotronic_0D04~0x0D04 (Byte)]
+    - BLS HW-Version (11115) [Ecotronic_0D05~0x0D05 (Byte)]
+    - FW Software-Version (11123) [Ecotronic_0D10~0x0D10 (Array)]
+    - UW Software-Version (11124) [Ecotronic_0D12~0x0D12 (Array)]
+    - Softwareindex MM 1 (11116) [Ecotronic_0D08~0x0D08 (Byte)]
+    - Softwareindex MM 2 (11117) [Ecotronic_0D09~0x0D09 (Byte)]
+    - Softwareindex MM 3 (11118) [Ecotronic_0D0A~0x0D0A (Byte)]
+    - Softwareindex Vitosolic (11119) [Ecotronic_0D0B~0x0D0B (Byte)]
+    - Softwareindex Vitotrol HK1 (11120) [Ecotronic_0D0C~0x0D0C (Byte)]
+    - Softwareindex Vitotrol HK2 (11121) [Ecotronic_0D0D~0x0D0D (Byte)]
+    - Softwareindex Vitotrol HK3 (11122) [Ecotronic_0D0E~0x0D0E (Byte)]
+    - Kesseltyp (ohne kW) (11859) [Ecotronic_Kesseltype_ohne_kW~0x75B0 (Int)]
+    - Kesselventil (11979) [Ecotronic_Kesselventil~0x5803 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S")
+- LAN-Karte (22253) HIDDEN:("LAN Card enabled"="Aus")
+    - LAN Card enabled (10461) [HO2B_LAN_Card_Enabled~0xD063 (Byte)]
+    - DHCP (10459) [HO2B_DynamicIP~0xD01A (Byte)]
+    - IP Adresse (10458) [HO2B_IP_Adresse~0xD006 (Array)]
+    - Subnetzmaske (11041) [Ecotronic_LAN_Netzmaske~0xD00A (Array)]
+    - Standard Gateway (11042) [Ecotronic_LAN_Gateway~0xD00E (Array)]
+    - Sekundärer DNS Server (11044) [Ecotronic_LAN_Sek_DNS_Server~0xD012 (Array)]
+    - Proxy Server enabled (10460) [HO2B_Proxy~0xD062 (Byte)]
+    - Proxy Server (11045) [Ecotronic_LAN_Proxy_Server~0xD01B (String)]
+    - Proxy Port (11048) [Ecotronic_LAN_Proxy_Port~0xD03B (Int)]
+    - Proxy User (11046) [Ecotronic_LAN_Proxy_User~0xD03D (String)]
+    - Proxy Passwort (11047) [Ecotronic_LAN_Proxy_Passwort~0xD05D (String)]
+    - Produktionsdaten (11126) [Ecotronic_LAN_Produktionsdaten~0xD0B8 (Int)]
+    - MAC Adresse (11128) [Ecotronic_LAN_MAC_Adresse~0xD000 (String)]
+    - LAN Card Firmware Version (10462) [HO2B_LAN_Card_Firmware~0xD069 (Int4)]
+    - LAN Card Seriennummer (10463) [HO2B_LAN_Card_SN~0xD06D (Int)]
+    - Kolibriprojekt (11125) [Ecotronic_LAN_Kolibri_Projekt~0xD098 (Int)]
+
+# Diagnose Anlage (22187)
+- Kessel (22144)
+    - Aussentemperatur (3993) [NRF_TiefpassTemperaturwert_ATS~0x080E (SInt)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+    - Aussentemperatur gemischt (11129) [Ecotronic_Gemischte_AT~0x5529 (SInt)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Rohrtemperatur (11130) [Ecotronic_Rohrtemperatur~0x0B22 (Int)] HIDDEN:("Status Rohrsensor"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur 4 (10953) [Ecotronic_Puffertemperatur_4~0x0822 (Int)] HIDDEN:("Status PTS4"="Nicht vorhanden")
+    - Puffertemperatur 5 (10954) [Ecotronic_Puffertemperatur_5~0x0824 (Int)] HIDDEN:("Status PTS5"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Pufferladezustand (11131) [Ecotronic_Pufferladezustand~0x5112 (Byte)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Externe Leistungsvorgabe (11261) [Ecotronic_Kessel_Externe_Leistungsvorgabe~0x757D (Int)]
+    - Kesselstatus (10938) [Ecotronic_Kesselstatus~0x0B11 (Int)]
+    - Aktuelle Leistung (10942) [Ecotronic_Abgasdrehzahl~0x0B20 (Byte)]
+    - Kesselpumpe (10946) [Ecotronic_Kesselpumpe~0x0844 (Int)]
+    - Puffertemperatur Soll (10956) [Ecotronic_Puffertemperatur_Soll~0x0828 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Brennstoffverbrauch (3488) [NRF_Brennstoffverbrauch_Bedien~0x08B4 (Int4)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Uhrzeit (4001) [NRF_Uhrzeit~0x088E (Array)]
+    - Brennerstarts (11099) [Ecotronic_Kesselstarts~0x08A3 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Anzahl Puffersensoren (11222) [Ecotronic_Anzahl_Puffer~0x5800 (Byte)]
+- Allgemein (22224)
+    - (7F) Unterscheidung Einfamilienhaus - Mehrparteienhaus (1001) [K7F_KonfiEinfamilienhaus~0x777F (Byte)]
+    - (80) Verzögerung Fehleranzeige (3630) [NRF_K80_KonfiFehlerDelay~0x7780 (Byte)]
+    - (90) Zeitkonstante Aussentemperatur (1022) [K90_KonfiZeitkonstAussentemperatur~0x7790 (Byte)]
+    - Ausgang Sammelstörung (3514) [NRF_DigitalAusgang_SSM~0x0847 (Byte)]
+    - Wartung (12035) [Ecotronic_Warnungen~0x5600 (Int)]
+- Beschickung (22228) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Beschickungsschema (10958) [Ecotronic_Beschickungsschema~0x5717 (Int)]
+    - Einschubschnecke Takt (10959) [Ecotronic_Einschubschnecke_Ist~0x0B2B (Byte)]
+    - Betriebsminuten Einschubschnecke (12560) [Ecotronic_Betriebsminuten_Einschubschnecke~0x57B6 (Int)]
+    - Betriebsstunden Einschubschnecke (12559) [Ecotronic_Betriebsstunden_Einschubschnecke~0x57B8 (Int)]
+- Heizkreis 1 (22254) HIDDEN:("Heizkreis HK1"="Nein")
+    - Betriebsart HK1 (11249) [Ecotronic_Betriebsart_HK1 (Byte)]
+    - Aktueller Betriebsstatus HK1 (10940) [Ecotronic_Heizungstatus~0x2500 (Int)]
+    - Vorlauftemperatur HK1 (11263) [Ecotronic_Vorlauftemperatur_HK1~0x2900 (Int)] HIDDEN:("Status VTS1"="Nicht vorhanden")
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Raumtemperatur Soll Normalbetrieb HK1 (11253) [Ecotronic_Raumsoll_Normal_HK1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK1 (11254) [Ecotronic_Raumsoll_Reduziert_HK1~0x2307 (Byte)]
+    - Raumtemperatur Ist (11107) [Ecotronic_Heizung_Raumtemperatur_HK1~0x2610 (SInt)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - Partybetrieb HK1 (11051) [Ecotronic_BedienPartybetriebM1~0x2300 (Byte)]
+    - Sparbetrieb HK1 (11585) [Ecotronic_BedienSparbetrieb_HK1~0x2302 (Byte)]
+    - Neigung der Heizkrennlinie HK1 (11588) [Ecotronic_BedienNeigung_HK1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie HK1 (11054) [Ecotronic_BedienNiveauM1~0x2304 (SByte)]
+    - Ferienprogramm HK1 (11591) [Ecotronic_HK_Ferienbetrieb_HK1~0x2535 (Byte)]
+    - Ferien Abreisetag HK1 (11594) [Ecotronic_FerienBeginn_HK1~0x2309 (Array)]
+    - Ferien Rückreisetag HK1 (11597) [Ecotronic_FerienEnde_HK1~0x2311 (Array)]
+    - (A3) Frostgrenze HK1 (11600) [Ecotronic_KA3_KonfiFrostgrenze_HK1~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion HK1 (11603) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK1~0x27A4 (Byte)]
+    - Heizkreispumpe HK1 (10961) [Ecotronic_Pumpe_HK1~0x2600 (Byte)]
+    - Mischerposition HK1 (11245) [Ecotronic_Mischerposition_HK1 (Byte)]
+- Heizkreis 2 (22149) HIDDEN:("Heizkreis HK2"="Nein")
+    - Betriebsart HK2 (11250) [Ecotronic_Betriebsart_HK2~0x3323 (Byte)]
+    - Aktueller Betriebsstatus HK2 (10963) [Ecotronic_Heizungstatus_HK2~0x3500 (Int)]
+    - Vorlauftemperatur HK2 (11264) [Ecotronic_Vorlauftemperatur_HK2~0x3900 (Int)] HIDDEN:("Status VTS2"="Nicht vorhanden")
+    - Vorlauftemperatur Soll M2 (6064) [VT_SolltemperaturM2~0x3544 (Int)]
+    - Raumtemperatur Soll Normalbetrieb HK2 (11255) [Ecotronic_Raumsoll_Normal_HK2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK2 (11256) [Ecotronic_Raumsoll_Reduziert_HK2~0x3307 (Byte)]
+    - Raumtemperatur Ist (11108) [Ecotronic_Heizung_Raumtemperatur_HK2~0x3610 (SInt)] HIDDEN:(A0_KennFBM2="0 ohne")
+    - Partybetrieb HK2 (11050) [Ecotronic_BedienPartybetriebM2~0x3300 (Byte)]
+    - Sparbetrieb HK2 (11586) [Ecotronic_BedienSparbetrieb_HK2~0x3302 (Byte)]
+    - Neigung der Heizkennlinie HK2 (11589) [Ecotronic_BedienNeigung_HK2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie HK2 (11053) [Ecotronic_BedienNiveauM2~0x3304 (SByte)]
+    - Ferienprogramm HK2 (11592) [Ecotronic_HK_Ferienbetrieb_HK2~0x3535 (Byte)]
+    - Ferien Abreisetag HK2 (11595) [Ecotronic_FerienBeginn_HK2~0x3309 (Array)]
+    - Ferien Rückreisetag HK2 (11598) [Ecotronic_FerienEnde_HK2~0x3311 (Array)]
+    - (A3) Frostgrenze HK2 (11601) [Ecotronic_KA3_KonfiFrostgrenze_HK2~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion HK2 (11604) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK2~0x37A4 (Byte)]
+    - Heizkreispumpe HK2 (10962) [Ecotronic_Pumpe_HK2~0x3600 (Byte)]
+    - Mischerposition HK2 (11246) [Ecotronic_Mischerposition_HK2 (Byte)]
+- Heizkreis 3 (22255) HIDDEN:("Heizkreis HK3"="Nein")
+    - Betriebsart HK3 (11251) [Ecotronic_Betriebsart_HK3~0x4323 (Byte)]
+    - Aktueller Betriebsstatus HK3 (10966) [Ecotronic_Heizungstatus_HK3~0x4500 (Int)]
+    - Vorlauftemperatur HK3 (11265) [Ecotronic_Vorlauftemperatur_HK3~0x4900 (Int)] HIDDEN:("Status VTS3"="Nicht vorhanden")
+    - Vorlauftemperatur Soll M3 (6065) [VT_SolltemperaturM3~0x4544 (Int)]
+    - Raumtemperatur Soll Normalbetrieb HK3 (11257) [Ecotronic_Raumsoll_Normal_HK3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK3 (11258) [Ecotronic_Raumsoll_Reduziert_HK3~0x4307 (Byte)]
+    - Raumtemperatur Ist (11109) [Ecotronic_Heizung_Raumtemperatur_HK3~0x4610 (SInt)] HIDDEN:(A0_KennFBM3="0 ohne")
+    - Partybetrieb HK3 (11049) [Ecotronic_BedienPartybetriebM3~0x4300 (Byte)]
+    - Sparbetrieb HK3 (11587) [Ecotronic_BedienSparbetrieb_HK3~0x4302 (Byte)]
+    - Neigung der Heizkennlinie HK3 (11590) [Ecotronic_BedienNeigung_HK3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie HK3 (11052) [Ecotronic_BedienNiveauM3~0x4304 (SByte)]
+    - Ferienprogramm HK3 (11593) [Ecotronic_HK_Ferienbetrieb_HK3~0x4535 (Byte)]
+    - Ferien Abreisetag HK3 (11596) [Ecotronic_FerienBeginn_HK3~0x4309 (Array)]
+    - Ferien Rückreisetag HK3 (11599) [Ecotronic_FerienEnde_HK3~0x4311 (Array)]
+    - (A3) Frostgrenze HK3 (11602) [Ecotronic_KA3_KonfiFrostgrenze_HK3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion HK3 (11605) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK3~0x47A4 (Byte)]
+    - Heizkreispumpe HK3 (10964) [Ecotronic_Pumpe_HK3~0x4500 (Byte)]
+    - Mischerposition HK3 (11247) [Ecotronic_Mischerposition_HK3 (Byte)]
+- Heizkreis 4 (22256) HIDDEN:("Heizkreis HK4"="Nein")
+    - Betriebsart HK4 (10969) [Ecotronic_BedienteilBA_GWGM4~0x8323 (Byte)]
+    - Aktueller Betriebsstatus HK4 (10967) [Ecotronic_Heizungstatus_HK4~8500 (Int)]
+    - Vorlauftemperatur HK4 (10970) [Ecotronic_VorlauftemperaturM4~0x8900 (Int)] HIDDEN:("Status VTS4"="Nicht vorhanden")
+    - Vorlauftemperatur Soll (11132) [Ecotronic_VT_SolltemperaturM4~0x8544 (Int)]
+    - Raumtemperatur Soll Normalbetrieb HK4 (10968) [Ecotronic_BedienRTSolltemperaturHK4~0x8306 (Byte)]
+    - Raumtemperatur Soll reduzierter Betrieb HK4 (10971) [Ecotronic_BedienRTSolltemperaturReduziertM4~0x8307 (Byte)]
+    - Raumtemperatur Ist (11110) [Ecotronic_Heizung_Raumtemperatur_HK4~0x8610 (SInt)] HIDDEN:("(A0) Kennung Fernbedienung HK4"="0 ohne")
+    - Partybetrieb HK4 (10972) [Ecotronic_BedienPartybetriebM4~0x8300 (Byte)]
+    - Sparbetrieb HK4 (10973) [Ecotronic_BedienSparbetriebM4~0x8302 (Byte)]
+    - Neigung der Heizkennlinie HK4 (10975) [Ecotronic_BedienNeigungM4~0x8305 (Byte)]
+    - Niveau der Heizkennlinie HK4 (10974) [Ecotronic_BedienNiveauM4~0x8304 (SByte)]
+    - Ferienprogramm HK4 (10976) [Ecotronic_HK_FerienbetriebM4~0x8535 (Byte)]
+    - Ferien Abreisetag HK4 (10977) [Ecotronic_FerienBeginnM4~0x8309 (Array)]
+    - Ferien Rückreisetag HK4 (10978) [Ecotronic_FerienEndeM4~0x8311 (Array)]
+    - (A3) Frostgrenze HK4 (10979) [Ecotronic_KA3_KonfiFrostgrenzeM4~0x87A3 (SByte)]
+    - (A4) Frostschutzfunktion HK4 (10980) [Ecotronic_KA4_KonfiKeineFrostschutzfunktionM4~0x87A4 (Byte)]
+    - Heizkreispumpe HK4 (10965) [Ecotronic_Pumpe_HK4~0x8600 (Byte)]
+    - Mischerposition HK4 (10981) [Ecotronic_HK_Mischerposition_akt_M4~0x854C (Byte)]
+- Warmwasser (22150) HIDDEN:("Warmwasser"="Nein")
+    - WW Betriebsart (10982) [Ecotronic_WW_Programm_Zustand~0x6323 (Byte)]
+    - WW interner Status (10944) [Ecotronic_WW_Status~0x650A (Byte)]
+    - Speichertemperatur (3996) [NRF_TiefpassTemperaturwert_STS~0x0814 (SInt)] HIDDEN:("Status Speichersensor"="Nicht vorhanden")
+    - Ausgang SLP (3513) [NRF_DigitalAusgang_SLP~0x0845 (Byte)]
+    - Mischerposition WW (10985) [Ecotronic_HK_Mischerposition_akt_WW~0x654C (Byte)] HIDDEN:("Warmwasser"≠"Am Mischermodul")
+    - Ausgang Zirkulationspumpe (3515) [NRF_DigitalAusgang_ZP~0x0846 (Byte)] HIDDEN:("Zirkulation am Kessel"="Nein")
+- Solar (22239) HIDDEN:("Solar"="Nein")
+    - Betriebsart (10986) [Ecotronic_Solar_Programm_Zustand~0x6521 (Byte)]
+    - Aktueller Betriebsstatus (10987) [Ecotronic_Solar_Status~0x6520 (Byte)]
+    - Solar WW-Temperatur Unten (3997) [NRF_TiefpassTemperaturwert_STSSOL~0x081A (SInt)] HIDDEN:("Status Solar WW-Sensor"="Nicht vorhanden")
+    - (6C) Speicher Maximaltemperatur (3624) [NRF_K6C_KonfiSpeichermaximaltemperatur~0x676C (Byte)]
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Kollektortemperatur Soll (10988) [Ecotronic_Bedien_Solar_Speichertemperatur_Max~0x676C (Int)]
+    - Wärmemenge (10989) [Ecotronic_SolarWaerme~0x6556 (Int4)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solarpumpe (11641) [Ecotronic_Solarpumpe_Drehzahl~0x6552 (Int)]
+    - Solarertrag Heute (11895) [Ecotronic_Solarertrag_Heute~0x6600 (Int)]
+    - Solarertrag Gestern (11896) [Ecotronic_Solarertrag_Tag-1~0x6602 (Int)]
+    - Solarertrag Tag 3 (11897) [Ecotronic_Solarertrag_Tag-2~0x6604 (Int)]
+    - Solarertrag Tag 4 (11898) [Ecotronic_Solarertrag_Tag-3~0x6606 (Int)]
+    - Solarertrag Tag 5 (11899) [Ecotronic_Solarertrag_Tag-4~0x6608 (Int)]
+    - Solarertrag Tag 6 (11900) [Ecotronic_Solarertrag_Tag-5~0x660A (Int)]
+    - Solarertrag Tag 7 (11901) [Ecotronic_Solarertrag_Tag-6~0x660C (Int)]
+    - Solarertrag Tag 8 (12033) [Ecotronic_Solarertrag_Tag-7~0x6610 (Int)]
+- Digitale Eingänge (22145)
+    - Externe Anforderung (11134) [Ecotronic_EA_Ext_Anforderung~0x5200 (Int)]
+    - Hallsensor (11135) [Ecotronic_EA_Hallsensor~0x5200 (Int)]
+    - STB (11136) [Ecotronic_EA_STB~0x5200 (Int)]
+    - Wassermangel (11137) [Ecotronic_EA_Wassermangel~0x5200 (Int)]
+    - Wasserdruck (11138) [Ecotronic_EA_Wasserdruck~0x5200 (Int)]
+    - Endlage Wärmetauscher Reinigung (11139) [Ecotronic_EA_Enlage_WT~0x5200 (Int)]
+    - Lichtschranke Glutstock (11141) [Ecotronic_EA_LS_Glutstock~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Lichtschranke Einschub (11142) [Ecotronic_EA_LS_Einschub~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter Absperrschieber (11144) [Ecotronic_EA_ES_Absperrschieber~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter externe Austragung (11145) [Ecotronic_EA_ES_ext_Austragung~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 1 (11146) [Ecotronic_EA_ES_Umschalt_Pos1~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 2 (11147) [Ecotronic_EA_ES_Umschalt_Pos2~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 3 (11148) [Ecotronic_EA_ES_Umschalt_Pos3~0x5204 (Int)]
+    - Endschalter Rost 1 (11149) [Ecotronic_EA_ES_Rost1~0x5204 (Int)]
+    - Endschalter Rost 2 (11150) [Ecotronic_EA_ES_Rost2~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Entaschung Stillstand (11154) [Ecotronic_EA_Entaschung_Stillstand~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Einschubschnecke (11155) [Ecotronic_EA_SK_Einschubschnecke~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Entaschung (11156) [Ecotronic_EA_SK_Entaschung~0x5206 (Int)]
+    - Sicherheitskette Austragung (11158) [Ecotronic_EA_SK_Austragung~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Einschubschnecke (11160) [Ecotronic_EA_TK_Einschub~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Austragung (11162) [Ecotronic_EA_TK_Austragung~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Saugmodul (11163) [Ecotronic_EA_TK_Saugmodul~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+- Digitale Ausgänge (22146)
+    - Kesselpumpe (11167) [Ecotronic_DA_Kesselpumpe~0x5210 (Int)]
+    - Kesselventil schliessen (11169) [Ecotronic_DA_Kesselventil_schliessen~0x5210 (Int)]
+    - Zusätzlicher Kessel (11172) [Ecotronic_DA_Zus_Kessel~0x5210 (Int)]
+    - Wärmetauscher Abreinigung (11174) [Ecotronic_DA_WT_Abreinigung~0x5210 (Int)]
+    - Lambdasonde Heizung (11177) [Ecotronic_DA_Lambda_Heizung~0x5210 (Int)]
+    - Einschubschnecke (11178) [Ecotronic_DA_Einschubschnecke~0x5212 (Int)]
+    - Einschubschnecke Reversieren (11179) [Ecotronic_DA_Einschubschnecke_reversieren~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Austragung (11181) [Ecotronic_DA_Austragung~0x5212 (Int)]
+    - Saugmodul (11182) [Ecotronic_DA_Saugmodul~0x5212 (Int)]
+    - Rostmotor (11183) [Ecotronic_DA_Rostmotor~0x5212 (Int)]
+    - Rostmotor Reversieren (11184) [Ecotronic_DA_Rostmotor_Reversieren~0x5212 (Int)]
+    - Entaschung (11185) [Ecotronic_DA_Entaschung~0x5212 (Int)]
+    - Zellenradschleuse (11186) [Ecotronic_DA_Zellenradschleuse~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Externe Beschickung (11187) [Ecotronic_DA_ext_Beschickung~0x5212 (Int)]
+    - externe Meldung 2 (11188) [Ecotronic_DA_ext_Meldung2~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Absperrschieber (11189) [Ecotronic_DA_Absperrschieber~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Umschalteinheit (11190) [Ecotronic_DA_Umschalteinheit~0x5212 (Int)]
+    - Umschalteinheit Reversieren (11191) [Ecotronic_DA_Umschalteinheit_Reversieren~0x5212 (Int)]
+    - Linearmotor Rost (11192) [Ecotronic_DA_Linearmotor Rost~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Linearmotor Rost Reversieren (11193) [Ecotronic_DA_Linearmotor_Rost_Rev~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+
+# Diagnose System (22188)
+- Sensoren (22155)
+    - Aussentemperatur (3993) [NRF_TiefpassTemperaturwert_ATS~0x080E (SInt)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Rohrtemperatur (11130) [Ecotronic_Rohrtemperatur~0x0B22 (Int)] HIDDEN:("Status Rohrsensor"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur 4 (10953) [Ecotronic_Puffertemperatur_4~0x0822 (Int)] HIDDEN:("Status PTS4"="Nicht vorhanden")
+    - Puffertemperatur 5 (10954) [Ecotronic_Puffertemperatur_5~0x0824 (Int)] HIDDEN:("Status PTS5"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Vorlauftemperatur HK4 (10970) [Ecotronic_VorlauftemperaturM4~0x8900 (Int)] HIDDEN:("Status VTS4"="Nicht vorhanden")
+    - Speichertemperatur (3996) [NRF_TiefpassTemperaturwert_STS~0x0814 (SInt)] HIDDEN:("Status Speichersensor"="Nicht vorhanden")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar WW-Temperatur Unten (3997) [NRF_TiefpassTemperaturwert_STSSOL~0x081A (SInt)] HIDDEN:("Status Solar WW-Sensor"="Nicht vorhanden")
+    - Status KTS (11201) [Ecotronic_Status_KTS~0x0830 (Byte)]
+    - Status RLTS (11202) [Ecotronic_Status_RLTS~0x0831 (Byte)]
+    - Status AGTS (11203) [Ecotronic_Status_AGTS~0x0832 (Byte)]
+    - Status Rohrsensor (11204) [Ecotronic_Status_Rohrsensor~0x0833 (Byte)]
+    - Status Lambdasonde (11205) [Ecotronic_Status_Lambdasonde~0x0834 (Byte)]
+    - Status PTS1 (11209) [Ecotronic_Status_PTS1~0x083B (Byte)]
+    - Status PTS2 (11210) [Ecotronic_Status_PTS2~0x083C (Byte)]
+    - Status PTS3 (11206) [Ecotronic_Status_PTS3~0x0835 (Byte)]
+    - Status PTS4 (11207) [Ecotronic_Status_PTS4~0x0836 (Byte)]
+    - Status PTS5 (11208) [Ecotronic_Status_PTS5~0x0837 (Byte)]
+    - Status ATS (11211) [Ecotronic_Status_ATS_0x083A (Byte)]
+    - Status Speichersensor (11212) [Ecotronic_Status_WWTemp~0x083D (Byte)]
+    - Status VTS1 (11213) [Ecotronic_Status_VTS1~0x083E (Byte)]
+    - Status VTS2 (11214) [Ecotronic_Status_VTS2~0x083F (Byte)]
+    - Status VTS3 (11215) [Ecotronic_Status_VTS3~0x082E (Byte)]
+    - Status VTS4 (11216) [Ecotronic_Status_VTS4~0x082F (Byte)]
+    - Status WW RL (11217) [Ecotronic_Status_WWRLTS~0x082D (Byte)]
+    - Status Solar Kollektorsensor (11218) [Ecotronic_Status_Solar_Kollektor~0x082C (Byte)]
+    - Status Solar WW-Sensor (11219) [Ecotronic_Status_Solar_WW~0x0840 (Byte)]
+    - Status Hallsensor Abgasgebläse (11220) [Ecotronic_Status_Hallsensor~0x0841 (Byte)]
+    - Externe Leistungsvorgabe (11261) [Ecotronic_Kessel_Externe_Leistungsvorgabe~0x757D (Int)]
+    - Vorlauftemperatur HK1 (11263) [Ecotronic_Vorlauftemperatur_HK1~0x2900 (Int)] HIDDEN:("Status VTS1"="Nicht vorhanden")
+    - Vorlauftemperatur HK2 (11264) [Ecotronic_Vorlauftemperatur_HK2~0x3900 (Int)] HIDDEN:("Status VTS2"="Nicht vorhanden")
+    - Vorlauftemperatur HK3 (11265) [Ecotronic_Vorlauftemperatur_HK3~0x4900 (Int)] HIDDEN:("Status VTS3"="Nicht vorhanden")
+
+# Erweiterte Diagnose (22201)
+- Kessel Parameter (22167)
+    - (46) Leistungsregler (11681) [Ecotronic_Leistungsregler~0x57D0 (Int)]
+    - (47) Materialregler (11682) [Ecotronic_Materialregler~0x57D2 (Int)]
+    - (4A) Materialregler Verzögerung (11683) [Ecotronic_Materialregler_Verzoegerung~0x57C2 (Int)]
+    - (4D) Einschublaufzeit Kessel Zünden Nachfüllen (11684) [Ecotronic_Einschublaufzeit_Kessel~0x57CA (Int)]
+    - (53) Materialregler Volllast (11685) [Ecotronic_Materialregler_Volllast~0x57DA (Int)]
+    - (55) Materialregler Abgasgebläse (11686) [Ecotronic_Materialregler_Abgasgeblaese~0x57DE (Int)]
+    - (56) Materialregler Teillast (11687) [Ecotronic_Materialregler_Teillast~0x57DF (Int)]
+    - (5F) O2 Regelung aktiv (11688) [Ecotronic_O2_Regelung_aktiv~0x578E (Int)]
+    - (7A) Kesseltemperatur Maximal (11689) [Ecotronic_Kesseltemperatur_Maximal~0x57F6 (Int)] HIDDEN:("Kesseltyp"="VL300C 18kW")
+    - (82) Primärluftklappe Maximal (11690) [Ecotronic_Primaerluftklappe_Maximal~0x57D6 (Int)]
+    - (83) Primärluftklappe Teillast (11691) [Ecotronic_Primaerluftklappe_Teillast~0x5798 (Int)]
+    - (84) Primärluftklappe Anheizen (11692) [Ecotronic_Primaerluftklappe_Anheizen~0x57D7 (Int)]
+    - (87) Sekundärluftklappe Minimal (11693) [Ecotronic_Sekundaerluftklappe_Minimal~0x5794 (Int)]
+    - (8C) Laufzeit Kessel Nachlauf (11694) [Ecotronic_Laufzeit_Kessel_Nachlauf~0x5796 (Int)]
+    - (F9) Automatik O2 Sonde (11695) [Ecotronic_Automatik_O2_Sonde~0x57C0 (Byte)]
+    - (FF) Typ O2 Sonde (11696) [Ecotronic_Typ_O2_Sonde~0x57A6 (Int)]
+- Beschickung Parameter (22168) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - (14) Einschubschnecke Takt Anheizen (11861) [Ecotronic_Einschubschnecke_Takt~0x5742 (Byte)]
+    - (15) Einschubschnecke Takt Maximal (11862) [Ecotronic_Einschubschnecke_Takt_Max~0x5741 (Byte)]
+    - (1E) Feuerraumfüllzeit (11863) [Ecotronic_Feuerraumfuellzeit~0x5746 (Int)]
+    - (1F) Schneckenfüllzeit (11864) [Ecotronic_Schneckenfuellzeit~0x5748 (Int)]
+    - (22) Brennstoff Verbrauch (11865) [Ecotronic_Brennstoffverbrauch~0x5744 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+
+# Aktorentest (22185)
+- Aktorentest (22169)
+    - Aktorentest (11232) [Ecotronic_Aktorentest~0x7500 (Byte)]
+
+# Trending (22182)
+- Kessel (22261)
+    - Gesamtstatus (11194) [Ecotronic_Kessel_Gesamtstatus~0x5158 (Int)]
+    - Kesselstatus (10938) [Ecotronic_Kesselstatus~0x0B11 (Int)]
+    - Aussentemperatur (3993) [NRF_TiefpassTemperaturwert_ATS~0x080E (SInt)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+    - Aussentemperatur gemischt (11129) [Ecotronic_Gemischte_AT~0x5529 (SInt)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Rohrtemperatur (11130) [Ecotronic_Rohrtemperatur~0x0B22 (Int)] HIDDEN:("Status Rohrsensor"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur 4 (10953) [Ecotronic_Puffertemperatur_4~0x0822 (Int)] HIDDEN:("Status PTS4"="Nicht vorhanden")
+    - Puffertemperatur 5 (10954) [Ecotronic_Puffertemperatur_5~0x0824 (Int)] HIDDEN:("Status PTS5"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Pufferladezustand (11131) [Ecotronic_Pufferladezustand~0x5112 (Byte)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Puffertemperatur Soll (10956) [Ecotronic_Puffertemperatur_Soll~0x0828 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Drehzahl Gebläse Soll (4723) [SC100_DrehzahlSoll~0x0B1C (Int)]
+    - Drehzahl Gebläse Ist (4722) [SC100_DrehzahlIst~0x0B1E (Int)] HIDDEN:("Status Hallsensor Abgasgebläse"="Nicht vorhanden")
+    - Aktuelle Leistung (10942) [Ecotronic_Abgasdrehzahl~0x0B20 (Byte)]
+    - Kesselpumpe (10946) [Ecotronic_Kesselpumpe~0x0844 (Int)]
+    - Brennstoffverbrauch (3488) [NRF_Brennstoffverbrauch_Bedien~0x08B4 (Int4)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Brennerstarts (11099) [Ecotronic_Kesselstarts~0x08A3 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - Externe Leistungsvorgabe (11261) [Ecotronic_Kessel_Externe_Leistungsvorgabe~0x757D (Int)]
+    - Position Primärluftklappe (4743) [SC100_PositionPrimaerluftklappe~0x0B1A (Byte)]
+    - Position Sekundärluftklappe (4744) [SC100_PositionSekundaerluftklappe~0x0B1B (Byte)]
+    - Laufzeit Kesselventil (11640) [Ecotronic_Laufzeit_Kesselventil~0x5150 (SInt)] HIDDEN:("Kesselventil"≠"1: thermisch")
+    - Pufferventil (12093) [Ecotronic_Laufzeit_Pufferventil~0x5114 (SInt)] HIDDEN:("Speicherventil vorhanden"="Nein")
+- Beschickung (22229) HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C" AND "Kesseltyp (ohne kW)"≠"VL300H")
+    - Einschubschnecke Takt (10959) [Ecotronic_Einschubschnecke_Ist~0x0B2B (Byte)]
+- Warmwasser (22264) HIDDEN:("Warmwasser"="Nein")
+    - WW Betriebsart (10982) [Ecotronic_WW_Programm_Zustand~0x6323 (Byte)]
+    - WW interner Status (10944) [Ecotronic_WW_Status~0x650A (Byte)]
+    - Speichertemperatur (3996) [NRF_TiefpassTemperaturwert_STS~0x0814 (SInt)] HIDDEN:("Status Speichersensor"="Nicht vorhanden")
+    - Ausgang SLP (3513) [NRF_DigitalAusgang_SLP~0x0845 (Byte)]
+    - Mischerposition WW (10985) [Ecotronic_HK_Mischerposition_akt_WW~0x654C (Byte)] HIDDEN:("Warmwasser"≠"Am Mischermodul")
+    - Ausgang Zirkulationspumpe (3515) [NRF_DigitalAusgang_ZP~0x0846 (Byte)] HIDDEN:("Zirkulation am Kessel"="Nein")
+- Solar (22265) HIDDEN:("Solar"="Nein")
+    - Betriebsart (10986) [Ecotronic_Solar_Programm_Zustand~0x6521 (Byte)]
+    - Aktueller Betriebsstatus (10987) [Ecotronic_Solar_Status~0x6520 (Byte)]
+    - Solar WW-Temperatur Unten (3997) [NRF_TiefpassTemperaturwert_STSSOL~0x081A (SInt)] HIDDEN:("Status Solar WW-Sensor"="Nicht vorhanden")
+    - (6C) Speicher Maximaltemperatur (3624) [NRF_K6C_KonfiSpeichermaximaltemperatur~0x676C (Byte)]
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Kollektortemperatur Soll (10988) [Ecotronic_Bedien_Solar_Speichertemperatur_Max~0x676C (Int)]
+    - Wärmemenge (10989) [Ecotronic_SolarWaerme~0x6556 (Int4)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solarpumpe (11641) [Ecotronic_Solarpumpe_Drehzahl~0x6552 (Int)]
+- Heizkreis 1 (22257) HIDDEN:("Heizkreis HK1"="Nein")
+    - Aktueller Betriebsstatus HK1 (10940) [Ecotronic_Heizungstatus~0x2500 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Partybetrieb HK1 (11051) [Ecotronic_BedienPartybetriebM1~0x2300 (Byte)]
+    - Sparbetrieb HK1 (11585) [Ecotronic_BedienSparbetrieb_HK1~0x2302 (Byte)]
+    - Neigung der Heizkrennlinie HK1 (11588) [Ecotronic_BedienNeigung_HK1~0x2305 (Byte)]
+    - Niveau der Heizkennlinie HK1 (11054) [Ecotronic_BedienNiveauM1~0x2304 (SByte)]
+    - Heizkreispumpe HK1 (10961) [Ecotronic_Pumpe_HK1~0x2600 (Byte)]
+    - Heizung Wunschtemperatur HK1 (11103) [Ecotronic_Heizung_Wunschtemperatur_HK1~0x2602 (SInt)]
+    - Raumtemperatur Ist (11107) [Ecotronic_Heizung_Raumtemperatur_HK1~0x2610 (SInt)] HIDDEN:(A0_KennFBA1M1="0 ohne")
+    - Mischerposition HK1 (11245) [Ecotronic_Mischerposition_HK1 (Byte)]
+    - Betriebsart HK1 (11249) [Ecotronic_Betriebsart_HK1 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb HK1 (11253) [Ecotronic_Raumsoll_Normal_HK1~0x2306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK1 (11254) [Ecotronic_Raumsoll_Reduziert_HK1~0x2307 (Byte)]
+    - Vorlauftemperatur HK1 (11263) [Ecotronic_Vorlauftemperatur_HK1~0x2900 (Int)] HIDDEN:("Status VTS1"="Nicht vorhanden")
+    - Ferienprogramm HK1 (11591) [Ecotronic_HK_Ferienbetrieb_HK1~0x2535 (Byte)]
+    - Ferien Abreisetag HK1 (11594) [Ecotronic_FerienBeginn_HK1~0x2309 (Array)]
+    - Ferien Rückreisetag HK1 (11597) [Ecotronic_FerienEnde_HK1~0x2311 (Array)]
+    - (A3) Frostgrenze HK1 (11600) [Ecotronic_KA3_KonfiFrostgrenze_HK1~0x27A3 (SByte)]
+    - (A4) Frostschutzfunktion HK1 (11603) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK1~0x27A4 (Byte)]
+- Heizkreis 2 (22258) HIDDEN:("Heizkreis HK2"="Nein")
+    - Aktueller Betriebsstatus HK2 (10963) [Ecotronic_Heizungstatus_HK2~0x3500 (Int)]
+    - Vorlauftemperatur Soll M2 (6064) [VT_SolltemperaturM2~0x3544 (Int)]
+    - Partybetrieb HK2 (11050) [Ecotronic_BedienPartybetriebM2~0x3300 (Byte)]
+    - Sparbetrieb HK2 (11586) [Ecotronic_BedienSparbetrieb_HK2~0x3302 (Byte)]
+    - Neigung der Heizkennlinie HK2 (11589) [Ecotronic_BedienNeigung_HK2~0x3305 (Byte)]
+    - Niveau der Heizkennlinie HK2 (11053) [Ecotronic_BedienNiveauM2~0x3304 (SByte)]
+    - Heizkreispumpe HK2 (10962) [Ecotronic_Pumpe_HK2~0x3600 (Byte)]
+    - Mischerposition HK2 (11246) [Ecotronic_Mischerposition_HK2 (Byte)]
+    - Betriebsart HK2 (11250) [Ecotronic_Betriebsart_HK2~0x3323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb HK2 (11255) [Ecotronic_Raumsoll_Normal_HK2~0x3306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK2 (11256) [Ecotronic_Raumsoll_Reduziert_HK2~0x3307 (Byte)]
+    - Vorlauftemperatur HK2 (11264) [Ecotronic_Vorlauftemperatur_HK2~0x3900 (Int)] HIDDEN:("Status VTS2"="Nicht vorhanden")
+    - Ferienprogramm HK2 (11592) [Ecotronic_HK_Ferienbetrieb_HK2~0x3535 (Byte)]
+    - Ferien Abreisetag HK2 (11595) [Ecotronic_FerienBeginn_HK2~0x3309 (Array)]
+    - Ferien Rückreisetag HK2 (11598) [Ecotronic_FerienEnde_HK2~0x3311 (Array)]
+    - (A3) Frostgrenze HK2 (11601) [Ecotronic_KA3_KonfiFrostgrenze_HK2~0x37A3 (SByte)]
+    - (A4) Frostschutzfunktion HK2 (11604) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK2~0x37A4 (Byte)]
+- Heizkreis 3 (22259) HIDDEN:("Heizkreis HK3"="Nein")
+    - Aktueller Betriebsstatus HK3 (10966) [Ecotronic_Heizungstatus_HK3~0x4500 (Int)]
+    - Vorlauftemperatur Soll M3 (6065) [VT_SolltemperaturM3~0x4544 (Int)]
+    - Partybetrieb HK3 (11049) [Ecotronic_BedienPartybetriebM3~0x4300 (Byte)]
+    - Sparbetrieb HK3 (11587) [Ecotronic_BedienSparbetrieb_HK3~0x4302 (Byte)]
+    - Neigung der Heizkennlinie HK3 (11590) [Ecotronic_BedienNeigung_HK3~0x4305 (Byte)]
+    - Niveau der Heizkennlinie HK3 (11052) [Ecotronic_BedienNiveauM3~0x4304 (SByte)]
+    - Heizkreispumpe HK3 (10964) [Ecotronic_Pumpe_HK3~0x4500 (Byte)]
+    - Mischerposition HK3 (11247) [Ecotronic_Mischerposition_HK3 (Byte)]
+    - Betriebsart HK3 (11251) [Ecotronic_Betriebsart_HK3~0x4323 (Byte)]
+    - Raumtemperatur Soll Normalbetrieb HK3 (11257) [Ecotronic_Raumsoll_Normal_HK3~0x4306 (Byte)]
+    - Raumtemperatur Soll Reduzierter Betrieb HK3 (11258) [Ecotronic_Raumsoll_Reduziert_HK3~0x4307 (Byte)]
+    - Vorlauftemperatur HK3 (11265) [Ecotronic_Vorlauftemperatur_HK3~0x4900 (Int)] HIDDEN:("Status VTS3"="Nicht vorhanden")
+    - Ferienprogramm HK3 (11593) [Ecotronic_HK_Ferienbetrieb_HK3~0x4535 (Byte)]
+    - Ferien Abreisetag HK3 (11596) [Ecotronic_FerienBeginn_HK3~0x4309 (Array)]
+    - Ferien Rückreisetag HK3 (11599) [Ecotronic_FerienEnde_HK3~0x4311 (Array)]
+    - (A3) Frostgrenze HK3 (11602) [Ecotronic_KA3_KonfiFrostgrenze_HK3~0x47A3 (SByte)]
+    - (A4) Frostschutzfunktion HK3 (11605) [Ecotronic_KA4_KonfiKeineFrostschutzfunktion_HK3~0x47A4 (Byte)]
+- Heizkreis 4 (22260) HIDDEN:("Heizkreis HK4"="Nein")
+    - Betriebsart HK4 (10969) [Ecotronic_BedienteilBA_GWGM4~0x8323 (Byte)]
+    - Aktueller Betriebsstatus HK4 (10967) [Ecotronic_Heizungstatus_HK4~8500 (Int)]
+    - Vorlauftemperatur HK4 (10970) [Ecotronic_VorlauftemperaturM4~0x8900 (Int)] HIDDEN:("Status VTS4"="Nicht vorhanden")
+    - Vorlauftemperatur Soll (11132) [Ecotronic_VT_SolltemperaturM4~0x8544 (Int)]
+    - Raumtemperatur Soll Normalbetrieb HK4 (10968) [Ecotronic_BedienRTSolltemperaturHK4~0x8306 (Byte)]
+    - Raumtemperatur Soll reduzierter Betrieb HK4 (10971) [Ecotronic_BedienRTSolltemperaturReduziertM4~0x8307 (Byte)]
+    - Partybetrieb HK4 (10972) [Ecotronic_BedienPartybetriebM4~0x8300 (Byte)]
+    - Sparbetrieb HK4 (10973) [Ecotronic_BedienSparbetriebM4~0x8302 (Byte)]
+    - Neigung der Heizkennlinie HK4 (10975) [Ecotronic_BedienNeigungM4~0x8305 (Byte)]
+    - Niveau der Heizkennlinie HK4 (10974) [Ecotronic_BedienNiveauM4~0x8304 (SByte)]
+    - Ferienprogramm HK4 (10976) [Ecotronic_HK_FerienbetriebM4~0x8535 (Byte)]
+    - Ferien Abreisetag HK4 (10977) [Ecotronic_FerienBeginnM4~0x8309 (Array)]
+    - Ferien Rückreisetag HK4 (10978) [Ecotronic_FerienEndeM4~0x8311 (Array)]
+    - Heizkreispumpe HK4 (10965) [Ecotronic_Pumpe_HK4~0x8600 (Byte)]
+    - Mischerposition HK4 (10981) [Ecotronic_HK_Mischerposition_akt_M4~0x854C (Byte)]
+- Digitale Eingänge (22262)
+    - Externe Anforderung (11134) [Ecotronic_EA_Ext_Anforderung~0x5200 (Int)]
+    - Hallsensor (11135) [Ecotronic_EA_Hallsensor~0x5200 (Int)]
+    - STB (11136) [Ecotronic_EA_STB~0x5200 (Int)]
+    - Wassermangel (11137) [Ecotronic_EA_Wassermangel~0x5200 (Int)]
+    - Wasserdruck (11138) [Ecotronic_EA_Wasserdruck~0x5200 (Int)]
+    - Endlage Wärmetauscher Reinigung (11139) [Ecotronic_EA_Enlage_WT~0x5200 (Int)]
+    - Lichtschranke Glutstock (11141) [Ecotronic_EA_LS_Glutstock~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Lichtschranke Einschub (11142) [Ecotronic_EA_LS_Einschub~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter Absperrschieber (11144) [Ecotronic_EA_ES_Absperrschieber~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter externe Austragung (11145) [Ecotronic_EA_ES_ext_Austragung~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 1 (11146) [Ecotronic_EA_ES_Umschalt_Pos1~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 2 (11147) [Ecotronic_EA_ES_Umschalt_Pos2~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 3 (11148) [Ecotronic_EA_ES_Umschalt_Pos3~0x5204 (Int)]
+    - Endschalter Rost 1 (11149) [Ecotronic_EA_ES_Rost1~0x5204 (Int)]
+    - Endschalter Rost 2 (11150) [Ecotronic_EA_ES_Rost2~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Entaschung Stillstand (11154) [Ecotronic_EA_Entaschung_Stillstand~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Einschubschnecke (11155) [Ecotronic_EA_SK_Einschubschnecke~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Entaschung (11156) [Ecotronic_EA_SK_Entaschung~0x5206 (Int)]
+    - Sicherheitskette Austragung (11158) [Ecotronic_EA_SK_Austragung~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Einschubschnecke (11160) [Ecotronic_EA_TK_Einschub~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Austragung (11162) [Ecotronic_EA_TK_Austragung~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Saugmodul (11163) [Ecotronic_EA_TK_Saugmodul~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+- Digitale Ausgänge (22263)
+    - Kesselpumpe (11167) [Ecotronic_DA_Kesselpumpe~0x5210 (Int)]
+    - Kesselventil schliessen (11169) [Ecotronic_DA_Kesselventil_schliessen~0x5210 (Int)]
+    - Pufferventil schliessen (11171) [Ecotronic_DA_Pufferventil_schliessen~0x5210 (Int)]
+    - Zusätzlicher Kessel (11172) [Ecotronic_DA_Zus_Kessel~0x5210 (Int)]
+    - Wärmetauscher Abreinigung (11174) [Ecotronic_DA_WT_Abreinigung~0x5210 (Int)]
+    - Lambdasonde Heizung (11177) [Ecotronic_DA_Lambda_Heizung~0x5210 (Int)]
+    - Einschubschnecke (11178) [Ecotronic_DA_Einschubschnecke~0x5212 (Int)]
+    - Einschubschnecke Reversieren (11179) [Ecotronic_DA_Einschubschnecke_reversieren~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Austragung (11181) [Ecotronic_DA_Austragung~0x5212 (Int)]
+    - Saugmodul (11182) [Ecotronic_DA_Saugmodul~0x5212 (Int)]
+    - Rostmotor (11183) [Ecotronic_DA_Rostmotor~0x5212 (Int)]
+    - Rostmotor Reversieren (11184) [Ecotronic_DA_Rostmotor_Reversieren~0x5212 (Int)]
+    - Entaschung (11185) [Ecotronic_DA_Entaschung~0x5212 (Int)]
+    - Zellenradschleuse (11186) [Ecotronic_DA_Zellenradschleuse~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Externe Beschickung (11187) [Ecotronic_DA_ext_Beschickung~0x5212 (Int)]
+    - externe Meldung 2 (11188) [Ecotronic_DA_ext_Meldung2~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Absperrschieber (11189) [Ecotronic_DA_Absperrschieber~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Umschalteinheit (11190) [Ecotronic_DA_Umschalteinheit~0x5212 (Int)]
+    - Umschalteinheit Reversieren (11191) [Ecotronic_DA_Umschalteinheit_Reversieren~0x5212 (Int)]
+    - Linearmotor Rost (11192) [Ecotronic_DA_Linearmotor Rost~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Linearmotor Rost Reversieren (11193) [Ecotronic_DA_Linearmotor_Rost_Rev~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")

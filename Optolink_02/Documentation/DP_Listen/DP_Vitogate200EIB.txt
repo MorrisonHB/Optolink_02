@@ -1,0 +1,19 @@
+Vitogate 200 EIB
+================
+
+# Überblick (9133)
+- Allgemein (16672)
+    - Gerätekennung (5516) [VersionVitogate~0x00F8 (Array)]
+    - Teilnehmernummer (5527) [vitogateTeilnehmernummer~0x7777 (Byte)]
+    - Anlagennummer (5525) [vitogateAnlagennummer~0x7776 (Byte)]
+    - Datenbankversion Vitogate 200 EIB (5526) [vitogateDBVersion~0x0100 (Int)]
+
+# Systemkonfiguration (16671)
+- Anlagennummer (6000)
+    - Anlagennummer (5525) [vitogateAnlagennummer~0x7776 (Byte)]
+- Geräteversion (6002)
+    - Gerätekennung (5516) [VersionVitogate~0x00F8 (Array)]
+- Datenbankversion (6003)
+    - Datenbankversion Vitogate 200 EIB (5526) [vitogateDBVersion~0x0100 (Int)]
+- Teilnehmernummer (6001)
+    - Teilnehmernummer (5527) [vitogateTeilnehmernummer~0x7777 (Byte)]

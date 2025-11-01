@@ -1,0 +1,71 @@
+Vitocom 300 LAN3
+================
+
+# Überblick (19888)
+- Gerätekennung (19889)
+    - Vitocom Typ (5469) [vcLanModemTyp~0xAE00 (Byte)]
+    - Kennung (ZE-ID) (5519) [Vitocom_Kennung~0x00F8 (Array)]
+    - Softwareversion (5515) [VersionVitocom~0x00F8 (Array)]
+    - Gerätekennung (5424) [vcLanGeraetekennung~0x00F8 (Array)]
+    - Anlagennummer (5399) [vcLanAnlagennummer~0x7776 (Byte)]
+    - Teilnehmernummer (5488) [vcLanTeilnehmernummer~0x7777 (Byte)]
+- Vitocom Ein- und Ausgänge (19894)
+    - DO1 Status (5901) [vlogRPCSetDigitalOutputGM01~0xA08C (Array)]
+- EM1 Ein- und Ausgänge (20105) HIDDEN:("EM1 konfiguriert"="nein")
+    - DO1 Status (9211) [RPCSetDigitalOutput_IO_EM1_DA1~0xA08C (Array)]
+    - DO2 Status (9212) [RPCSetDigitalOutput_IO_EM1_DA2~0xA08C (Array)]
+- EM2 Ein- und Ausgänge (20106) HIDDEN:("EM2 konfiguriert"="nein")
+    - DO1 Status (9213) [RPCSetDigitalOutput_IO_EM2_DA1~0xA08C (Array)]
+    - DO2 Status (9214) [RPCSetDigitalOutput_IO_EM2_DA2~0xA08C (Array)]
+- EM3 Ein- und Ausgänge (20107) HIDDEN:("EM3 konfiguriert"="nein")
+    - DO1 Status (9215) [RPCSetDigitalOutput_IO_EM3_DA1~0xA08C (Array)]
+    - DO2 Status (9216) [RPCSetDigitalOutput_IO_EM3_DA2~0xA08C (Array)]
+
+# Bedienung (19892)
+- Digitalausgang (19891)
+    - DO1 Status (5901) [vlogRPCSetDigitalOutputGM01~0xA08C (Array)]
+- EM1 - Digital-Ausgänge (19967) HIDDEN:("EM1 konfiguriert"="nein")
+    - DO1 Status (9211) [RPCSetDigitalOutput_IO_EM1_DA1~0xA08C (Array)]
+    - DO2 Status (9212) [RPCSetDigitalOutput_IO_EM1_DA2~0xA08C (Array)]
+- EM2 - Digital-Ausgänge (19984) HIDDEN:("EM2 konfiguriert"="nein")
+    - DO1 Status (9213) [RPCSetDigitalOutput_IO_EM2_DA1~0xA08C (Array)]
+    - DO2 Status (9214) [RPCSetDigitalOutput_IO_EM2_DA2~0xA08C (Array)]
+- EM3 - Digital-Ausgänge (19929) HIDDEN:("EM3 konfiguriert"="nein")
+    - DO1 Status (9215) [RPCSetDigitalOutput_IO_EM3_DA1~0xA08C (Array)]
+    - DO2 Status (9216) [RPCSetDigitalOutput_IO_EM3_DA2~0xA08C (Array)]
+
+# Kommunikation (20011)
+- Teilnehmer (20115)
+    - Teilnehmernummer (5488) [vcLanTeilnehmernummer~0x7777 (Byte)]
+    - Anlagennummer (5399) [vcLanAnlagennummer~0x7776 (Byte)]
+
+# Ein- und Ausgänge (19926)
+
+# Diagnose Anlage (20135)
+- GPRS (20162) HIDDEN:("Vitocom Typ"≠"GPRS")
+    - Vitocom Typ (5469) [vcLanModemTyp~0xAE00 (Byte)]
+    - Zustand SIM-Karte (9526) [vc_gp_Zustand_SIM_Karte~0xAE01 (Int)]
+    - GPRS-Verbindung (9527) [vc_gp_GPRS_Verbindung~0xAE02 (Int)]
+    - Feldstärke (9528) [vc_gp_GPRS_Feldstaerke~0xAE03 (Int)]
+    - Spannungswiederkehr (9529) [vc_gp_Spannungswiederkehr~0xAE04 (Int)]
+
+# Diagnose System (20136)
+- Teilnehmerliste LON (20137)
+    - Teilnehmerliste LON eigene TN-Nummer Anlage/TN (5333) [Teilnehmerliste_LON_00~0xA010 (Array)]
+    - Teilnehmerliste LON (01) Anlage/TN (5334) [Teilnehmerliste_LON_01~0xA010 (Array)]
+    - Teilnehmerliste LON (02)  Anlage/TN (5335) [Teilnehmerliste_LON_02~0xA010 (Array)]
+    - Teilnehmerliste LON (03)  Anlage/TN (5336) [Teilnehmerliste_LON_03~0xA010 (Array)]
+    - Teilnehmerliste LON (04)  Anlage/TN (5337) [Teilnehmerliste_LON_04~0xA010 (Array)]
+    - Teilnehmerliste LON (05)  Anlage/TN (5338) [Teilnehmerliste_LON_05~0xA010 (Array)]
+    - Teilnehmerliste LON (06)  Anlage/TN (5339) [Teilnehmerliste_LON_06~0xA010 (Array)]
+    - Teilnehmerliste LON (07)  Anlage/TN (5340) [Teilnehmerliste_LON_07~0xA010 (Array)]
+    - Teilnehmerliste LON (08)  Anlage/TN (5341) [Teilnehmerliste_LON_08~0xA010 (Array)]
+    - Teilnehmerliste LON (09)  Anlage/TN (5342) [Teilnehmerliste_LON_09~0xA010 (Array)]
+    - Teilnehmerliste LON (10)  Anlage/TN (5343) [Teilnehmerliste_LON_10~0xA010 (Array)]
+    - Teilnehmerliste LON (11)  Anlage/TN (5344) [Teilnehmerliste_LON_11~0xA010 (Array)]
+    - Teilnehmerliste LON (12)  Anlage/TN (5345) [Teilnehmerliste_LON_12~0xA010 (Array)]
+    - Teilnehmerliste LON (13)  Anlage/TN (5346) [Teilnehmerliste_LON_13~0xA010 (Array)]
+    - Teilnehmerliste LON (14)  Anlage/TN (5347) [Teilnehmerliste_LON_14~0xA010 (Array)]
+    - Teilnehmerliste LON (15)  Anlage/TN (5348) [Teilnehmerliste_LON_15~0xA010 (Array)]
+
+# Trending (20108)

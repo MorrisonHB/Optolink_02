@@ -1,0 +1,21 @@
+Vitocom 200 LAN2
+================
+
+# Überblick (19186)
+- Gerätekennung (19187)
+    - Vitocom Typ (5469) [vcLanModemTyp~0xAE00 (Byte)]
+    - Kennung (ZE-ID) (5519) [Vitocom_Kennung~0x00F8 (Array)]
+    - Softwareversion (5515) [VersionVitocom~0x00F8 (Array)]
+    - Gerätekennung (5424) [vcLanGeraetekennung~0x00F8 (Array)]
+    - Anlagennummer (5399) [vcLanAnlagennummer~0x7776 (Byte)]
+    - Teilnehmernummer (5488) [vcLanTeilnehmernummer~0x7777 (Byte)]
+- Vitocom - Ein- und Ausgänge (19219)
+    - DO1 Status (9210) [RPCSetDigitalOutput_IO_VC_DA1~0xA08C (Array)]
+
+# Bedienung (19217)
+- Vitocom - Digital-Ausgang (19216)
+    - DO1 Status (9210) [RPCSetDigitalOutput_IO_VC_DA1~0xA08C (Array)]
+
+# Systemkonfiguration (20102)
+
+# Ein- und Ausgänge (20103)

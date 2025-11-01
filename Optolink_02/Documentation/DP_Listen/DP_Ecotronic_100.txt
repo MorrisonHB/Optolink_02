@@ -1,0 +1,158 @@
+Ecotronic 100 (VL150-S)
+=======================
+
+# Überblick (22809)
+- Kessel (22778)
+    - Gesamtstatus (11194) [Ecotronic_Kessel_Gesamtstatus~0x5158 (Int)]
+    - Kesselstatus (10938) [Ecotronic_Kesselstatus~0x0B11 (Int)]
+    - Kesseltyp (10939) [Ecotronic_Kesseltype~0x75B0 (Int)]
+    - Kesselpumpe (10946) [Ecotronic_Kesselpumpe~0x0844 (Int)]
+    - Kesselsolltemperatur (10947) [Ecotronic_Kesselsolltemperatur~0x0B2F (Int)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Drehzahl Gebläse Soll (4723) [SC100_DrehzahlSoll~0x0B1C (Int)]
+    - Drehzahl Gebläse Ist (4722) [SC100_DrehzahlIst~0x0B1E (Int)] HIDDEN:("Status Hallsensor Abgasgebläse"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Aktuelle Leistung (10942) [Ecotronic_Abgasdrehzahl~0x0B20 (Byte)]
+    - Betriebsstunden Volllast (11100) [Ecotronic_Betriebsstunden_Volllast~0x5104 (Int)]
+
+# Bedienung (22810)
+- Kessel (22844)
+    - Kesselsolltemperatur (10947) [Ecotronic_Kesselsolltemperatur~0x0B2F (Int)]
+    - (C) Abgas Lambda Sollwert (10991) [Ecotronic_Lambda_Soll~0x5790 (Int)]
+    - (FC) Puffer Maximaltemperatur (12006) [Ecotronic_Puffer_Maximaltemperatur~0x57E4 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - Abgastemperatur Grenzwert (11066) [Ecotronic_Abgastemperatur_Grenzwert~0x5780 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (3F) Abgastemperatur Minimal (11670) [Ecotronic_Abgas_Minimaltemperatur~0x57C1 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - Position Luftklappe ohne O2 (12539) [Ecotronic_Luftklappe_ohne_O2~0x57F2 (Int)]
+- Allgemein (22845)
+    - Minimale Systemtemperatur (10993) [Ecotronic_Systemtempratur_Min~0x578C (Int)] HIDDEN:("Minimale Systemtemperatur"="Nein")
+    - Störmeldungen quittieren (11248) [Ecotronic_Fehler_Quittierung~0x7300 (Byte)]
+
+# Inbetriebnahme (22811)
+- Allgemein (22821)
+    - Minimale Systemtemperatur (10993) [Ecotronic_Systemtempratur_Min~0x578C (Int)] HIDDEN:("Minimale Systemtemperatur"="Nein")
+
+# Codierung 2 (22816)
+- Kessel (22792)
+    - (3F) Abgastemperatur Minimal (11670) [Ecotronic_Abgas_Minimaltemperatur~0x57C1 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - Abgastemperatur Grenzwert (11066) [Ecotronic_Abgastemperatur_Grenzwert~0x5780 (Int)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL200S" AND "Kesseltyp (ohne kW)"≠"VL300S")
+    - (C) Abgas Lambda Sollwert (10991) [Ecotronic_Lambda_Soll~0x5790 (Int)]
+    - (1C) Kesselpumpe Minimaldrehzahl (11061) [Ecotronic_KP_Min_Drehzahl~0x57AE (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+    - (1D) Kesselpumpe Maximaldrehzahl (11062) [Ecotronic_KP_Max_Drehzahl~0x57AD (Byte)] HIDDEN:("Kesseltyp (ohne kW)"≠"VL300C")
+
+# Gerätedaten (22818)
+- Regelung (22789)
+    - Kesseltyp (10939) [Ecotronic_Kesseltype~0x75B0 (Int)]
+    - Regelung Gerätegruppe (5319) [SystemIdent_SX~0x00F8 (Array)]
+    - KSK HW-Version (11111) [Ecotronic_0D02~0x0D02 (Byte)]
+    - KSK Seriennummer (11112) [Ecotronic_0D00~0x0D00 (Int)]
+    - FW Software-Version (11123) [Ecotronic_0D10~0x0D10 (Array)]
+    - UW Software-Version (11124) [Ecotronic_0D12~0x0D12 (Array)]
+    - Kesseltyp (ohne kW) (11859) [Ecotronic_Kesseltype_ohne_kW~0x75B0 (Int)]
+
+# Diagnose Anlage (22819)
+- Kessel (22783)
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Pufferladezustand (11131) [Ecotronic_Pufferladezustand~0x5112 (Byte)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+- Allgemein (22833)
+    - Ausgang Sammelstörung (3514) [NRF_DigitalAusgang_SSM~0x0847 (Byte)]
+- Digitale Eingänge (22784)
+    - Hallsensor (11135) [Ecotronic_EA_Hallsensor~0x5200 (Int)]
+    - STB (11136) [Ecotronic_EA_STB~0x5200 (Int)]
+- Digitale Ausgänge (22785)
+    - Kesselpumpe (11167) [Ecotronic_DA_Kesselpumpe~0x5210 (Int)]
+    - Zusätzlicher Kessel (11172) [Ecotronic_DA_Zus_Kessel~0x5210 (Int)]
+    - Lambdasonde Heizung (11177) [Ecotronic_DA_Lambda_Heizung~0x5210 (Int)]
+
+# Diagnose System (22820)
+- Sensoren (22790)
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+
+# Erweiterte Diagnose (22827)
+- Kessel Parameter (22799)
+    - (5F) O2 Regelung aktiv (11688) [Ecotronic_O2_Regelung_aktiv~0x578E (Int)]
+
+# Aktorentest (22817)
+- Aktorentest (22801)
+    - Aktorentest (11902) [Ecotronic_100_Aktorentest~0x7500 (Byte)]
+
+# Trending (22814)
+- Kessel (22865)
+    - Gesamtstatus (11194) [Ecotronic_Kessel_Gesamtstatus~0x5158 (Int)]
+    - Kesselstatus (10938) [Ecotronic_Kesselstatus~0x0B11 (Int)]
+    - Aussentemperatur gedämpft (314) [Gemischte_AT~0x5527 (SInt)]
+    - Aussentemperatur gemischt (11129) [Ecotronic_Gemischte_AT~0x5529 (SInt)]
+    - Kesseltemperatur (4736) [SC100_KesselIsttemperatur~0x0B12 (SInt)] HIDDEN:("Status KTS"="Nicht vorhanden")
+    - Abgastemperatur (10949) [Ecotronic_Abgastemperatur~0x0B16 (Int)] HIDDEN:("Status AGTS"="Nicht vorhanden")
+    - Lambdasonde (4740) [SC100_Lambdasonde~0x0B18 (Int)] HIDDEN:("Status Lambdasonde"="Nicht vorhanden")
+    - Rohrtemperatur (11130) [Ecotronic_Rohrtemperatur~0x0B22 (Int)] HIDDEN:("Status Rohrsensor"="Nicht vorhanden")
+    - Puffertemperatur 1 (10950) [Ecotronic_Puffertemperatur_1~0x0810 (Int)] HIDDEN:("Status PTS1"="Nicht vorhanden")
+    - Puffertemperatur 2 (10951) [Ecotronic_Puffertemperatur_2~0x0812 (Int)] HIDDEN:("Status PTS2"="Nicht vorhanden")
+    - Puffertemperatur 3 (10952) [Ecotronic_Puffertemperatur_3~0x0820 (Int)] HIDDEN:("Status PTS3"="Nicht vorhanden")
+    - Puffertemperatur Mittelwert (10955) [Ecotronic_Puffertemperatur~0x0826 (Int)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Pufferladezustand (11131) [Ecotronic_Pufferladezustand~0x5112 (Byte)] HIDDEN:("Anzahl Puffersensoren"="Nein")
+    - Drehzahl Gebläse Soll (4723) [SC100_DrehzahlSoll~0x0B1C (Int)]
+    - Drehzahl Gebläse Ist (4722) [SC100_DrehzahlIst~0x0B1E (Int)] HIDDEN:("Status Hallsensor Abgasgebläse"="Nicht vorhanden")
+    - Aktuelle Leistung (10942) [Ecotronic_Abgasdrehzahl~0x0B20 (Byte)]
+    - Kesselpumpe (10946) [Ecotronic_Kesselpumpe~0x0844 (Int)]
+- Digitale Eingänge (22866)
+    - Externe Anforderung (11134) [Ecotronic_EA_Ext_Anforderung~0x5200 (Int)]
+    - Hallsensor (11135) [Ecotronic_EA_Hallsensor~0x5200 (Int)]
+    - STB (11136) [Ecotronic_EA_STB~0x5200 (Int)]
+    - Wassermangel (11137) [Ecotronic_EA_Wassermangel~0x5200 (Int)]
+    - Wasserdruck (11138) [Ecotronic_EA_Wasserdruck~0x5200 (Int)]
+    - Endlage Wärmetauscher Reinigung (11139) [Ecotronic_EA_Enlage_WT~0x5200 (Int)]
+    - Lichtschranke Glutstock (11141) [Ecotronic_EA_LS_Glutstock~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Lichtschranke Einschub (11142) [Ecotronic_EA_LS_Einschub~0x5202 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter Absperrschieber (11144) [Ecotronic_EA_ES_Absperrschieber~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Endschalter externe Austragung (11145) [Ecotronic_EA_ES_ext_Austragung~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 1 (11146) [Ecotronic_EA_ES_Umschalt_Pos1~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 2 (11147) [Ecotronic_EA_ES_Umschalt_Pos2~0x5204 (Int)]
+    - Endschalter Umschalteinheit Position 3 (11148) [Ecotronic_EA_ES_Umschalt_Pos3~0x5204 (Int)]
+    - Endschalter Rost 1 (11149) [Ecotronic_EA_ES_Rost1~0x5204 (Int)]
+    - Endschalter Rost 2 (11150) [Ecotronic_EA_ES_Rost2~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Entaschung Stillstand (11154) [Ecotronic_EA_Entaschung_Stillstand~0x5204 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Einschubschnecke (11155) [Ecotronic_EA_SK_Einschubschnecke~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Sicherheitskette Entaschung (11156) [Ecotronic_EA_SK_Entaschung~0x5206 (Int)]
+    - Sicherheitskette Austragung (11158) [Ecotronic_EA_SK_Austragung~0x5206 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Einschubschnecke (11160) [Ecotronic_EA_TK_Einschub~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Austragung (11162) [Ecotronic_EA_TK_Austragung~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Thermokontakt Saugmodul (11163) [Ecotronic_EA_TK_Saugmodul~0x5208 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+- Digitale Ausgänge (22867)
+    - Kesselpumpe (11167) [Ecotronic_DA_Kesselpumpe~0x5210 (Int)]
+    - Kesselventil schliessen (11169) [Ecotronic_DA_Kesselventil_schliessen~0x5210 (Int)]
+    - Pufferventil schliessen (11171) [Ecotronic_DA_Pufferventil_schliessen~0x5210 (Int)]
+    - Zusätzlicher Kessel (11172) [Ecotronic_DA_Zus_Kessel~0x5210 (Int)]
+    - Wärmetauscher Abreinigung (11174) [Ecotronic_DA_WT_Abreinigung~0x5210 (Int)]
+    - Lambdasonde Heizung (11177) [Ecotronic_DA_Lambda_Heizung~0x5210 (Int)]
+    - Einschubschnecke (11178) [Ecotronic_DA_Einschubschnecke~0x5212 (Int)]
+    - Einschubschnecke Reversieren (11179) [Ecotronic_DA_Einschubschnecke_reversieren~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Austragung (11181) [Ecotronic_DA_Austragung~0x5212 (Int)]
+    - Saugmodul (11182) [Ecotronic_DA_Saugmodul~0x5212 (Int)]
+    - Rostmotor (11183) [Ecotronic_DA_Rostmotor~0x5212 (Int)]
+    - Rostmotor Reversieren (11184) [Ecotronic_DA_Rostmotor_Reversieren~0x5212 (Int)]
+    - Entaschung (11185) [Ecotronic_DA_Entaschung~0x5212 (Int)]
+    - Zellenradschleuse (11186) [Ecotronic_DA_Zellenradschleuse~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Externe Beschickung (11187) [Ecotronic_DA_ext_Beschickung~0x5212 (Int)]
+    - externe Meldung 2 (11188) [Ecotronic_DA_ext_Meldung2~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Absperrschieber (11189) [Ecotronic_DA_Absperrschieber~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Umschalteinheit (11190) [Ecotronic_DA_Umschalteinheit~0x5212 (Int)]
+    - Umschalteinheit Reversieren (11191) [Ecotronic_DA_Umschalteinheit_Reversieren~0x5212 (Int)]
+    - Linearmotor Rost (11192) [Ecotronic_DA_Linearmotor Rost~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")
+    - Linearmotor Rost Reversieren (11193) [Ecotronic_DA_Linearmotor_Rost_Rev~0x5212 (Int)] HIDDEN:("Kesseltyp"≠"VL300H" AND "Kesseltyp"≠"VL300H 50kW" AND "Kesseltyp"≠"VL300H 60kW" AND "Kesseltyp"≠"VL300H 80kW" AND "Kesseltyp"≠"VL300H 99kW" AND "Kesseltyp"≠"VL300H 101kW" AND "Kesseltyp"≠"VL300H 120kW" AND "Kesseltyp"≠"VL300H 150kW" AND "Kesseltyp"≠"VL300H 220kW")

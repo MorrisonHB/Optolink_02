@@ -1,0 +1,94 @@
+VPlus HC1A
+==========
+
+# Codierungen (14002)
+
+# Überblick (14023)
+- Kessel (13983)
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Brenner (600) [GWG_Flamme~0x55D3 (Byte)]
+    - Kesselsolltemperatur (2954) [Kesselsoll_eff~0x555A (Byte)]
+    - Interne Pumpe Drehzahl (787) [InternePumpeDrehzahl~0x7660 (Int)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - Interne Pumpe (245) [DigitalAusgang_InternePumpe~0x7660 (Byte)]
+    - Brennerstarts (111) [BrennerstartsGWG~0x088A (Int4)]
+    - Brenner-Betriebsstunden (104) [BetriebsstundenBrennerBedienungGWG~0x08A7 (Int)]
+    - Hydraulische Weiche (8161) [Temperatur_Hydraulische_Weiche~0x080C (Int)] HIDDEN:("(52) Sensor Hydraulische Weiche"="0 nicht vorhanden")
+- Heizkreis A1 (13984)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Heizkreispumpe A1M1 Drehzahl (778) [HKP_A1Drehzahl~0x7663 (Int)] HIDDEN:(E5_KennPumpHzkA1="0 stufig")
+    - Uhrenthermostat (256) [DigitalEingang_143_3_UT~0x0884 (Byte)]
+- Warmwasser (13985) HIDDEN:(00_AnlWWS≠"2 Kessel mit WW")
+    - Warmwasserbereitung (7179) [WW_Status_NR1~0x650A (Byte)]
+    - Temperatur Speicher Ladesensor Komfortsensor (5381) [TiefpassTemperaturwertWW1~0x0812 (Int)]
+    - Auslauftemperatur (5382) [TiefpassTemperaturwerWW2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Umschaltventil (5389) [Umschaltventil~0x0A10 (Byte)]
+    - Flow Switch (312) [FlowSwitch~0x0883 (Byte)]
+- Solarregelung (13986) HIDDEN:(54_SR="0 ohne")
+    - Solar Kollektortemperatur (5272) [Solarkollektortemperatur~0x6564 (SInt)] HIDDEN:("Solar Kollektortemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Solar Kollektortemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': -20.0, 'UpperBorder': 250.0} OR "Status Solar Kollektorsensor"="Nicht vorhanden")
+    - Solar Speichertemperatur (5276) [SolarSpeichertemperatur~0x6566 (Int)] HIDDEN:("Solar Speichertemperatur">{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0} OR "Solar Speichertemperatur"<{'CompanyId': '24', 'Unit': 'Grad C', 'DataType': 'Float', 'Stepping': 0.1, 'LowerBorder': 0.0, 'UpperBorder': 127.0})
+    - Solar Solarpumpe (5274) [SolarPumpe~0x6552 (Byte)]
+    - Solar Nachladeunterdrückung (5273) [SolarNachlade~0x6551 (Byte)]
+    - Solar Betriebsstunden (5277) [SolarStunden~0x6568 (Int)]
+    - Solar Wärmemenge (5279) [SolarWaerme~0x6560 (Int4)]
+    - Solarregelung (941) [K54_Solar_Info~0x7754 (Byte)]
+
+# Bedienung (14024)
+- Betriebsdaten A1 (13980)
+    - Betriebsart A1M1 (93) [BedienteilBA_GWGA1_Konstant~0x2323 (Byte)]
+    - Warmwasser-Solltemperatur (51) [Bedien_WW_Solltemperatur~0x6300 (Byte)]
+    - Kesselsolltemperatur (66) [BedienKTSolltemperaturGWG_4~0x5300 (Byte)]
+
+# Diagnose Anlage (14033)
+- Kessel (13989)
+    - Kesseltemperatur (5374) [TiefpassTemperaturwert_KTS~0x0810 (Int)]
+    - Interne Pumpe Drehzahl (787) [InternePumpeDrehzahl~0x7660 (Int)] HIDDEN:(30_KennIntUmwPumpe="0 stufig")
+    - Kesselsolltemperatur (2954) [Kesselsoll_eff~0x555A (Byte)]
+    - Brenner (600) [GWG_Flamme~0x55D3 (Byte)]
+    - Interne Pumpe (245) [DigitalAusgang_InternePumpe~0x7660 (Byte)]
+    - Brennerstarts (111) [BrennerstartsGWG~0x088A (Int4)]
+    - Brenner-Betriebsstunden (104) [BetriebsstundenBrennerBedienungGWG~0x08A7 (Int)]
+    - Brennstoffverbrauch (Liter oder m³) (4237) [Oelverbrauch~0x7574 (Int4)]
+    - Hydraulische Weiche (8161) [Temperatur_Hydraulische_Weiche~0x080C (Int)] HIDDEN:("(52) Sensor Hydraulische Weiche"="0 nicht vorhanden")
+    - Modulationsgrad (4165) [nvoBoilerState_BLR_value~0xA305 (Byte)] HIDDEN:("aktueller Brennertyp"≠"modulierend" AND "aktueller Brennertyp"≠"modulierend" AND "GWG53: Brennertyp"≠"modulierender Brenner")
+    - Brennertyp (11609) [GWG_8853_Brennertyp~0x8853 (Byte)]
+    - Abgastemperatur (5372) [TiefpassTemperaturwert_AGTS~0x0816 (Int)] HIDDEN:("Status Sensor 15"="Unterbrechung" OR "Status Sensor 15"="nicht vorhanden")
+- Heizkreis A1 (13991)
+    - Aktuelle Betriebsart A1M1 (708) [HK_AktuelleBetriebsartA1M1~0x2500 (Byte)]
+    - Vorlauftemperatur A1M1 (5375) [TiefpassTemperaturwert_KTS_A1~0x0810 (Int)]
+    - Vorlauftemperatur Soll A1M1 (6063) [VT_SolltemperaturA1M1~0x2544 (Int)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Heizkreispumpe A1M1 Drehzahl (778) [HKP_A1Drehzahl~0x7663 (Int)] HIDDEN:(E5_KennPumpHzkA1="0 stufig")
+    - Reglervariante A1M1 (735) [HK_ReglervarianteA1M1~0x2521 (Byte)]
+    - Uhrenthermostat (256) [DigitalEingang_143_3_UT~0x0884 (Byte)]
+- Warmwasser (13992)
+    - Warmwasserbereitung (7179) [WW_Status_NR1~0x650A (Byte)]
+    - Temperatur Speicher Ladesensor Komfortsensor (5381) [TiefpassTemperaturwertWW1~0x0812 (Int)]
+    - Auslauftemperatur (5382) [TiefpassTemperaturwerWW2~0x0814 (Int)] HIDDEN:("Status Sensor 5B"="nicht vorhanden" OR "Status Sensor 5B"="Unterbrechung")
+    - Warmwassertemperatur Soll (effektiv) (7177) [WW_SolltemperaturAktuell~0x6500 (Int)]
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Umschaltventil (5389) [Umschaltventil~0x0A10 (Byte)]
+    - Flow Switch (312) [FlowSwitch~0x0883 (Byte)]
+    - Bauart Warmwasser (50) [BauartWarmwasser~0x8851 (Byte)]
+- Feuerungsautomat (13994)
+    - Flammensignal (601) [GWG_Flamme1~0x55DD (Byte)]
+    - Feuerungsautomat verriegelt (697) [GWG_Verriegelung~0x55D3 (Byte)]
+- Fkt.-Erw. 0-10V (13993)
+    - Eingang 0-10 V (19) [AE_Eingang0_10~0x0A86 (SInt)]
+    - ext. Anfordern/ Betriebsarten-umschaltung (20) [AE_Eingang1~0x0A80 (Byte)]
+    - ext. Sperren (21) [AE_Eingang2~0x0A81 (Byte)]
+    - Sammelstörung (269) [ExtAE_Sammel~0x0A82 (Byte)]
+    - Heizkreispumpe A1 (39) [Ausgang_HKP_A1~0x7663 (Byte)]
+    - Speicherladepumpe (5280) [Speicherladepumpe~0x6513 (Byte)]
+    - Zirkulationspumpe (7181) [Zirkulationspumpe~0x6515 (Byte)]
+    - Rangierung Relais K12 (939) [K53_RangierungD~0x7753 (Byte)]
+    - Relais K12 Interne Anschlußerweiterung (4242) [RelaisK12~0x0842 (Byte)]
+    - Externe Erweiterung (882) [K2E_KonfiKennungAnschlussD~0x572E (Byte)]
+- Wartung (13990)
+    - (23) Eingestelltes Zeitintervall (863) [K23_KonfiZeitintervall_Wartung~0x5723 (Byte)]
+    - (24) Wartung (865) [K24_KonfiStatus_Wartung~0x5724 (Byte)]
+    - (21) Grenzwert Betriebsstunden Brenner (859) [K21_KonfiBetriebsstdBrenner_Wartung~0x5721 (Int)]
+    - Betriebsstunden Brenner seit letzter  Wartung (3153) [LetzteBrennerWartung~0x7570 (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})
+    - vergangene Zeit seit letzter Wartung (3155) [LetzteIntervallWartung~0x756C (Int)] HIDDEN:("(23) Eingestelltes Zeitintervall"={'CompanyId': '24', 'Unit': 'Monate', 'DataType': 'Int'})

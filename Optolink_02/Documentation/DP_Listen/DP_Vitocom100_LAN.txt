@@ -1,0 +1,11 @@
+Vitocom 100 LAN1
+================
+
+# Überblick (18979)
+- Gerätekennung (18980)
+    - Vitocom Typ (5469) [vcLanModemTyp~0xAE00 (Byte)]
+    - Kennung (ZE-ID) (5519) [Vitocom_Kennung~0x00F8 (Array)]
+    - Softwareversion (5515) [VersionVitocom~0x00F8 (Array)]
+    - Gerätekennung (5424) [vcLanGeraetekennung~0x00F8 (Array)]
+    - Anlagennummer (5399) [vcLanAnlagennummer~0x7776 (Byte)]
+    - Teilnehmernummer (5488) [vcLanTeilnehmernummer~0x7777 (Byte)]
