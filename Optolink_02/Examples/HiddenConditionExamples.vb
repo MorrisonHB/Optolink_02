@@ -39,12 +39,12 @@ Namespace Examples
             Dim condition = "HIDDEN:(54_SR=""0 ohne"")"
             Dim configValues As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             
-            ' Test 1: Wert ist "0" → sollte HIDDEN sein
+            ' Szenario 1: Wert ist "0" → sollte HIDDEN sein
             configValues("54_SR") = "0"
             Dim result1 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  54_SR = ""0"" → HIDDEN: {result1} (erwartet: True)")
             
-            ' Test 2: Wert ist "1" → sollte NICHT HIDDEN sein
+            ' Szenario 2: Wert ist "1" → sollte NICHT HIDDEN sein
             configValues("54_SR") = "1"
             Dim result2 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  54_SR = ""1"" → HIDDEN: {result2} (erwartet: False)")
@@ -58,17 +58,17 @@ Namespace Examples
             Dim condition = "HIDDEN:(00_WWS=""1 A1"" OR 00_WWS=""2 A1  + WW"")"
             Dim configValues As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             
-            ' Test 1: Wert ist "1" → sollte HIDDEN sein
+            ' Szenario 1: Wert ist "1" → sollte HIDDEN sein
             configValues("00_WWS") = "1"
             Dim result1 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  00_WWS = ""1"" → HIDDEN: {result1} (erwartet: True)")
             
-            ' Test 2: Wert ist "2" → sollte HIDDEN sein
+            ' Szenario 2: Wert ist "2" → sollte HIDDEN sein
             configValues("00_WWS") = "2"
             Dim result2 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  00_WWS = ""2"" → HIDDEN: {result2} (erwartet: True)")
             
-            ' Test 3: Wert ist "3" → sollte NICHT HIDDEN sein
+            ' Szenario 3: Wert ist "3" → sollte NICHT HIDDEN sein
             configValues("00_WWS") = "3"
             Dim result3 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  00_WWS = ""3"" → HIDDEN: {result3} (erwartet: False)")
@@ -82,12 +82,12 @@ Namespace Examples
             Dim condition = "HIDDEN:(00_WWS≠""2 A1  + WW"" AND 00_WWS≠""4 M2 +  WW"" AND 00_WWS≠""6 A1  + M2 + WW"")"
             Dim configValues As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             
-            ' Test 1: Wert ist "2" → sollte NICHT HIDDEN sein (eine Bedingung ist falsch)
+            ' Szenario 1: Wert ist "2" → sollte NICHT HIDDEN sein (eine Bedingung ist falsch)
             configValues("00_WWS") = "2"
             Dim result1 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  00_WWS = ""2"" → HIDDEN: {result1} (erwartet: False)")
             
-            ' Test 2: Wert ist "1" → sollte HIDDEN sein (alle Bedingungen sind wahr)
+            ' Szenario 2: Wert ist "1" → sollte HIDDEN sein (alle Bedingungen sind wahr)
             configValues("00_WWS") = "1"
             Dim result2 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  00_WWS = ""1"" → HIDDEN: {result2} (erwartet: True)")
@@ -101,19 +101,19 @@ Namespace Examples
             Dim condition = "HIDDEN:(FBA1M1=""nicht vorhanden"" OR A0_KennFBA1M1=""0 ohne"" OR A0_KennFBA1M1=""nicht vorhanden"")"
             Dim configValues As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             
-            ' Test 1: FBA1M1 ist "nicht vorhanden" → sollte HIDDEN sein
+            ' Szenario 1: FBA1M1 ist "nicht vorhanden" → sollte HIDDEN sein
             configValues("FBA1M1") = "nicht vorhanden"
             configValues("A0_KennFBA1M1") = "1 mit"
             Dim result1 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  FBA1M1 = ""nicht vorhanden"" → HIDDEN: {result1} (erwartet: True)")
             
-            ' Test 2: A0_KennFBA1M1 ist "0" → sollte HIDDEN sein
+            ' Szenario 2: A0_KennFBA1M1 ist "0" → sollte HIDDEN sein
             configValues("FBA1M1") = "vorhanden"
             configValues("A0_KennFBA1M1") = "0"
             Dim result2 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  A0_KennFBA1M1 = ""0"" → HIDDEN: {result2} (erwartet: True)")
             
-            ' Test 3: Alle Bedingungen falsch → sollte NICHT HIDDEN sein
+            ' Szenario 3: Alle Bedingungen falsch → sollte NICHT HIDDEN sein
             configValues("FBA1M1") = "vorhanden"
             configValues("A0_KennFBA1M1") = "1 mit"
             Dim result3 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
@@ -128,17 +128,17 @@ Namespace Examples
             Dim condition = "HIDDEN:(30_KennIntUmwPumpe=""0 stufig"")"
             Dim configValues As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
             
-            ' Test 1: Numerischer Wert "0" → sollte HIDDEN sein (passt zu "0 stufig")
+            ' Szenario 1: Numerischer Wert "0" → sollte HIDDEN sein (passt zu "0 stufig")
             configValues("30_KennIntUmwPumpe") = "0"
             Dim result1 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  30_KennIntUmwPumpe = ""0"" → HIDDEN: {result1} (erwartet: True)")
             
-            ' Test 2: Textvergleich "0 stufig" → sollte HIDDEN sein
+            ' Szenario 2: Textvergleich "0 stufig" → sollte HIDDEN sein
             configValues("30_KennIntUmwPumpe") = "0 stufig"
             Dim result2 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  30_KennIntUmwPumpe = ""0 stufig"" → HIDDEN: {result2} (erwartet: True)")
             
-            ' Test 3: Wert "1" → sollte NICHT HIDDEN sein
+            ' Szenario 3: Wert "1" → sollte NICHT HIDDEN sein
             configValues("30_KennIntUmwPumpe") = "1"
             Dim result3 = EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
             Console.WriteLine($"  30_KennIntUmwPumpe = ""1"" → HIDDEN: {result3} (erwartet: False)")

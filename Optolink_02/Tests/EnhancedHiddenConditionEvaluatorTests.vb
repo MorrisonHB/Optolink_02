@@ -60,7 +60,7 @@ Namespace Tests
                  totalTests,
                  passedTests)
 
-            ' Test 1.3: Numerisch vs. Text (sollte matchen)
+            ' Test 1.3: Numerisch vs. Text (sollte übereinstimmen)
             Test("Test 1.3: Numerisch vs. Text",
                  "HIDDEN:(54_SR=""0 ohne"")",
                  New Dictionary(Of String, String) From {{"54_SR", "0"}},

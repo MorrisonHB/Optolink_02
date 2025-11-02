@@ -389,9 +389,6 @@ Namespace Services
         End Function
 
         ''' <summary>
-        ''' Wertet HIDDEN-Condition aus
-        ''' </summary>
-        ''' <summary>
         ''' Wertet eine HIDDEN-Condition aus (verwendet EnhancedHiddenConditionEvaluator)
         ''' </summary>
         Private Shared Function EvaluateHiddenCondition(condition As String,
