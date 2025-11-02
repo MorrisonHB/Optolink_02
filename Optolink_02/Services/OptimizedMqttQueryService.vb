@@ -3,7 +3,7 @@ Imports Optolink_02.Domain
 
 Namespace Services
     ''' <summary>
-    ''' Optimierter Service für MQTT-Abfragen mit verbesserter Reihenfolge:
+    ''' Optimierter Service fï¿½r MQTT-Abfragen mit verbesserter Reihenfolge:
     ''' 1. Enum-Werte sammeln und abfragen
     ''' 2. HIDDEN-Conditions nach gemeinsamen Werten durchsuchen
     ''' 3. Gruppen-HIDDEN-Conditions auswerten
@@ -14,11 +14,11 @@ Namespace Services
         Private Sub New()
         End Sub
 
-        ' Cache für bereits abgefragte Werte
+        ' Cache fï¿½r bereits abgefragte Werte
         Private Shared ReadOnly _valueCache As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
 
         ''' <summary>
-        ''' Hauptmethode: Führt optimierte hierarchische Abfrage durch
+        ''' Hauptmethode: Fï¿½hrt optimierte hierarchische Abfrage durch
         ''' </summary>
         Public Shared Async Function QueryDevHierarchyAsync(
                                                            device As DeviceNode,
@@ -77,13 +77,13 @@ Namespace Services
 
                 Debug.WriteLine($"[OPTIMIZED] Phase 2: {allHiddenConditions.Count} HIDDEN-Conditions insgesamt gefunden")
 
-                ' Extrahiere benötigte Config-Werte (Deduplizierung!)
+                ' Extrahiere benï¿½tigte Config-Werte (Deduplizierung!)
                 Dim requiredConfigKeys As New HashSet(Of String)(StringComparer.OrdinalIgnoreCase)
                 For Each condition In allHiddenConditions
                     ExtractConfigKeysFromCondition(condition, requiredConfigKeys)
                 Next
 
-                Debug.WriteLine($"[OPTIMIZED] Phase 2: {requiredConfigKeys.Count} eindeutige Config-Werte benötigt")
+                Debug.WriteLine($"[OPTIMIZED] Phase 2: {requiredConfigKeys.Count} eindeutige Config-Werte benï¿½tigt")
                 Debug.WriteLine($"[OPTIMIZED] Config-Keys: {String.Join(", ",
                                                                         requiredConfigKeys.OrderBy(Function(k) k))}")
 
@@ -106,7 +106,7 @@ Namespace Services
                     Dim unused = configValues.TryAdd(kvp.Key, kvp.Value)
                 Next
 
-                Debug.WriteLine($"[OPTIMIZED] Phase 3: {configValues.Count} Config-Werte verfügbar")
+                Debug.WriteLine($"[OPTIMIZED] Phase 3: {configValues.Count} Config-Werte verfï¿½gbar")
 
                 ' ============================================================
                 ' PHASE 4: GRUPPEN-HIDDEN-CONDITIONS AUSWERTEN
@@ -195,7 +195,7 @@ Namespace Services
             For Each category In device.Categories
                 For Each group In category.Groups
                     For Each param In group.Parameters
-                        ' Prüfe ob Parameter-Name mit (Zahl) beginnt
+                        ' Prï¿½fe ob Parameter-Name mit (Zahl) beginnt
                         If Not String.IsNullOrWhiteSpace(param.ParameterName) AndAlso
                       param.ParameterName.Trim().StartsWith("("c) Then
 
@@ -208,7 +208,7 @@ Namespace Services
                                     Debug.WriteLine($"[ENUM] Gefunden: ({enumKey}) {param.ParameterName} @ {param.Address}")
                                 Else
                                     ' Duplikat gefunden - logge es zur Information
-                                    Debug.WriteLine($"[ENUM DUPLIKAT] Überspringe: ({enumKey}) {param.ParameterName} (bereits vorhanden: {enumParams(enumKey).ParameterName})")
+                                    Debug.WriteLine($"[ENUM DUPLIKAT] ï¿½berspringe: ({enumKey}) {param.ParameterName} (bereits vorhanden: {enumParams(enumKey).ParameterName})")
                                 End If
                             End If
                         End If
@@ -238,7 +238,7 @@ Namespace Services
                             kvp.Value.Conversion,
                             kvp.Value.ConversionFactor,
                             kvp.Value.ConversionOffset,
-                            kvp.Value.DataType) ' NEU: DataType übergeben
+                            kvp.Value.DataType) ' NEU: DataType ï¿½bergeben
 
                         result(kvp.Key) = value
                         Debug.WriteLine($"[ENUM RESULT] ({kvp.Key}) = {value}")
@@ -279,7 +279,7 @@ Namespace Services
             For Each match As Match In matches
                 Dim key = match.Groups(1).Value
 
-                ' HashSet.Add gibt true zurück wenn Element neu ist, false wenn bereits vorhanden
+                ' HashSet.Add gibt true zurï¿½ck wenn Element neu ist, false wenn bereits vorhanden
                 If keys.Add(key) Then
                     foundKeys.Add(key)
                 End If
@@ -336,11 +336,11 @@ Namespace Services
                             sendTopic,
                             receiveTopic,
                             timeoutMs,
-                            2, ' Standard 2 Bytes für Config-Werte
-                            Nothing, ' Keine Conversion für Config-Werte
+                            2, ' Standard 2 Bytes fï¿½r Config-Werte
+                            Nothing, ' Keine Conversion fï¿½r Config-Werte
                             1.0, ' Factor
                             0.0, ' Offset
-                            Nothing) ' Kein DataType für Config-Werte (meist Enums/Strings)
+                            Nothing) ' Kein DataType fï¿½r Config-Werte (meist Enums/Strings)
 
                         result(key) = value
                         _valueCache(address) = value
@@ -389,44 +389,13 @@ Namespace Services
         End Function
 
         ''' <summary>
-        ''' Wertet HIDDEN-Condition aus
+        ''' Wertet eine HIDDEN-Condition aus (verwendet EnhancedHiddenConditionEvaluator)
         ''' </summary>
         Private Shared Function EvaluateHiddenCondition(condition As String,
                                                         configValues As Dictionary(Of String,
                                                         String)) As Boolean
-
-            If String.IsNullOrWhiteSpace(condition) Then Return False
-
-            Dim cleaned = condition
-            If cleaned.StartsWith("HIDDEN:(", StringComparison.OrdinalIgnoreCase) Then
-                cleaned = cleaned.Substring(8)
-            End If
-            If cleaned.EndsWith(")"c) Then
-                cleaned = cleaned.Substring(0, cleaned.Length - 1)
-            End If
-
-            ' Ersetze Config-Keys durch Werte
-            Dim evaluated = cleaned
-            For Each kvp In configValues
-                Dim pattern = $"\b{Regex.Escape(kvp.Key)}\b"
-                evaluated = Regex.Replace(evaluated, pattern, $"""{kvp.Value}""", RegexOptions.IgnoreCase)
-            Next
-
-            ' Einfache Auswertung: = Operator
-            If evaluated.Contains("="c) Then
-                Try
-                    Dim parts = evaluated.Split("="c, 2)
-                    If parts.Length = 2 Then
-                        Dim left = parts(0).Trim().Trim(""""c, "("c, ")"c).Trim()
-                        Dim right = parts(1).Trim().Trim(""""c, "("c, ")"c).Trim()
-                        Return String.Equals(left, right, StringComparison.OrdinalIgnoreCase)
-                    End If
-                Catch ex As Exception
-                    Debug.WriteLine($"[EVALUATE ERROR] {condition}: {ex.Message}")
-                End Try
-            End If
-
-            Return False
+            ' Verwende den verbesserten Evaluator fÃ¼r korrekte OR/AND/NOT-UnterstÃ¼tzung
+            Return EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
         End Function
 
         ''' <summary>
@@ -453,7 +422,7 @@ Namespace Services
                                 ' ReadWrite kann "R", "R/W" oder "W" sein
                                 Dim readWrite = If(param.ReadWrite, "").Trim().ToUpperInvariant()
 
-                                ' Debug-Log für erste 5 Parameter
+                                ' Debug-Log fï¿½r erste 5 Parameter
                                 If queryableParams.Count + writeOnlyCount < 5 Then
                                     Debug.WriteLine($"[DATATYPE CHECK] {param.ParameterName}: ReadWrite='{param.ReadWrite}', DataType='{param.DataType}'")
                                 End If
@@ -509,7 +478,7 @@ Namespace Services
                         param.Conversion,
                         param.ConversionFactor,
                         param.ConversionOffset,
-                        param.DataType) ' NEU: DataType übergeben
+                        param.DataType) ' NEU: DataType ï¿½bergeben
 
                     param.CurrentValue = If(String.IsNullOrWhiteSpace(value), "N/A", value)
                     queryCount += 1
@@ -523,7 +492,7 @@ Namespace Services
                 End Try
             Next
 
-            progressCallback?.Invoke($"Phase 6: {queryCount}/{totalCount} Parameter abgefragt, {skippedCount} übersprungen ({writeOnlyCount} write-only)")
+            progressCallback?.Invoke($"Phase 6: {queryCount}/{totalCount} Parameter abgefragt, {skippedCount} ï¿½bersprungen ({writeOnlyCount} write-only)")
         End Function
 
         ''' <summary>
@@ -555,7 +524,7 @@ Namespace Services
                                                                             conversionType,
                                                                             dataType)
 
-            ' Fallback wenn Generator nichts zurückgibt
+            ' Fallback wenn Generator nichts zurï¿½ckgibt
             If String.IsNullOrWhiteSpace(command) Then
                 command = $"read;{address};{byteLength}"
             End If
@@ -576,7 +545,7 @@ Namespace Services
                         Dim rawValue = parts(2).Trim()
 
                         ' WICHTIG: Optolink-Splitter liefert bereits konvertierte Werte!
-                        ' Keine weitere Konvertierung nötig - direkt verwenden
+                        ' Keine weitere Konvertierung nï¿½tig - direkt verwenden
                         Dim convertedValue = rawValue
 
                         Debug.WriteLine($"[QUERY-SINGLE] Response value: {convertedValue}")

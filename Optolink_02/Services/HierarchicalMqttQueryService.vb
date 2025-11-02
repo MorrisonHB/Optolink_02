@@ -271,38 +271,12 @@ Namespace Services
             Return ""
         End Function
 
+        ''' <summary>
+        ''' Wertet eine HIDDEN-Condition aus (verwendet EnhancedHiddenConditionEvaluator)
+        ''' </summary>
         Private Shared Function EvaluateHiddenCondition(condition As String, configValues As Dictionary(Of String, String)) As Boolean
-            If String.IsNullOrWhiteSpace(condition) Then
-                Return False
-            End If
-
-            Dim cleanCondition = condition
-            If cleanCondition.StartsWith("HIDDEN:(", StringComparison.OrdinalIgnoreCase) Then
-                cleanCondition = cleanCondition.Substring(8)
-            End If
-            If cleanCondition.EndsWith(")"c) Then
-                cleanCondition = cleanCondition.Substring(0, cleanCondition.Length - 1)
-            End If
-
-            Dim evaluatedCondition = cleanCondition
-            For Each kvp In configValues
-                Dim pattern = $"\b{Regex.Escape(kvp.Key)}\b"
-                evaluatedCondition = Regex.Replace(evaluatedCondition, pattern, $"""{kvp.Value}""", RegexOptions.IgnoreCase)
-            Next
-
-            If evaluatedCondition.Contains("="c) Then
-                Try
-                    Dim parts = evaluatedCondition.Split("="c, 2)
-                    If parts.Length = 2 Then
-                        Dim left = parts(0).Trim().Trim(""""c, "("c, ")"c).Trim()
-                        Dim right = parts(1).Trim().Trim(""""c, "("c, ")"c).Trim()
-                        Return String.Equals(left, right, StringComparison.OrdinalIgnoreCase)
-                    End If
-                Catch ex As Exception
-                End Try
-            End If
-
-            Return False
+            ' Verwende den verbesserten Evaluator für korrekte OR/AND/NOT-Unterstützung
+            Return EnhancedHiddenConditionEvaluator.EvaluateCondition(condition, configValues)
         End Function
 
         ''' <summary>
